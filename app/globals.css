@@ -1,0 +1,527 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════
+   🍁 MAPLE BEAR CANADA — BRAND DESIGN SYSTEM
+   ═══════════════════════════════════════ */
+
+:root {
+  /* ── Primary Brand Colors ── */
+  --color-primary:      #C8102E;
+  --color-primary-dark:  #A00C24;
+  --color-primary-light: #E8334D;
+  --color-gold:          #F5A800;
+  --color-gold-light:    #FFD166;
+  --color-gold-dark:     #D49000;
+  --color-cream:         #FFF8F0;
+  --color-white:         #FFFFFF;
+  --color-dark:          #1A1A2E;
+  --color-dark-light:    #2D2D44;
+  --color-gray:          #374151;
+  --color-gray-light:    #F3F4F6;
+  --color-gray-medium:   #D1D5DB;
+  --color-success:       #10B981;
+
+  /* ── Semantic Tokens ── */
+  --background: var(--color-white);
+  --foreground: var(--color-dark);
+  --card: var(--color-white);
+  --card-foreground: var(--color-dark);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-dark);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-gold);
+  --secondary-foreground: var(--color-dark);
+  --muted: var(--color-gray-light);
+  --muted-foreground: var(--color-gray);
+  --accent: var(--color-primary);
+  --accent-foreground: var(--color-white);
+  --destructive: #EF4444;
+  --destructive-foreground: var(--color-white);
+  --border: var(--color-gray-medium);
+  --input: var(--color-white);
+  --ring: var(--color-primary);
+  --radius: 0.75rem;
+
+  /* ── Spacing ── */
+  --section-py: 6rem;
+  --container-px: 1rem;
+
+  /* ── Typography Scale ── */
+  --font-display: var(--font-display, 'Outfit', sans-serif);
+  --font-body: var(--font-body, 'Inter', sans-serif);
+  --font-accent: var(--font-accent, 'Lora', serif);
+}
+
+/* ═══════════════════════════════════════
+   TAILWIND THEME INLINE
+   ═══════════════════════════════════════ */
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-accent: var(--font-accent);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Brand Color Aliases for Tailwind */
+  --color-maple-red: var(--color-primary);
+  --color-maple-red-dark: var(--color-primary-dark);
+  --color-maple-gold: var(--color-gold);
+  --color-maple-gold-light: var(--color-gold-light);
+  --color-maple-cream: var(--color-cream);
+  --color-maple-dark: var(--color-dark);
+  --color-maple-black: var(--color-dark);
+  --color-maple-dark-light: var(--color-dark-light);
+  --color-maple-gray: var(--color-gray);
+  --color-maple-gray-light: var(--color-gray-light);
+  --color-maple-success: var(--color-success);
+
+  /* ── Keyframe Animations ── */
+  @keyframes subtle-zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes slide-left {
+    0% { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-right {
+    0% { opacity: 0; transform: translateX(40px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes bounce-scroll {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-12px); }
+    60% { transform: translateY(-6px); }
+  }
+  @keyframes count-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes maple-fall {
+    0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.15; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+  @keyframes draw-line {
+    0% { height: 0; }
+    100% { height: 100%; }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(200, 16, 46, 0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  --animation-subtle-zoom: subtle-zoom 20s infinite alternate ease-in-out;
+  --animation-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animation-fade-in: fade-in 0.8s ease forwards;
+  --animation-slide-left: slide-left 0.6s ease-out forwards;
+  --animation-slide-right: slide-right 0.6s ease-out forwards;
+  --animation-bounce-slow: bounce-slow 3s infinite ease-in-out;
+  --animation-bounce-scroll: bounce-scroll 2s infinite;
+  --animation-marquee: marquee 30s linear infinite;
+  --animation-maple-fall: maple-fall 12s linear infinite;
+  --animation-draw-line: draw-line 1.5s ease forwards;
+  --animation-pulse-glow: pulse-glow 2s infinite;
+  --animation-float: float 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    font-family: var(--font-body);
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  ::selection {
+    background: rgba(200, 16, 46, 0.15);
+    color: var(--color-primary);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-gray-light); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-medium);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Hide Google Translate Toolbar */
+  .goog-te-banner-frame, 
+  .goog-te-banner,
+  .goog-te-menu-frame,
+  .goog-te-menu-value,
+  .goog-te-gadget,
+  .skiptranslate,
+  #google_translate_element,
+  iframe.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  body {
+    top: 0 !important;
+    position: static !important;
+  }
+  
+  /* Global Font Weight Cap */
+  h1, h2, h3, h4, h5, h6, b, strong, .font-bold, .font-black, .font-extrabold {
+    font-weight: 700 !important;
+  }
+}
+
+/* ═══════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════ */
+@layer utilities {
+  /* Glass morphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+  .glass-dark {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+
+  /* Font families */
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  .font-accent { font-family: var(--font-accent); }
+
+  /* ── Scroll Animation States ── */
+  .scroll-animate {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .scroll-animate.fade-up {
+    transform: translateY(30px);
+  }
+  .scroll-animate.fade-in-anim {
+    /* just opacity */
+  }
+  .scroll-animate.slide-left-anim {
+    transform: translateX(-40px);
+  }
+  .scroll-animate.slide-right-anim {
+    transform: translateX(40px);
+  }
+  .scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+
+  /* ── Link underline animation ── */
+  .link-underline {
+    position: relative;
+    text-decoration: none;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* ── Card hover effect ── */
+  .card-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ── Button hover ── */
+  .btn-hover {
+    transition: all 0.3s ease;
+  }
+  .btn-hover:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+  }
+
+  /* ── Image hover wrapper ── */
+  .img-hover-wrapper {
+    overflow: hidden;
+  }
+  .img-hover-wrapper img {
+    transition: transform 0.6s ease;
+  }
+  .img-hover-wrapper:hover img {
+    transform: scale(1.05);
+  }
+
+  /* ── Marquee ── */
+  .marquee-track {
+    display: flex;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* ── SVG Wave Divider ── */
+  .wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+  .wave-divider-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  /* ── Maple Leaf Decoration ── */
+  .maple-leaf {
+    position: absolute;
+    opacity: 0.08;
+    pointer-events: none;
+    animation: maple-fall 12s linear infinite;
+  }
+
+  /* ── Custom cursor (desktop) ── */
+  @media (hover: hover) and (pointer: fine) {
+    .custom-cursor {
+      cursor: none;
+    }
+    .cursor-dot {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    .cursor-dot.is-hovering {
+      transform: scale(3);
+      opacity: 0.6;
+      background: var(--color-gold);
+    }
+  }
+
+  /* ── Loader Animations ── */
+  @keyframes progress-fast {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+  .animate-progress-fast {
+    animation: progress-fast 4.5s linear forwards;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-in {
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+  }
+  .fade-in {
+    animation-name: fade-in;
+  }
+
+  /* ── Flip Card ── */
+  .flip-card { perspective: 1000px; }
+  .flip-card-inner {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    backface-visibility: hidden;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  /* ── Form floating label ── */
+  .form-field input:focus ~ label,
+  .form-field input:not(:placeholder-shown) ~ label,
+  .form-field select:focus ~ label,
+  .form-field textarea:focus ~ label,
+  .form-field textarea:not(:placeholder-shown) ~ label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--color-gold);
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(245, 168, 0, 0.15);
+  }
+}
+
+/* ═══════════════════════════════════════
+   COMPONENT STYLES
+   ═══════════════════════════════════════ */
+
+/* Testimonial quote marks */
+.quote-mark {
+  font-family: var(--font-accent);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--color-gold-light);
+  opacity: 0.5;
+}
+
+/* Stats counter number */
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 3.5rem;
+  color: var(--color-white);
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .stat-number { font-size: 4.5rem; }
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.lightbox-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Blob decoration */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  pointer-events: none;
+}
