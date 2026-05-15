@@ -140,8 +140,8 @@ export const BEAR_CLASSES = [
     name: 'Polar Bears Class',
     nameEn: 'Polar Bears Class',
     emoji: '🐻‍❄️',
-    age: '5 – 6 years',
-    ageEn: '5 – 6 years',
+    age: '4 – 5 years',
+    ageEn: '4 – 5 years',
     level: 'Senior Kindergarten 2',
     desc: 'Building a solid foundation for Grade 1 readiness with enhanced literacy and numeracy skills. Teacher-to-student ratio of 1:10, maximum 22 students per class.',
     descEn: 'Building a solid foundation for Grade 1 readiness with enhanced literacy and numeracy skills. Teacher-to-student ratio of 1:10, maximum 22 students per class.',
@@ -155,7 +155,7 @@ export const GRADE_LEVELS = {
   KOALA: { id: 'koala', label: 'Koala Bears', age: '2 - 3 years' },
   PANDA: { id: 'panda', label: 'Panda Bears', age: '3 - 4 years' },
   SUN: { id: 'sun', label: 'Sun Bears', age: '4 - 5 years' },
-  POLAR: { id: 'polar', label: 'Polar Bears', age: '5 - 6 years' },
+  POLAR: { id: 'polar', label: 'Polar Bears', age: '4 - 5 years' },
 }
 
 export const MOCK_BLOG_POSTS = [

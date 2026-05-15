@@ -38,22 +38,22 @@ export function Header() {
       { label: 'Facilities & Campus', href: '/gallery' },
       { label: 'Careers', href: '/contact' },
     ]},
-    { label: 'Academics', href: '/curriculum', children: [
-      { label: 'Canadian Immersion Methodology', href: '/curriculum' },
-      { label: 'Early Years (18mo - 3yo)', href: '/curriculum#early-years' },
-      { label: 'Kindergarten (3yo - 6yo)', href: '/curriculum#kindergarten' },
-      { label: 'Extracurricular Activities', href: '/events' },
+    { label: 'Academics', href: '/academics', children: [
+      { label: 'Canadian Immersion Methodology', href: '/academics' },
+      { label: 'Early Years (12mo - 3yo)', href: '/academics/early-years' },
+      { label: 'Kindergarten (3yo - 5yo)', href: '/academics/kindergarten' },
+      { label: 'Extracurricular Activities', href: '/academics/extracurricular' },
     ]},
     { label: 'Community', href: '/blog', children: [
       { label: 'News & Insights', href: '/blog' },
       { label: 'School Events', href: '/events' },
-      { label: 'Parent Portal', href: '/login' },
-      { label: 'Safeguarding & Child Protection', href: '/privacy' },
-      { label: 'Health & Nutrition', href: '/about#health' },
+      { label: 'Parent Portal', href: '/community/parent-portal' },
+      { label: 'Safeguarding & Child Protection', href: '/community/safeguarding' },
+      { label: 'Health & Nutrition', href: '/community/health' },
     ]},
-    { label: 'Admissions', href: '/admission', children: [
-      { label: 'Admissions Process', href: '/admission' },
-      { label: 'Tuition Fees & Scholarships', href: '/admission#fees' },
+    { label: 'Admissions', href: '/admissions', children: [
+      { label: 'Admissions Process', href: '/admissions' },
+      { label: 'Tuition Fees & Scholarships', href: '/admissions/tuition-fees' },
       { label: 'Book a School Tour', href: '/tour-booking' },
       { label: 'Frequently Asked Questions', href: '/faq' },
     ]},
@@ -84,11 +84,11 @@ export function Header() {
                 />
               </div>
               <div className="flex flex-col notranslate">
-                <span className={`text-base md:text-lg font-display font-bold tracking-tight leading-none transition-colors ${isLight ? 'text-maple-black' : 'text-white'}`}>
-                  SUNSHINE
+                <span className={`text-sm md:text-base font-display font-bold tracking-tight leading-none transition-colors ${isLight ? 'text-maple-black' : 'text-white'}`}>
+                  SUNSHINE MAPLE BEAR
                 </span>
-                <span className={`text-[7px] md:text-[8px] font-display font-bold uppercase tracking-[0.15em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
-                  Maple Bear Int'l Kindergarten
+                <span className={`text-[6px] md:text-[7px] font-display font-bold uppercase tracking-[0.15em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
+                  International Kindergarten
                 </span>
               </div>
             </Link>
@@ -138,11 +138,11 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <Link
-                  href="/admission"
-                  className={`px-5 py-2.5 text-xs font-bold rounded-full border transition-all active:scale-95 ${
+                  href="/admissions"
+                  className={`px-6 py-2.5 text-sm font-bold border-2 rounded-full transition-all ${
                     isLight
-                      ? 'border-maple-red text-maple-red hover:bg-maple-red/5'
-                      : 'border-white/40 text-white hover:bg-white/10'
+                      ? 'border-maple-black text-maple-black hover:bg-maple-black hover:text-white'
+                      : 'border-white text-white hover:bg-white hover:text-maple-black'
                   }`}
                 >
                   Admissions
@@ -209,7 +209,7 @@ export function Header() {
               Book a Tour
             </Link>
             <Link
-              href="/admission"
+              href="/admissions"
               className="flex items-center justify-center gap-2 w-full py-4 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-display font-bold rounded-2xl text-lg"
               onClick={() => setIsMenuOpen(false)}
             >

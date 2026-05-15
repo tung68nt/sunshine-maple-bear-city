@@ -86,7 +86,7 @@ export function ProgramCards() {
                   {cls.descEn}
                 </p>
                 <Link
-                  href="/curriculum"
+                  href="/academics"
                   aria-label={`Learn more about ${cls.nameEn}`}
                   className="inline-flex items-center gap-2 text-sm font-bold text-maple-red pt-2 group/link"
                 >

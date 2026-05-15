@@ -212,7 +212,7 @@ export function CurriculumPage() {
                     <div className="h-1 w-24 bg-maple-red/20 rounded-full group-hover:w-48 transition-all duration-500" />
                     <p className="text-xl text-neutral-600 font-light leading-relaxed">{g.descEn}</p>
                     <div className="pt-4">
-                      <Link href="/admission" aria-label={`Apply for ${g.nameEn}`} className="inline-flex items-center gap-3 px-8 py-4 bg-neutral-50 text-maple-black font-bold rounded-2xl hover:bg-maple-red hover:text-white transition-all group/link shadow-sm border border-neutral-100">
+                      <Link href="/admissions" aria-label={`Apply for ${g.nameEn}`} className="inline-flex items-center gap-3 px-8 py-4 bg-neutral-50 text-maple-black font-bold rounded-2xl hover:bg-maple-red hover:text-white transition-all group/link shadow-sm border border-neutral-100">
                         Apply Now <ArrowRight size={20} className="group-hover/link:translate-x-2 transition-transform" />
                       </Link>
                     </div>
@@ -279,7 +279,7 @@ export function CurriculumPage() {
                 <p className="text-xl text-neutral-500 font-light max-w-2xl mx-auto">Every child develops at their own pace. Let us help you find the optimal learning pathway in our 100% English international environment.</p>
               </div>
               <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/admission" className="px-12 py-5 bg-maple-red text-white font-bold rounded-2xl hover:bg-red-700 transition-all shadow-xl shadow-maple-red/20 transform hover:scale-105">Book a Free Consultation</Link>
+                <Link href="/admissions" className="px-12 py-5 bg-maple-red text-white font-bold rounded-2xl hover:bg-red-700 transition-all shadow-xl shadow-maple-red/20 transform hover:scale-105">Book a Free Consultation</Link>
                 <Link href="/gallery" className="px-12 py-5 bg-white text-maple-black font-bold rounded-2xl border border-neutral-200 hover:bg-neutral-50 transition-all shadow-sm">Explore the Campus</Link>
               </div>
             </div>

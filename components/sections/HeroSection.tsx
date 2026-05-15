@@ -95,7 +95,7 @@ export function HeroSection() {
             className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-xl drop-shadow-lg font-light"
             style={{ animation: 'fade-in-up 0.8s ease-out 0.4s both', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
           >
-            Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 6 years at Sunshine City, Hanoi.
+            Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 5 years at Sunshine City, Hanoi.
           </p>
 
           {/* CTA Buttons */}
@@ -114,7 +114,7 @@ export function HeroSection() {
               </svg>
             </Link>
             <Link
-              href="/curriculum"
+              href="/academics"
               aria-label="Explore our curriculum programs"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-display font-bold rounded-full hover:bg-white hover:text-maple-black transition-all duration-300 text-base"
             >

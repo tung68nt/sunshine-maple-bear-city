@@ -241,7 +241,7 @@ export default function EventsPage() {
                   Subscribe to Updates <ArrowRight size={20} />
                 </Link>
                 <Link
-                  href="/admission"
+                  href="/admissions"
                   className="px-12 py-5 bg-white text-maple-black font-bold rounded-2xl border border-neutral-200 hover:bg-neutral-50 transition-all shadow-sm"
                 >
                   Learn About Admissions

@@ -14,7 +14,7 @@ const faqs = [
     questions: [
       {
         q: 'What age range does the school accept and how are class levels structured?',
-        a: 'Sunshine Maple Bear Sunshine City accepts children from 18 months to 6 years old. Classes are structured by key developmental stages: Toddler (18–36 months) focuses on motor skills and early language; Nursery (3–4 years) develops social skills; Junior Kindergarten (4–5 years) introduces early literacy and numeracy; Senior Kindergarten (5–6 years) prepares children with a solid foundation for Grade 1 at top primary schools.'
+        a: 'Sunshine Maple Bear Sunshine City accepts children from 12 months to 5 years old. Classes are structured by key developmental stages: Toddler (12–24 months) focuses on motor skills and early language; Nursery (2–3 years) develops social skills; Junior Kindergarten (3–4 years) introduces early literacy and numeracy; Senior Kindergarten (4–5 years) prepares children with a solid foundation for Grade 1 at top primary schools.'
       },
       {
         q: 'What does the developmental assessment process look like?',
@@ -235,7 +235,7 @@ export default function FAQPage() {
                 <Link href="/contact" className="px-12 py-5 bg-maple-red text-white font-bold rounded-2xl hover:bg-red-700 transition-all shadow-xl shadow-maple-red/20 transform hover:scale-105 active:scale-95">
                   Contact Us Now
                 </Link>
-                <Link href="/admission" className="px-12 py-5 bg-white text-maple-black font-bold rounded-2xl border border-neutral-200 hover:bg-neutral-50 transition-all flex items-center gap-3 shadow-sm transform hover:scale-105 active:scale-95">
+                <Link href="/admissions" className="px-12 py-5 bg-white text-maple-black font-bold rounded-2xl border border-neutral-200 hover:bg-neutral-50 transition-all flex items-center gap-3 shadow-sm transform hover:scale-105 active:scale-95">
                   Apply for Enrollment <ArrowRight size={20} />
                 </Link>
               </div>

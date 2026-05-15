@@ -16,7 +16,7 @@ export function Footer() {
     { label: 'About Us', href: '/about' },
     { label: 'Curriculum', href: '/curriculum' },
     { label: 'Facilities', href: '/gallery' },
-    { label: 'Admissions', href: '/admission' },
+    { label: 'Admissions', href: '/admissions' },
     { label: 'Events', href: '/events' },
     { label: 'FAQ', href: '/faq' },
   ]
@@ -36,16 +36,16 @@ export function Footer() {
                 <Image src="/logo.png" alt="Sunshine Maple Bear Logo" fill className="object-contain" />
               </Link>
               <div className="space-y-0.5 notranslate">
-                <span className="text-2xl font-display font-bold tracking-tight text-white block leading-none">
-                  SUNSHINE
+                <span className="text-xl md:text-2xl font-display font-bold tracking-tight text-white block leading-none">
+                  SUNSHINE MAPLE BEAR
                 </span>
-                <span className="text-[10px] font-display font-bold uppercase tracking-[0.25em] text-maple-gold leading-tight">
-                  Maple Bear
+                <span className="text-[9px] md:text-[10px] font-display font-bold uppercase tracking-[0.2em] text-maple-gold leading-tight block">
+                  International Kindergarten
                 </span>
               </div>
             </div>
             <p className="text-white/80 text-base leading-relaxed max-w-sm font-light">
-              A world-class Canadian international kindergarten with 100% English instruction — where every young learner is nurtured to become a confident, compassionate global citizen.
+              A world-class Canadian international kindergarten with 100% English instruction — where every young learner from 12 months to 5 years old is nurtured to become a confident, compassionate global citizen.
             </p>
             {/* Social Icons */}
             <div className="flex gap-4 pt-4">
@@ -181,7 +181,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20">
-          <p className="text-white/50">&copy; {currentYear} Sunshine Maple Bear International Kindergarten. All rights reserved.</p>
+          <p className="text-white/50">&copy; {currentYear} SUNSHINE MAPLE BEAR INTERNATIONAL KINDERGARTEN. ALL RIGHTS RESERVED.</p>
           <nav className="flex gap-8" aria-label="Legal links">
             <Link href="/privacy" className="text-white/40 hover:text-white/80 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-white/40 hover:text-white/80 transition-colors">Terms of Use</Link>

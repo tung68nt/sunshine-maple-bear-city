@@ -29,7 +29,7 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: 'Sunshine Maple Bear International Kindergarten — 100% English Canadian Education | Hanoi',
-  description: 'Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 6 years. Official Maple Bear program at Sunshine City, Ciputra, Hanoi.',
+  description: 'Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 5 years. Official Maple Bear program at Sunshine City, Ciputra, Hanoi.',
   keywords: 'international kindergarten, maple bear, canadian preschool, 100% english, english immersion, hanoi, ciputra, sunshine city, early childhood',
   icons: {
     icon: [{ url: '/logo.png', type: 'image/png' }],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Sunshine Maple Bear International Kindergarten — 100% English Canadian Education',
-    description: 'Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 6 years at Sunshine City, Hanoi.',
+    description: 'Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 5 years at Sunshine City, Hanoi.',
     url: 'https://www.sunshinemaplebear.edu.vn',
     type: 'website',
     locale: 'en_US',

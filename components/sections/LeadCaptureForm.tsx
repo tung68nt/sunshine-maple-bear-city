@@ -155,11 +155,10 @@ export function LeadCaptureForm() {
                         className="w-full px-6 py-4 bg-neutral-50 border border-neutral-100 rounded-2xl text-maple-black focus:outline-none focus:ring-2 focus:ring-maple-red/20 focus:border-maple-red transition-all appearance-none cursor-pointer"
                       >
                         <option value="">Select age range</option>
-                        <option value="18m-24m">18 – 24 months</option>
+                        <option value="12m-24m">12 – 24 months</option>
                         <option value="2-3">2 – 3 years old</option>
                         <option value="3-4">3 – 4 years old</option>
                         <option value="4-5">4 – 5 years old</option>
-                        <option value="5-6">5 – 6 years old</option>
                       </select>
                     </div>
                     <div className="relative">

@@ -15,7 +15,7 @@ type Message = {
 const MOCK_ANSWERS: Record<string, string> = {
   'address': 'Sunshine Maple Bear is located at Sunshine City, Ciputra Urban Area, Bac Tu Liem, Hanoi.',
   'location': 'The school is located within Sunshine City, Ciputra, Hanoi - one of the greenest and most modern urban areas in the capital.',
-  'age': 'The school accepts students from 18 months to 6 years old for our Canadian-standard Kindergarten program.',
+  'age': 'The school accepts students from 12 months to 5 years old for our Canadian-standard Kindergarten program.',
   'tuition': 'Tuition at Sunshine Maple Bear is very competitive for an international standard environment. Please leave your phone number so our admissions department can send you a detailed fee schedule.',
   'program': 'We implement the Maple Bear Canada program — one of the world\'s leading early childhood education systems, delivered in a 100% English environment.',
   'english': 'Children are fully immersed in a 100% English environment throughout the day, developing native-like fluency naturally across all learning activities.',
