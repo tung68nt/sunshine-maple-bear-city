@@ -85,10 +85,10 @@ export function Header() {
                 />
               </div>
               <div className="flex flex-col notranslate">
-                <span className={`text-sm md:text-base font-display font-bold tracking-tight leading-none transition-colors ${isLight ? 'text-maple-black' : 'text-white'}`}>
+                <span className={`text-sm md:text-base font-display font-bold tracking-tight leading-none transition-colors ${(isLight || isMenuOpen) ? 'text-maple-black' : 'text-white'}`}>
                   SUNSHINE MAPLE BEAR
                 </span>
-                <span className={`text-[8px] md:text-[9px] font-display font-bold uppercase tracking-[0.2em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
+                <span className={`text-[8px] md:text-[9px] font-display font-bold uppercase tracking-[0.2em] leading-tight transition-colors ${(isLight || isMenuOpen) ? 'text-maple-red' : 'text-maple-gold'}`}>
                   International Kindergarten
                 </span>
               </div>
