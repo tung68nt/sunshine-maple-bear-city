@@ -70,7 +70,7 @@ export default function BlogPage() {
               ) : posts.length > 0 ? (
                 <>
                   {/* Featured Post */}
-                  <Link href={`/blog/${posts[0].slug || posts[0].id}`} className="group relative bg-neutral-50 rounded-[40px] overflow-hidden border border-neutral-100 hover:shadow-2xl transition-all duration-500 block">
+                  <div className="group relative bg-neutral-light-gray rounded-[40px] overflow-hidden border border-neutral-100 hover:shadow-2xl transition-all duration-500">
                     <div className="grid grid-cols-1 md:grid-cols-2">
                       <div className="relative h-80 md:h-full">
                         <Image
@@ -87,18 +87,18 @@ export default function BlogPage() {
                         </div>
                         <h2 className="text-3xl font-bold text-maple-black mb-4 leading-tight group-hover:text-maple-red transition-colors">{posts[0].title}</h2>
                         <p className="text-neutral-500 font-light mb-8 line-clamp-3 leading-relaxed">{posts[0].excerpt}</p>
-                        <span className="flex items-center gap-2 text-maple-red font-bold">
-                          Read Article <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                        </span>
+                        <a href={`/blog/${posts[0].id}`} className="flex items-center gap-2 text-maple-red font-bold group/btn">
+                          Read Article <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
+                        </a>
                       </div>
                     </div>
-                  </Link>
+                  </div>
 
                   {/* Regular Posts Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {posts.slice(1).map((post, idx) => (
-                      <Link key={idx} href={`/blog/${post.slug || post.id}`} className="group block rounded-3xl overflow-hidden border border-neutral-100 hover:shadow-xl transition-all duration-500 bg-white">
-                        <div className="relative h-56 overflow-hidden">
+                      <div key={idx} className="group space-y-6">
+                        <div className="relative h-64 rounded-3xl overflow-hidden shadow-lg">
                           <Image
                             src={post.featured_image || SCHOOL_IMAGES.render.lopHoc2}
                             alt={post.title}
@@ -109,22 +109,31 @@ export default function BlogPage() {
                             <span className="px-4 py-1 bg-white/90 backdrop-blur-sm text-maple-black text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm">{post.category}</span>
                           </div>
                         </div>
-                        <div className="p-8">
-                          <div className="flex items-center gap-3 text-sm text-neutral-500 mb-3">
-                            <Calendar size={14} />
-                            {new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                        <div className="flex flex-col flex-1 p-8">
+                          <div className="flex items-center gap-4 text-sm text-neutral-500 mb-4">
+                            <span className="text-maple-red font-bold uppercase tracking-wider">{post.category}</span>
+                            <span>•</span>
+                            <div className="flex items-center gap-1.5">
+                              <Calendar size={14} />
+                              {new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                            </div>
                           </div>
-                          <h3 className="text-xl font-display font-bold text-maple-black mb-3 group-hover:text-maple-red transition-colors leading-snug">
+                          
+                          <h3 className="text-2xl md:text-3xl font-display font-bold text-maple-black mb-4 group-hover:text-maple-red transition-colors leading-tight">
                             {post.title}
                           </h3>
-                          <p className="text-neutral-500 font-light leading-relaxed text-sm line-clamp-3 mb-4">
+                          
+                          <p className="text-neutral-500 font-light leading-relaxed mb-8 flex-1">
                             {post.excerpt}
                           </p>
-                          <span className="flex items-center gap-2 text-maple-red font-bold text-sm group-hover:gap-3 transition-all">
-                            Read Article <ArrowRight size={16} />
-                          </span>
+                          
+                          <div className="flex items-center text-maple-red font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+                            <Link href={`/blog/${post.slug || post.id}`} className="absolute inset-0 z-10"><span className="sr-only">Read more</span></Link>
+                            <span>Read Full Article</span>
+                            <ArrowRight size={16} />
+                          </div>
                         </div>
-                      </Link>
+                      </div>
                     ))}
                   </div>
                 </>

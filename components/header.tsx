@@ -10,6 +10,7 @@ export function Header() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null)
 
   // Force light theme for pages without hero banners
   const forceLight = pathname.startsWith('/blog/') || pathname === '/contact' || pathname.startsWith('/admissions') || pathname.startsWith('/events/') || pathname === '/faq' || pathname.startsWith('/community/') || pathname.startsWith('/academics/')
@@ -176,126 +177,73 @@ export function Header() {
       </header>
 
       {/* Mobile Full-Screen Overlay Menu */}
-      <MobileMenu
-        isOpen={isMenuOpen}
-        navItems={navItems}
-        pathname={pathname}
-        onClose={() => setIsMenuOpen(false)}
-      />
-    </>
-  )
-}
-
-function MobileMenu({
-  isOpen,
-  navItems,
-  pathname,
-  onClose,
-}: {
-  isOpen: boolean
-  navItems: { label: string; href: string; children?: { label: string; href: string }[] }[]
-  pathname: string
-  onClose: () => void
-}) {
-  const [openItem, setOpenItem] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (!isOpen) setOpenItem(null)
-  }, [isOpen])
-
-  const toggle = (href: string) => {
-    setOpenItem(prev => (prev === href ? null : href))
-  }
-
-  return (
-    <div
-      className={`fixed inset-0 z-40 bg-white lg:hidden flex flex-col transition-all duration-500 ${
-        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-      }`}
-    >
-      {/* Scrollable nav area */}
-      <nav className="flex-1 overflow-y-auto pt-24 pb-6 px-6" aria-label="Mobile navigation">
-        <ul className="flex flex-col gap-1">
-          {navItems.map((item) => {
-            const hasChildren = !!item.children
-            const isExpanded = openItem === item.href
-
-            return (
-              <li key={item.href} className="w-full">
-                {hasChildren ? (
-                  <>
-                    <button
-                      className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl text-left font-display font-bold text-lg text-maple-black hover:bg-neutral-50 active:bg-neutral-100 transition-colors"
-                      onClick={() => toggle(item.href)}
-                      aria-expanded={isExpanded}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        size={18}
-                        className={`text-maple-red transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                      />
-                    </button>
-
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isExpanded ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <ul className="ml-4 mt-1 mb-2 flex flex-col gap-0.5 border-l-2 border-maple-red/20 pl-4">
-                        {item.children!.map((child) => (
-                          <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              onClick={onClose}
-                              className={`block w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${
-                                pathname === child.href
-                                  ? 'text-maple-red bg-maple-red/5'
-                                  : 'text-neutral-600 hover:text-maple-red hover:bg-neutral-50'
-                              }`}
-                            >
-                              {child.label}
-                            </Link>
-                          </li>
+      <div
+        className={`fixed inset-0 z-40 bg-white transition-all duration-500 lg:hidden ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <div className="flex flex-col justify-center items-center h-full px-8 pt-20">
+          <nav className="w-full max-w-sm overflow-y-auto max-h-[60vh] custom-scrollbar" aria-label="Mobile navigation">
+            <ul className="flex flex-col items-center gap-1">
+              {navItems.map((item, idx) => (
+                <li key={item.href} className="w-full">
+                  {item.children ? (
+                    <div className="w-full flex flex-col">
+                      <button
+                        onClick={() => setOpenMobileMenu(openMobileMenu === item.label ? null : item.label)}
+                        className="flex items-center justify-between w-full px-6 py-3 text-lg font-display font-bold text-[var(--color-dark)] hover:text-[var(--color-primary)] hover:bg-[var(--color-cream)] rounded-2xl transition-all"
+                        style={{ animationDelay: `${idx * 50}ms` }}
+                      >
+                        <span className="flex-1 text-center pl-6">{item.label}</span>
+                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openMobileMenu === item.label ? 'rotate-180' : ''}`} />
+                      </button>
+                      <div className={`flex flex-col overflow-hidden transition-all duration-300 ${openMobileMenu === item.label ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+                        {item.children.map(child => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block w-full text-center px-6 py-2.5 text-base text-[var(--color-gray)] hover:text-maple-red hover:bg-neutral-50 rounded-xl transition-all"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
                         ))}
-                      </ul>
+                      </div>
                     </div>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onClick={onClose}
-                    className={`block w-full px-5 py-3.5 rounded-2xl font-display font-bold text-lg transition-colors ${
-                      pathname === item.href
-                        ? 'text-maple-red bg-maple-red/5'
-                        : 'text-maple-black hover:bg-neutral-50 hover:text-maple-red'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            )
-          })}
-        </ul>
-      </nav>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      aria-current={pathname === item.href ? 'page' : undefined}
+                      className="block w-full text-center px-6 py-3 text-lg font-display font-bold text-[var(--color-dark)] hover:text-[var(--color-primary)] hover:bg-[var(--color-cream)] rounded-2xl transition-all"
+                      onClick={() => setIsMenuOpen(false)}
+                      style={{ animationDelay: `${idx * 50}ms` }}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      {/* Sticky bottom CTAs */}
-      <div className="px-6 pb-8 pt-4 border-t border-neutral-100 flex flex-col gap-3">
-        <Link
-          href="/tour-booking"
-          className="flex items-center justify-center w-full py-4 bg-maple-red text-white font-display font-bold rounded-2xl text-base active:scale-95 transition-transform"
-          onClick={onClose}
-        >
-          Book a School Tour
-        </Link>
-        <Link
-          href="/admissions"
-          className="flex items-center justify-center w-full py-4 border-2 border-maple-black text-maple-black font-display font-bold rounded-2xl text-base active:scale-95 transition-transform"
-          onClick={onClose}
-        >
-          Admissions 2026
-        </Link>
+          <div className="flex flex-col gap-4 w-full max-w-sm mt-8 pt-8 border-t border-[var(--color-gray-light)]">
+            <Link
+              href="/tour-booking"
+              className="flex items-center justify-center gap-2 w-full py-4 bg-[var(--color-primary)] text-white font-display font-bold rounded-2xl text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Book a Tour
+            </Link>
+            <Link
+              href="/admissions"
+              className="flex items-center justify-center gap-2 w-full py-4 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-display font-bold rounded-2xl text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Admissions 2026
+            </Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
