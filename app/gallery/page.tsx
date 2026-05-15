@@ -14,29 +14,34 @@ export default function GalleryPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchGallery() {
-      try {
-        setLoading(true)
-        const { data, error } = await supabase
-          .from('gallery_items')
-          .select('*')
-          .order('created_at', { ascending: false })
-
-        if (error) throw error
-        setImages(data || [])
-      } catch (error) {
-        console.error('Error fetching gallery, using mock data:', error)
-        setImages([
-          { id: '1', album: 'facilities', image_url: SCHOOL_IMAGES.render.thuVien1, title: 'Open Library' },
-          { id: '2', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc1, title: 'Kindergarten Classroom' },
-          { id: '3', album: 'activities', image_url: SCHOOL_IMAGES.render.phongChucNang1, title: 'Multi-purpose Room' },
-          { id: '4', album: 'events', image_url: SCHOOL_IMAGES.render.thuVien6, title: 'Extracurricular Event' },
-        ])
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchGallery()
+    // Use local render images directly — no external API dependency
+    const localImages = [
+      { id: '1', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien1, title: 'Library' },
+      { id: '2', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien2, title: 'Reading Corner' },
+      { id: '3', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien3, title: 'Sunshine Classroom' },
+      { id: '4', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien4, title: 'Study Area' },
+      { id: '5', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien5, title: 'Book Collection' },
+      { id: '6', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien6, title: 'Open Library' },
+      { id: '7', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien7, title: 'Learning Hub' },
+      { id: '8', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien8, title: 'Discovery Space' },
+      { id: '9', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc1, title: 'Teddy Bears Classroom' },
+      { id: '10', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc2, title: 'Koala Bears Classroom' },
+      { id: '11', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc3, title: 'Panda Bears Classroom' },
+      { id: '12', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc4, title: 'Polar Bears Classroom' },
+      { id: '13', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc5, title: 'Sun Bears Classroom' },
+      { id: '14', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang1, title: 'STEAM Lab' },
+      { id: '15', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang2, title: 'Music Studio' },
+      { id: '16', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang3, title: 'Activity Room' },
+      { id: '17', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang4, title: 'Art Workshop' },
+      { id: '18', album: 'facilities', image_url: SCHOOL_IMAGES.render.hanhLang1, title: 'Main Hallway' },
+      { id: '19', album: 'facilities', image_url: SCHOOL_IMAGES.render.hanhLang2, title: 'Corridor' },
+      { id: '20', album: 'facilities', image_url: SCHOOL_IMAGES.render.vanPhong, title: 'Administration Office' },
+      { id: '21', album: 'healthcare', image_url: SCHOOL_IMAGES.render.phongYTe1, title: 'Health Room' },
+      { id: '22', album: 'healthcare', image_url: SCHOOL_IMAGES.render.phongYTe2, title: 'Nurse Station' },
+      { id: '23', album: 'healthcare', image_url: SCHOOL_IMAGES.render.phongYTe3, title: 'Medical Bay' },
+    ]
+    setImages(localImages)
+    setLoading(false)
   }, [])
 
   // Derived albums from unique gallery_items.album
@@ -44,8 +49,10 @@ export default function GalleryPage() {
     const albumImages = images.filter(img => img.album === albumName)
     return {
       title: albumName === 'facilities' ? 'Facilities' : 
+             albumName === 'library' ? 'Library & Learning Spaces' :
              albumName === 'activities' ? 'Learning Activities' :
              albumName === 'classroom' ? 'Classrooms' :
+             albumName === 'healthcare' ? 'Healthcare' :
              albumName === 'events' ? 'Events' : albumName,
       slug: albumName,
       imageCount: albumImages.length,

@@ -11,27 +11,27 @@ const features = [
   {
     icon: ShieldCheck,
     title: 'Absolute Safety',
-    desc: 'Physical, emotional and procedural safety at the highest standards. Modern campus design, CCTV monitoring, controlled access, trained staff, and a nurturing environment where every child feels respected and secure.',
+    desc: 'Physical, emotional and procedural safety at the highest standards. We provide secure controlled access, child-safe modern classroom design, and clear health protocols. More importantly, we ensure emotional safety through respectful, positive discipline without shaming, allowing children to confidently explore.',
   },
   {
     icon: HeartPulse,
     title: 'Health & Nutrition',
-    desc: 'Age-appropriate scientific nutrition plans, transparent meal sharing with parents, certified hygiene protocols. Health education is woven into daily activities — building lifelong healthy habits from the earliest years.',
+    desc: 'Age-appropriate scientific nutrition plans with balanced meals, less sugar, and transparent menus. Health is built into our curriculum, teaching children lifelong habits through daily hygiene routines, handwashing, and engaging activities about the human body and wellness.',
   },
   {
     icon: Sparkles,
     title: 'Character & Values',
-    desc: 'Developing empathy, independence, responsibility and social skills through daily interactions. Children learn respect, kindness, emotional regulation and cooperation — becoming confident, well-rounded individuals.',
+    desc: 'Developing empathy, independence, and social skills through daily interactions. Utilizing a Social-Emotional Learning (SEL) framework, children learn respect, kindness, and emotional regulation. We guide them to resolve conflicts with words and build positive, cooperative relationships.',
   },
   {
     icon: Globe,
     title: '100% English Immersion',
-    desc: 'Full English-medium environment using the Canadian Immersion methodology. Children acquire English naturally through conversations, stories, songs and play — developing native-like fluency across all daily activities.',
+    desc: 'A premium Canadian Immersion methodology where English is not just a subject, but the medium of all daily activities. Children acquire English naturally through meaningful interactions, phonics, stories, and play, with clear learning outcomes and academic progress tracked in personalized portfolios.',
   },
   {
     icon: Users,
     title: 'Parent Partnership',
-    desc: 'Transparent, professional communication through regular updates, learning portfolios, parent workshops and open house events. We build trust by keeping parents connected to their child\'s daily journey.',
+    desc: 'Transparent, professional communication is our promise. We build trust through weekly newsletters, monthly curriculum overviews, parent-teacher conferences, and clear incident reporting. Parents are active partners in their child\'s educational journey.',
   },
 ]
 
