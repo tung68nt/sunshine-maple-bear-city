@@ -2,48 +2,25 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import Image from 'next/image'
 import { SCHOOL_IMAGES } from '@/lib/constants'
+import { MOCK_BLOG_POSTS } from '@/lib/blog-data'
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 export default function BlogDetailPage({ params }: { params: { id: string } }) {
-  // Mock data for the specific post
-  const post = {
-    id: params.id,
-    title: 'Launching Sunshine Talk 2026 English Speech Contest',
-    category: 'Events',
-    date: 'March 20, 2026',
-    author: 'Board of Management',
-    readTime: '5 min read',
-    image: SCHOOL_IMAGES.render.phongChucNang2,
-    content: `
-      <p class="lead">Aimed at enhancing specialized education quality and training students to use English confidently and flexibly, Sunshine Maple Bear officially launches the Sunshine Talk 2026 English Speech Contest.</p>
-      
-      <h2>1. Purpose and Significance</h2>
-      <p>The contest is organized to create a beneficial academic playground, helping preschool students become familiar with public speaking skills in English. This is also an opportunity for children to practice confidence, develop natural language, and learn how to present their ideas coherently.</p>
-      
-      <img src="${SCHOOL_IMAGES.render.lopHoc5}" alt="Students presenting confidently" class="my-8 rounded-2xl w-full object-cover aspect-video" />
-      
-      <h2>2. Contest Rules</h2>
-      <ul>
-        <li><strong>Age Group:</strong> 4 - 6 years old (Polar Bear, Grizzly, Maple Bear classes)</li>
-        <li><strong>Format:</strong> Individual presentation or small group (maximum 3 students)</li>
-        <li><strong>Topic:</strong> "My Dream World"</li>
-      </ul>
-      
-      <h2>3. Prize Structure</h2>
-      <p>All participants receive certificates from the school. Main prizes include:</p>
-      <ul>
-        <li>01 First Prize: Golden trophy, 20% tuition scholarship for the next term, and gifts from Maple Bear Global.</li>
-        <li>02 Second Prizes: Silver medals, 10% tuition scholarship, and a set of copyrighted English books.</li>
-        <li>03 Third Prizes: Bronze medals and gifts from the organizers.</li>
-        <li>Audience Choice Award: For the qualifying round video with the most likes on the school's Fanpage.</li>
-      </ul>
-      
-      <blockquote>"A child's confidence stems from adults listening and encouraging them to speak their mind. Sunshine Talk is the place for those small voices to rise with pride." - Ms. Sarah Johnson, Lead English Teacher.</blockquote>
-      
-      <p>Parents please register for your children through the homeroom teacher by March 30, 2026. The organizers will provide guidance materials and practice support during extracurricular hours.</p>
-    `
+  const post = MOCK_BLOG_POSTS.find(p => p.id === params.id || p.slug === params.id)
+  
+  if (!post) {
+    notFound()
   }
+
+  // Generate some TOC automatically or use fixed ones for now
+  const toc = [
+    '1. Purpose and Significance',
+    '2. Context and Methodology',
+    '3. Implementation Details',
+    '4. Outcomes'
+  ]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -60,12 +37,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
                     Table of Contents
                   </h4>
                   <nav className="space-y-4">
-                    {[
-                      '1. Purpose and Significance',
-                      '2. Contest Rules',
-                      '3. Prize Structure',
-                      '4. Registration'
-                    ].map((item, idx) => (
+                    {toc.map((item, idx) => (
                       <a 
                         key={idx} 
                         href={`#section-${idx + 1}`}
@@ -106,43 +78,38 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
 
               {/* Article Header */}
               <header className="space-y-6 mb-12">
-                <div className="flex flex-wrap items-center gap-4 text-sm font-bold uppercase tracking-widest">
-                  <span className="px-4 py-1.5 bg-[var(--color-gold)]/10 text-[var(--color-gold-dark)] rounded-full">{post.category}</span>
-                  <span className="text-[var(--color-gray)]">{post.readTime}</span>
+                <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500 mb-6">
+                  <span className="px-4 py-1.5 bg-maple-red/10 text-maple-red font-bold uppercase tracking-widest rounded-full">{post.category}</span>
+                  <span>•</span>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={16} />
+                    {new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                  <span>•</span>
+                  <div className="flex items-center gap-1.5">
+                    <User size={16} />
+                    Board of Management
+                  </div>
                 </div>
-                
-                <h1 className="text-4xl md:text-5xl font-display font-black text-[var(--color-dark)] leading-tight">
+
+                <h1 className="text-3xl md:text-5xl font-display font-black text-maple-black leading-tight mb-8">
                   {post.title}
                 </h1>
-                
-                <div className="flex flex-wrap items-center gap-6 text-[var(--color-gray)] py-6 border-y border-[var(--color-gray-light)]">
-                  <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)]">
-                      <User size={18} />
-                    </div>
-                    <span className="font-medium text-[var(--color-dark)]">{post.author}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar size={18} />
-                    <span>{post.date}</span>
-                  </div>
+
+                <div className="relative w-full aspect-video rounded-3xl overflow-hidden mb-12 shadow-xl">
+                  <Image
+                    src={post.featured_image || SCHOOL_IMAGES.render.phongChucNang1}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </header>
 
-              {/* Featured Image */}
-              <div className="relative aspect-[21/9] rounded-[2rem] overflow-hidden mb-12 shadow-xl">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-
-              {/* Article Content */}
-              <div className="prose prose-lg md:prose-xl max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-[var(--color-dark)] prose-p:text-[var(--color-gray)] prose-a:text-[var(--color-primary)] prose-li:text-[var(--color-gray)] prose-blockquote:border-l-[var(--color-gold)] prose-blockquote:bg-[var(--color-cream)] prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:font-accent prose-blockquote:text-xl prose-blockquote:text-[var(--color-dark)] prose-blockquote:not-italic"
-                dangerouslySetInnerHTML={{ __html: post.content.replace(/<h2>(\d+)\./g, '<h2 id="section-$1">$1.') }}
+              <div 
+                className="prose prose-lg md:prose-xl max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-maple-black prose-p:text-neutral-600 prose-p:font-light prose-p:leading-relaxed prose-a:text-maple-red prose-img:rounded-3xl"
+                dangerouslySetInnerHTML={{ __html: post.content }}
               />
 
               {/* Article Footer & Share */}

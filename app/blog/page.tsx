@@ -4,52 +4,21 @@ import { useEffect, useState } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Calendar, User, ArrowRight, Newspaper, Search, ChevronRight } from 'lucide-react'
 import { SCHOOL_IMAGES } from '@/lib/constants'
-import { supabase } from '@/lib/supabase'
+import { MOCK_BLOG_POSTS } from '@/lib/blog-data'
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchPosts() {
-      try {
-        setLoading(true)
-        const { data, error } = await supabase
-          .from('blog_posts')
-          .select('*')
-          .eq('status', 'published')
-          .order('created_at', { ascending: false })
-
-        if (error) throw error
-        setPosts(data || [])
-      } catch (error) {
-        console.error('Error fetching blog posts, using mock data:', error)
-        setPosts([
-          {
-            id: '1',
-            title: 'Launching the Sunshine Talk 2026 English Speech Contest',
-            excerpt: 'Enhancing academic excellence and building confident English communication skills through our annual speech competition.',
-            category: 'Events',
-            created_at: new Date('2026-03-20').toISOString(),
-            featured_image: null,
-          },
-          {
-            id: '2',
-            title: 'Workshop: Preparing Your Child for Grade 1 Success',
-            excerpt: 'Practical insights from child psychologists and primary school educators helping parents prepare the best foundation for their child.',
-            category: 'Parenting Tips',
-            created_at: new Date('2026-03-10').toISOString(),
-            featured_image: null,
-          }
-        ])
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchPosts()
+    // Load local SEO-optimized blog data instantly instead of external API calls
+    setPosts(MOCK_BLOG_POSTS)
+    setLoading(false)
   }, [])
+
 
   const categories = [
     'All',
@@ -140,16 +109,29 @@ export default function BlogPage() {
                             <span className="px-4 py-1 bg-white/90 backdrop-blur-sm text-maple-black text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm">{post.category}</span>
                           </div>
                         </div>
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-4 text-xs text-neutral-400">
-                            <span className="flex items-center gap-2"><Calendar size={14} /> {new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-                            <span className="flex items-center gap-2"><User size={14} /> Admin</span>
+                        <div className="flex flex-col flex-1 p-8">
+                          <div className="flex items-center gap-4 text-sm text-neutral-500 mb-4">
+                            <span className="text-maple-red font-bold uppercase tracking-wider">{post.category}</span>
+                            <span>•</span>
+                            <div className="flex items-center gap-1.5">
+                              <Calendar size={14} />
+                              {new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                            </div>
                           </div>
-                          <h3 className="text-2xl font-bold text-maple-black group-hover:text-maple-red transition-colors leading-tight">{post.title}</h3>
-                          <p className="text-neutral-500 font-light line-clamp-2 leading-relaxed">{post.excerpt}</p>
-                          <a href={`/blog/${post.id}`} className="inline-flex items-center gap-2 text-maple-black font-bold text-sm group/link">
-                            Read More <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                          </a>
+                          
+                          <h3 className="text-2xl md:text-3xl font-display font-bold text-maple-black mb-4 group-hover:text-maple-red transition-colors leading-tight">
+                            {post.title}
+                          </h3>
+                          
+                          <p className="text-neutral-500 font-light leading-relaxed mb-8 flex-1">
+                            {post.excerpt}
+                          </p>
+                          
+                          <div className="flex items-center text-maple-red font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+                            <Link href={`/blog/${post.slug || post.id}`} className="absolute inset-0 z-10"><span className="sr-only">Read more</span></Link>
+                            <span>Read Full Article</span>
+                            <ArrowRight size={16} />
+                          </div>
                         </div>
                       </div>
                     ))}

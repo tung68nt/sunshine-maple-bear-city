@@ -31,15 +31,32 @@ export function Header() {
   }, [isMenuOpen])
 
   const navItems = [
-    { label: 'About', href: '/about', children: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Facilities', href: '/gallery' },
-      { label: 'Our Team', href: '/about#team' },
-      { label: 'FAQ', href: '/faq' },
+    { label: 'About Us', href: '/about', children: [
+      { label: 'Welcome to Sunshine', href: '/about' },
+      { label: 'Our Philosophy & Core Values', href: '/about#philosophy' },
+      { label: 'Leadership & Faculty', href: '/about#team' },
+      { label: 'Facilities & Campus', href: '/gallery' },
+      { label: 'Careers', href: '/contact' },
     ]},
-    { label: 'Curriculum', href: '/curriculum' },
-    { label: 'Events', href: '/events' },
-    { label: 'News', href: '/blog' },
+    { label: 'Academics', href: '/curriculum', children: [
+      { label: 'Canadian Immersion Methodology', href: '/curriculum' },
+      { label: 'Early Years (18mo - 3yo)', href: '/curriculum#early-years' },
+      { label: 'Kindergarten (3yo - 6yo)', href: '/curriculum#kindergarten' },
+      { label: 'Extracurricular Activities', href: '/events' },
+    ]},
+    { label: 'Community', href: '/blog', children: [
+      { label: 'News & Insights', href: '/blog' },
+      { label: 'School Events', href: '/events' },
+      { label: 'Parent Portal', href: '/login' },
+      { label: 'Safeguarding & Child Protection', href: '/privacy' },
+      { label: 'Health & Nutrition', href: '/about#health' },
+    ]},
+    { label: 'Admissions', href: '/admission', children: [
+      { label: 'Admissions Process', href: '/admission' },
+      { label: 'Tuition Fees & Scholarships', href: '/admission#fees' },
+      { label: 'Book a School Tour', href: '/tour-booking' },
+      { label: 'Frequently Asked Questions', href: '/faq' },
+    ]},
     { label: 'Contact', href: '/contact' },
   ]
 
@@ -95,8 +112,8 @@ export function Header() {
                     </Link>
                     
                     {item.children && (
-                      <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
-                        <ul className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-neutral-100 overflow-hidden w-56 p-2">
+                      <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                        <ul className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-neutral-100 overflow-hidden w-72 p-2">
                           {item.children.map((child) => (
                             <li key={child.href}>
                               <Link

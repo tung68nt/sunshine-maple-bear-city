@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit, Inter, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ChatWidget } from '@/components/chat-widget'
+import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 import './globals.css'
 
 const displayFont = Outfit({
@@ -67,6 +68,7 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground">
         {children}
         <ChatWidget />
+        <ExitIntentPopup />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

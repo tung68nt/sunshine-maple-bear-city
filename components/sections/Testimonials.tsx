@@ -75,15 +75,15 @@ export function Testimonials() {
             return (
               <div
                 key={idx}
-                className="philosophy-card scroll-animate fade-up group bg-white p-8 md:p-10 rounded-3xl border border-[var(--color-gray-light)] card-hover relative overflow-hidden"
+                className="philosophy-card scroll-animate fade-up group bg-white p-8 md:p-10 rounded-3xl border border-[var(--color-gray-light)] card-hover relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
               >
-                {/* Decorative accent */}
+                {/* Clean Top Accent Line instead of thick left border */}
                 <div 
-                  className="absolute top-0 left-0 w-1.5 h-full rounded-l-3xl transition-all duration-500 group-hover:w-2"
+                  className="absolute top-0 left-0 w-full h-1.5 transition-all duration-500 opacity-80"
                   style={{ backgroundColor: item.color }}
                 />
                 
-                <div className="flex gap-6 items-start pl-4">
+                <div className="flex flex-col sm:flex-row gap-6 items-start mt-2">
                   <div 
                     className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                     style={{ backgroundColor: item.color }}
