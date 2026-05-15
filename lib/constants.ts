@@ -158,41 +158,7 @@ export const GRADE_LEVELS = {
   POLAR: { id: 'polar', label: 'Polar Bears', age: '4 - 5 years' },
 }
 
-export const MOCK_BLOG_POSTS = [
-  {
-    id: '1',
-    title: 'Sunshine Talk English Speech Contest 2026 Launched',
-    titleEn: 'Sunshine Talk English Speech Contest 2026 Launched',
-    excerpt: 'Enhancing academic excellence and building confident English communication skills through our annual speech competition.',
-    excerptEn: 'Enhancing academic excellence and building confident English communication skills through our annual speech competition.',
-    date: '2026-04-23',
-    category: 'Events',
-    categoryEn: 'Events',
-    image: SCHOOL_IMAGES.render.lopHoc1,
-  },
-  {
-    id: '2',
-    title: 'Spelling Bee 2025 — School-Wide English Spelling Contest',
-    titleEn: 'Spelling Bee 2025 — School-Wide English Spelling Contest',
-    excerpt: 'One of our key educational objectives at Maple Bear is comprehensive language skills development for every learner.',
-    excerptEn: 'One of our key educational objectives at Maple Bear is comprehensive language skills development for every learner.',
-    date: '2025-11-17',
-    category: 'News',
-    categoryEn: 'News',
-    image: SCHOOL_IMAGES.render.lopHoc2,
-  },
-  {
-    id: '3',
-    title: 'Grand Opening Celebration — A New Era at SMB Schools',
-    titleEn: 'Grand Opening Celebration — A New Era at SMB Schools',
-    excerpt: 'Sharing in the excitement with students nationwide, the opening ceremony at SMB was truly a memorable milestone.',
-    excerptEn: 'Sharing in the excitement with students nationwide, the opening ceremony at SMB was truly a memorable milestone.',
-    date: '2025-09-06',
-    category: 'Events',
-    categoryEn: 'Events',
-    image: SCHOOL_IMAGES.render.hanhLang1,
-  },
-]
+export const MOCK_BLOG_POSTS = []; // Moved to lib/blog-data.ts
 
 export const MOCK_EVENTS = [
   {
