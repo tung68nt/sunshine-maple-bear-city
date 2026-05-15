@@ -12,7 +12,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   // Force light theme for pages without hero banners
-  const forceLight = pathname.startsWith('/blog/') || pathname === '/contact' || pathname === '/admission' || pathname.startsWith('/events/') || pathname === '/faq'
+  const forceLight = pathname.startsWith('/blog/') || pathname === '/contact' || pathname.startsWith('/admissions') || pathname.startsWith('/events/') || pathname === '/faq' || pathname.startsWith('/community/') || pathname.startsWith('/academics/')
   const isLight = isScrolled || forceLight
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export function Header() {
                 <span className={`text-sm md:text-base font-display font-bold tracking-tight leading-none transition-colors ${isLight ? 'text-maple-black' : 'text-white'}`}>
                   SUNSHINE MAPLE BEAR
                 </span>
-                <span className={`text-[6px] md:text-[7px] font-display font-bold uppercase tracking-[0.15em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
+                <span className={`text-[8px] md:text-[9px] font-display font-bold uppercase tracking-[0.2em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
                   International Kindergarten
                 </span>
               </div>
@@ -139,10 +139,10 @@ export function Header() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/admissions"
-                  className={`px-6 py-2.5 text-sm font-bold border-2 rounded-full transition-all ${
+                  className={`px-6 py-2.5 text-xs font-bold rounded-full transition-all shadow-lg active:scale-95 ${
                     isLight
-                      ? 'border-maple-black text-maple-black hover:bg-maple-black hover:text-white'
-                      : 'border-white text-white hover:bg-white hover:text-maple-black'
+                      ? 'bg-maple-black text-white hover:bg-neutral-800 shadow-neutral-200'
+                      : 'bg-white text-maple-black hover:bg-neutral-100 shadow-white/10'
                   }`}
                 >
                   Admissions
