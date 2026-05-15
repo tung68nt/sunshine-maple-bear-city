@@ -75,26 +75,20 @@ export function Testimonials() {
             return (
               <div
                 key={idx}
-                className="philosophy-card scroll-animate fade-up group bg-white p-8 md:p-10 rounded-3xl border border-[var(--color-gray-light)] card-hover relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                className="philosophy-card scroll-animate fade-up group bg-white p-8 md:p-10 rounded-[40px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden"
               >
-                {/* Clean Top Accent Line instead of thick left border */}
-                <div 
-                  className="absolute top-0 left-0 w-full h-1.5 transition-all duration-500 opacity-80"
-                  style={{ backgroundColor: item.color }}
-                />
-                
-                <div className="flex flex-col sm:flex-row gap-6 items-start mt-2">
+                <div className="flex flex-col sm:flex-row gap-6 items-start">
                   <div 
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                    className="w-16 h-16 rounded-3xl flex items-center justify-center flex-shrink-0 text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg shadow-current/20"
                     style={{ backgroundColor: item.color }}
                   >
-                    <Icon size={28} strokeWidth={1.8} />
+                    <Icon size={32} strokeWidth={1.5} />
                   </div>
-                  <div className="flex-1 space-y-3">
-                    <h3 className="text-xl font-display font-bold text-[var(--color-dark)] group-hover:text-[var(--color-primary)] transition-colors">
+                  <div className="flex-1 space-y-4">
+                    <h3 className="text-2xl font-display font-bold text-[var(--color-dark)] group-hover:text-[var(--color-primary)] transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-[var(--color-gray)] text-sm leading-relaxed">
+                    <p className="text-[var(--color-gray)] text-base leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
                       {item.desc}
                     </p>
                   </div>
