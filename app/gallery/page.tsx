@@ -177,38 +177,70 @@ export default function GalleryPage() {
 
         {/* Lightbox Modal */}
         {selectedImage !== null && (
-          <div className="fixed inset-0 z-[10000] bg-black/95 flex items-center justify-center p-4">
-            <button 
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-8 right-8 text-white/60 hover:text-white transition-colors"
-            >
-              <X size={40} />
-            </button>
+          <div className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-between p-4 md:p-8">
+            <div className="absolute inset-0" onClick={() => setSelectedImage(null)} />
             
             <button 
-              onClick={() => setSelectedImage((selectedImage - 1 + images.length) % images.length)}
-              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors"
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 md:top-8 md:right-8 text-white/60 hover:text-white transition-colors z-10 bg-black/20 hover:bg-black/40 rounded-full p-2"
             >
-              <ChevronLeft size={60} />
+              <X size={32} />
             </button>
- 
-            <button 
-              onClick={() => setSelectedImage((selectedImage + 1) % images.length)}
-              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors"
-            >
-              <ChevronRight size={60} />
-            </button>
- 
-            <div className="relative w-full max-w-5xl aspect-video md:aspect-[21/9]">
-              <Image
-                src={images[selectedImage].image_url}
-                alt={images[selectedImage].title || 'Gallery Image'}
-                fill
-                className="object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 text-center p-6 bg-gradient-to-t from-black/60 to-transparent">
-                <p className="text-white text-lg font-medium">{images[selectedImage].title}</p>
-                <p className="text-white/40 text-sm">{selectedImage + 1} / {images.length}</p>
+            
+            {/* Top Bar with Title */}
+            <div className="w-full max-w-7xl flex justify-between items-center z-10 mb-4">
+              <div className="text-white">
+                <h3 className="text-xl md:text-2xl font-medium">{images[selectedImage].title}</h3>
+                <p className="text-white/50 text-sm">{selectedImage + 1} of {images.length}</p>
+              </div>
+            </div>
+            
+            {/* Main Image Container */}
+            <div className="relative w-full max-w-7xl flex-1 flex items-center justify-center min-h-0 z-10 my-4">
+              <button 
+                onClick={(e) => { e.stopPropagation(); setSelectedImage((selectedImage - 1 + images.length) % images.length); }}
+                className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors bg-black/20 hover:bg-black/60 p-3 md:p-4 rounded-full z-20"
+              >
+                <ChevronLeft size={40} />
+              </button>
+   
+              <button 
+                onClick={(e) => { e.stopPropagation(); setSelectedImage((selectedImage + 1) % images.length); }}
+                className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors bg-black/20 hover:bg-black/60 p-3 md:p-4 rounded-full z-20"
+              >
+                <ChevronRight size={40} />
+              </button>
+   
+              <div className="relative w-full h-full max-h-[70vh]">
+                <Image
+                  src={images[selectedImage].image_url}
+                  alt={images[selectedImage].title || 'Gallery Image'}
+                  fill
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+            </div>
+            
+            {/* Thumbnail Strip */}
+            <div className="w-full max-w-7xl h-24 mt-auto z-10 hidden md:block">
+              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide snap-x">
+                {images.map((img, idx) => (
+                  <div 
+                    key={idx}
+                    onClick={() => setSelectedImage(idx)}
+                    className={`relative h-20 w-32 flex-shrink-0 cursor-pointer rounded-lg overflow-hidden snap-center transition-all duration-300 ${
+                      selectedImage === idx ? 'ring-2 ring-white opacity-100 scale-105' : 'opacity-40 hover:opacity-100'
+                    }`}
+                  >
+                    <Image
+                      src={img.image_url}
+                      alt={img.title || `Thumbnail ${idx}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

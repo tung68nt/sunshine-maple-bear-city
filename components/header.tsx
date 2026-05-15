@@ -70,8 +70,8 @@ export function Header() {
                 <span className={`text-base md:text-lg font-display font-bold tracking-tight leading-none transition-colors ${isLight ? 'text-maple-black' : 'text-white'}`}>
                   SUNSHINE
                 </span>
-                <span className={`text-[7px] md:text-[9px] font-display font-bold uppercase tracking-[0.25em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
-                  Maple Bear
+                <span className={`text-[7px] md:text-[8px] font-display font-bold uppercase tracking-[0.15em] leading-tight transition-colors ${isLight ? 'text-maple-red' : 'text-maple-gold'}`}>
+                  Maple Bear Int'l Kindergarten
                 </span>
               </div>
             </Link>

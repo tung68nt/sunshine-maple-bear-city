@@ -181,7 +181,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20">
-          <p className="text-white/50">&copy; {currentYear} Sunshine Maple Bear. All rights reserved.</p>
+          <p className="text-white/50">&copy; {currentYear} Sunshine Maple Bear International Kindergarten. All rights reserved.</p>
           <nav className="flex gap-8" aria-label="Legal links">
             <Link href="/privacy" className="text-white/40 hover:text-white/80 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-white/40 hover:text-white/80 transition-colors">Terms of Use</Link>
