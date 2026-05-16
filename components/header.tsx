@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
+import { LanguageSwitcher } from './language-switcher'
 
 export function Header() {
   const pathname = usePathname()
@@ -138,6 +139,7 @@ export function Header() {
             {/* Action Bar */}
             <div className="hidden lg:flex items-center gap-4">
               <div className="flex items-center gap-2">
+                <LanguageSwitcher isLight={isLight} />
                 <Link
                   href="/admissions"
                   className={`px-6 py-2.5 text-xs font-bold rounded-full transition-all shadow-lg active:scale-95 ${
@@ -227,6 +229,9 @@ export function Header() {
           </nav>
 
           <div className="flex flex-col gap-4 w-full max-w-sm mt-8 pt-8 border-t border-[var(--color-gray-light)]">
+            <div className="flex justify-center mb-2">
+              <LanguageSwitcher isLight={true} />
+            </div>
             <Link
               href="/tour-booking"
               className="flex items-center justify-center gap-2 w-full py-4 bg-[var(--color-primary)] text-white font-display font-bold rounded-2xl text-lg"

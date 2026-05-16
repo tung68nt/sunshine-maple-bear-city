@@ -3,6 +3,7 @@ import { Outfit, Inter, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ChatWidget } from '@/components/chat-widget'
 import { ExitIntentPopup } from '@/components/ExitIntentPopup'
+import { GoogleTranslate } from '@/components/google-translate'
 import './globals.css'
 
 const displayFont = Outfit({
@@ -66,6 +67,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://pvdos3hwo8pzdj8j8j8j.supabase.co" />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
+        <GoogleTranslate />
         {children}
         <ChatWidget />
         <ExitIntentPopup />
