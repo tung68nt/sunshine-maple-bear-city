@@ -31,14 +31,6 @@ import {
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
 import { PageSectionBlock } from '@/lib/supabase'
-import {
-  getHomepageSectionsConfig,
-  saveHomepageSectionsConfig,
-  getHomepageVariants,
-  saveHomepageVariants,
-  HomepageSection,
-  HomepageVariant
-} from '@/lib/homepage-builder'
 
 type StaticPage = {
   id: string
@@ -107,54 +99,62 @@ const presetTemplates = [
     description: 'Detailed developmental stages for Toddler, Nursery, JK, and SK classes.',
     icon: FileText,
     apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Age-Appropriate Canadian Learning Pathways',
-      bodyParagraph: 'Our early childhood curriculum is divided into 4 tailored age groups: Toddler (12-24M), Nursery (2-3Y), Junior Kindergarten (3-4Y), and Senior Kindergarten (4-5Y).',
+      bannerTag: 'CURRICULUM STAGES',
+      bannerTitle: 'Age-Appropriate Canadian Programs',
+      bodyTitle: 'Four Developmental Stages (12 Months to 5 Years)',
+      bodyParagraph: 'Every age group benefits from a tailored bilingual curriculum designed to foster emotional resilience, social skills, and academic readiness.',
       featurePoints: [
-        'Toddler (12M-24M): Sensory exploration & physical coordination.',
-        'Nursery (2Y-3Y): Social emotional growth & natural English immersion.',
-        'Junior Kindergarten (3Y-4Y): Jolly Phonics phonetics & mathematical logic.',
-        'Senior Kindergarten (4Y-5Y): STEAM inquiry & primary school readiness.'
+        'Toddler Program (12M - 24M): Sensory exploration and gentle language immersion.',
+        'Nursery Program (2Y - 3Y): Social connection, storytime, and creative arts.',
+        'Junior Kindergarten (3Y - 4Y): Bilingual literacy, math concepts, and STEAM discovery.',
+        'Senior Kindergarten (4Y - 5Y): Primary school readiness, critical thinking, and confidence.'
       ]
     })
   },
   {
-    id: 'daily-schedule',
-    title: 'Template 04: Daily Activity Flow & Routine',
-    description: 'Structured daily rhythm from morning health check to outdoor sports.',
+    id: 'extracurricular',
+    title: 'Template 04: Extracurricular & After-School Clubs',
+    description: 'Clubs including Swimming, Music & Dance, Fine Arts, and Chess.',
     icon: Sparkles,
     apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'A Day at Sunshine Maple Bear',
-      bodyParagraph: 'Children thrive in a structured, joyful rhythm combining academic discovery, creative art, organic nutrition, and active outdoor play.',
+      bannerTag: 'BEYOND THE CLASSROOM',
+      bannerTitle: 'Enriching After-School Activities',
+      bodyTitle: 'Holistic Talent & Sports Discovery',
+      bodyParagraph: 'Children develop physical strength, artistic expression, and team collaboration through our 5-star extracurricular clubs.',
       featurePoints: [
-        '07:30 AM - Morning Health Check & Welcome Circle.',
-        '08:30 AM - Jolly Phonics & English Immersion Discovery.',
-        '11:30 AM - Organic 5-Star Lunch & Rest Time.',
-        '03:00 PM - Afternoon STEAM Activity & Outdoor Playground.'
+        'Maple Bear Swim Academy: Year-round heated 5-star pool instruction.',
+        'Canadian Performing Arts & Rhythm Club.',
+        'Little Mozart Piano & Fine Arts Studio.',
+        'STEAM & Robotics Discovery Club.'
       ]
     })
   },
   {
     id: 'nutrition',
-    title: 'Template 05: 5-Star Organic Culinary & Nutrition Program',
-    description: 'Organic meal schedule, pediatric diet planning, and kitchen hygiene.',
+    title: 'Template 05: Organic 5-Star Nutrition Program',
+    description: 'Organic farm-to-table menu curated by pediatric nutritionists.',
     icon: ShieldCheck,
     apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Organic Nutrition & Food Safety Guarantee',
-      bodyParagraph: 'Every meal served at Sunshine Maple Bear is prepared fresh in our 5-star on-site kitchen using 100% certified organic ingredients from accredited farms.',
+      bannerTag: 'HEALTHY GROWING KIDS',
+      bannerTitle: 'Organic Farm-to-Table Meals',
+      bodyTitle: 'Curated 5-Meal Daily Nutrition',
+      bodyParagraph: 'Prepared fresh daily in our 1-way commercial kitchen using certified organic produce.',
       featurePoints: [
-        '100% Certified organic vegetables and fresh meat suppliers.',
-        'Calorie-balanced menus designed by pediatric nutritionists.',
-        'Strict 5-star kitchen hygiene & 24-hour food sample storage.'
+        'Breakfast, Morning Snack, Organic Lunch, Afternoon Tea, and Evening Snack.',
+        'Zero artificial preservatives or refined sugar.',
+        'Customized allergen-free alternatives for sensitive children.'
       ]
     })
   },
   {
-    id: 'calendar',
-    title: 'Template 06: Academic Calendar & 4 School Terms',
-    description: 'School term breakdown, holiday schedules, and annual cultural events.',
-    icon: Layers,
+    id: 'academic-calendar',
+    title: 'Template 06: School Term & Event Calendar',
+    description: 'Key dates, term breaks, STEAM fairs, and graduation ceremonies.',
+    icon: FileText,
     apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Academic School Terms & Important Events',
+      bannerTag: 'ACADEMIC SCHEDULE 2026',
+      bannerTitle: 'School Year Calendar & Key Dates',
+      bodyTitle: 'Four Engaging Learning Terms',
       bodyParagraph: 'The academic year spans from August through July, structured into 4 vibrant terms featuring STEAM discovery fairs, sports days, and graduation concerts.',
       featurePoints: [
         'Term 1: Fall Semester (August - October).',
@@ -162,121 +162,6 @@ const presetTemplates = [
         'Term 3: Spring Discovery & STEAM Fair (February - April).',
         'Term 4: Summer Immersion & Graduation (May - July).'
       ]
-    })
-  },
-  {
-    id: 'admissions-process',
-    title: 'Template 07: 4-Step Admissions Application Guide',
-    description: 'Clear 4-step enrollment journey from tour booking to welcome kit.',
-    icon: ExternalLink,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Simple 4-Step Enrollment Process',
-      bodyParagraph: 'We make joining the Sunshine Maple Bear family warm, supportive, and convenient for parents.',
-      featurePoints: [
-        'Step 1: Register online enquiry or book a campus visit.',
-        'Step 2: Campus tour & Academic consultation with Principal.',
-        'Step 3: Gentle child observation & play interaction.',
-        'Step 4: Formal enrollment confirmation & welcome uniform kit.'
-      ]
-    })
-  },
-  {
-    id: 'tuition-table',
-    title: 'Template 08: Tuition Fee Structure 2026 Table',
-    description: 'Transparent all-inclusive fee schedule by age group.',
-    icon: Globe,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Transparent International Standard Fees',
-      bodyParagraph: 'Tuition fees cover full-day English immersion, organic meal service, learning kits, field trips, and campus facility access.',
-      featurePoints: [
-        'Toddler Program (12M-24M): 14,500,000 VND / Month.',
-        'Nursery Program (2Y-3Y): 15,800,000 VND / Month.',
-        'Kindergarten Program (3Y-5Y): 17,200,000 VND / Month.'
-      ]
-    })
-  },
-  {
-    id: 'founding-families',
-    title: 'Template 09: Founding Families Special Incentive (20% Lifetime)',
-    description: 'Lifetime 20% tuition discount package for first 50 registered families.',
-    icon: Sparkles,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bannerTag: 'EXCLUSIVE FOUNDING PRIVILEGES',
-      bannerTitle: 'Founding Families Program 2026',
-      bannerSubheading: 'Lifetime Privileges for First 50 Families',
-      bodyTitle: 'Exclusive Lifetime Enrollment Privileges',
-      bodyParagraph: 'As a Founding Family at Sunshine City Campus, you enjoy a 20% lifetime tuition discount for your child’s entire enrollment duration.',
-      featurePoints: [
-        '20% Lifetime Tuition Discount for full enrollment duration.',
-        '100% Exemption of Facilities & Application Fee (15,000,000 VND value).',
-        'Complimentary Canadian Uniform & Welcome Backpack Kit.'
-      ]
-    })
-  },
-  {
-    id: 'health-safety',
-    title: 'Template 10: Health, Safety & Medical Care Protocol',
-    description: 'Daily morning health checks, 5-star clinic, and HEPA air purifiers.',
-    icon: ShieldCheck,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: '5-Star Medical Clinic & Campus Hygiene',
-      bodyParagraph: 'Our full-time registered nurses conduct daily health checks and enforce strict medical protocols to ensure every child is safe and protected.',
-      featurePoints: [
-        'Daily morning temperature and physical health checks.',
-        'HEPA air purification & non-toxic organic sanitization.',
-        'Full-time registered nurses on-site at 5-star medical clinic.'
-      ]
-    })
-  },
-  {
-    id: 'safeguarding',
-    title: 'Template 11: Child Safeguarding & Safety Audit Commitment',
-    description: 'Zero-tolerance child protection and annual Canadian safety audits.',
-    icon: ShieldCheck,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Canadian International Child Protection Commitment',
-      bodyParagraph: 'Sunshine Maple Bear enforces a zero-tolerance child safeguarding policy, adhering strictly to Canadian International Safety Standards.',
-      featurePoints: [
-        '100% staff background checks & credential verification.',
-        'Mandatory annual safeguarding & child protection training.',
-        'Unannounced safety audits by Maple Bear Global Quality Faculty.'
-      ]
-    })
-  },
-  {
-    id: 'testimonials',
-    title: 'Template 12: Parent Testimonials & Satisfaction Reviews',
-    description: 'Reviews and satisfaction quotes from parents of enrolled students.',
-    icon: Quote,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'What Parents Say About Sunshine Maple Bear',
-      bodyParagraph: '"Sending our child to Sunshine Maple Bear was the best decision we made. The teachers are incredibly caring and our daughter speaks English naturally every day!" — Parent of JK Class Student.',
-    })
-  },
-  {
-    id: 'faq',
-    title: 'Template 13: FAQ & School Regulations Accordion',
-    description: 'Frequently asked questions and policy rules for parents.',
-    icon: HelpCircle,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bodyTitle: 'Frequently Asked Questions & Guidelines',
-      featurePoints: [
-        'What are the school drop-off and pick-up hours? (07:30 AM - 05:30 PM)',
-        'How are meals prepared? (100% organic ingredients in 5-star on-site kitchen)',
-        'What is the teacher-to-student ratio? (1:5 for Toddlers, 1:8 for Kindergarten)'
-      ]
-    })
-  },
-  {
-    id: 'cta',
-    title: 'Template 14: Tour Booking CTA Banner',
-    description: 'High-contrast banner inviting parents to book a campus tour.',
-    icon: Megaphone,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      ctaPrimaryText: 'Book a Campus Tour Now',
-      ctaPrimaryUrl: '/#contact-us',
-      ctaSecondaryText: 'Explore Tuition Fees',
-      ctaSecondaryUrl: '/admissions/tuition'
     })
   }
 ]
@@ -286,13 +171,13 @@ const initialPages: StaticPage[] = Object.values(staticPagesRegistry) as any
 export default function AdminPagesPage() {
   const [pages, setPages] = useState<StaticPage[]>(initialPages)
   const [activePageId, setActivePageId] = useState<string | null>(null)
+  const [defaultHomepageId, setDefaultHomepageId] = useState<string>('0') // ID 0 is '/'
   const [leftTab, setLeftTab] = useState<'WIDGETS' | 'FIELDS' | 'SEO'>('WIDGETS')
   const [editingSectionIdx, setEditingSectionIdx] = useState<number>(0)
   const [searchTerm, setSearchTerm] = useState('')
   const [categoryFilter, setCategoryFilter] = useState<string>('ALL')
   const [savedSuccess, setSavedSuccess] = useState(false)
   const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(true)
-  const [contentEditLang, setContentEditLang] = useState<'vi' | 'en'>('vi')
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
 
   // Create Static Page Modal State
@@ -305,6 +190,9 @@ export default function AdminPagesPage() {
     const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
     setAdminUiLang(saved)
 
+    const savedHp = localStorage.getItem('smb_default_homepage_id')
+    if (savedHp) setDefaultHomepageId(savedHp)
+
     const handleLangChange = (e: CustomEvent) => {
       if (e.detail === 'vi' || e.detail === 'en') {
         setAdminUiLang(e.detail)
@@ -315,63 +203,10 @@ export default function AdminPagesPage() {
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
-  // Homepage Section Builder & Variant Selection State
-  const [activeTabMode, setActiveTabMode] = useState<'HOMEPAGE_BUILDER' | 'PAGES_TABLE'>('HOMEPAGE_BUILDER')
-  const [homepageSections, setHomepageSections] = useState<HomepageSection[]>([])
-  const [homepageVariants, setHomepageVariants] = useState<HomepageVariant[]>([])
-
-  useEffect(() => {
-    setHomepageSections(getHomepageSectionsConfig().sort((a, b) => a.order - b.order))
-    setHomepageVariants(getHomepageVariants())
-  }, [])
-
-  const handleSetDefaultVariant = (variantId: string) => {
-    const updated = homepageVariants.map(v => ({
-      ...v,
-      isDefault: v.id === variantId
-    }))
-    setHomepageVariants(updated)
-    saveHomepageVariants(updated)
+  const handleSetDefaultHomepage = (pageId: string) => {
+    setDefaultHomepageId(pageId)
+    localStorage.setItem('smb_default_homepage_id', pageId)
   }
-
-  const handleToggleSectionEnabled = (secId: string) => {
-    const updated = homepageSections.map(s => s.id === secId ? { ...s, enabled: !s.enabled } : s)
-    setHomepageSections(updated)
-    saveHomepageSectionsConfig(updated)
-    window.dispatchEvent(new Event('smbHomepageConfigChange'))
-  }
-
-  const handleMoveHomepageSectionUp = (idx: number) => {
-    if (idx === 0) return
-    const copy = [...homepageSections]
-    const tempOrder = copy[idx].order
-    copy[idx].order = copy[idx - 1].order
-    copy[idx - 1].order = tempOrder
-    copy.sort((a, b) => a.order - b.order)
-    setHomepageSections(copy)
-    saveHomepageSectionsConfig(copy)
-    window.dispatchEvent(new Event('smbHomepageConfigChange'))
-  }
-
-  const handleMoveHomepageSectionDown = (idx: number) => {
-    if (idx >= homepageSections.length - 1) return
-    const copy = [...homepageSections]
-    const tempOrder = copy[idx].order
-    copy[idx].order = copy[idx + 1].order
-    copy[idx + 1].order = tempOrder
-    copy.sort((a, b) => a.order - b.order)
-    setHomepageSections(copy)
-    saveHomepageSectionsConfig(copy)
-    window.dispatchEvent(new Event('smbHomepageConfigChange'))
-  }
-
-  // Elementor Page Section Stack State
-  const [sectionsStack, setSectionsStack] = useState<SectionBlock[]>([
-    { id: 'sec-1', type: 'HERO', title: 'Header Hero Banner Section' },
-    { id: 'sec-2', type: 'BODY', title: 'Main Body Paragraph & Description' },
-    { id: 'sec-3', type: 'FEATURES', title: '3-Card Feature Highlights Grid' },
-    { id: 'sec-4', type: 'CTA', title: 'Tour Booking Call-To-Action Banner' }
-  ])
 
   const activePage = pages.find(p => p.id === activePageId)
 
@@ -405,7 +240,12 @@ export default function AdminPagesPage() {
       ctaSecondaryUrl: '/academics/age-groups',
       seoTitle: `${newPageTitle} | Sunshine Maple Bear Hanoi`,
       seoDescription: `Learn about ${newPageTitle} at Sunshine Maple Bear International Kindergarten Hanoi.`,
-      ogImage: '/images/render/LOP_HOC_DIEN_HINH_1_.jpg'
+      ogImage: '/images/render/LOP_HOC_DIEN_HINH_1_.jpg',
+      sectionsStack: [
+        { id: `sec-${Date.now()}-1`, type: 'HERO', title: `${newPageTitle} Hero Banner` },
+        { id: `sec-${Date.now()}-2`, type: 'BODY', title: 'Main Description Paragraph' },
+        { id: `sec-${Date.now()}-3`, type: 'CTA', title: 'Tour Booking Call-To-Action' }
+      ]
     }
 
     setPages([newPage, ...pages])
@@ -416,65 +256,29 @@ export default function AdminPagesPage() {
   }
 
   const handleDeletePage = (id: string) => {
-    if (confirm(adminUiLang === 'vi' ? 'Bạn có chắc chắn muốn xóa trang tĩnh này không?' : 'Are you sure you want to delete this static page?')) {
+    if (confirm('Bạn có chắc chắn muốn xóa trang tĩnh này khỏi website?')) {
       setPages(pages.filter(p => p.id !== id))
       if (activePageId === id) setActivePageId(null)
     }
   }
 
-  const handleSwitchToSectionBuilder = (id: string) => {
-    setPages(pages.map(p => p.id === id ? { ...p, pageType: 'SECTION_BUILDER' } : p))
-  }
-
   const handleUpdatePageField = (field: keyof StaticPage, value: any) => {
-    if (!activePageId) return
-    setPages(pages.map(p => p.id === activePageId ? { ...p, [field]: value, lastUpdated: new Date().toLocaleDateString('en-GB') } : p))
-  }
-
-  const handleUpdateFeaturePoint = (index: number, value: string) => {
     if (!activePage) return
-    const updated = [...activePage.featurePoints]
-    updated[index] = value
-    handleUpdatePageField('featurePoints', updated)
+    setPages(pages.map(p => p.id === activePage.id ? { ...p, [field]: value } : p))
   }
 
-  const handleAddFeaturePoint = () => {
-    if (!activePage) return
-    handleUpdatePageField('featurePoints', [...activePage.featurePoints, 'New key feature point...'])
-  }
-
-  const handleRemoveFeaturePoint = (index: number) => {
-    if (!activePage) return
-    const updated = activePage.featurePoints.filter((_, i) => i !== index)
-    handleUpdatePageField('featurePoints', updated)
-  }
-
-  const handleApplyPresetTemplate = (preset: typeof presetTemplates[0]) => {
+  const handleAddSectionBlock = (type: SectionBlock['type']) => {
     if (!activePage) return
     const currentStack = activePage.sectionsStack || []
-    
-    // Map preset ID to PageSectionBlock type
-    let blockType: any = 'FEATURES'
-    if (preset.id === 'hero') blockType = 'HERO'
-    if (preset.id === 'age-groups') blockType = 'AGE_GROUPS'
-    if (preset.id === 'daily-schedule') blockType = 'DAILY_SCHEDULE'
-    if (preset.id === 'nutrition') blockType = 'NUTRITION'
-    if (preset.id === 'facilities') blockType = 'FACILITIES'
-    if (preset.id === 'calendar') blockType = 'CALENDAR'
-    if (preset.id === 'admissions-process') blockType = 'ADMISSIONS_PROCESS'
-    if (preset.id === 'tuition-table') blockType = 'TUITION_TABLE'
-
     const newBlock: PageSectionBlock = {
       id: `sec-${Date.now()}`,
-      type: blockType,
-      title_vi: preset.title,
-      title_en: preset.title
+      type: type,
+      title_vi: type === 'HERO' ? 'Khối Hero Banner Mới' : type === 'FEATURES' ? 'Khối Tính Năng Nổi Bật' : 'Khối Nội Dung Section',
+      title_en: type === 'HERO' ? 'New Hero Banner Section' : type === 'FEATURES' ? 'Key Features Grid' : 'Section Content Block'
     }
 
-    const updates = preset.apply(activePage)
     const updatedPage = {
       ...activePage,
-      ...updates,
       sectionsStack: [...currentStack, newBlock]
     }
     setPages(pages.map(p => p.id === activePage.id ? updatedPage : p))
@@ -540,331 +344,197 @@ export default function AdminPagesPage() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setActivePageId(null)}
-              className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-white transition-colors flex items-center gap-1.5 text-xs font-bold border border-neutral-700"
+              className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-white transition-colors flex items-center gap-1.5 text-xs font-bold border border-neutral-700 rounded-2xs"
             >
-              <ArrowLeft size={16} /> Exit Builder
+              <ArrowLeft size={16} /> Thoát Builder
             </button>
 
             <button
               onClick={() => setIsLeftPanelOpen(!isLeftPanelOpen)}
-              className="px-3 py-2 bg-maple-gold/20 hover:bg-maple-gold hover:text-[#1D1D1B] text-maple-gold border border-maple-gold/40 transition-colors text-xs font-bold flex items-center gap-1.5"
+              className="px-3 py-2 bg-maple-gold/20 hover:bg-maple-gold hover:text-[#1D1D1B] text-maple-gold border border-maple-gold/40 transition-colors text-xs font-bold flex items-center gap-1.5 rounded-2xs"
             >
               <LayoutGrid size={14} />
-              {isLeftPanelOpen ? '◀ Thu Gọn Panel Builder' : '▶ Mở Panel Builder'}
+              {isLeftPanelOpen ? '◀ Thu Gọn Panel' : '▶ Mở Panel Builder'}
             </button>
 
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono font-bold text-maple-gold">{activePage.path}</span>
-                {activePage.pageType === 'BLOG_CONVERTED' ? (
-                  <span className="px-2 py-0.5 bg-purple-900 text-purple-200 border border-purple-700 text-[10px] font-semibold rounded-2xs inline-flex items-center gap-1">
-                    📰 Chuyển từ Blog
-                  </span>
-                ) : (
-                  <span className="px-2 py-0.5 bg-blue-900 text-blue-200 border border-blue-700 text-[10px] font-semibold rounded-2xs inline-flex items-center gap-1">
-                    🧩 Section Builder
+                {activePage.id === defaultHomepageId && (
+                  <span className="px-2 py-0.5 bg-maple-red text-white font-extrabold text-[10px] uppercase rounded-2xs">
+                    🟢 TRANG CHỦ MẶC ĐỊNH
                   </span>
                 )}
               </div>
-              <h2 className="text-lg font-display font-extrabold text-white mt-0.5">
-                {activePage.title}
-              </h2>
+              <h2 className="text-lg font-display font-extrabold text-white">{activePage.title}</h2>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            {activePage.pageType === 'BLOG_CONVERTED' && (
-              <button
-                onClick={() => handleSwitchToSectionBuilder(activePage.id)}
-                className="px-3 py-1.5 bg-purple-900 hover:bg-purple-800 text-white text-xs font-semibold border border-purple-700 transition-colors flex items-center gap-1.5 rounded-2xs shadow-2xs"
-                title="Chuyển trang này sang cấu trúc Section Blocks"
-              >
-                <Layers size={14} /> Chuyển sang Section Builder
-              </button>
-            )}
-            {savedSuccess && (
-              <span className="px-3 py-1.5 bg-emerald-900 text-emerald-200 border border-emerald-700 text-xs font-bold flex items-center gap-1.5 animate-fade-in">
-                <CheckCircle2 size={14} /> Page Published!
-              </span>
-            )}
-
             <a
               href={activePage.path}
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 bg-neutral-800 text-white text-xs font-semibold border border-neutral-700 hover:bg-neutral-700 flex items-center gap-1.5 rounded-2xs"
+              className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-white transition-colors flex items-center gap-1.5 text-xs font-bold border border-neutral-700 rounded-2xs"
             >
-              <ExternalLink size={14} /> {adminUiLang === 'vi' ? 'Xem trang' : 'View Live Site'}
+              <Eye size={15} /> Xem Live Page ↗
             </a>
 
             <button
               onClick={handleSavePage}
-              className="px-3.5 py-1.5 bg-maple-red hover:bg-red-700 text-white text-xs font-semibold transition-colors border border-maple-red flex items-center gap-1.5 rounded-2xs shadow-2xs"
+              className="px-4 py-2 bg-maple-red hover:bg-red-700 text-white font-bold text-xs transition-colors flex items-center gap-1.5 shadow-md rounded-2xs"
             >
-              <Save size={15} /> {adminUiLang === 'vi' ? 'Lưu & Xuất bản' : 'Save & Publish'}
+              <Save size={16} /> Lưu Thay Đổi
             </button>
           </div>
         </div>
 
-        {/* ELEMENTOR 2-COLUMN WORKSPACE: LEFT WIDGET PALETTE (320px) | RIGHT LIVE STAGE (70%) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full">
+        {savedSuccess && (
+          <div className="p-3 bg-emerald-700 text-white font-extrabold text-xs flex items-center gap-2 rounded-2xs animate-fade-in">
+            <CheckCircle2 size={16} /> Đã lưu thành công nội dung trang [{activePage.title}] vào hệ thống!
+          </div>
+        )}
+
+        {/* Builder Main Workspace Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
           
-          {/* ------------------------------------------------------------- */}
-          {/* LEFT COLUMN: ELEMENTOR WIDGET PALETTE & SECTION SETTINGS */}
-          {/* ------------------------------------------------------------- */}
+          {/* Left Elementor Tool Sidebar (4 cols) */}
           {isLeftPanelOpen && (
-            <div className="lg:col-span-4 bg-white border border-neutral-300 shadow-md overflow-hidden space-y-0 animate-fade-in">
-              
-              {/* Widget Palette Navigation Tabs (Sleek Dark Segmented Bar) */}
-              <div className="p-2 bg-[#151513] border-b border-neutral-800 flex gap-1">
+            <div className="lg:col-span-4 bg-white border border-neutral-300 rounded-2xs shadow-md overflow-hidden space-y-4">
+              <div className="flex border-b border-neutral-200 bg-[#FDFBF7]">
                 <button
-                  type="button"
                   onClick={() => setLeftTab('WIDGETS')}
-                  className={`flex-1 py-2 px-1 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all whitespace-nowrap ${
-                    leftTab === 'WIDGETS'
-                      ? 'bg-maple-red text-white shadow-sm'
-                      : 'text-neutral-400 hover:text-white hover:bg-neutral-800'
+                  className={`flex-1 py-2.5 text-xs font-extrabold border-b-2 transition-colors ${
+                    leftTab === 'WIDGETS' ? 'border-maple-red text-maple-red bg-white' : 'border-transparent text-neutral-600'
                   }`}
                 >
-                  <LayoutGrid size={13} />
-                  <span>01. Widgets</span>
+                  🧩 Khối Widgets
                 </button>
-
                 <button
-                  type="button"
                   onClick={() => setLeftTab('FIELDS')}
-                  className={`flex-1 py-2 px-1 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all whitespace-nowrap ${
-                    leftTab === 'FIELDS'
-                      ? 'bg-maple-red text-white shadow-sm'
-                      : 'text-neutral-400 hover:text-white hover:bg-neutral-800'
+                  className={`flex-1 py-2.5 text-xs font-extrabold border-b-2 transition-colors ${
+                    leftTab === 'FIELDS' ? 'border-maple-red text-maple-red bg-white' : 'border-transparent text-neutral-600'
                   }`}
                 >
-                  <Settings2 size={13} />
-                  <span>02. Fields</span>
+                  ✍️ Sửa Nội Dung
                 </button>
-
                 <button
-                  type="button"
                   onClick={() => setLeftTab('SEO')}
-                  className={`flex-1 py-2 px-1 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all whitespace-nowrap ${
-                    leftTab === 'SEO'
-                      ? 'bg-maple-red text-white shadow-sm'
-                      : 'text-neutral-400 hover:text-white hover:bg-neutral-800'
+                  className={`flex-1 py-2.5 text-xs font-extrabold border-b-2 transition-colors ${
+                    leftTab === 'SEO' ? 'border-maple-red text-maple-red bg-white' : 'border-transparent text-neutral-600'
                   }`}
                 >
-                  <Globe size={13} />
-                  <span>03. SEO</span>
+                  🔍 Thẻ SEO
                 </button>
               </div>
 
-              {/* TAB 1: SECTION WIDGETS LIBRARY */}
+              {/* TAB 1: ADD WIDGET BLOCKS */}
               {leftTab === 'WIDGETS' && (
-                <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
+                <div className="p-4 space-y-3 max-h-[75vh] overflow-y-auto">
                   <div className="border-b border-neutral-200 pb-2">
-                    <span className="text-[10px] font-semibold text-maple-gold block">
-                      {adminUiLang === 'vi' ? 'BẢNG KHỐI GIAO DIỆN' : 'BLOCK SECTION PALETTE'}
-                    </span>
-                    <h4 className="text-sm font-display font-bold text-[#1D1D1B]">Click to Add Section Widget</h4>
+                    <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">Elementor Widget Library</span>
+                    <h4 className="text-sm font-display font-extrabold text-[#1D1D1B]">Thêm Khối Section Mới Vào Trang</h4>
                   </div>
 
-                  <div className="space-y-2.5">
-                    {presetTemplates.map((tmpl) => {
-                      const Icon = tmpl.icon
-                      return (
-                        <div
-                          key={tmpl.id}
-                          onClick={() => handleApplyPresetTemplate(tmpl)}
-                          className="p-3 bg-[#FDFBF7] border border-neutral-300 hover:border-maple-red hover:bg-white transition-all cursor-pointer flex items-center justify-between group shadow-2xs"
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 bg-white border border-neutral-200 group-hover:bg-maple-red group-hover:text-white transition-colors">
-                              <Icon size={16} />
-                            </div>
-                            <div>
-                              <h5 className="font-bold text-xs text-[#1D1D1B] group-hover:text-maple-red">{tmpl.title}</h5>
-                              <span className="text-[10px] text-neutral-500 line-clamp-1">{tmpl.description}</span>
-                            </div>
-                          </div>
-                          <Plus size={16} className="text-neutral-400 group-hover:text-maple-red flex-shrink-0" />
-                        </div>
-                      )
-                    })}
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => handleAddSectionBlock('HERO')}
+                      className="p-3 bg-[#FDFBF7] hover:bg-red-50 border border-neutral-300 hover:border-maple-red text-left rounded-2xs space-y-1 transition-all"
+                    >
+                      <ImageIcon size={18} className="text-maple-red" />
+                      <div className="font-bold text-xs text-maple-black">Hero Banner</div>
+                      <div className="text-[10px] text-neutral-500">Headline & Nút CTA</div>
+                    </button>
+
+                    <button
+                      onClick={() => handleAddSectionBlock('FEATURES')}
+                      className="p-3 bg-[#FDFBF7] hover:bg-red-50 border border-neutral-300 hover:border-maple-red text-left rounded-2xs space-y-1 transition-all"
+                    >
+                      <LayoutGrid size={18} className="text-maple-gold" />
+                      <div className="font-bold text-xs text-maple-black">Features Grid</div>
+                      <div className="text-[10px] text-neutral-500">Lưới 3 Điểm Nổi Bật</div>
+                    </button>
+
+                    <button
+                      onClick={() => handleAddSectionBlock('BODY')}
+                      className="p-3 bg-[#FDFBF7] hover:bg-red-50 border border-neutral-300 hover:border-maple-red text-left rounded-2xs space-y-1 transition-all"
+                    >
+                      <FileText size={18} className="text-blue-600" />
+                      <div className="font-bold text-xs text-maple-black">Body Text</div>
+                      <div className="text-[10px] text-neutral-500">Đoạn Văn Chi Tiết</div>
+                    </button>
+
+                    <button
+                      onClick={() => handleAddSectionBlock('CTA')}
+                      className="p-3 bg-[#FDFBF7] hover:bg-red-50 border border-neutral-300 hover:border-maple-red text-left rounded-2xs space-y-1 transition-all"
+                    >
+                      <Sparkles size={18} className="text-purple-600" />
+                      <div className="font-bold text-xs text-maple-black">CTA Banner</div>
+                      <div className="text-[10px] text-neutral-500">Khối Đặt Tour Ngay</div>
+                    </button>
                   </div>
                 </div>
               )}
 
-              {/* TAB 2: SECTION CONTENT FIELDS (MANUAL BILINGUAL EDITOR) */}
+              {/* TAB 2: EDIT CONTENT FIELDS */}
               {leftTab === 'FIELDS' && (
                 <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
-                  
-                  {/* Active Section Block Selector */}
-                  <div className="p-3 bg-[#151513] text-white border border-neutral-800 space-y-2 rounded-2xs shadow-xs">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-maple-gold">🎯 Chọn Khối Section Cần Biên Tập</span>
-                      <span className="text-[9px] text-neutral-400">{activePage.sectionsStack?.length || 0} Khối</span>
-                    </div>
-                    <select
-                      value={editingSectionIdx}
-                      onChange={(e) => setEditingSectionIdx(Number(e.target.value))}
-                      className="w-full p-2 bg-neutral-900 border border-neutral-700 text-xs font-bold text-white focus:outline-none focus:border-maple-gold rounded-2xs"
-                    >
-                      {activePage.sectionsStack?.map((sBlock, sIdx) => (
-                        <option key={sBlock.id || sIdx} value={sIdx}>
-                          Khối 0{sIdx + 1}: {sBlock.type} — {sBlock.title_vi || sBlock.title_en || sBlock.title || 'Mẫu Section'}
-                        </option>
-                      ))}
-                    </select>
+                  <div className="border-b border-neutral-200 pb-2">
+                    <span className="text-[10px] font-bold text-maple-gold uppercase tracking-wider block">Chỉnh Sửa Chi Tiết</span>
+                    <h4 className="text-sm font-display font-extrabold text-[#1D1D1B]">
+                      Khối Số {editingSectionIdx + 1}: {activePage.sectionsStack?.[editingSectionIdx]?.title_vi || 'Nội dung'}
+                    </h4>
                   </div>
 
-                  {/* Manual Bilingual Editor Switcher */}
-                  <div className="p-2.5 bg-neutral-900 text-white border border-neutral-800 space-y-2 rounded-2xs">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-semibold text-neutral-300">Biên tập Song ngữ Thủ công</span>
-                      <span className="text-[9px] text-neutral-400">Không dịch tự động</span>
-                    </div>
-                    <div className="flex gap-1 bg-neutral-950 p-1 border border-neutral-800 rounded-2xs">
-                      <button
-                        type="button"
-                        onClick={() => setContentEditLang('vi')}
-                        className={`flex-1 py-1.5 px-2 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 rounded-2xs ${
-                          contentEditLang === 'vi'
-                            ? 'bg-maple-red text-white shadow-xs'
-                            : 'text-neutral-400 hover:text-white'
-                        }`}
-                      >
-                        <span>🇻🇳</span>
-                        <span>Tiếng Việt</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setContentEditLang('en')}
-                        className={`flex-1 py-1.5 px-2 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 rounded-2xs ${
-                          contentEditLang === 'en'
-                            ? 'bg-maple-red text-white shadow-xs'
-                            : 'text-neutral-400 hover:text-white'
-                        }`}
-                      >
-                        <span>🇬🇧</span>
-                        <span>English</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* FIELDS FORM FOR SELECTED SECTION */}
-                  {(() => {
-                    const activeBlock = activePage.sectionsStack?.[editingSectionIdx] || activePage.sectionsStack?.[0]
-                    if (!activeBlock) return <div className="text-xs text-neutral-500">Chưa chọn khối section nào.</div>
-
-                    const taglineKey = contentEditLang === 'vi' ? 'tagline_vi' : 'tagline_en'
-                    const titleKey = contentEditLang === 'vi' ? 'title_vi' : 'title_en'
-                    const subheadKey = contentEditLang === 'vi' ? 'subheading_vi' : 'subheading_en'
-                    const introKey = contentEditLang === 'vi' ? 'intro_vi' : 'intro_en'
-                    const bodyKey = contentEditLang === 'vi' ? 'body_paragraph_vi' : 'body_paragraph_en'
-                    const ctaKey = contentEditLang === 'vi' ? 'cta_primary_text_vi' : 'cta_primary_text_en'
-
+                  {activePage.sectionsStack?.[editingSectionIdx] && (() => {
+                    const activeBlock = activePage.sectionsStack![editingSectionIdx]
                     return (
-                      <div className="space-y-3.5">
-                        <div className="border-b border-neutral-200 pb-2">
-                          <span className="text-[10px] font-semibold text-maple-red block">
-                            Đang sửa Khối 0{editingSectionIdx + 1}: {activeBlock.type}
-                          </span>
-                          <h4 className="text-sm font-display font-bold text-[#1D1D1B]">
-                            {contentEditLang === 'vi' ? 'Trường Nội dung Tiếng Việt' : 'English Content Fields'}
-                          </h4>
-                        </div>
-
-                        {/* Tagline Field */}
+                      <div className="space-y-3 text-xs">
                         <div>
-                          <label className="text-xs font-semibold text-neutral-700 block mb-1">Tagline / Dòng Nhãn Banner</label>
+                          <label className="font-bold text-neutral-700 block mb-1">Tiêu Đề Khối (Tiếng Việt):</label>
                           <input
                             type="text"
-                            value={activeBlock[taglineKey] || activeBlock.tagline || ''}
-                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, taglineKey, e.target.value)}
-                            placeholder="VD: CANADIAN EDUCATION EXCELLENCE"
-                            className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-maple-red"
+                            value={activeBlock.title_vi || ''}
+                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, 'title_vi', e.target.value)}
+                            className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black rounded-2xs"
                           />
                         </div>
 
-                        {/* Section Title Field */}
                         <div>
-                          <label className="text-xs font-semibold text-neutral-700 block mb-1">Tiêu đề Khối (Section Title H1/H2)</label>
+                          <label className="font-bold text-neutral-700 block mb-1">Tiêu Đề Khối (Tiếng Anh):</label>
                           <input
                             type="text"
-                            value={activeBlock[titleKey] || activeBlock.title || ''}
-                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, titleKey, e.target.value)}
-                            placeholder="Nhập tiêu đề khối..."
-                            className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold focus:outline-none focus:border-maple-red"
+                            value={activeBlock.title_en || ''}
+                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, 'title_en', e.target.value)}
+                            className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black rounded-2xs"
                           />
                         </div>
 
-                        {/* Subheading Field */}
                         <div>
-                          <label className="text-xs font-semibold text-neutral-700 block mb-1">Tiêu đề Phụ (Subheading)</label>
-                          <input
-                            type="text"
-                            value={activeBlock[subheadKey] || activeBlock.subheading || ''}
-                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, subheadKey, e.target.value)}
-                            placeholder="Nhập tiêu đề phụ nghiêng..."
-                            className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs focus:outline-none focus:border-maple-red"
-                          />
-                        </div>
-
-                        {/* Intro / Short Description */}
-                        <div>
-                          <label className="text-xs font-semibold text-neutral-700 block mb-1">Đoạn Giới thiệu (Intro Paragraph)</label>
-                          <textarea
-                            rows={2}
-                            value={activeBlock[introKey] || activeBlock.intro || ''}
-                            onChange={(e) => {
-                              handleUpdateSectionBlockField(editingSectionIdx, introKey, e.target.value)
-                              e.target.style.height = 'auto'
-                              e.target.style.height = e.target.scrollHeight + 'px'
-                            }}
-                            onFocus={(e) => {
-                              e.target.style.height = 'auto'
-                              e.target.style.height = e.target.scrollHeight + 'px'
-                            }}
-                            placeholder="Nhập đoạn giới thiệu ngắn..."
-                            className="w-full px-3 py-2 bg-[#FDFBF7] border border-neutral-300 text-xs focus:outline-none focus:border-maple-red focus:bg-white resize-none overflow-hidden transition-all font-medium"
-                          />
-                        </div>
-
-                        {/* Detailed Body Paragraph */}
-                        <div>
-                          <label className="text-xs font-semibold text-neutral-700 block mb-1">Nội dung Chi tiết (Body Paragraph)</label>
+                          <label className="font-bold text-neutral-700 block mb-1">Mô Tả / Giới Thiệu (Intro):</label>
                           <textarea
                             rows={3}
-                            value={activeBlock[bodyKey] || activeBlock.body_paragraph || ''}
-                            onChange={(e) => {
-                              handleUpdateSectionBlockField(editingSectionIdx, bodyKey, e.target.value)
-                              e.target.style.height = 'auto'
-                              e.target.style.height = e.target.scrollHeight + 'px'
-                            }}
-                            onFocus={(e) => {
-                              e.target.style.height = 'auto'
-                              e.target.style.height = e.target.scrollHeight + 'px'
-                            }}
-                            placeholder="Nhập nội dung mô tả chi tiết..."
-                            className="w-full px-3 py-2 bg-[#FDFBF7] border border-neutral-300 text-xs leading-relaxed focus:outline-none focus:border-maple-red focus:bg-white resize-none overflow-hidden transition-all font-medium"
+                            value={activeBlock.intro_vi || ''}
+                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, 'intro_vi', e.target.value)}
+                            className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-medium text-maple-black rounded-2xs"
                           />
                         </div>
 
-                        {/* CTA Button Text & Link */}
                         <div className="pt-2 border-t border-neutral-200 space-y-2">
-                          <label className="text-xs font-semibold text-neutral-700 block">Nút Kích hoạt Hành động (CTA Button)</label>
+                          <label className="font-bold text-neutral-700 block">Nút Kích Hoạt Hành Động (CTA):</label>
                           <input
                             type="text"
-                            value={activeBlock[ctaKey] || activeBlock.cta_primary_text || ''}
-                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, ctaKey, e.target.value)}
-                            placeholder="Tên nút (VD: Đăng ký Tham quan)"
-                            className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold"
+                            value={activeBlock.cta_primary_text || ''}
+                            onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, 'cta_primary_text', e.target.value)}
+                            placeholder="Tên nút (VD: Book a School Tour)"
+                            className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold rounded-2xs"
                           />
                           <input
                             type="text"
                             value={activeBlock.cta_primary_url || ''}
                             onChange={(e) => handleUpdateSectionBlockField(editingSectionIdx, 'cta_primary_url', e.target.value)}
-                            placeholder="Đường dẫn nút (VD: /#contact-us)"
-                            className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono"
+                            placeholder="Link (VD: /#contact-us)"
+                            className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono rounded-2xs"
                           />
                         </div>
                       </div>
@@ -873,154 +543,119 @@ export default function AdminPagesPage() {
                 </div>
               )}
 
-              {/* TAB 3: TECHNICAL SEO */}
+              {/* TAB 3: SEO TAGS */}
               {leftTab === 'SEO' && (
                 <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
                   <div className="border-b border-neutral-200 pb-2">
-                    <span className="text-[10px] font-semibold text-emerald-600 block">Cấu hình SEO Hẹn giờ</span>
-                    <h4 className="text-sm font-display font-bold text-[#1D1D1B]">Thẻ Meta & Xem trước Google Snippet</h4>
+                    <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider block">Cấu hình SEO</span>
+                    <h4 className="text-sm font-display font-extrabold text-[#1D1D1B]">Thẻ Meta & Xem trước Google</h4>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-neutral-700 block mb-1">SEO Title Tag</label>
+                    <label className="font-bold text-neutral-700 block mb-1">SEO Title Tag:</label>
                     <input
                       type="text"
                       value={activePage.seoTitle}
                       onChange={(e) => handleUpdatePageField('seoTitle', e.target.value)}
-                      className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold"
+                      className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black rounded-2xs"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-neutral-700 block mb-1">SEO Description Tag</label>
+                    <label className="font-bold text-neutral-700 block mb-1">SEO Meta Description:</label>
                     <textarea
-                      rows={2}
+                      rows={3}
                       value={activePage.seoDescription}
-                      onChange={(e) => {
-                        handleUpdatePageField('seoDescription', e.target.value)
-                        e.target.style.height = 'auto'
-                        e.target.style.height = e.target.scrollHeight + 'px'
-                      }}
-                      onFocus={(e) => {
-                        e.target.style.height = 'auto'
-                        e.target.style.height = e.target.scrollHeight + 'px'
-                      }}
-                      className="w-full px-3 py-2 bg-[#FDFBF7] border border-neutral-300 text-xs leading-relaxed focus:outline-none focus:border-maple-red focus:bg-white resize-none overflow-hidden transition-all font-medium"
+                      onChange={(e) => handleUpdatePageField('seoDescription', e.target.value)}
+                      className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-medium text-maple-black rounded-2xs"
                     />
-                  </div>
-
-                  <div className="p-3 bg-[#FDFBF7] border border-neutral-200 space-y-1">
-                    <span className="text-[10px] font-bold text-emerald-700 block">Google Snippet Preview:</span>
-                    <div className="text-[10px] text-neutral-500 font-mono truncate">https://www.sunshinemaplebear.edu.vn{activePage.path}</div>
-                    <div className="text-xs font-bold text-blue-700 leading-snug">{activePage.seoTitle}</div>
-                    <div className="text-xs text-neutral-600 line-clamp-2">{activePage.seoDescription}</div>
                   </div>
                 </div>
               )}
-
             </div>
           )}
 
-          {/* ------------------------------------------------------------- */}
-          {/* RIGHT COLUMN: LIVE PAGE STAGE (ELEMENTOR CANVAS FULL WIDTH DYNAMIC) */}
-          {/* ------------------------------------------------------------- */}
-          <div className={`${isLeftPanelOpen ? 'lg:col-span-8' : 'lg:col-span-12'} space-y-4 transition-all duration-300`}>
-            
-            <div className="bg-[#151513] text-white p-3 border border-neutral-800 flex justify-between items-center rounded-2xs">
-              <span className="text-xs font-semibold text-maple-gold flex items-center gap-1.5">
-                <Monitor size={14} /> KHUNG XEM TRỰC QUAN PAGE STAGE ({activePage.sectionsStack?.length || 0} KHỐI NỘI DUNG MULTI-SECTION)
-              </span>
-              <span className="text-[10px] font-mono text-neutral-400">
-                {isLeftPanelOpen ? 'Chế độ 70% Tiêu chuẩn' : '✨ Chế độ Toàn màn hình Ultra-Wide'}
-              </span>
-            </div>
-
-            {/* STACK OF SECTION BLOCKS WITH CONTROL BARS */}
-            <div className="space-y-6 max-h-[82vh] overflow-y-auto bg-[#F5F5F0] p-5 sm:p-6 border border-neutral-300 rounded-2xs shadow-inner">
+          {/* Right Main Canvas Preview (8 cols) */}
+          <div className={isLeftPanelOpen ? 'lg:col-span-8' : 'lg:col-span-12'}>
+            <div className="space-y-4">
               {activePage.sectionsStack && activePage.sectionsStack.length > 0 ? (
                 activePage.sectionsStack.map((block, idx) => (
-                  <div key={block.id || idx} className="relative group bg-white border-2 border-neutral-300 hover:border-maple-red transition-all rounded-2xs overflow-hidden shadow-sm">
-                    
-                    {/* TOP CONTROL BAR FOR EDITING / REORDERING / DELETING */}
-                    <div className="bg-[#151513] text-white px-4 py-2 flex items-center justify-between gap-4 border-b border-neutral-800">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="w-2 h-2 rounded-full bg-maple-gold flex-shrink-0" />
-                        <span className="text-xs font-bold text-maple-gold truncate">
-                          KHỐI 0{idx + 1}: {block.type} — {block.title_vi || block.title_en || block.title || 'Khối Nội dung Section'}
+                  <div
+                    key={block.id || idx}
+                    className={`border rounded-2xs transition-all relative overflow-hidden bg-white ${
+                      editingSectionIdx === idx ? 'border-maple-red ring-2 ring-maple-red/20 shadow-md' : 'border-neutral-300'
+                    }`}
+                  >
+                    {/* Section Top Controls Bar */}
+                    <div className="bg-[#151513] text-white px-4 py-2.5 flex justify-between items-center text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 bg-maple-red text-white font-mono font-bold text-[10px] rounded-full flex items-center justify-center">
+                          {idx + 1}
                         </span>
+                        <span className="font-bold text-maple-gold">{block.type}</span>
+                        <span className="text-neutral-400 font-normal">— {block.title_vi || block.title_en || 'Section'}</span>
                       </div>
 
-                      <div className="flex items-center gap-1.5 flex-shrink-0">
-                        {/* Move Up */}
+                      <div className="flex items-center gap-2">
                         <button
                           type="button"
                           onClick={() => handleMoveSectionUp(idx)}
                           disabled={idx === 0}
-                          className="px-2.5 py-1 h-7 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-30 text-white text-xs font-semibold rounded-2xs border border-neutral-700 inline-flex items-center gap-1 whitespace-nowrap transition-colors"
-                          title="Chuyển Khối Lên Trên"
+                          className="px-2 py-1 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-30 text-white text-[10px] font-bold rounded-2xs border border-neutral-700 flex items-center gap-1"
                         >
-                          <MoveUp size={13} /> Lên
+                          <MoveUp size={12} /> Lên
                         </button>
 
-                        {/* Move Down */}
                         <button
                           type="button"
                           onClick={() => handleMoveSectionDown(idx)}
                           disabled={idx === (activePage.sectionsStack?.length || 0) - 1}
-                          className="px-2.5 py-1 h-7 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-30 text-white text-xs font-semibold rounded-2xs border border-neutral-700 inline-flex items-center gap-1 whitespace-nowrap transition-colors"
-                          title="Chuyển Khối Xuống Dưới"
+                          className="px-2 py-1 bg-neutral-800 hover:bg-neutral-700 disabled:opacity-30 text-white text-[10px] font-bold rounded-2xs border border-neutral-700 flex items-center gap-1"
                         >
-                          <MoveDown size={13} /> Xuống
+                          <MoveDown size={12} /> Xuống
                         </button>
 
-                        {/* Edit Content */}
                         <button
                           type="button"
                           onClick={() => {
                             setEditingSectionIdx(idx)
                             setLeftTab('FIELDS')
                           }}
-                          className="px-3 py-1 h-7 bg-maple-red hover:bg-red-700 text-white text-xs font-semibold rounded-2xs inline-flex items-center gap-1 border border-maple-red whitespace-nowrap transition-colors shadow-2xs"
-                          title="Chỉnh sửa Chi tiết Nội dung Khối"
+                          className="px-2.5 py-1 bg-maple-red hover:bg-red-700 text-white text-[10px] font-bold rounded-2xs flex items-center gap-1"
                         >
-                          <Edit3 size={13} /> Sửa Khối
+                          <Edit3 size={12} /> Sửa Nội Dung
                         </button>
 
-                        {/* Delete Block */}
                         <button
                           type="button"
                           onClick={() => handleDeleteSection(idx)}
-                          className="px-2.5 py-1 h-7 bg-neutral-800 hover:bg-red-900 text-neutral-300 hover:text-white border border-neutral-700 rounded-2xs text-xs font-semibold inline-flex items-center gap-1 whitespace-nowrap transition-colors"
-                          title="Xóa Khối Này"
+                          className="p-1 bg-neutral-800 hover:bg-red-900 text-neutral-400 hover:text-white rounded-2xs transition-colors"
                         >
-                          <Trash2 size={13} /> Xóa
+                          <Trash2 size={12} />
                         </button>
                       </div>
                     </div>
 
-                    {/* SECTION PREVIEW */}
-                    <div className="p-2 sm:p-4 bg-white overflow-hidden">
+                    {/* Section Render Preview */}
+                    <div className="p-4">
                       <SectionRenderer blocks={[block]} />
                     </div>
-
                   </div>
                 ))
               ) : (
-                <div className="p-8 text-center bg-white border border-neutral-200 text-neutral-500 text-xs">
+                <div className="p-8 text-center bg-white border border-neutral-200 text-neutral-500 text-xs rounded-2xs">
                   Trang này chưa có Khối Section nào. Hãy nhấp nút thêm bên dưới để chọn Khối Widget.
                 </div>
               )}
 
-              {/* ADD NEW BLOCK BUTTON */}
               <button
                 type="button"
                 onClick={() => setLeftTab('WIDGETS')}
-                className="w-full py-4 border-2 border-dashed border-neutral-400 hover:border-maple-red bg-white hover:bg-[#FDFBF7] text-neutral-600 hover:text-maple-red text-xs font-bold transition-all flex items-center justify-center gap-2 rounded-2xs shadow-2xs mt-8"
+                className="w-full py-4 border-2 border-dashed border-neutral-400 hover:border-maple-red bg-white hover:bg-[#FDFBF7] text-neutral-600 hover:text-maple-red text-xs font-bold transition-all flex items-center justify-center gap-2 rounded-2xs shadow-2xs"
               >
-                <Plus size={16} /> Nhấp để thêm Khối Widget Nội dung Mới vào Trang
+                <Plus size={16} /> Thêm Khối Section Nội Dung Mới Vào Trang
               </button>
             </div>
-
           </div>
 
         </div>
@@ -1030,198 +665,46 @@ export default function AdminPagesPage() {
   }
 
   // -------------------------------------------------------------
-  // VIEW 2: STATIC PAGES LISTING TABLE (ALL 14 PAGES)
+  // VIEW 2: UNIFIED STATIC PAGES TABLE LISTING (INCLUDING HOMEPAGE /)
   // -------------------------------------------------------------
   return (
     <div className="space-y-4 w-full text-[#1D1D1B]">
-      {/* Navigation Tabs Mode */}
-      <div className="flex border-b border-neutral-200 bg-white px-4 rounded-2xs shadow-2xs">
-        <button
-          onClick={() => setActiveTabMode('HOMEPAGE_BUILDER')}
-          className={`py-3 px-5 text-xs font-extrabold border-b-2 transition-all flex items-center gap-2 ${
-            activeTabMode === 'HOMEPAGE_BUILDER' ? 'border-maple-red text-maple-red' : 'border-transparent text-neutral-500 hover:text-maple-black'
-          }`}
-        >
-          <Settings2 size={16} />
-          Giao Diện Section Builder Trang Chủ (Homepage Builder)
-        </button>
-        <button
-          onClick={() => setActiveTabMode('PAGES_TABLE')}
-          className={`py-3 px-5 text-xs font-extrabold border-b-2 transition-all flex items-center gap-2 ${
-            activeTabMode === 'PAGES_TABLE' ? 'border-maple-red text-maple-red' : 'border-transparent text-neutral-500 hover:text-maple-black'
-          }`}
-        >
-          <Globe size={16} />
-          Danh Sách 14 Trang Tĩnh Website ({pages.length})
-        </button>
+      
+      {/* Header */}
+      <div className="bg-white border border-neutral-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs rounded-2xs">
+        <div>
+          <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">
+            Hệ Thống CMS Quản Lý Nội Dung Website
+          </span>
+          <h2 className="text-xl font-display font-extrabold text-[#1D1D1B]">
+            Quản Lý & Biên Tập Nội Dung Tất Cả Các Trang Website ({pages.length} Trang)
+          </h2>
+          <p className="text-xs text-neutral-500 font-normal mt-0.5">
+            Thêm, bớt, chỉnh sửa tiêu đề/nội dung mọi trang (bao gồm Trang Chủ `/`) và thiết lập Trang Chủ Mặc Định.
+          </p>
+        </div>
+        
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="px-4 py-2 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all flex items-center gap-1.5 rounded-2xs shadow-2xs uppercase tracking-wider"
+          >
+            <Plus size={15} />
+            Thêm Trang Mới
+          </button>
+        </div>
       </div>
 
-      {/* MODE 1: HOMEPAGE SECTION BUILDER & DEFAULT HOMEPAGE VARIANT SELECTOR */}
-      {activeTabMode === 'HOMEPAGE_BUILDER' && (
-        <div className="space-y-6">
-          
-          {/* Default Homepage Selector Panel */}
-          <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-4">
-            <div className="flex justify-between items-center border-b border-neutral-200 pb-3">
-              <div>
-                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">CƠ CHẾ ĐẶT TRANG MẶC ĐỊNH (DEFAULT HOMEPAGE)</span>
-                <h3 className="text-base font-display font-extrabold text-maple-black">
-                  Thiết Lập Trang Nào Làm Homepage Mặc Định (`/`)
-                </h3>
-              </div>
-              <span className="px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono font-bold text-[11px] rounded-2xs flex items-center gap-1">
-                <CheckCircle2 size={13} /> Active Route: `/`
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {homepageVariants.map((variant) => (
-                <div
-                  key={variant.id}
-                  onClick={() => handleSetDefaultVariant(variant.id)}
-                  className={`p-4 border rounded-2xs cursor-pointer transition-all space-y-2 relative ${
-                    variant.isDefault
-                      ? 'bg-red-50/40 border-maple-red ring-2 ring-maple-red/30 shadow-xs'
-                      : 'bg-white border-neutral-200 hover:border-neutral-400'
-                  }`}
-                >
-                  <div className="flex justify-between items-start">
-                    <span className="font-bold text-xs text-maple-black block">{variant.title}</span>
-                    {variant.isDefault && (
-                      <span className="px-2 py-0.5 bg-maple-red text-white text-[9px] font-extrabold uppercase rounded-2xs">
-                        Mặc Định
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-[10px] font-mono text-neutral-500">{variant.slug}</div>
-                  <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{variant.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Section Reorder & Visibility Builder Panel */}
-          <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-5">
-            <div className="flex justify-between items-center border-b border-neutral-200 pb-3">
-              <div>
-                <span className="text-[10px] font-bold text-maple-gold uppercase tracking-wider block">QUẢN LÝ THỨ TỰ & ẨN/HIỆN SECTION TRANG CHỦ</span>
-                <h3 className="text-base font-display font-extrabold text-maple-black">
-                  Cấu Trúc 8 Section Chuẩn Excel Website Spec
-                </h3>
-              </div>
-              <div className="flex items-center gap-2">
-                <Link2 size={14} className="text-neutral-400" />
-                <span className="text-xs text-neutral-500 font-mono">Tự động cập nhật real-time</span>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {homepageSections.map((sec, idx) => (
-                <div
-                  key={sec.id}
-                  className={`p-4 border rounded-2xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all ${
-                    sec.enabled ? 'bg-white border-neutral-200 shadow-2xs' : 'bg-neutral-50 border-neutral-200 opacity-60'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="w-7 h-7 bg-[#151513] text-maple-gold font-mono font-bold text-xs rounded-2xs flex items-center justify-center">
-                      {idx + 1}
-                    </span>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-xs text-maple-black">{sec.name}</span>
-                        {sec.enabled ? (
-                          <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-extrabold rounded-2xs">
-                            Hiển thị
-                          </span>
-                        ) : (
-                          <span className="px-2 py-0.5 bg-neutral-200 text-neutral-600 text-[10px] font-bold rounded-2xs">
-                            Đã ẩn
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-[11px] text-neutral-500 font-light block mt-0.5">
-                        {sec.customTitle || sec.name}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 self-end sm:self-center">
-                    {/* Move Up */}
-                    <button
-                      onClick={() => handleMoveHomepageSectionUp(idx)}
-                      disabled={idx === 0}
-                      className="p-1.5 bg-white border border-neutral-300 hover:bg-[#FDFBF7] disabled:opacity-30 rounded-2xs transition-colors"
-                      title="Chuyển Section lên trên"
-                    >
-                      <MoveUp size={14} />
-                    </button>
-
-                    {/* Move Down */}
-                    <button
-                      onClick={() => handleMoveHomepageSectionDown(idx)}
-                      disabled={idx === homepageSections.length - 1}
-                      className="p-1.5 bg-white border border-neutral-300 hover:bg-[#FDFBF7] disabled:opacity-30 rounded-2xs transition-colors"
-                      title="Chuyển Section xuống dưới"
-                    >
-                      <MoveDown size={14} />
-                    </button>
-
-                    {/* Toggle Enabled */}
-                    <button
-                      onClick={() => handleToggleSectionEnabled(sec.id)}
-                      className={`px-3 py-1.5 text-xs font-bold rounded-2xs border transition-colors ${
-                        sec.enabled
-                          ? 'bg-maple-red text-white border-maple-red hover:bg-red-700'
-                          : 'bg-neutral-200 text-neutral-700 border-neutral-300 hover:bg-neutral-300'
-                      }`}
-                    >
-                      {sec.enabled ? 'Ẩn Section' : 'Hiện Section'}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      )}
-
-      {/* MODE 2: STATIC PAGES LISTING TABLE */}
-      {activeTabMode === 'PAGES_TABLE' && (
-        <div className="space-y-4">
-          {/* Header */}
-          <div className="bg-white border border-neutral-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs">
-            <div>
-              <span className="text-[10px] font-semibold text-maple-red block">
-                {adminUiLang === 'vi' ? 'Quản lý Trang Tĩnh CMS' : 'Static Pages CMS'}
-              </span>
-              <h2 className="text-xl font-display font-bold text-[#1D1D1B]">
-                {adminUiLang === 'vi' ? `Quản lý Nội dung ${pages.length} Trang Tĩnh Website` : `Static Information Pages Manager (${pages.length} Pages)`}
-              </h2>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setShowAddModal(true)}
-                className="px-3.5 py-1.5 bg-[#1D1D1B] text-white text-xs font-semibold hover:bg-maple-red transition-colors border border-[#1D1D1B] flex items-center gap-1.5 rounded-2xs shadow-2xs"
-              >
-                <Plus size={15} />
-                {adminUiLang === 'vi' ? 'Thêm Trang Tĩnh Mới' : 'Add New Static Page'}
-              </button>
-            </div>
-          </div>
-
-      {/* Filter Bar */}
-      <div className="flex flex-col sm:flex-row gap-3 bg-white border border-neutral-200 p-3 shadow-2xs">
+      {/* Filter & Search Bar */}
+      <div className="flex flex-col sm:flex-row gap-3 bg-white border border-neutral-200 p-3 shadow-2xs rounded-2xs">
         <div className="relative flex-1">
           <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
           <input
             type="text"
-            placeholder={adminUiLang === 'vi' ? 'Tìm kiếm trang theo đường dẫn slug hoặc tiêu đề...' : 'Search static pages by route or title...'}
+            placeholder="Tìm kiếm trang theo đường dẫn slug hoặc tiêu đề..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs focus:outline-none focus:border-maple-red"
+            className="w-full pl-9 pr-4 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold focus:outline-none focus:border-maple-red rounded-2xs"
           />
         </div>
 
@@ -1229,149 +712,164 @@ export default function AdminPagesPage() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold p-1.5 focus:outline-none"
+            className="bg-[#FDFBF7] border border-neutral-300 text-xs font-bold p-1.5 focus:outline-none rounded-2xs"
           >
-            <option value="ALL">{adminUiLang === 'vi' ? `Tất cả Chuyên mục (${pages.length})` : `All Categories (${pages.length})`}</option>
-            <option value="ABOUT US">About Us (4 Pages)</option>
-            <option value="ACADEMICS">Academics (5 Pages)</option>
-            <option value="ADMISSIONS">Admissions (3 Pages)</option>
-            <option value="COMMUNITY">Community (2 Pages)</option>
+            <option value="ALL">Tất cả Chuyên mục ({pages.length} Trang)</option>
+            <option value="ABOUT US">About Us</option>
+            <option value="ACADEMICS">Academics</option>
+            <option value="ADMISSIONS">Admissions</option>
+            <option value="COMMUNITY">Community</option>
           </select>
         </div>
       </div>
 
-      {/* Pages Table */}
+      {/* Unified Pages Table (Including Homepage /) */}
       <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-neutral-200 text-neutral-600 font-semibold bg-[#FDFBF7]">
-              <th className="py-2.5 px-3">{adminUiLang === 'vi' ? 'Đường dẫn Slug' : 'Route Path'}</th>
-              <th className="py-2.5 px-3">{adminUiLang === 'vi' ? 'Tiêu đề trang' : 'Page Title'}</th>
-              <th className="py-2.5 px-3">{adminUiLang === 'vi' ? 'Chuyên mục' : 'Category'}</th>
-              <th className="py-2.5 px-3">{adminUiLang === 'vi' ? 'Loại Trang CMS' : 'Page CMS Type'}</th>
-              <th className="py-2.5 px-3">{adminUiLang === 'vi' ? 'Cập nhật' : 'Last Updated'}</th>
-              <th className="py-2.5 px-3">{adminUiLang === 'vi' ? 'Trạng thái' : 'Status'}</th>
-              <th className="py-2.5 px-3 text-right">{adminUiLang === 'vi' ? 'Thao tác' : 'Actions'}</th>
+            <tr className="bg-[#151513] text-white text-[11px] font-extrabold uppercase tracking-wider border-b border-neutral-800">
+              <th className="py-3 px-4">Đường Dẫn Route</th>
+              <th className="py-3 px-4">Tiêu Đề Trang Website</th>
+              <th className="py-3 px-4">Chuyên Mục</th>
+              <th className="py-3 px-4">Loại Trang CMS</th>
+              <th className="py-3 px-4">Cập Nhật</th>
+              <th className="py-3 px-4">Trạng Thái Trang Chủ</th>
+              <th className="py-3 px-4 text-center">Thao Tác Biên Tập</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-neutral-200 font-medium text-[#1D1D1B]">
-            {filteredPages.map((p) => (
-              <tr key={p.id} className="hover:bg-neutral-50 transition-colors">
-                <td className="py-2.5 px-3 font-mono font-bold text-maple-red">{p.path}</td>
-                <td className="py-2.5 px-3 font-semibold">{p.title}</td>
-                <td className="py-2.5 px-3">
-                  <span className="px-2 py-0.5 bg-neutral-100 border border-neutral-200 text-[10px] font-semibold rounded-2xs">
-                    {p.category}
-                  </span>
-                </td>
-                <td className="py-2.5 px-3">
-                  {p.pageType === 'BLOG_CONVERTED' ? (
-                    <span className="px-2 py-0.5 bg-purple-100 text-purple-900 border border-purple-300 text-[10px] font-semibold rounded-2xs inline-flex items-center gap-1">
-                      📰 Chuyển từ Blog
+          <tbody className="divide-y divide-neutral-100 font-medium text-[#1D1D1B]">
+            {filteredPages.map((p) => {
+              const isDefaultHp = p.id === defaultHomepageId || p.path === '/'
+              return (
+                <tr key={p.id} className="hover:bg-[#FDFBF7] transition-colors">
+                  <td className="py-3 px-4 font-mono font-extrabold text-maple-red">{p.path}</td>
+                  <td className="py-3 px-4 font-bold text-maple-black">
+                    <div>{p.title}</div>
+                    {isDefaultHp && (
+                      <span className="text-[10px] text-emerald-700 font-mono font-bold block mt-0.5">
+                        🟢 Đang chạy làm Trang chủ duy nhất ở mốc `/`
+                      </span>
+                    )}
+                  </td>
+                  <td className="py-3 px-4">
+                    <span className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 text-[10px] font-extrabold rounded-2xs">
+                      {p.category}
                     </span>
-                  ) : (
-                    <span className="px-2 py-0.5 bg-blue-100 text-blue-900 border border-blue-300 text-[10px] font-semibold rounded-2xs inline-flex items-center gap-1">
+                  </td>
+                  <td className="py-3 px-4">
+                    <span className="px-2 py-0.5 bg-blue-50 text-blue-800 border border-blue-200 text-[10px] font-extrabold rounded-2xs">
                       🧩 Section Builder
                     </span>
-                  )}
-                </td>
-                <td className="py-2.5 px-3 text-neutral-500 font-mono">{p.lastUpdated}</td>
-                <td className="py-2.5 px-3">
-                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-semibold rounded-2xs">
-                    {adminUiLang === 'vi' ? 'Đã xuất bản' : p.status}
-                  </span>
-                </td>
-                <td className="py-2.5 px-3 text-right space-x-1.5">
-                  <button
-                    onClick={() => setActivePageId(p.id)}
-                    className="px-2.5 py-1 bg-[#1D1D1B] text-white hover:bg-maple-red font-semibold text-xs transition-colors border border-[#1D1D1B] inline-flex items-center gap-1.5 rounded-2xs shadow-2xs"
-                  >
-                    <Edit3 size={13} />
-                    {adminUiLang === 'vi' ? 'Mở Trình biên tập' : 'Open Visual Builder'}
-                  </button>
+                  </td>
+                  <td className="py-3 px-4 text-neutral-500 font-mono text-[11px]">{p.lastUpdated}</td>
+                  <td className="py-3 px-4">
+                    {isDefaultHp ? (
+                      <span className="px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 text-[10px] font-extrabold rounded-2xs inline-flex items-center gap-1">
+                        <CheckCircle2 size={12} /> 🟢 TRANG CHỦ MẶC ĐỊNH
+                      </span>
+                    ) : (
+                      <button
+                        onClick={() => handleSetDefaultHomepage(p.id)}
+                        className="px-2 py-1 bg-neutral-100 hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-600 text-[10px] font-bold rounded-2xs transition-colors"
+                      >
+                        Đặt làm Trang Chủ (`/`)
+                      </button>
+                    )}
+                  </td>
+                  <td className="py-3 px-4 text-center">
+                    <div className="flex items-center justify-center gap-2">
+                      <button
+                        onClick={() => setActivePageId(p.id)}
+                        className="px-3 py-1.5 bg-[#151513] text-white hover:bg-maple-red text-[11px] font-extrabold rounded-2xs transition-colors inline-flex items-center gap-1.5 shadow-2xs"
+                      >
+                        <Edit3 size={13} />
+                        Sửa Trang / Sửa Builder ↗
+                      </button>
 
-                  <button
-                    onClick={() => handleDeletePage(p.id)}
-                    className="p-1.5 text-neutral-400 hover:text-red-600 transition-colors inline-block"
-                    title={adminUiLang === 'vi' ? 'Xóa trang tĩnh' : 'Delete Static Page'}
-                  >
-                    <Trash2 size={14} />
-                  </button>
-                </td>
-              </tr>
-            ))}
+                      {p.path !== '/' && (
+                        <button
+                          onClick={() => handleDeletePage(p.id)}
+                          className="p-1.5 text-neutral-400 hover:text-red-600 transition-colors"
+                          title="Xóa trang tĩnh"
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
-      </div>
-      )}
 
       {/* CREATE NEW STATIC PAGE MODAL */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="bg-white border border-neutral-300 max-w-md w-full p-5 space-y-4 shadow-2xl rounded-2xs">
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-neutral-300 max-w-md w-full p-6 space-y-4 shadow-2xl rounded-2xs">
             <div className="border-b border-neutral-200 pb-3 flex justify-between items-center">
               <div>
-                <span className="text-[10px] font-semibold text-maple-red block">Khởi tạo Trang Tĩnh Mới</span>
-                <h3 className="text-base font-display font-bold text-[#1D1D1B]">Thêm Trang Tĩnh vào Hệ thống</h3>
+                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">KHỞI TẠO TRANG MỚI</span>
+                <h3 className="text-base font-display font-extrabold text-[#1D1D1B]">Thêm Trang Vào Hệ Thống CMS</h3>
               </div>
               <button onClick={() => setShowAddModal(false)} className="text-neutral-400 hover:text-black">
                 <X size={16} />
               </button>
             </div>
 
-            <form onSubmit={handleCreatePage} className="space-y-3">
-              <div>
-                <label className="text-xs font-semibold text-neutral-700 block mb-1">Tiêu đề Trang *</label>
+            <form onSubmit={handleCreatePage} className="space-y-3.5 text-xs">
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Tiêu đề Trang *</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Câu lạc bộ Ngoại khóa & Thể thao"
+                  placeholder="Ví dụ: Trang Chủ Sự Kiện Open Day 2026"
                   value={newPageTitle}
                   onChange={(e) => setNewPageTitle(e.target.value)}
-                  className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-maple-red"
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
                 />
               </div>
 
-              <div>
-                <label className="text-xs font-semibold text-neutral-700 block mb-1">Đường dẫn Route URL Slug *</label>
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Đường dẫn Route Slug *</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. /academics/extracurricular"
+                  placeholder="Ví dụ: /events/open-day-2026"
                   value={newPagePath}
                   onChange={(e) => setNewPagePath(e.target.value)}
-                  className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono focus:outline-none focus:border-maple-red"
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
                 />
               </div>
 
-              <div>
-                <label className="text-xs font-semibold text-neutral-700 block mb-1">Chuyên mục Danh mục *</label>
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Chuyên mục:</label>
                 <select
                   value={newPageCategory}
-                  onChange={(e) => setNewPageCategory(e.target.value as any)}
-                  className="w-full px-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold"
+                  onChange={(e: any) => setNewPageCategory(e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none rounded-2xs"
                 >
-                  <option value="ABOUT US">Về chúng tôi (About Us)</option>
-                  <option value="ACADEMICS">Chương trình học (Academics)</option>
-                  <option value="ADMISSIONS">Tuyển sinh (Admissions)</option>
-                  <option value="COMMUNITY">Cộng đồng (Community)</option>
+                  <option value="ABOUT US">About Us (Giới thiệu)</option>
+                  <option value="ACADEMICS">Academics (Chương trình học)</option>
+                  <option value="ADMISSIONS">Admissions (Tuyển sinh)</option>
+                  <option value="COMMUNITY">Community (Cộng đồng)</option>
                 </select>
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-neutral-200">
+              <div className="flex justify-end gap-2.5 pt-3 border-t border-neutral-200">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-3.5 py-1.5 bg-neutral-100 text-[#1D1D1B] font-semibold text-xs border border-neutral-300 rounded-2xs"
+                  className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
                 >
                   Hủy bỏ
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-1.5 bg-[#1D1D1B] hover:bg-maple-red text-white font-semibold text-xs border border-[#1D1D1B] transition-colors flex items-center gap-1.5 rounded-2xs shadow-2xs"
+                  className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors flex items-center gap-1.5 rounded-2xs shadow-2xs"
                 >
-                  <Plus size={14} />
+                  <Plus size={15} />
                   Tạo Trang & Mở Builder
                 </button>
               </div>

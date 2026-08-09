@@ -31,6 +31,138 @@ export type StaticPageContent = {
 }
 
 export const staticPagesRegistry: Record<string, StaticPageContent> = {
+  '/': {
+    id: '0',
+    path: '/',
+    title: 'Trang Chủ Website (Official Canadian Homepage)',
+    category: 'ABOUT US',
+    status: 'Published',
+    pageType: 'SECTION_BUILDER',
+    lastUpdated: '09/08/2026',
+    bannerTag: 'WELCOME TO MAPLE BEAR',
+    bannerTitle: 'Welcome to Maple Bear International Kindergarten',
+    bannerSubheading: 'Where Your Child Thrives, Every Day. A Canadian Education for Life-Long Success',
+    bannerIntro: 'At Sunshine Maple Bear International Kindergarten, children learn through exploration, play and meaningful experiences inspired by the internationally recognised Canadian curriculum.',
+    bannerImage: '/images/render/LOP_HOC_DIEN_HINH_1_.jpg',
+    bodyTitle: 'Why Families Choose Maple Bear',
+    bodyParagraph: 'At Sunshine Maple Bear International Kindergarten, every day is designed to inspire curiosity, build confidence and nurture a lifelong love of learning.',
+    featurePoints: [
+      '❤️ We Care: We foster a safe, nurturing environment where every child feels valued and respected.',
+      '💡 We Explore: Curiosity drives learning as children discover the world through meaningful experiences.',
+      '🌱 We Grow: We build confidence, resilience and independence for lifelong success.',
+      '🤝 We Belong: We celebrate diversity and create a strong partnership between school and families.',
+      '🌎 We Thrive: We prepare children to become compassionate, confident and globally minded citizens.'
+    ],
+    ctaPrimaryText: 'Book a School Tour',
+    ctaPrimaryUrl: '/#contact-us',
+    ctaSecondaryText: 'Apply Now',
+    ctaSecondaryUrl: '/#contact-us',
+    seoTitle: 'Sunshine Maple Bear International Kindergarten — 100% English Canadian Education',
+    seoDescription: 'Premium Canadian international kindergarten with 100% English instruction for children aged 12 months to 5 years at Sunshine City, Hanoi.',
+    ogImage: '/images/render/LOP_HOC_DIEN_HINH_1_.jpg',
+    sectionsStack: [
+      {
+        id: 'home-sec-1',
+        type: 'HERO',
+        tagline_vi: 'CHÀO MỪNG ĐẾN VỚI MAPLE BEAR',
+        tagline_en: 'WELCOME TO MAPLE BEAR INTERNATIONAL KINDERGARTEN',
+        title_vi: 'Nơi Con Trưởng Thành Mỗi Ngày. Nền Giáo Dục Canada Cho Thành Công Trọn Đời',
+        title_en: 'Where Your Child Thrives, Every Day. A Canadian Education for Life-Long Success',
+        subheading_vi: 'Trường Mầm Non Quốc Tế Sunshine Maple Bear (Sunshine City, Hà Nội)',
+        subheading_en: 'Sunshine Maple Bear International Kindergarten (Sunshine City, Hanoi)',
+        intro_vi: 'Tại Sunshine Maple Bear, trẻ học hỏi thông qua khám phá, vui chơi và các trải nghiệm ý nghĩa theo chương trình mầm non bản quyền Canada. Mỗi ngày đều được thiết kế cẩn trọng giúp trẻ phát triển toàn diện.',
+        intro_en: 'At Sunshine Maple Bear International Kindergarten, children learn through exploration, play and meaningful experiences inspired by the internationally recognised Canadian curriculum.',
+        cta_primary_text: 'Book a School Tour',
+        cta_primary_url: '/#contact-us',
+        cta_secondary_text: 'Apply Now',
+        cta_secondary_url: '/#contact-us'
+      },
+      {
+        id: 'home-sec-2',
+        type: 'FEATURES',
+        title_vi: 'Vì Sao Các Gia Đình Lựa Chọn Sunshine Maple Bear',
+        title_en: 'Why Families Choose Maple Bear',
+        intro_vi: 'Mỗi ngày tại Sunshine Maple Bear đều được thiết kế để khơi dậy sự tò mò, xây dựng sự tự tin và nuôi dưỡng niềm yêu thích học tập suốt đời.',
+        intro_en: 'At Sunshine Maple Bear, every day is designed to inspire curiosity, build confidence and nurture a lifelong love of learning.',
+        feature_points_vi: [
+          'Chương trình Mầm non Bản quyền Canada hàng đầu thế giới.',
+          'Đội ngũ Giáo viên Bản ngữ Canada & Việt Nam giàu kinh nghiệm, tâm huyết.',
+          'Môi trường học tập 5 sao an toàn, hiện đại tại Khu đô thị Sunshine City.'
+        ],
+        feature_points_en: [
+          'World-renowned Canadian Early Childhood Curriculum.',
+          'Caring, highly certified Canadian and Vietnamese educators.',
+          'Safe, engaging 5-star campus inside Sunshine City urban complex.'
+        ]
+      },
+      {
+        id: 'home-sec-3',
+        type: 'VALUES',
+        title_vi: 'Triết Lý Giáo Dục - 5 Giá Trị Cốt Lõi',
+        title_en: 'Our School Philosophy - 5 Core Values',
+        intro_vi: 'Các giá trị cốt lõi định hình mọi trải nghiệm học tập, mọi tương tác và từng bước đi trong hành trình của trẻ.',
+        intro_en: 'Our values shape every learning experience, every interaction and every step of each child’s journey.',
+        feature_points_vi: [
+          '❤️ We Care - Yêu thương & Tôn trọng: Môi trường an toàn nơi mọi trẻ em đều được trân trọng.',
+          '💡 We Explore - Khám phá & Đổi mới: Tò mò dẫn dắt trẻ phát hiện thế giới xung quanh.',
+          '🌱 We Grow - Trưởng thành & Tự lập: Xây dựng sự tự tin, kiên cường cho thành công trọn đời.',
+          '🤝 We Belong - Gắn kết & Đồng hành: Tôn trọng sự đa dạng, hợp tác chặt chẽ với gia đình.',
+          '🌎 We Thrive - Vươn tầm & Tỏa sáng: Chuẩn bị cho trẻ trở thành công dân toàn cầu.'
+        ],
+        feature_points_en: [
+          '❤️ We Care: Safe, nurturing environment where every child feels valued.',
+          '💡 We Explore: Curiosity drives learning as children discover the world.',
+          '🌱 We Grow: Building confidence, resilience and independence.',
+          '🤝 We Belong: Strong partnership between school and families.',
+          '🌎 We Thrive: Preparing compassionate, globally minded citizens.'
+        ]
+      },
+      {
+        id: 'home-sec-4',
+        type: 'BODY',
+        title_vi: 'Chương Trình Mầm Non Bản Quyền Canada (Maple Bear Curriculum)',
+        title_en: 'The Maple Bear Canadian Curriculum',
+        body_paragraph_vi: 'Hệ thống giáo dục Canada liên tục xếp trong TOP đầu thế giới. Chương trình mầm non của chúng tôi được thiết kế toàn diện giúp phát triển học thuật, cảm xúc, xã hội và thể chất của trẻ.',
+        body_paragraph_en: 'Canada’s education system consistently ranks among the best in the world. Our Program is based on the Official Canadian Curriculum, designed to develop children’s academic, social, emotional and physical well-being.',
+        cta_primary_text: 'Learn More',
+        cta_primary_url: '/academics/age-groups'
+      },
+      {
+        id: 'home-sec-5',
+        type: 'GALLERY',
+        title_vi: 'Thư Viện Hình Ảnh Campus 5 Sao',
+        title_en: '5-Star Campus School Gallery'
+      },
+      {
+        id: 'home-sec-6',
+        type: 'EVENT',
+        title_vi: 'Sự Kiện Đăng Ký Open Day Mùa Thu 2026',
+        title_en: 'Join Us For Open Day 2026',
+        intro_vi: 'Trải nghiệm sự khác biệt của giáo dục Canada. Gặp gỡ giáo viên, tham quan campus và không gian học tập.',
+        intro_en: 'Experience the Maple Bear difference. Meet our teachers, explore our campus and discover our learning environment.',
+        cta_primary_text: 'Register Now',
+        cta_primary_url: '/#contact-us'
+      },
+      {
+        id: 'home-sec-7',
+        type: 'STATISTICS',
+        title_vi: 'Maple Bear Trên Toàn Cầu (Around The World)',
+        title_en: 'Maple Bear Around The World',
+        intro_vi: 'Hơn 500 trường mầm non và phổ thông Maple Bear đang hoạt động tại 37 quốc gia trên thế giới.',
+        intro_en: 'More than 500 Maple Bear early childhood, elementary, middle, and high schools in 37 countries around the world.'
+      },
+      {
+        id: 'home-sec-8',
+        type: 'CTA',
+        title_vi: 'Liên Hệ Đặt Lịch Tham Quan & Tư Vấn Tuyển Sinh (Contact Us)',
+        title_en: 'Contact Us & Book a School Tour',
+        intro_vi: 'Nếu phụ huynh có bất kỳ thắc mắc nào, vui lòng điền form dưới đây. Bộ phận tuyển sinh sẽ liên hệ trong 1 ngày làm việc.',
+        intro_en: 'If you have any questions, please fill in the form below and we will get in touch as soon as possible.',
+        cta_primary_text: 'Submit Message',
+        cta_primary_url: '/#contact-us'
+      }
+    ]
+  },
   '/about/story': {
     id: '1',
     path: '/about/story',
