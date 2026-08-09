@@ -870,6 +870,19 @@ export default function AdminAnalyticsPage() {
           </div>
         </div>
 
+        {/* AUDIT LOG TABLE EXPLANATION BOX */}
+        <div className="p-3.5 bg-blue-50/60 border border-blue-200 rounded-2xs text-xs text-blue-900 space-y-1.5">
+          <div className="font-bold flex items-center gap-1.5 text-blue-950">
+            <CheckCircle2 size={15} className="text-blue-700" />
+            Mục Đích & Ý Nghĩa Của Bảng Nhật Ký Audit Log Đối Chiếu:
+          </div>
+          <ul className="list-disc list-inside space-y-1 text-[11px] text-blue-900 leading-relaxed m-0">
+            <li><strong>Minh bạch dữ liệu 100%:</strong> Đây là danh sách các đơn đăng ký/lịch hẹn thực tế do Phụ huynh tự gửi trên website. Giúp kiểm tra đối chiếu ngay lập tức để chứng minh các con số báo cáo trên Dashboard (Ví dụ: 248 Lead, 108 Lịch Hẹn) là <strong>dữ liệu thật từ Database</strong> chứ không phải số liệu mô phỏng.</li>
+            <li><strong>Xác định chính xác nguồn khách hàng:</strong> Cung cấp cột <strong>Nguồn UTM Campaign</strong> để biết chính xác từng Phụ huynh (họ tên, SĐT) đến từ quảng cáo Facebook Ads, Google Search hay Zalo OA.</li>
+            <li><strong>Nút "Xem bản ghi ↗":</strong> Nhấp vào để chuyển thẳng tới hồ sơ xử lý chi tiết của cán bộ tuyển sinh trong hệ thống CMS.</li>
+          </ul>
+        </div>
+
         {/* Audit Log Table */}
         <div className="overflow-x-auto border border-neutral-200 rounded-2xs">
           <table className="w-full text-left border-collapse text-xs">
