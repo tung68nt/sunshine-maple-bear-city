@@ -247,27 +247,29 @@ export function Header() {
                     <ChevronDown size={12} className="transition-transform duration-200 group-hover/dropdown:rotate-180 opacity-70 flex-shrink-0" />
                   </Link>
 
-                  {/* Dropdown Menu */}
-                  <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-neutral-200 shadow-xl rounded-2xs p-2 opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-200 z-50">
-                    {item.children.map((child: any, cIdx: number) => {
-                      const childLabel = getItemLabel(child)
-                      const isChildActive = pathname === child.href
+                  {/* Dropdown Menu with Hover Bridge */}
+                  <div className="absolute top-full left-0 pt-1.5 w-64 opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-200 z-50">
+                    <div className="bg-white border border-neutral-200 shadow-xl rounded-2xs p-2 space-y-0.5">
+                      {item.children.map((child: any, cIdx: number) => {
+                        const childLabel = getItemLabel(child)
+                        const isChildActive = pathname === child.href
 
-                      return (
-                        <Link
-                          key={cIdx}
-                          href={child.href}
-                          className={`flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-2xs transition-colors ${
-                            isChildActive
-                              ? 'bg-neutral-100 text-maple-red font-bold'
-                              : 'text-neutral-700 hover:bg-[#FDFBF7] hover:text-maple-red'
-                          }`}
-                        >
-                          <span>{childLabel}</span>
-                          <ChevronRight size={13} className="opacity-0 group-hover/dropdown:opacity-100 transition-opacity text-neutral-400 flex-shrink-0" />
-                        </Link>
-                      )
-                    })}
+                        return (
+                          <Link
+                            key={cIdx}
+                            href={child.href}
+                            className={`flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-2xs transition-colors ${
+                              isChildActive
+                                ? 'bg-neutral-100 text-maple-red font-bold'
+                                : 'text-neutral-700 hover:bg-[#FDFBF7] hover:text-maple-red'
+                            }`}
+                          >
+                            <span>{childLabel}</span>
+                            <ChevronRight size={13} className="text-neutral-400 flex-shrink-0" />
+                          </Link>
+                        )
+                      })}
+                    </div>
                   </div>
                 </div>
               )
