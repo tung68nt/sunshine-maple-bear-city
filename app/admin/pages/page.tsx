@@ -26,7 +26,8 @@ import {
   MoveDown,
   Trash2,
   Settings2,
-  Monitor
+  Monitor,
+  Star
 } from 'lucide-react'
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
@@ -66,105 +67,6 @@ type SectionBlock = {
   type: 'HERO' | 'FEATURES' | 'BODY' | 'TESTIMONIALS' | 'FAQ' | 'CTA'
   title: string
 }
-
-const presetTemplates = [
-  {
-    id: 'hero',
-    title: 'Template 01: Standard Hero Banner Section',
-    description: 'Header section with Tagline, H1 Title, Subheading, intro paragraph and background image.',
-    icon: ImageIcon,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bannerTag: 'CANADIAN EDUCATION EXCELLENCE',
-      bannerTitle: `${page.title}`,
-      bannerSubheading: 'World-Leading Early Childhood System',
-      bannerIntro: 'Nurturing curiosity, character, and lifelong learning in a 5-star campus environment.',
-    })
-  },
-  {
-    id: 'features',
-    title: 'Template 02: 3-Card Feature Highlights Grid',
-    description: 'Grid of 3 key feature points with icons, titles, and descriptions.',
-    icon: LayoutGrid,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      featurePoints: [
-        '100% English Immersion environment led by Canadian certified educators.',
-        'Modern 5-star facilities inside Sunshine City urban complex.',
-        'Organic 5-star meal program designed by pediatric nutritionists.'
-      ]
-    })
-  },
-  {
-    id: 'age-groups',
-    title: 'Template 03: Age Group Progression Showcase (12M - 5Y)',
-    description: 'Detailed developmental stages for Toddler, Nursery, JK, and SK classes.',
-    icon: FileText,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bannerTag: 'CURRICULUM STAGES',
-      bannerTitle: 'Age-Appropriate Canadian Programs',
-      bodyTitle: 'Four Developmental Stages (12 Months to 5 Years)',
-      bodyParagraph: 'Every age group benefits from a tailored bilingual curriculum designed to foster emotional resilience, social skills, and academic readiness.',
-      featurePoints: [
-        'Toddler Program (12M - 24M): Sensory exploration and gentle language immersion.',
-        'Nursery Program (2Y - 3Y): Social connection, storytime, and creative arts.',
-        'Junior Kindergarten (3Y - 4Y): Bilingual literacy, math concepts, and STEAM discovery.',
-        'Senior Kindergarten (4Y - 5Y): Primary school readiness, critical thinking, and confidence.'
-      ]
-    })
-  },
-  {
-    id: 'extracurricular',
-    title: 'Template 04: Extracurricular & After-School Clubs',
-    description: 'Clubs including Swimming, Music & Dance, Fine Arts, and Chess.',
-    icon: Sparkles,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bannerTag: 'BEYOND THE CLASSROOM',
-      bannerTitle: 'Enriching After-School Activities',
-      bodyTitle: 'Holistic Talent & Sports Discovery',
-      bodyParagraph: 'Children develop physical strength, artistic expression, and team collaboration through our 5-star extracurricular clubs.',
-      featurePoints: [
-        'Maple Bear Swim Academy: Year-round heated 5-star pool instruction.',
-        'Canadian Performing Arts & Rhythm Club.',
-        'Little Mozart Piano & Fine Arts Studio.',
-        'STEAM & Robotics Discovery Club.'
-      ]
-    })
-  },
-  {
-    id: 'nutrition',
-    title: 'Template 05: Organic 5-Star Nutrition Program',
-    description: 'Organic farm-to-table menu curated by pediatric nutritionists.',
-    icon: ShieldCheck,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bannerTag: 'HEALTHY GROWING KIDS',
-      bannerTitle: 'Organic Farm-to-Table Meals',
-      bodyTitle: 'Curated 5-Meal Daily Nutrition',
-      bodyParagraph: 'Prepared fresh daily in our 1-way commercial kitchen using certified organic produce.',
-      featurePoints: [
-        'Breakfast, Morning Snack, Organic Lunch, Afternoon Tea, and Evening Snack.',
-        'Zero artificial preservatives or refined sugar.',
-        'Customized allergen-free alternatives for sensitive children.'
-      ]
-    })
-  },
-  {
-    id: 'academic-calendar',
-    title: 'Template 06: School Term & Event Calendar',
-    description: 'Key dates, term breaks, STEAM fairs, and graduation ceremonies.',
-    icon: FileText,
-    apply: (page: StaticPage): Partial<StaticPage> => ({
-      bannerTag: 'ACADEMIC SCHEDULE 2026',
-      bannerTitle: 'School Year Calendar & Key Dates',
-      bodyTitle: 'Four Engaging Learning Terms',
-      bodyParagraph: 'The academic year spans from August through July, structured into 4 vibrant terms featuring STEAM discovery fairs, sports days, and graduation concerts.',
-      featurePoints: [
-        'Term 1: Fall Semester (August - October).',
-        'Term 2: Winter Semester & Holiday Festival (November - January).',
-        'Term 3: Spring Discovery & STEAM Fair (February - April).',
-        'Term 4: Summer Immersion & Graduation (May - July).'
-      ]
-    })
-  }
-]
 
 const initialPages: StaticPage[] = Object.values(staticPagesRegistry) as any
 
@@ -256,7 +158,7 @@ export default function AdminPagesPage() {
   }
 
   const handleDeletePage = (id: string) => {
-    if (confirm('Bạn có chắc chắn muốn xóa trang tĩnh này khỏi website?')) {
+    if (confirm('Bạn có chắc chắn muốn xóa trang này khỏi hệ thống?')) {
       setPages(pages.filter(p => p.id !== id))
       if (activePageId === id) setActivePageId(null)
     }
@@ -361,8 +263,8 @@ export default function AdminPagesPage() {
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono font-bold text-maple-gold">{activePage.path}</span>
                 {activePage.id === defaultHomepageId && (
-                  <span className="px-2 py-0.5 bg-maple-red text-white font-extrabold text-[10px] uppercase rounded-2xs">
-                    🟢 TRANG CHỦ MẶC ĐỊNH
+                  <span className="px-2 py-0.5 bg-maple-red text-white font-extrabold text-[10px] uppercase rounded-2xs flex items-center gap-1">
+                    <Star size={11} className="fill-white" /> TRANG CHỦ MẶC ĐỊNH
                   </span>
                 )}
               </div>
@@ -377,7 +279,7 @@ export default function AdminPagesPage() {
               rel="noreferrer"
               className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-white transition-colors flex items-center gap-1.5 text-xs font-bold border border-neutral-700 rounded-2xs"
             >
-              <Eye size={15} /> Xem Live Page ↗
+              <Eye size={15} /> Xem Live ↗
             </a>
 
             <button
@@ -665,65 +567,99 @@ export default function AdminPagesPage() {
   }
 
   // -------------------------------------------------------------
-  // VIEW 2: UNIFIED STATIC PAGES TABLE LISTING (INCLUDING HOMEPAGE /)
+  // VIEW 2: UNIFIED SLEEK STATIC PAGES & HOMEPAGE MANAGEMENT TABLE
   // -------------------------------------------------------------
   return (
-    <div className="space-y-4 w-full text-[#1D1D1B]">
+    <div className="space-y-6 w-full text-[#1D1D1B] animate-fade-in pb-12">
       
-      {/* Header */}
-      <div className="bg-white border border-neutral-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs rounded-2xs">
+      {/* Sleek Top Banner & Quick Stats */}
+      <div className="bg-white border border-neutral-200 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs rounded-2xs">
         <div>
-          <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">
-            Hệ Thống CMS Quản Lý Nội Dung Website
-          </span>
-          <h2 className="text-xl font-display font-extrabold text-[#1D1D1B]">
-            Quản Lý & Biên Tập Nội Dung Tất Cả Các Trang Website ({pages.length} Trang)
+          <div className="flex items-center gap-2 mb-1">
+            <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+            <span className="text-xs font-bold text-maple-red uppercase tracking-wider">HỆ THỐNG CMS QUẢN LÝ NỘI DUNG</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-display font-extrabold text-[#1D1D1B]">
+            Quản Lý & Biên Tập Trang Website ({pages.length} Trang)
           </h2>
-          <p className="text-xs text-neutral-500 font-normal mt-0.5">
-            Thêm, bớt, chỉnh sửa tiêu đề/nội dung mọi trang (bao gồm Trang Chủ `/`) và thiết lập Trang Chủ Mặc Định.
+          <p className="text-xs text-neutral-500 font-normal mt-1">
+            Chỉnh sửa nội dung, thêm/bớt section cho tất cả các trang (bao gồm Trang Chủ `/`) và thiết lập Trang Chủ Mặc Định.
           </p>
         </div>
         
         <div className="flex items-center gap-3">
           <button
             onClick={() => setShowAddModal(true)}
-            className="px-4 py-2 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all flex items-center gap-1.5 rounded-2xs shadow-2xs uppercase tracking-wider"
+            className="px-4 py-2.5 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all flex items-center gap-2 rounded-2xs shadow-2xs uppercase tracking-wider"
           >
-            <Plus size={15} />
-            Thêm Trang Mới
+            <Plus size={16} />
+            Tạo Trang Mới
           </button>
         </div>
       </div>
 
-      {/* Filter & Search Bar */}
-      <div className="flex flex-col sm:flex-row gap-3 bg-white border border-neutral-200 p-3 shadow-2xs rounded-2xs">
-        <div className="relative flex-1">
-          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+      {/* Category Pills & Search Filter */}
+      <div className="bg-white border border-neutral-200 p-4 rounded-2xs shadow-2xs flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
+        
+        {/* Category Pills */}
+        <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+          <button
+            onClick={() => setCategoryFilter('ALL')}
+            className={`px-3 py-1.5 rounded-2xs transition-all ${
+              categoryFilter === 'ALL' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+            }`}
+          >
+            Tất cả ({pages.length})
+          </button>
+          <button
+            onClick={() => setCategoryFilter('ABOUT US')}
+            className={`px-3 py-1.5 rounded-2xs transition-all ${
+              categoryFilter === 'ABOUT US' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+            }`}
+          >
+            Giới Thiệu (About)
+          </button>
+          <button
+            onClick={() => setCategoryFilter('ACADEMICS')}
+            className={`px-3 py-1.5 rounded-2xs transition-all ${
+              categoryFilter === 'ACADEMICS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+            }`}
+          >
+            Chương Trình Học
+          </button>
+          <button
+            onClick={() => setCategoryFilter('ADMISSIONS')}
+            className={`px-3 py-1.5 rounded-2xs transition-all ${
+              categoryFilter === 'ADMISSIONS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+            }`}
+          >
+            Tuyển Sinh & Tour
+          </button>
+          <button
+            onClick={() => setCategoryFilter('COMMUNITY')}
+            className={`px-3 py-1.5 rounded-2xs transition-all ${
+              categoryFilter === 'COMMUNITY' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+            }`}
+          >
+            Cộng Đồng Phụ Huynh
+          </button>
+        </div>
+
+        {/* Search Input */}
+        <div className="relative w-full md:w-72">
+          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
           <input
             type="text"
-            placeholder="Tìm kiếm trang theo đường dẫn slug hoặc tiêu đề..."
+            placeholder="Tìm theo tên trang hoặc route..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold focus:outline-none focus:border-maple-red rounded-2xs"
+            className="w-full pl-9 pr-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold focus:outline-none focus:border-maple-red rounded-2xs"
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-            className="bg-[#FDFBF7] border border-neutral-300 text-xs font-bold p-1.5 focus:outline-none rounded-2xs"
-          >
-            <option value="ALL">Tất cả Chuyên mục ({pages.length} Trang)</option>
-            <option value="ABOUT US">About Us</option>
-            <option value="ACADEMICS">Academics</option>
-            <option value="ADMISSIONS">Admissions</option>
-            <option value="COMMUNITY">Community</option>
-          </select>
-        </div>
       </div>
 
-      {/* Unified Pages Table (Including Homepage /) */}
+      {/* Modern High-End Table */}
       <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
@@ -731,9 +667,7 @@ export default function AdminPagesPage() {
               <th className="py-3 px-4">Đường Dẫn Route</th>
               <th className="py-3 px-4">Tiêu Đề Trang Website</th>
               <th className="py-3 px-4">Chuyên Mục</th>
-              <th className="py-3 px-4">Loại Trang CMS</th>
-              <th className="py-3 px-4">Cập Nhật</th>
-              <th className="py-3 px-4">Trạng Thái Trang Chủ</th>
+              <th className="py-3 px-4 text-center">Cấu Hình Trang Chủ</th>
               <th className="py-3 px-4 text-center">Thao Tác Biên Tập</th>
             </tr>
           </thead>
@@ -741,56 +675,75 @@ export default function AdminPagesPage() {
             {filteredPages.map((p) => {
               const isDefaultHp = p.id === defaultHomepageId || p.path === '/'
               return (
-                <tr key={p.id} className="hover:bg-[#FDFBF7] transition-colors">
-                  <td className="py-3 px-4 font-mono font-extrabold text-maple-red">{p.path}</td>
-                  <td className="py-3 px-4 font-bold text-maple-black">
-                    <div>{p.title}</div>
-                    {isDefaultHp && (
-                      <span className="text-[10px] text-emerald-700 font-mono font-bold block mt-0.5">
-                        🟢 Đang chạy làm Trang chủ duy nhất ở mốc `/`
-                      </span>
-                    )}
+                <tr
+                  key={p.id}
+                  className={`transition-colors ${
+                    isDefaultHp ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-[#FDFBF7]'
+                  }`}
+                >
+                  <td className="py-3.5 px-4 font-mono font-bold">
+                    <span className="px-2 py-1 bg-neutral-100 text-maple-red border border-neutral-200 rounded-2xs text-xs inline-block">
+                      {p.path}
+                    </span>
                   </td>
-                  <td className="py-3 px-4">
-                    <span className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 text-[10px] font-extrabold rounded-2xs">
+
+                  <td className="py-3.5 px-4 font-bold text-maple-black">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm">{p.title}</span>
+                      {isDefaultHp && (
+                        <span className="px-2 py-0.5 bg-maple-red text-white text-[9px] font-extrabold uppercase tracking-wider rounded-2xs flex items-center gap-1">
+                          <Star size={10} className="fill-white" /> Mặc Định
+                        </span>
+                      )}
+                    </div>
+                  </td>
+
+                  <td className="py-3.5 px-4">
+                    <span className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 text-neutral-600 text-[10px] font-extrabold uppercase tracking-wider rounded-2xs">
                       {p.category}
                     </span>
                   </td>
-                  <td className="py-3 px-4">
-                    <span className="px-2 py-0.5 bg-blue-50 text-blue-800 border border-blue-200 text-[10px] font-extrabold rounded-2xs">
-                      🧩 Section Builder
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-neutral-500 font-mono text-[11px]">{p.lastUpdated}</td>
-                  <td className="py-3 px-4">
+
+                  <td className="py-3.5 px-4 text-center">
                     {isDefaultHp ? (
-                      <span className="px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 text-[10px] font-extrabold rounded-2xs inline-flex items-center gap-1">
-                        <CheckCircle2 size={12} /> 🟢 TRANG CHỦ MẶC ĐỊNH
+                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold rounded-2xs text-[10px]">
+                        <CheckCircle2 size={12} className="text-emerald-700" /> 🟢 TRANG CHỦ MẶC ĐỊNH
                       </span>
                     ) : (
                       <button
                         onClick={() => handleSetDefaultHomepage(p.id)}
-                        className="px-2 py-1 bg-neutral-100 hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-600 text-[10px] font-bold rounded-2xs transition-colors"
+                        className="px-3 py-1 bg-white hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-600 text-[10px] font-bold rounded-2xs transition-all shadow-2xs"
                       >
-                        Đặt làm Trang Chủ (`/`)
+                        ★ Set Làm Trang Chủ (`/`)
                       </button>
                     )}
                   </td>
-                  <td className="py-3 px-4 text-center">
+
+                  <td className="py-3.5 px-4 text-center">
                     <div className="flex items-center justify-center gap-2">
                       <button
                         onClick={() => setActivePageId(p.id)}
-                        className="px-3 py-1.5 bg-[#151513] text-white hover:bg-maple-red text-[11px] font-extrabold rounded-2xs transition-colors inline-flex items-center gap-1.5 shadow-2xs"
+                        className="px-3.5 py-1.5 bg-[#151513] text-white hover:bg-maple-red text-[11px] font-extrabold rounded-2xs transition-colors inline-flex items-center gap-1.5 shadow-2xs"
                       >
                         <Edit3 size={13} />
-                        Sửa Trang / Sửa Builder ↗
+                        Chỉnh Sửa Trang
                       </button>
+
+                      <a
+                        href={p.path}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-500 hover:text-maple-black hover:bg-neutral-100 transition-colors"
+                        title="Xem trang thực tế"
+                      >
+                        <ExternalLink size={14} />
+                      </a>
 
                       {p.path !== '/' && (
                         <button
                           onClick={() => handleDeletePage(p.id)}
-                          className="p-1.5 text-neutral-400 hover:text-red-600 transition-colors"
-                          title="Xóa trang tĩnh"
+                          className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-400 hover:text-red-600 hover:bg-neutral-100 transition-colors"
+                          title="Xóa trang"
                         >
                           <Trash2 size={14} />
                         </button>
@@ -804,17 +757,19 @@ export default function AdminPagesPage() {
         </table>
       </div>
 
-      {/* CREATE NEW STATIC PAGE MODAL */}
+      {/* CREATE NEW PAGE MODAL */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-neutral-300 max-w-md w-full p-6 space-y-4 shadow-2xl rounded-2xs">
-            <div className="border-b border-neutral-200 pb-3 flex justify-between items-center">
-              <div>
-                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">KHỞI TẠO TRANG MỚI</span>
-                <h3 className="text-base font-display font-extrabold text-[#1D1D1B]">Thêm Trang Vào Hệ Thống CMS</h3>
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white border border-neutral-200 max-w-md w-full p-6 space-y-4 shadow-2xl rounded-2xs">
+            <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
+                <h3 className="text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
+                  Tạo Trang Website Mới
+                </h3>
               </div>
               <button onClick={() => setShowAddModal(false)} className="text-neutral-400 hover:text-black">
-                <X size={16} />
+                <X size={18} />
               </button>
             </div>
 
