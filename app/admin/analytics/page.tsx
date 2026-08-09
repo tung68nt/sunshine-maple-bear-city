@@ -23,9 +23,15 @@ import {
   Globe2,
   ExternalLink,
   ShieldCheck,
-  Search
+  Search,
+  Flame,
+  ThermometerSnowflake,
+  Clock,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react'
 import Link from 'next/link'
+import { MOCK_IP_SESSIONS, IPVisitorSession } from '@/lib/visitor-tracking'
 
 interface AuditLogEntry {
   id: string
@@ -88,7 +94,7 @@ const AUDIT_LOG_SEED: AuditLogEntry[] = [
 export default function AdminAnalyticsPage() {
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'ytd'>('30d')
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
-  const [auditSearch, setAuditSearch] = useState('')
+  const [expandedIp, setExpandedIp] = useState<string | null>('113.190.242.88')
 
   useEffect(() => {
     const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
@@ -269,12 +275,6 @@ export default function AdminAnalyticsPage() {
 
   const currentData = analyticsDataMap[timeRange]
 
-  const filteredLogs = AUDIT_LOG_SEED.filter(log =>
-    log.parentName.toLowerCase().includes(auditSearch.toLowerCase()) ||
-    log.id.toLowerCase().includes(auditSearch.toLowerCase()) ||
-    log.utmSource.toLowerCase().includes(auditSearch.toLowerCase())
-  )
-
   const handleExportPDF = () => {
     alert(adminUiLang === 'vi' ? `Đang khởi tạo & xuất file báo cáo Analytics PDF cho mốc [${timeRange.toUpperCase()}]...` : `Exporting PDF Analytics Report for [${timeRange.toUpperCase()}]...`)
   }
@@ -378,6 +378,150 @@ export default function AdminAnalyticsPage() {
         </div>
       </div>
 
+      {/* IP VISITOR TRACKING & WARM/COLD LEAD SCORING ENGINE */}
+      <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-5">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-neutral-200 pb-4">
+          <div>
+            <div className="flex items-center gap-2 mb-0.5">
+              <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
+              <h3 className="text-sm sm:text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
+                Tracking Hành Trình IP & Phân Tích Mức Độ Quan Tâm (Warm/Cold Lead Scoring Engine)
+              </h3>
+            </div>
+            <p className="text-xs text-neutral-500 font-normal">
+              Theo dõi chuỗi thời gian & trang đã duyệt theo IP. Khi IP đó gửi Form, hệ thống tự động ghép nối toàn bộ lịch sử duyệt web để đánh giá mức độ <strong>Warm/Hot/Cold</strong>.
+            </p>
+          </div>
+          
+          <span className="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-300 font-mono font-bold text-[11px] rounded-2xs flex items-center gap-1.5">
+            <Flame size={14} className="text-maple-red animate-pulse" /> Lead Temperature Scoring Active
+          </span>
+        </div>
+
+        {/* IP Visitor Table */}
+        <div className="overflow-x-auto border border-neutral-200 rounded-2xs">
+          <table className="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr className="bg-[#151513] text-white font-extrabold border-b border-neutral-800 text-[10px] uppercase tracking-wider">
+                <th className="p-3">Địa Chỉ IP & Vị Trí</th>
+                <th className="p-3">Hồ Sơ Ghép Nối (Lead)</th>
+                <th className="p-3 text-center">Số Lượt Vào</th>
+                <th className="p-3 text-center">Tổng Thời Gian</th>
+                <th className="p-3 text-center">Đánh Giá Mức Độ (Score)</th>
+                <th className="p-3 text-center font-bold">Lịch Sử Duyệt Trang</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-neutral-100 font-medium text-neutral-700">
+              {MOCK_IP_SESSIONS.map((sess) => {
+                const isExpanded = expandedIp === sess.ip
+                return (
+                  <>
+                    <tr key={sess.ip} className="hover:bg-[#FDFBF7] transition-colors">
+                      <td className="p-3">
+                        <div className="font-mono font-bold text-maple-black">{sess.ip}</div>
+                        <div className="text-[10px] text-neutral-400 flex items-center gap-1">
+                          <MapPin size={10} /> {sess.location}
+                        </div>
+                      </td>
+
+                      <td className="p-3">
+                        {sess.parentName ? (
+                          <div>
+                            <div className="font-bold text-maple-red">{sess.parentName}</div>
+                            <div className="text-[10px] font-mono text-neutral-500">{sess.phone} • {sess.linkedLeadId}</div>
+                          </div>
+                        ) : (
+                          <span className="px-2 py-0.5 bg-neutral-100 text-neutral-500 text-[10px] font-mono rounded-2xs">
+                            👤 Khách Ẩn Danh (Chưa điền form)
+                          </span>
+                        )}
+                      </td>
+
+                      <td className="p-3 text-center font-mono font-bold text-neutral-700">
+                        {sess.totalVisits} lần
+                      </td>
+
+                      <td className="p-3 text-center font-mono text-neutral-600">
+                        {Math.floor(sess.totalDurationSeconds / 60)} phút {sess.totalDurationSeconds % 60}s
+                      </td>
+
+                      <td className="p-3 text-center">
+                        {sess.temperature === 'HOT' && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-red-50 text-maple-red border border-red-200 font-extrabold rounded-2xs text-[10px]">
+                            <Flame size={12} className="fill-maple-red" /> 🔥 HOT ({sess.score} điểm - Rất Nóng)
+                          </span>
+                        )}
+                        {sess.temperature === 'WARM' && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-300 font-extrabold rounded-2xs text-[10px]">
+                            🟧 WARM ({sess.score} điểm - Nóng Vừa)
+                          </span>
+                        )}
+                        {sess.temperature === 'COLD' && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 font-extrabold rounded-2xs text-[10px]">
+                            <ThermometerSnowflake size={12} /> ❄️ COLD ({sess.score} điểm - Mới/Lạnh)
+                          </span>
+                        )}
+                      </td>
+
+                      <td className="p-3 text-center">
+                        <button
+                          onClick={() => setExpandedIp(isExpanded ? null : sess.ip)}
+                          className="px-3 py-1 bg-[#151513] text-white hover:bg-maple-red text-[10px] font-bold rounded-2xs transition-colors inline-flex items-center gap-1"
+                        >
+                          {isExpanded ? 'Đóng Hành Trình' : 'Xem Hành Trình IP'}
+                          {isExpanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                        </button>
+                      </td>
+                    </tr>
+
+                    {/* EXPANDED BROWSING TIMELINE FOR THIS IP */}
+                    {isExpanded && (
+                      <tr className="bg-[#FDFBF7]">
+                        <td colSpan={6} className="p-4 border-b border-neutral-200">
+                          <div className="p-4 bg-white border border-neutral-300 rounded-2xs space-y-3 shadow-2xs">
+                            <div className="flex justify-between items-center border-b border-neutral-100 pb-2">
+                              <span className="text-[11px] font-bold text-maple-black flex items-center gap-1.5">
+                                <Clock size={13} className="text-maple-red" /> 
+                                Lịch Sử Chuỗi Trang Đã Duyệt Của IP [{sess.ip}] trước khi gửi Form:
+                              </span>
+                              <span className="text-[10px] font-mono text-neutral-400">
+                                Lần xem đầu: {sess.firstSeen} • Mới nhất: {sess.lastSeen}
+                              </span>
+                            </div>
+
+                            <div className="space-y-2">
+                              {sess.visitedPages.map((page, idx) => (
+                                <div key={idx} className="flex justify-between items-center p-2 bg-[#FDFBF7] border border-neutral-200 rounded-2xs text-xs">
+                                  <div className="flex items-center gap-2">
+                                    <span className="w-5 h-5 bg-[#151513] text-white font-mono text-[10px] font-bold rounded-full flex items-center justify-center">
+                                      {idx + 1}
+                                    </span>
+                                    <div>
+                                      <span className="font-bold text-maple-black block">{page.title}</span>
+                                      <span className="font-mono text-[10px] text-neutral-400">{page.path}</span>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-4">
+                                    <span className="font-mono text-[10px] text-neutral-400">{page.timestamp}</span>
+                                    <span className="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 font-mono font-bold text-[10px] rounded-2xs">
+                                      ⏱️ {page.durationSeconds} giây ({Math.floor(page.durationSeconds / 60)}m {page.durationSeconds % 60}s)
+                                    </span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       {/* REAL DATA AUDIT LOG & SUBMISSION RECONCILIATION TABLE */}
       <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-5">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-neutral-200 pb-4">
@@ -419,7 +563,7 @@ export default function AdminAnalyticsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-100 font-medium text-neutral-700">
-              {filteredLogs.map((log, idx) => (
+              {AUDIT_LOG_SEED.map((log, idx) => (
                 <tr key={idx} className="hover:bg-[#FDFBF7] transition-colors">
                   <td className="p-3 font-mono font-bold text-maple-black">{log.id}</td>
                   <td className="p-3 text-neutral-500 font-mono">{log.time}</td>

@@ -14,6 +14,8 @@ const initialSubmissions = [
     program: 'Kindergarten (JK)',
     date: '07/08/2026',
     status: 'New',
+    score: '🔥 HOT (92 điểm)',
+    ipTracking: '113.190.242.88 (Đã xem: Học phí 4m + Mầm non Canada 2m)',
     message: 'Gia đình muốn hỏi chính sách miễn 100% phí cơ sở vật chất năm đầu tiên cho cư dân Sunshine City và lịch nhận lớp tháng 9.'
   },
   {
@@ -26,6 +28,8 @@ const initialSubmissions = [
     program: 'Toddler Immersion',
     date: '06/08/2026',
     status: 'Contacted',
+    score: '🟧 WARM (78 điểm)',
+    ipTracking: '14.232.180.105 (Đã xem: Lý do chọn SMB 3m + Đặt Tour)',
     message: 'Bé có tiền sử dị ứng đậu đỗ nhẹ, mong muốn được tư vấn thực đơn hữu cơ riêng từ chuyên gia dinh dưỡng của trường.'
   },
   {
@@ -38,6 +42,8 @@ const initialSubmissions = [
     program: 'Senior Kindergarten (SK)',
     date: '05/08/2026',
     status: 'Enrolled',
+    score: '🔥 HOT (96 điểm)',
+    ipTracking: '118.70.12.44 (Đã xem: Open Day 5m + Học phí 4m)',
     message: 'Muốn tìm hiểu lộ trình chuyển tiếp Tiểu học Quốc tế Maple Bear và phương pháp giảng dạy nhúng ngôn ngữ Tiếng Anh 100%.'
   },
   {
@@ -139,6 +145,7 @@ export default function AdminAdmissionsPage() {
             <tr className="bg-[#FDFBF7] border-b border-neutral-200 text-neutral-600 font-semibold text-[11px]">
               <th className="py-2.5 px-3.5 whitespace-nowrap">Mã HS</th>
               <th className="py-2.5 px-3.5 whitespace-nowrap">Họ tên phụ huynh</th>
+              <th className="py-2.5 px-3.5 whitespace-nowrap">Mức Độ (Lead Score)</th>
               <th className="py-2.5 px-3.5 whitespace-nowrap">Số điện thoại & Email</th>
               <th className="py-2.5 px-3.5 whitespace-nowrap">Họ tên bé & Lớp</th>
               <th className="py-2.5 px-3.5">Nội dung Lời nhắn / Ghi chú</th>
@@ -151,6 +158,14 @@ export default function AdminAdmissionsPage() {
               <tr key={s.id} className="hover:bg-neutral-50 transition-colors">
                 <td className="py-2.5 px-3.5 font-mono font-bold text-maple-red whitespace-nowrap">{s.id}</td>
                 <td className="py-2.5 px-3.5 font-bold text-[#1D1D1B] whitespace-nowrap">{s.name}</td>
+                <td className="py-2.5 px-3.5 whitespace-nowrap">
+                  <span className="px-2 py-0.5 bg-red-50 text-maple-red border border-red-200 font-extrabold text-[10px] rounded-2xs">
+                    {s.score || '🔥 HOT (92 điểm)'}
+                  </span>
+                  {s.ipTracking && (
+                    <div className="text-[9px] font-mono text-neutral-400 mt-0.5">{s.ipTracking}</div>
+                  )}
+                </td>
                 <td className="py-2.5 px-3.5 font-mono text-neutral-600 whitespace-nowrap">
                   <div>{s.phone}</div>
                   <div className="text-[10px] text-neutral-400 font-sans">{s.email}</div>
