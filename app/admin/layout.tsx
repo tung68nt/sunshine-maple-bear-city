@@ -44,6 +44,7 @@ const ROLE_PERMISSIONS: Record<AdminRole, string[]> = {
     '/admin/admissions',
     '/admin/tour-bookings',
     '/admin/analytics',
+    '/admin/users',
     '/admin/settings'
   ],
   principal: [
@@ -53,7 +54,8 @@ const ROLE_PERMISSIONS: Record<AdminRole, string[]> = {
     '/admin/events',
     '/admin/admissions',
     '/admin/tour-bookings',
-    '/admin/analytics'
+    '/admin/analytics',
+    '/admin/users'
   ],
   admissions: [
     '/admin',
@@ -197,6 +199,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         { label: adminLang === 'vi' ? 'Hồ sơ Tuyển sinh' : 'Admissions Enquiries', href: '/admin/admissions', icon: UserCheck },
         { label: adminLang === 'vi' ? 'Đặt lịch Tham quan' : 'Tour Bookings', href: '/admin/tour-bookings', icon: CalendarCheck },
         { label: adminLang === 'vi' ? 'Báo cáo & Phân tích' : 'Analytics & Reports', href: '/admin/analytics', icon: BarChart3 },
+        { label: adminLang === 'vi' ? 'Phân quyền & User CMS' : 'CMS Users & Roles', href: '/admin/users', icon: ShieldCheck },
         { label: adminLang === 'vi' ? 'Cấu hình Hệ thống' : 'General Settings', href: '/admin/settings', icon: Settings },
       ]
     }
