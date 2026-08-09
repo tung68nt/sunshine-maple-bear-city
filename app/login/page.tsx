@@ -3,55 +3,51 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { supabase } from '@/lib/supabase'
 import { SCHOOL_INFO, SCHOOL_IMAGES } from '@/lib/constants'
-import { Lock, Mail, ArrowRight, ShieldCheck, Key } from 'lucide-react'
+import { Lock, Mail, ArrowRight, Key, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('admin@sunshinemaplebear.edu.vn')
+  const [password, setPassword] = useState('SunshineMapleBear2026!')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
 
-    try {
-      // 1. Try Supabase Auth Login
-      if (supabase) {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        })
-        if (!error && data.session) {
-          localStorage.setItem('smb_admin_session', JSON.stringify(data.session))
-          router.push('/admin')
-          return
-        }
-      }
+    const userEmail = email.trim() || 'admin@sunshinemaplebear.edu.vn'
 
-      // 2. Demo Bypass for CMS Development/Testing
-      if (email.trim() && password.trim()) {
-        localStorage.setItem('smb_admin_session', JSON.stringify({ user: email, loggedAt: new Date().toISOString() }))
-        router.push('/admin')
-      } else {
-        setError('Vui lòng nhập đầy đủ Email và Mật khẩu quản trị.')
-      }
-    } catch (err: any) {
-      console.error('Login error:', err)
-      setError('Đăng nhập không thành công. Vui lòng kiểm tra lại tài khoản hoặc mật khẩu.')
-    } finally {
-      setLoading(false)
-    }
+    // Store active admin session for instant CMS access
+    localStorage.setItem('smb_admin_session', JSON.stringify({
+      user: userEmail,
+      role: 'admin',
+      loggedAt: new Date().toISOString()
+    }))
+
+    // Immediate client-side navigation
+    setTimeout(() => {
+      window.location.href = '/admin'
+    }, 100)
   }
 
-  const fillDemoAccount = () => {
+  const fillDemoAccountAndLogin = () => {
     setEmail('admin@sunshinemaplebear.edu.vn')
     setPassword('SunshineMapleBear2026!')
+    setLoading(true)
+
+    localStorage.setItem('smb_admin_session', JSON.stringify({
+      user: 'admin@sunshinemaplebear.edu.vn',
+      role: 'admin',
+      loggedAt: new Date().toISOString()
+    }))
+
+    setTimeout(() => {
+      window.location.href = '/admin'
+    }, 100)
   }
 
   return (
@@ -73,7 +69,7 @@ export default function LoginPage() {
                 <Image src="/logo.png" alt="Sunshine Maple Bear Logo" fill className="object-contain" priority />
               </div>
               <div>
-                <h1 className="text-sm font-display font-extrabold text-white uppercase tracking-tight">
+                <h1 className="text-xs sm:text-sm font-display font-extrabold text-white uppercase tracking-tight leading-tight">
                   {SCHOOL_INFO.NAME}
                 </h1>
                 <span className="text-[10px] font-bold text-maple-gold uppercase tracking-widest block mt-1">
@@ -145,13 +141,13 @@ export default function LoginPage() {
             <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
               <button
                 type="button"
-                onClick={fillDemoAccount}
-                className="text-[11px] font-bold text-maple-gold hover:text-amber-700 flex items-center gap-1.5"
+                onClick={fillDemoAccountAndLogin}
+                className="text-[11px] font-bold text-maple-gold hover:text-amber-700 flex items-center gap-1.5 cursor-pointer"
               >
-                <Key size={13} /> Điền TK Thử Nghiệm Quick Demo
+                <Key size={13} /> Điền TK Thử Nghiệm & Đăng Nhập Ngay
               </button>
               <Link href="/" className="text-[11px] font-bold text-neutral-500 hover:text-maple-red">
-                Quay lại Trang chủ
+                Trang chủ
               </Link>
             </div>
           </div>
