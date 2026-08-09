@@ -9,20 +9,20 @@
    ═══════════════════════════════════════ */
 
 :root {
-  /* ── Primary Brand Colors ── */
-  --color-primary:      #C8102E;
-  --color-primary-dark:  #A00C24;
-  --color-primary-light: #E8334D;
-  --color-gold:          #F5A800;
-  --color-gold-light:    #FFD166;
-  --color-gold-dark:     #D49000;
-  --color-cream:         #FFF8F0;
+  /* ── Primary Brand Colors (Excel Spec) ── */
+  --color-primary:      #CC1316; /* REGULAR RED */
+  --color-primary-dark:  #990E10;
+  --color-primary-light: #E03538;
+  --color-gold:          #CA9E00; /* HONEY-BROWN */
+  --color-gold-light:    #E5B81A;
+  --color-gold-dark:     #A37F00;
+  --color-cream:         #FDFBF7; /* Soft luxury background */
   --color-white:         #FFFFFF;
-  --color-dark:          #1A1A2E;
-  --color-dark-light:    #2D2D44;
-  --color-gray:          #374151;
-  --color-gray-light:    #F3F4F6;
-  --color-gray-medium:   #D1D5DB;
+  --color-dark:          #1D1D1B; /* BLACK */
+  --color-dark-light:    #2B2B28;
+  --color-gray:          #4A4A46;
+  --color-gray-light:    #F9F7F2;
+  --color-gray-medium:   #E2DFD7;
   --color-success:       #10B981;
 
   /* ── Semantic Tokens ── */

@@ -46,9 +46,9 @@ export default function BlogPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/90 to-[var(--color-dark)]/30" />
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-3xl mx-auto space-y-6 animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-maple-red/10 border border-maple-red/20 backdrop-blur-md mb-4">
-                <Newspaper size={18} className="text-maple-gold" />
-                <span className="text-sm font-bold uppercase tracking-widest text-white">News & Insights</span>
+              <div className="flex items-center justify-center gap-2.5 mb-2">
+                <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+                <span className="text-xs font-bold uppercase tracking-wider text-maple-gold">Tin Tức & Góc Nhìn Chuyên Gia Mầm Non</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">Knowledge <span className="text-maple-gold">Blog</span></h1>
               <p className="text-xl text-white/60 font-light max-w-2xl mx-auto">

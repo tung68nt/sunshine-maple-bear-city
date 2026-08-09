@@ -1,6 +1,7 @@
 export const SCHOOL_INFO = {
-  NAME: 'Sunshine Maple Bear International Kindergarten',
-  NAME_EN: 'Sunshine Maple Bear International Kindergarten',
+  NAME: 'SUNSHINE MAPLE BEAR INTERNATIONAL KINDERGARTEN',
+  NAME_EN: 'SUNSHINE MAPLE BEAR INTERNATIONAL KINDERGARTEN',
+  NAME_VI: 'TRƯỜNG MẦM NON QUỐC TẾ SUNSHINE MAPLE BEAR',
   TAGLINE: 'Premium Canadian International Early Childhood Education — 100% English',
   TAGLINE_EN: 'Premium Canadian International Early Childhood Education — 100% English',
   ADDRESS_PALACE: 'Sunshine Palace Building, 13 Linh Nam, Vinh Tuy Ward, Hanoi',

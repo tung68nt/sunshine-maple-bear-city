@@ -1,12 +1,18 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { X, Gift, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export function ExitIntentPopup() {
+  const pathname = usePathname()
   const [isVisible, setIsVisible] = useState(false)
+
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
 
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {

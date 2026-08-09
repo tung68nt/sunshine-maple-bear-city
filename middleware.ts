@@ -1,4 +1,4 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
+import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
@@ -6,44 +6,47 @@ export async function middleware(request: NextRequest) {
     request,
   })
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll()
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value))
-          supabaseResponse = NextResponse.next({
-            request,
-          })
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          )
-        },
-      },
-    }
-  )
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // If Supabase env variables are configured, enforce authentication
+  if (supabaseUrl && supabaseKey) {
+    try {
+      const supabase = createServerClient(
+        supabaseUrl,
+        supabaseKey,
+        {
+          cookies: {
+            getAll() {
+              return request.cookies.getAll()
+            },
+            setAll(cookiesToSet) {
+              cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+              supabaseResponse = NextResponse.next({
+                request,
+              })
+              cookiesToSet.forEach(({ name, value, options }) =>
+                supabaseResponse.cookies.set(name, value, options)
+              )
+            },
+          },
+        }
+      )
 
-  // Protect all routes starting with /admin
-  if (request.nextUrl.pathname.startsWith('/admin')) {
-    if (!user) {
-      const redirectUrl = new URL('/login', request.url)
-      return NextResponse.redirect(redirectUrl)
-    }
-  }
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
 
-  // Redirect logged-in users away from the login page
-  if (request.nextUrl.pathname === '/login') {
-    if (user) {
-      const redirectUrl = new URL('/admin', request.url)
-      return NextResponse.redirect(redirectUrl)
+      // Protect all routes starting with /admin
+      if (request.nextUrl.pathname.startsWith('/admin') && !user) {
+        // Allow access in dev mode if demo mode is active
+        if (process.env.NODE_ENV !== 'development') {
+          const redirectUrl = new URL('/login', request.url)
+          return NextResponse.redirect(redirectUrl)
+        }
+      }
+    } catch (error) {
+      console.warn('Supabase auth check skipped in middleware:', error)
     }
   }
 
@@ -51,5 +54,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*', '/login'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
 }

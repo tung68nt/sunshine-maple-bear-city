@@ -2,20 +2,16 @@
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { FloatingCTA } from '@/components/FloatingCTA'
 import {
   HeroSection,
-  TrustBar,
   WhyChooseUs,
-  ProgramCards,
-  StatsCounter,
-  DailySchedule,
-  FacilityGallery,
-  TeacherTeam,
-  Testimonials,
-  NewsGrid,
-  PartnersSection,
+  PhilosophySection,
+  CanadianCurriculum,
+  SchoolGallery,
+  EventSection,
+  MBAroundTheWorld,
   LeadCaptureForm,
-  VideoSection,
 } from '@/components/sections'
 
 export default function Home() {
@@ -23,46 +19,32 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        {/* 1. Hero — Full viewport introduction */}
+        {/* Section 1: Banner / Hero */}
         <HeroSection />
 
-        {/* 2. Trust Bar — Partner logos marquee */}
-        <TrustBar />
-
-        {/* 3. Why Choose Us — 6 feature cards */}
+        {/* Section 2: Why Choose */}
         <WhyChooseUs />
 
-        {/* 4. Video Section — Introduction */}
-        <VideoSection />
+        {/* Section 3: Our School Philosophy */}
+        <PhilosophySection />
 
-        {/* 5. Programs — 5 bear-themed class cards */}
-        <ProgramCards />
+        {/* Section 4: Canadian Curriculum */}
+        <CanadianCurriculum />
 
-        {/* 6. Stats Counter — Count-up numbers */}
-        <StatsCounter />
+        {/* Section 5: School Gallery */}
+        <SchoolGallery />
 
-        {/* 7. Daily Schedule — Timeline */}
-        <DailySchedule />
+        {/* Section 6: Event (Join Us For Openday) */}
+        <EventSection />
 
-        {/* 8. Facility Gallery — Masonry grid + lightbox */}
-        <FacilityGallery />
+        {/* Section 7: MB Around the world */}
+        <MBAroundTheWorld />
 
-        {/* 9. Teachers — Flip cards */}
-        <TeacherTeam />
-
-        {/* 10. Learning Philosophy — Educational approach */}
-        <Testimonials />
-
-        {/* 11. News — Blog grid */}
-        <NewsGrid />
-
-        {/* 12. Partners — Logo wall */}
-        <PartnersSection />
-
-        {/* 13. Lead Capture Form */}
+        {/* Section 8: Contact us */}
         <LeadCaptureForm />
       </main>
       <Footer />
+      <FloatingCTA />
     </div>
   )
 }

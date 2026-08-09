@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder'
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ddmdxidnovjesslxlbdy.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_2vFjpi_lAWEStXxz_kq85g_rqy30inv'
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
@@ -160,3 +160,75 @@ export interface User {
   created_at: string
   updated_at: string
 }
+
+export interface PageSectionBlock {
+  id: string
+  type: 'HERO' | 'STATISTICS' | 'FEATURES' | 'AGE_GROUPS' | 'DAILY_SCHEDULE' | 'NUTRITION' | 'FACILITIES' | 'CALENDAR' | 'ADMISSIONS_PROCESS' | 'TUITION_TABLE' | 'FOUNDING_FAMILIES' | 'TEACHERS' | 'HEALTH_SAFETY' | 'SAFEGUARDING' | 'TESTIMONIALS' | 'FAQ' | 'CTA'
+  title?: string
+  title_vi?: string
+  title_en?: string
+  tagline?: string
+  tagline_vi?: string
+  tagline_en?: string
+  subheading?: string
+  subheading_vi?: string
+  subheading_en?: string
+  intro?: string
+  intro_vi?: string
+  intro_en?: string
+  image_url?: string
+  body_paragraph?: string
+  body_paragraph_vi?: string
+  body_paragraph_en?: string
+  feature_points?: string[]
+  feature_points_vi?: string[]
+  feature_points_en?: string[]
+  cta_primary_text?: string
+  cta_primary_text_vi?: string
+  cta_primary_text_en?: string
+  cta_primary_url?: string
+  cta_secondary_text?: string
+  cta_secondary_text_vi?: string
+  cta_secondary_text_en?: string
+  cta_secondary_url?: string
+  stats_list?: { value: string; label_vi: string; label_en: string; sub_vi?: string; sub_en?: string }[]
+  items_grid?: { title_vi: string; title_en: string; desc_vi: string; desc_en: string; tag?: string; image?: string; icon?: string }[]
+}
+
+export interface NavbarMenuItem {
+  id: string
+  title: string
+  path: string
+  order: number
+  parent_id?: string | null
+  children?: NavbarMenuItem[]
+}
+
+export async function getSupabasePageBySlug(slug: string) {
+  try {
+    const { data, error } = await supabase
+      .from('pages')
+      .select('*')
+      .eq('slug', slug)
+      .single()
+    if (error) return null
+    return data
+  } catch (err) {
+    return null
+  }
+}
+
+export async function saveSupabasePage(pageData: Partial<Page>) {
+  try {
+    const { data, error } = await supabase
+      .from('pages')
+      .upsert(pageData, { onConflict: 'slug' })
+      .select()
+    if (error) throw error
+    return data
+  } catch (err) {
+    console.error('Error saving page to Supabase:', err)
+    return null
+  }
+}
+

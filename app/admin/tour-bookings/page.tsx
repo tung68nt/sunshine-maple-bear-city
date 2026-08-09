@@ -1,200 +1,252 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Search, Calendar, Users } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { useState, useEffect } from 'react'
+import { CalendarCheck, Search, Filter, CheckCircle2, Clock, XCircle, MessageSquare, Eye, X } from 'lucide-react'
+
+const initialTours = [
+  {
+    id: 'TB-01',
+    parent: 'Nguyễn Văn Nam',
+    email: 'nam.nguyen@gmail.com',
+    phone: '0912 345 678',
+    childDob: '12/04/2023',
+    tourDate: '12/08/2026',
+    timeSlot: '09:30 AM',
+    status: 'Confirmed',
+    message: 'Gia đình muốn tìm hiểu kỹ chương trình tiếng Anh 100% bản ngữ Canada cho bé 3 tuổi và xe bus đưa đón khu đô thị Sunshine City.'
+  },
+  {
+    id: 'TB-02',
+    parent: 'Trần Thị Mai',
+    email: 'mai.tran@yahoo.com',
+    phone: '0988 765 432',
+    childDob: '05/10/2024',
+    tourDate: '14/08/2026',
+    timeSlot: '02:00 PM',
+    status: 'Pending',
+    message: 'Cần tư vấn thực đơn dinh dưỡng 5 sao hữu cơ và chế độ chăm sóc cho bé nhóm lớp Toddler 18-24 tháng.'
+  },
+  {
+    id: 'TB-03',
+    parent: 'Lê Hoàng Anh',
+    email: 'hoanganh.le@company.vn',
+    phone: '0903 112 233',
+    childDob: '18/02/2022',
+    tourDate: '15/08/2026',
+    timeSlot: '10:00 AM',
+    status: 'Confirmed',
+    message: 'Mong muốn tham quan cơ sở vật chất khu liên hợp thể thao mầm non và phòng học Montessori hiện đại.'
+  },
+  {
+    id: 'TB-04',
+    parent: 'Phạm Thu Trang',
+    email: 'trang.pham@gmail.com',
+    phone: '0945 667 889',
+    childDob: '30/08/2023',
+    tourDate: '18/08/2026',
+    timeSlot: '03:30 PM',
+    status: 'Completed',
+    message: 'Đăng ký tư vấn chính sách ưu đãi học phí cho cư dân Sunshine City sinh năm 2023.'
+  },
+]
 
 export default function AdminTourBookingsPage() {
+  const [tours, setTours] = useState(initialTours)
   const [searchTerm, setSearchTerm] = useState('')
-  const [bookings, setBookings] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
+  const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
+  const [selectedTour, setSelectedTour] = useState<typeof initialTours[0] | null>(null)
 
   useEffect(() => {
-    fetchBookings()
+    const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
+    setAdminUiLang(saved)
+
+    const handleLangChange = (e: CustomEvent) => {
+      if (e.detail === 'vi' || e.detail === 'en') {
+        setAdminUiLang(e.detail)
+      }
+    }
+
+    window.addEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
+    return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
-  async function fetchBookings() {
-    try {
-      setLoading(true)
-      const { data, error } = await supabase
-        .from('tour_bookings')
-        .select('*')
-        .order('preferred_date', { ascending: false })
-
-      if (error) throw error
-      setBookings(data || [])
-    } catch (error) {
-      console.error('Error fetching bookings:', error)
-    } finally {
-      setLoading(false)
-    }
+  const handleStatus = (id: string, status: string) => {
+    setTours(tours.map(t => t.id === id ? { ...t, status } : t))
   }
 
-  async function updateStatus(id: string, newStatus: string) {
-    try {
-      const { error } = await supabase
-        .from('tour_bookings')
-        .update({ status: newStatus })
-        .eq('id', id)
-
-      if (error) throw error
-      fetchBookings()
-    } catch (error) {
-      console.error('Error updating status:', error)
-    }
-  }
-
-  const filteredBookings = bookings.filter(booking =>
-    booking.visitor_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    booking.visitor_email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    booking.visitor_phone?.includes(searchTerm)
+  const filteredTours = tours.filter(t => 
+    t.parent.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    t.phone.includes(searchTerm) ||
+    t.message.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    t.id.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'confirmed':
-        return 'bg-green-100 text-green-700'
-      case 'pending':
-        return 'bg-yellow-100 text-yellow-700'
-      case 'cancelled':
-        return 'bg-red-100 text-red-700'
-      default:
-        return 'bg-gray-100 text-gray-700'
-    }
-  }
-
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 text-[#1D1D1B]">
+      
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-maple-black">Tour Bookings</h1>
-        <p className="text-neutral-dark-gray mt-2">Manage school tour bookings and visitor schedules</p>
+      <div className="bg-white border border-neutral-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs">
+        <div>
+          <span className="text-[10px] font-semibold text-maple-red block">
+            {adminUiLang === 'vi' ? 'Hoạt động Vận hành' : 'Operations'}
+          </span>
+          <h2 className="text-xl font-display font-bold text-[#1D1D1B]">
+            {adminUiLang === 'vi' ? 'Quản lý Lịch Đặt Tham quan & Nội dung Lead' : 'Campus Tour Bookings & Lead Enquiries'}
+          </h2>
+          <p className="text-xs text-neutral-500 font-light mt-0.5">
+            {adminUiLang === 'vi'
+              ? 'Quản lý chi tiết danh sách phụ huynh đăng ký tham quan và đọc nội dung lời nhắn yêu cầu.'
+              : 'Manage scheduled campus visits, parent messages, and guide appointments.'}
+          </p>
+        </div>
       </div>
 
-      {/* Controls */}
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-neutral-medium-gray">
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-6">
-          {/* Search */}
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-3 text-neutral-dark-gray w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search by visitor name, email, or phone..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-neutral-medium-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-maple-red"
-            />
-          </div>
-
-          <button className="px-6 py-2 bg-maple-red text-white rounded-lg hover:bg-red-700 transition-colors font-semibold">
-            + New Tour
-          </button>
+      {/* Search Filter */}
+      <div className="bg-white border border-neutral-200 p-3.5 flex gap-4 shadow-2xs">
+        <div className="relative flex-1">
+          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+          <input
+            type="text"
+            placeholder={adminUiLang === 'vi' ? 'Tìm kiếm theo tên phụ huynh, số điện thoại hoặc nội dung lời nhắn...' : 'Search by parent name, phone, or message text...'}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-9 pr-4 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs focus:outline-none focus:border-maple-red"
+          />
         </div>
+      </div>
 
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-neutral-medium-gray bg-neutral-light-gray">
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Visitor</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Email</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Phone</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Tour Date</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Visitors</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Status</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-neutral-dark-gray">Action</th>
+      {/* Table */}
+      <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
+        <table className="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr className="bg-[#FDFBF7] border-b border-neutral-200 text-neutral-600 font-semibold">
+              <th className="py-2.5 px-4">{adminUiLang === 'vi' ? 'Mã hẹn' : 'Booking ID'}</th>
+              <th className="py-2.5 px-4">{adminUiLang === 'vi' ? 'Họ tên phụ huynh' : 'Parent Name'}</th>
+              <th className="py-2.5 px-4">{adminUiLang === 'vi' ? 'Số điện thoại & Email' : 'Phone & Email'}</th>
+              <th className="py-2.5 px-4">{adminUiLang === 'vi' ? 'Ngày & Giờ tham quan' : 'Tour Date & Time'}</th>
+              <th className="py-2.5 px-4">{adminUiLang === 'vi' ? 'Nội dung Lời nhắn Lead' : 'Lead Parent Message'}</th>
+              <th className="py-2.5 px-4">{adminUiLang === 'vi' ? 'Trạng thái' : 'Status'}</th>
+              <th className="py-2.5 px-4 text-right">{adminUiLang === 'vi' ? 'Thao tác' : 'Actions'}</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-neutral-100">
+            {filteredTours.map((t) => (
+              <tr key={t.id} className="hover:bg-neutral-50 transition-colors">
+                <td className="py-3 px-4 font-mono font-bold text-[#1D1D1B]">{t.id}</td>
+                <td className="py-3 px-4 font-semibold text-[#1D1D1B]">{t.parent}</td>
+                <td className="py-3 px-4 font-mono text-neutral-600">
+                  <div>{t.phone}</div>
+                  <div className="text-[10px] text-neutral-400 font-sans">{t.email}</div>
+                </td>
+                <td className="py-3 px-4 font-mono font-semibold text-[#1D1D1B]">
+                  {t.tourDate} <span className="text-neutral-400">({t.timeSlot})</span>
+                </td>
+                <td className="py-3 px-4 max-w-xs">
+                  <div className="text-xs text-neutral-700 line-clamp-2 italic">
+                    &ldquo;{t.message}&rdquo;
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTour(t)}
+                    className="text-[10px] font-bold text-maple-red hover:underline mt-0.5 inline-flex items-center gap-1"
+                  >
+                    <Eye size={10} /> Xem đầy đủ lời nhắn
+                  </button>
+                </td>
+                <td className="py-3 px-4">
+                  <span className={`px-2 py-0.5 text-[10px] font-semibold rounded-2xs ${
+                    t.status === 'Confirmed'
+                      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                      : t.status === 'Pending'
+                      ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                      : 'bg-neutral-100 text-neutral-800 border border-neutral-300'
+                  }`}>
+                    {adminUiLang === 'vi'
+                      ? (t.status === 'Confirmed' ? 'Đã xác nhận' : t.status === 'Pending' ? 'Đang chờ' : 'Đã hoàn thành')
+                      : t.status}
+                  </span>
+                </td>
+                <td className="py-3 px-4 text-right space-x-1.5 whitespace-nowrap">
+                  <button
+                    onClick={() => setSelectedTour(t)}
+                    className="px-2 py-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold text-xs rounded-2xs border border-neutral-300 inline-flex items-center gap-1"
+                  >
+                    <Eye size={12} /> {adminUiLang === 'vi' ? 'Xem Detail' : 'View Detail'}
+                  </button>
+
+                  {t.status === 'Pending' && (
+                    <button
+                      onClick={() => handleStatus(t.id, 'Confirmed')}
+                      className="px-2.5 py-1 bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 rounded-2xs shadow-2xs"
+                    >
+                      {adminUiLang === 'vi' ? 'Xác nhận' : 'Confirm'}
+                    </button>
+                  )}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr>
-                  <td colSpan={7} className="text-center py-8">Loading bookings...</td>
-                </tr>
-              ) : filteredBookings.map((booking) => (
-                <tr key={booking.id} className="border-b border-neutral-medium-gray hover:bg-neutral-light-gray transition-colors">
-                  <td className="py-3 px-4 text-sm text-maple-black font-medium">{booking.visitor_name}</td>
-                  <td className="py-3 px-4 text-sm text-neutral-dark-gray">{booking.visitor_email}</td>
-                  <td className="py-3 px-4 text-sm text-neutral-dark-gray">{booking.visitor_phone}</td>
-                  <td className="py-3 px-4 text-sm text-neutral-dark-gray">
-                    <div className="flex items-center gap-2">
-                      <Calendar size={14} className="text-neutral-dark-gray" />
-                      {new Date(booking.preferred_date).toLocaleDateString('vi-VN')} @ {booking.preferred_time}
-                    </div>
-                  </td>
-                  <td className="py-3 px-4 text-sm text-neutral-dark-gray">
-                    <div className="flex items-center gap-2">
-                      <Users size={14} className="text-neutral-dark-gray" />
-                      {booking.number_of_visitors} visitors
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(booking.status)}`}>
-                      {booking.status.toUpperCase()}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex gap-2">
-                      {booking.status === 'pending' && (
-                        <>
-                          <button 
-                            onClick={() => updateStatus(booking.id, 'confirmed')}
-                            className="text-green-600 font-semibold hover:underline text-sm"
-                          >
-                            Confirm
-                          </button>
-                          <button 
-                            onClick={() => updateStatus(booking.id, 'cancelled')}
-                            className="text-red-600 font-semibold hover:underline text-sm"
-                          >
-                            Cancel
-                          </button>
-                        </>
-                      )}
-                      {booking.status !== 'pending' && (
-                         <span className="text-neutral-400 text-sm">Processed</span>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-        {filteredBookings.length === 0 && (
-          <div className="text-center py-8 text-neutral-dark-gray">
-            No tour bookings found matching your search.
+      {/* DETAIL MODAL */}
+      {selectedTour && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white border border-neutral-300 rounded-2xs max-w-lg w-full p-6 space-y-4 shadow-xl relative animate-fade-in">
+            <button
+              onClick={() => setSelectedTour(null)}
+              className="absolute right-4 top-4 text-neutral-400 hover:text-black p-1"
+            >
+              <X size={18} />
+            </button>
+
+            <div className="border-b border-neutral-200 pb-3">
+              <span className="text-[10px] font-mono font-bold text-maple-red">{selectedTour.id}</span>
+              <h3 className="text-base font-display font-bold text-[#1D1D1B]">Chi tiết Yêu cầu Lead & Lời nhắn Phụ huynh</h3>
+            </div>
+
+            <div className="space-y-3 text-xs">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-[#FDFBF7] border border-neutral-200">
+                <div>
+                  <span className="text-[10px] text-neutral-400 block">Họ tên phụ huynh:</span>
+                  <span className="font-bold text-[#1D1D1B]">{selectedTour.parent}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-neutral-400 block">Số điện thoại:</span>
+                  <span className="font-mono font-bold text-[#1D1D1B]">{selectedTour.phone}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-neutral-400 block">Email liên hệ:</span>
+                  <span className="font-mono text-[#1D1D1B]">{selectedTour.email}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-neutral-400 block">Lịch hẹn tham quan:</span>
+                  <span className="font-mono font-bold text-maple-red">{selectedTour.tourDate} ({selectedTour.timeSlot})</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 bg-neutral-900 text-white rounded-2xs space-y-1.5">
+                <span className="text-[10px] font-bold text-maple-gold flex items-center gap-1">
+                  <MessageSquare size={13} /> NỘI DUNG LỜI NHẮN / GHI CHÚ CỦA PHỤ HUYNH:
+                </span>
+                <p className="text-xs text-neutral-200 leading-relaxed font-sans italic">
+                  &ldquo;{selectedTour.message}&rdquo;
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-2 flex justify-end gap-2 border-t border-neutral-200">
+              <button
+                onClick={() => setSelectedTour(null)}
+                className="px-4 py-1.5 bg-neutral-200 hover:bg-neutral-300 text-neutral-800 text-xs font-semibold rounded-2xs"
+              >
+                Đóng
+              </button>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* Summary Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-neutral-medium-gray">
-          <p className="text-neutral-dark-gray text-sm">Total Bookings</p>
-          <p className="text-3xl font-bold text-maple-black mt-2">{bookings.length}</p>
-        </div>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-neutral-medium-gray">
-          <p className="text-neutral-dark-gray text-sm">Confirmed</p>
-          <p className="text-3xl font-bold text-green-600 mt-2">
-            {bookings.filter(b => b.status === 'confirmed').length}
-          </p>
-        </div>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-neutral-medium-gray">
-          <p className="text-neutral-dark-gray text-sm">Pending</p>
-          <p className="text-3xl font-bold text-yellow-600 mt-2">
-            {bookings.filter(b => b.status === 'pending').length}
-          </p>
-        </div>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-neutral-medium-gray">
-          <p className="text-neutral-dark-gray text-sm">Total Visitors Expected</p>
-          <p className="text-3xl font-bold text-blue-600 mt-2">
-            {bookings
-              .filter(b => b.status === 'confirmed')
-              .reduce((sum, b) => sum + (b.number_of_visitors || 0), 0)}
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 import { MessageCircle, X, Send, Phone, User, Bot, Sparkles, MapPin, Calendar, BookOpen, Headset } from 'lucide-react'
 import Image from 'next/image'
 import { SCHOOL_INFO } from '@/lib/constants'
@@ -23,8 +24,13 @@ const MOCK_ANSWERS: Record<string, string> = {
 }
 
 export function ChatWidget() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
+
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
   
   useEffect(() => {
     setMessages([
@@ -212,7 +218,7 @@ export function ChatWidget() {
             <button
               onClick={handleSend}
               aria-label="Send message"
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-maple-red text-white rounded-xl flex items-center justify-center hover:bg-maple-red-dark transition-colors shadow-lg shadow-maple-red/20"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-maple-red text-white rounded-xl flex items-center justify-center hover:bg-maple-red-dark transition-colors shadow-md"
             >
               <Send size={16} />
             </button>
