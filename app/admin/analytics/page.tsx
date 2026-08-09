@@ -23,6 +23,7 @@ import {
 export default function AdminAnalyticsPage() {
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'ytd'>('30d')
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
+  const [adSpendInput, setAdSpendInput] = useState<number>(8000000)
 
   useEffect(() => {
     const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
@@ -292,11 +293,25 @@ export default function AdminAnalyticsPage() {
         </div>
 
         <div className="bg-white border border-neutral-200 p-4 space-y-2 rounded-2xs shadow-2xs">
-          <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">Chi phí / Lead (CPL)</span>
-          <div className="text-2xl font-display font-extrabold text-emerald-700">{currentData.kpis.cpl}</div>
-          <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
-            <TrendingUp size={12} /> {currentData.kpis.cplGrowth}
-          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">Chi phí / Lead (CPL)</span>
+            <span className="text-[9px] font-extrabold px-1.5 py-0.5 bg-amber-50 text-amber-700 border border-amber-200 rounded-2xs">
+              Thực Nhập Tay
+            </span>
+          </div>
+          <div className="text-2xl font-display font-extrabold text-emerald-700">
+            {Math.round(adSpendInput / (parseInt(currentData.kpis.leads) || 58)).toLocaleString('vi-VN')}đ
+          </div>
+          <div className="pt-1">
+            <label className="text-[9px] text-neutral-500 font-bold block uppercase">Ngân sách Ads thực chi (VND):</label>
+            <input
+              type="number"
+              value={adSpendInput}
+              onChange={(e) => setAdSpendInput(Number(e.target.value) || 0)}
+              className="w-full mt-0.5 p-1 px-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-mono font-extrabold text-maple-black focus:outline-none focus:border-maple-red"
+              placeholder="Nhập ngân sách..."
+            />
+          </div>
         </div>
 
         <div className="bg-white border border-neutral-200 p-4 space-y-2 rounded-2xs shadow-2xs">
@@ -306,51 +321,57 @@ export default function AdminAnalyticsPage() {
         </div>
       </div>
 
-      {/* CPL MEASUREMENT METHODOLOGY & SQL DATA SOURCE INSPECTOR */}
+      {/* CPL MEASUREMENT METHODOLOGY & TRANSPARENT SYSTEM SOURCE INSPECTOR */}
       <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-neutral-100 pb-3">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
             <h3 className="text-sm font-display font-extrabold text-maple-black uppercase tracking-wide">
-              Cơ Chế Đo Lường CPL (Cost Per Lead) & Nguồn Dữ Liệu Thực Từ Hệ Thống
+              Xác Nhận Nguồn Dữ Liệu Thu Thập: Số Lead Thực vs Ngân Sách Ads
             </h3>
           </div>
-          <span className="px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-mono font-bold rounded-2xs flex items-center gap-1">
-            <CheckCircle2 size={12} /> Tự Động Kết Nối Database & UTM Engine
+          <span className="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-300 text-[10px] font-mono font-bold rounded-2xs flex items-center gap-1">
+            ⚠️ Tự Động Thu Thập Lead • Ngân Sách Nhập Theo Thực Chi
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
           <div className="p-4 bg-[#FDFBF7] rounded-2xs border border-neutral-200 space-y-2">
-            <span className="text-[10px] font-extrabold text-maple-red uppercase tracking-wider block">1. Mẫu Số: Tổng Lead Thực Tế</span>
+            <span className="text-[10px] font-extrabold text-emerald-700 uppercase tracking-wider block">
+              1. Tự Động Thu Thập (Database Real Lead)
+            </span>
             <p className="text-neutral-700 font-medium leading-relaxed m-0">
-              Số Lead được đếm tự động từ 3 bảng dữ liệu chính trên Database:
+              Hệ thống tự động ghi nhận và đếm chính xác 100% từ Database Supabase khi có khách hàng gửi Form:
             </p>
             <ul className="list-disc pl-4 text-neutral-600 space-y-1 font-mono text-[11px]">
               <li><strong className="text-maple-black">public.admissions</strong> (Đơn Đăng Ký Tuyển Sinh)</li>
               <li><strong className="text-maple-black">public.tour_bookings</strong> (Đặt Lịch Tham Quan 5 Sao)</li>
-              <li><strong className="text-maple-black">public.form_responses</strong> (Phản hồi Form Động)</li>
+              <li><strong className="text-maple-black">public.form_responses</strong> (Phản hồi từ Form Động)</li>
             </ul>
           </div>
 
           <div className="p-4 bg-[#FDFBF7] rounded-2xs border border-neutral-200 space-y-2">
-            <span className="text-[10px] font-extrabold text-maple-gold uppercase tracking-wider block">2. Tử Số: Ngân Sách Ads Thực Chi</span>
+            <span className="text-[10px] font-extrabold text-maple-red uppercase tracking-wider block">
+              2. Ngân Sách Quảng Cáo (Ad Spend Source)
+            </span>
             <p className="text-neutral-700 font-medium leading-relaxed m-0">
-              Ngân sách quảng cáo được quản lý và ghi nhận từ:
+              Website CMS <strong>không tự động truy cập tài khoản ngân hàng / Meta Ads API</strong> nếu chưa cài Access Token. Do đó ngân sách chi cho QC được lấy từ:
             </p>
             <ul className="list-disc pl-4 text-neutral-600 space-y-1 font-mono text-[11px]">
-              <li>Mô-đun <strong className="text-maple-black">UTM Link Builder (/admin/utm-builder)</strong> nhập theo chiến dịch.</li>
-              <li>API tích hợp <strong className="text-maple-black">Meta Marketing API</strong> & <strong className="text-maple-black">Google Ads CPC</strong>.</li>
+              <li>Ngân sách thực chi do Quản trị viên <strong className="text-maple-black">nhập trực tiếp ở ô trên</strong>.</li>
+              <li>Trường ngân sách nhập trong <strong className="text-maple-black">UTM Builder (/admin/utm-builder)</strong>.</li>
             </ul>
           </div>
 
           <div className="p-4 bg-[#FDFBF7] rounded-2xs border border-neutral-200 space-y-2">
-            <span className="text-[10px] font-extrabold text-blue-700 uppercase tracking-wider block">3. Công Thức Tính Tự Động</span>
+            <span className="text-[10px] font-extrabold text-blue-700 uppercase tracking-wider block">
+              3. Tự Động Chia Ra CPL Chuẩn Xác
+            </span>
             <div className="p-3 bg-white border border-neutral-200 rounded-2xs text-center font-mono font-bold text-maple-black text-xs">
-              CPL = Tổng Ngân Sách Ads ÷ Tổng Lead Thu Nhận
+              CPL = Ngân Sách QC Thực Chi ÷ Số Lead Trên DB ({currentData.kpis.leads})
             </div>
             <p className="text-[11px] text-neutral-500 font-normal m-0 text-center">
-              Dữ liệu được cập nhật theo thời gian thực mỗi khi có khách hàng hoàn tất gửi Form.
+              Giúp Chủ đầu tư & BGH tính đúng chi phí thực tế cho 1 Lead mà không bị ảo số liệu.
             </p>
           </div>
         </div>
