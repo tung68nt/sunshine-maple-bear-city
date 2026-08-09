@@ -44,7 +44,14 @@ import {
   Folder,
   FolderTree,
   CornerDownRight,
-  Languages
+  Languages,
+  ListTree,
+  Target,
+  BarChart2,
+  CheckCircle,
+  AlertTriangle,
+  Smartphone,
+  Monitor
 } from 'lucide-react'
 
 type Article = {
@@ -124,10 +131,10 @@ const initialArticles: Article[] = [
     excerpt: 'Exploring the cognitive and linguistic advantages of 100% English immersion in early childhood education.',
     excerpt_vi: 'Khám phá các lợi ích phát triển tư duy ngôn ngữ độc quyền khi trẻ được học tập trong môi trường thẩm thấu Tiếng Anh tự nhiên chuẩn Canada.',
     excerpt_en: 'Exploring the cognitive and linguistic advantages of 100% English immersion in early childhood education.',
-    content: '<h2>The Power of Early Childhood Language Acquisition</h2><p>In early childhood, the human brain undergoes rapid neurological development, creating an unparalleled window of opportunity for natural language learning. At Sunshine Maple Bear, our 100% English immersion environment leverages this critical developmental stage.</p>',
-    content_vi: '<h2>Sức mạnh của việc Thẩm thấu Ngôn ngữ Mầm non</h2><p>Trong giai đoạn 0-6 tuổi, bộ não của trẻ nhỏ phát triển vượt bậc về liên kết thần kinh ngôn ngữ. Tại Sunshine Maple Bear, môi trường 100% Tiếng Anh giúp trẻ tiếp thu tự nhiên như tiếng mẹ đẻ.</p>',
-    content_en: '<h2>The Power of Early Childhood Language Acquisition</h2><p>In early childhood, the human brain undergoes rapid neurological development, creating an unparalleled window of opportunity for natural language learning. At Sunshine Maple Bear, our 100% English immersion environment leverages this critical developmental stage.</p>',
-    focusKeyword: 'tiếng anh mầm non, english immersion kindergarten',
+    content: '<h2>Sức mạnh của việc Thẩm thấu Ngôn ngữ Mầm non</h2><p>Trong giai đoạn 0-6 tuổi, bộ não của trẻ nhỏ phát triển vượt bậc về liên kết thần kinh ngôn ngữ. Tại Sunshine Maple Bear, môi trường 100% Tiếng Anh giúp trẻ tiếp thu tự nhiên như tiếng mẹ đẻ.</p><h3>Lợi ích nổi bật của Thẩm thấu Tự nhiên:</h3><ul><li>Phát âm chuẩn âm tiết mà không bị ảnh hưởng bởi tư duy dịch nhẩm.</li><li>Tăng cường sự linh hoạt nhận thức và kỹ năng điều hành não bộ.</li><li>Chuyển tiếp mượt mà lên các cấp học quốc tế.</li></ul>',
+    content_vi: '<h2>Sức mạnh của việc Thẩm thấu Ngôn ngữ Mầm non</h2><p>Trong giai đoạn 0-6 tuổi, bộ não của trẻ nhỏ phát triển vượt bậc về liên kết thần kinh ngôn ngữ. Tại Sunshine Maple Bear, môi trường 100% Tiếng Anh giúp trẻ tiếp thu tự nhiên như tiếng mẹ đẻ.</p><h3>Lợi ích nổi bật của Thẩm thấu Tự nhiên:</h3><ul><li>Phát âm chuẩn âm tiết mà không bị ảnh hưởng bởi tư duy dịch nhẩm.</li><li>Tăng cường sự linh hoạt nhận thức và kỹ năng điều hành não bộ.</li><li>Chuyển tiếp mượt mà lên các cấp học quốc tế.</li></ul>',
+    content_en: '<h2>The Power of Early Childhood Language Acquisition</h2><p>In early childhood, the human brain undergoes rapid neurological development, creating an unparalleled window of opportunity for natural language learning. At Sunshine Maple Bear, our 100% English immersion environment leverages this critical developmental stage.</p><h3>Key Benefits of Natural Immersion:</h3><ul><li>Natural phonetic pronunciation without native language interference.</li><li>Enhanced cognitive flexibility and executive function skills.</li><li>Seamless transition to international primary and secondary schools.</li></ul>',
+    focusKeyword: 'tiếng anh mầm non',
     seoTitle: 'Why English Immersion in Early Childhood Matters | Sunshine Maple Bear',
     seoDescription: 'Discover the cognitive and linguistic benefits of 100% English immersion for preschool children at Sunshine Maple Bear Hanoi.',
     canonicalUrl: 'https://www.sunshinemaplebear.edu.vn/blog/why-english-immersion-matters',
@@ -148,10 +155,10 @@ const initialArticles: Article[] = [
     excerpt: 'An overview of the core educational pillars that make Canadian early childhood education world-renowned.',
     excerpt_vi: 'Tổng quan 5 trụ cột giáo dục mầm non hàng đầu thế giới từ hệ thống giáo dục Canada.',
     excerpt_en: 'An overview of the core educational pillars that make Canadian early childhood education world-renowned.',
-    content: '<h2>Canadian Educational Philosophy in Action</h2><p>Canadian early childhood education consistently ranks among the top international educational systems worldwide according to global OECD PISA scores.</p>',
-    content_vi: '<h2>Triết lý Giáo dục Canada Trong Thực Tế</h2><p>Hệ thống giáo dục mầm non Canada luôn nằm trong top đầu thế giới về chỉ số phát triển năng lực tư duy của trẻ nhỏ.</p>',
+    content: '<h2>Triết lý Giáo dục Canada Trong Thực Tế</h2><p>Hệ thống giáo dục mầm non Canada luôn nằm trong top đầu thế giới về chỉ số phát triển năng lực tư duy của trẻ nhỏ.</p><h3>5 Trụ Cột Nền Tảng:</h3><ol><li>Học tập chủ động lấy trẻ làm trung tâm.</li><li>Khám phá dựa trên truy vấn và trò chơi.</li><li>Môi trường song ngữ Anh-Việt toàn diện.</li></ol>',
+    content_vi: '<h2>Triết lý Giáo dục Canada Trong Thực Tế</h2><p>Hệ thống giáo dục mầm non Canada luôn nằm trong top đầu thế giới về chỉ số phát triển năng lực tư duy của trẻ nhỏ.</p><h3>5 Trụ Cột Nền Tảng:</h3><ol><li>Học tập chủ động lấy trẻ làm trung tâm.</li><li>Khám phá dựa trên truy vấn và trò chơi.</li><li>Môi trường song ngữ Anh-Việt toàn diện.</li></ol>',
     content_en: '<h2>Canadian Educational Philosophy in Action</h2><p>Canadian early childhood education consistently ranks among the top international educational systems worldwide according to global OECD PISA scores.</p>',
-    focusKeyword: 'phương pháp giáo dục canada, maple bear hanoi',
+    focusKeyword: 'phương pháp giáo dục canada',
     seoTitle: '5 Principles of Maple Bear Canadian Education | Sunshine Maple Bear',
     seoDescription: 'Learn about the 5 core principles of Canadian early childhood education implemented at Sunshine Maple Bear Campus.',
     canonicalUrl: 'https://www.sunshinemaplebear.edu.vn/blog/5-principles-maple-bear-canada',
@@ -172,10 +179,10 @@ const initialArticles: Article[] = [
     excerpt: 'How our 5-star organic kitchen crafts balanced, calorie-optimized meals for growing children.',
     excerpt_vi: 'Khám phá bếp ăn hữu cơ 5 sao và quy trình lên thực đơn cân bằng calo cho bé mầm non Sunshine Maple Bear.',
     excerpt_en: 'How our 5-star organic kitchen crafts balanced, calorie-optimized meals for growing children.',
-    content: '<h2>Organic Culinary Excellence for Growing Bodies</h2><p>Proper nutrition is essential for physical stamina, immune resistance, and cognitive development during early childhood years.</p>',
+    content: '<h2>Ẩm Thực Hữu Cơ Cho Sự Phát Triển Của Bé</h2><p>Dinh dưỡng chuẩn hóa là nền tảng giúp bé phát triển thể chất và trí tuệ vượt trội.</p>',
     content_vi: '<h2>Ẩm Thực Hữu Cơ Cho Sự Phát Triển Của Bé</h2><p>Dinh dưỡng chuẩn hóa là nền tảng giúp bé phát triển thể chất và trí tuệ vượt trội.</p>',
     content_en: '<h2>Organic Culinary Excellence for Growing Bodies</h2><p>Proper nutrition is essential for physical stamina, immune resistance, and cognitive development during early childhood years.</p>',
-    focusKeyword: 'dinh dưỡng mầm non, thực đơn hữu cơ',
+    focusKeyword: 'dinh dưỡng mầm non',
     seoTitle: 'Nutrition & Meal Planning for Children | Sunshine Maple Bear',
     seoDescription: 'Explore our 5-star organic nutrition program designed by pediatric nutrition specialists.',
     canonicalUrl: 'https://www.sunshinemaplebear.edu.vn/blog/nutrition-meal-planning-kindergarten',
@@ -190,6 +197,7 @@ export default function AdminBlogPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('ALL')
   const [blogCategories, setBlogCategories] = useState<BlogCategoryNode[]>(initialBlogCategories)
+  const [seoPreviewMode, setSeoPreviewMode] = useState<'desktop' | 'mobile'>('desktop')
 
   // Category Modal States (Bilingual)
   const [showManageCatModal, setShowManageCatModal] = useState(false)
@@ -200,8 +208,6 @@ export default function AdminBlogPage() {
   const [editingCatVi, setEditingCatVi] = useState('')
   const [editingCatEn, setEditingCatEn] = useState('')
 
-  const [convertingArticle, setConvertingArticle] = useState<Article | null>(null)
-  const [conversionSuccess, setConversionSuccess] = useState<string | null>(null)
   const [savedSuccess, setSavedSuccess] = useState(false)
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
 
@@ -272,8 +278,6 @@ export default function AdminBlogPage() {
   }
 
   // Convert Form Fields & Manual Bilingual Editor State
-  const [targetPath, setTargetPath] = useState('')
-  const [targetCategory, setTargetCategory] = useState<string>('Chương Trình Học')
   const [editContentLang, setEditContentLang] = useState<'vi' | 'en'>('vi')
 
   const activeArticle = articles.find(a => a.id === activeArticleId)
@@ -324,12 +328,12 @@ export default function AdminBlogPage() {
       excerpt: 'Nhập tóm tắt bài viết...',
       excerpt_vi: 'Nhập tóm tắt bài viết...',
       excerpt_en: 'Enter article excerpt summary...',
-      content: '<p>Nhập nội dung bài viết tại đây...</p>',
-      content_vi: '<p>Nhập nội dung bài viết tại đây...</p>',
-      content_en: '<p>Enter article content body here...</p>',
-      focusKeyword: 'tin tuc mam non, maple bear',
+      content: '<h2>Tiêu đề mục 1</h2><p>Nhập nội dung bài viết tại đây...</p>',
+      content_vi: '<h2>Tiêu đề mục 1</h2><p>Nhập nội dung bài viết tại đây...</p>',
+      content_en: '<h2>Heading Section 1</h2><p>Enter article content body here...</p>',
+      focusKeyword: 'tin tuc mam non',
       seoTitle: 'Bài viết mới | Sunshine Maple Bear',
-      seoDescription: 'Mô tả bài viết mới...',
+      seoDescription: 'Mô tả bài viết mới chuẩn SEO cho Sunshine Maple Bear Hanoi.',
       canonicalUrl: `https://www.sunshinemaplebear.edu.vn/blog/bai-viet-moi-${Date.now()}`,
       ogImage: '/images/render/LOP_HOC_DIEN_HINH_1_.jpg'
     }
@@ -350,6 +354,57 @@ export default function AdminBlogPage() {
     setSavedSuccess(true)
     setTimeout(() => setSavedSuccess(false), 3000)
   }
+
+  // -------------------------------------------------------------
+  // SEO & TABLE OF CONTENTS ANALYZER HELPERS
+  // -------------------------------------------------------------
+  const currentContent = activeArticle ? getBilingualValue('content') : ''
+  
+  // Extract Headings for Table of Contents (TOC)
+  const extractHeadingsFromHTML = (html: string) => {
+    if (!html) return []
+    const regex = /<h([2-4])[^>]*>(.*?)<\/h[2-4]>/gi
+    const headings: { level: number; text: string }[] = []
+    let match
+    while ((match = regex.exec(html)) !== null) {
+      const cleanText = match[2].replace(/<[^>]+>/g, '').trim()
+      if (cleanText) {
+        headings.push({ level: parseInt(match[1]), text: cleanText })
+      }
+    }
+    return headings
+  }
+
+  const tocHeadings = extractHeadingsFromHTML(currentContent)
+
+  // Calculate SEO Stats & Word Count
+  const cleanBodyText = currentContent.replace(/<[^>]+>/gi, ' ').trim()
+  const wordCount = cleanBodyText ? cleanBodyText.split(/\s+/).length : 0
+  const readingTimeMins = Math.ceil(wordCount / 200) || 1
+
+  // Count Links
+  const internalLinkMatches = (currentContent.match(/href=["'](\/[^"']*|https?:\/\/(www\.)?sunshinemaplebear[^"']*)/gi) || []).length
+  const externalLinkMatches = (currentContent.match(/href=["']https?:\/\/(?!(www\.)?sunshinemaplebear)[^"']*/gi) || []).length
+
+  // Focus Keyword Density
+  const focusKw = activeArticle?.focusKeyword?.toLowerCase().trim() || ''
+  const kwOccurrences = focusKw ? (cleanBodyText.toLowerCase().split(focusKw).length - 1) : 0
+  const kwDensityPct = wordCount > 0 && focusKw ? ((kwOccurrences * focusKw.split(/\s+/).length / wordCount) * 100).toFixed(1) : '0.0'
+
+  // SEO Score Calculator
+  const calcSeoScore = () => {
+    if (!activeArticle) return 0
+    let score = 50
+    if (activeArticle.seoTitle.length >= 40 && activeArticle.seoTitle.length <= 65) score += 15
+    if (activeArticle.seoDescription.length >= 100 && activeArticle.seoDescription.length <= 160) score += 15
+    if (focusKw && activeArticle.seoTitle.toLowerCase().includes(focusKw)) score += 10
+    if (focusKw && activeArticle.seoDescription.toLowerCase().includes(focusKw)) score += 10
+    if (internalLinkMatches > 0) score += 5
+    if (tocHeadings.length >= 2) score += 5
+    return Math.min(100, score)
+  }
+
+  const overallSeoScore = calcSeoScore()
 
   const filteredArticles = articles.filter(a => {
     const matchesSearch = a.title.toLowerCase().includes(searchTerm.toLowerCase()) || a.slug.includes(searchTerm)
@@ -416,7 +471,7 @@ export default function AdminBlogPage() {
         <div className="flex border-b border-neutral-200 bg-white shadow-2xs">
           {[
             { id: 'EDITOR', label: adminUiLang === 'vi' ? '1. Nội dung & Văn bản' : '1. Article Body & Text', icon: FileText },
-            { id: 'SEO', label: adminUiLang === 'vi' ? '2. Cấu hình SEO & Google' : '2. Technical SEO & Snippet', icon: Globe },
+            { id: 'SEO', label: adminUiLang === 'vi' ? '2. Cấu hình SEO & Google Studio' : '2. Technical SEO Studio', icon: Globe },
             { id: 'PUBLISH', label: adminUiLang === 'vi' ? '3. Xuất bản & Chuyên mục' : '3. Publishing & Categories', icon: Calendar },
           ].map(tab => {
             const Icon = tab.icon
@@ -441,6 +496,8 @@ export default function AdminBlogPage() {
         {/* TAB 1: BILINGUAL CONTENT EDITOR */}
         {activeTab === 'EDITOR' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            
+            {/* Main Rich Text Editor Canvas (8 cols) */}
             <div className="lg:col-span-8 bg-white border border-neutral-200 p-5 space-y-4 shadow-2xs rounded-2xs">
               
               {/* Bilingual Switcher */}
@@ -450,14 +507,14 @@ export default function AdminBlogPage() {
                     <Globe size={14} /> Trình Biên Tập Song Ngữ Thủ Công
                   </span>
                   <span className="text-[10px] text-neutral-400 font-mono">
-                    {editContentLang === 'vi' ? '🇻🇳 Đang nhập bản Tiếng Việt' : '🇨Ả Editing English Version'}
+                    {editContentLang === 'vi' ? '🇻🇳 Đang nhập bản Tiếng Việt' : '🇬🇧 Editing UK English Version'}
                   </span>
                 </div>
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setEditContentLang('vi')}
-                    className={`flex-1 py-1.5 text-xs font-bold transition-all rounded-2xs ${
+                    className={`flex-1 py-1.5 text-xs font-bold transition-all rounded-2xs flex items-center justify-center gap-1.5 ${
                       editContentLang === 'vi' ? 'bg-maple-red text-white' : 'bg-neutral-800 text-neutral-300'
                     }`}
                   >
@@ -466,18 +523,18 @@ export default function AdminBlogPage() {
                   <button
                     type="button"
                     onClick={() => setEditContentLang('en')}
-                    className={`flex-1 py-1.5 text-xs font-bold transition-all rounded-2xs ${
+                    className={`flex-1 py-1.5 text-xs font-bold transition-all rounded-2xs flex items-center justify-center gap-1.5 ${
                       editContentLang === 'en' ? 'bg-maple-red text-white' : 'bg-neutral-800 text-neutral-300'
                     }`}
                   >
-                    🇨🇦 Bản Tiếng Anh
+                    🇬🇧 Bản Tiếng Anh (English)
                   </button>
                 </div>
               </div>
 
               <div>
                 <label className="text-xs font-bold text-neutral-700 block mb-1">
-                  {editContentLang === 'vi' ? '🇻🇳 Tiêu đề Bài viết (Tiếng Việt) *' : '🇨🇦 Article Title (English) *'}
+                  {editContentLang === 'vi' ? '🇻🇳 Tiêu đề Bài viết (Tiếng Việt) *' : '🇬🇧 Article Title (UK English) *'}
                 </label>
                 <input
                   type="text"
@@ -489,7 +546,7 @@ export default function AdminBlogPage() {
 
               <div>
                 <label className="text-xs font-bold text-neutral-700 block mb-1">
-                  {editContentLang === 'vi' ? '🇻🇳 Tóm tắt ngắn Excerpt (Tiếng Việt) *' : '🇨🇦 Short Excerpt (English) *'}
+                  {editContentLang === 'vi' ? '🇻🇳 Tóm tắt ngắn Excerpt (Tiếng Việt) *' : '🇬🇧 Short Excerpt (UK English) *'}
                 </label>
                 <textarea
                   rows={2}
@@ -501,7 +558,7 @@ export default function AdminBlogPage() {
 
               <div>
                 <label className="text-xs font-bold text-neutral-700 block mb-1">
-                  {editContentLang === 'vi' ? '🇻🇳 Nội dung chi tiết (WYSIWYG Rich Text) *' : '🇨🇦 Detailed Content Body (WYSIWYG) *'}
+                  {editContentLang === 'vi' ? '🇻🇳 Nội dung chi tiết (WYSIWYG Rich Text) *' : '🇬🇧 Detailed Content Body (WYSIWYG) *'}
                 </label>
                 <RichTextEditor
                   value={getBilingualValue('content')}
@@ -510,19 +567,260 @@ export default function AdminBlogPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-white border border-neutral-200 p-5 space-y-4 shadow-2xs rounded-2xs">
-              <h4 className="text-xs font-extrabold text-maple-black uppercase border-b pb-2">
-                {adminUiLang === 'vi' ? 'Ảnh Đại Diện Cover' : 'Cover Image'}
-              </h4>
-              <div className="aspect-video bg-neutral-100 relative rounded-2xs overflow-hidden border border-neutral-300">
-                <img src={activeArticle.coverImage} alt="Cover" className="w-full h-full object-cover" />
+            {/* Right Sidebar: Cover Image, TOC & Live Word Audit (4 cols) */}
+            <div className="lg:col-span-4 space-y-4">
+              
+              {/* Cover Image Box */}
+              <div className="bg-white border border-neutral-200 p-4 space-y-3 shadow-2xs rounded-2xs">
+                <h4 className="text-xs font-extrabold text-maple-black uppercase border-b pb-2">
+                  {adminUiLang === 'vi' ? 'Ảnh Đại Diện Cover' : 'Cover Image'}
+                </h4>
+                <div className="aspect-video bg-neutral-100 relative rounded-2xs overflow-hidden border border-neutral-300">
+                  <img src={activeArticle.coverImage} alt="Cover" className="w-full h-full object-cover" />
+                </div>
+                <input
+                  type="text"
+                  value={activeArticle.coverImage}
+                  onChange={(e) => handleUpdateArticleField('coverImage', e.target.value)}
+                  className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono rounded-2xs"
+                />
               </div>
-              <input
-                type="text"
-                value={activeArticle.coverImage}
-                onChange={(e) => handleUpdateArticleField('coverImage', e.target.value)}
-                className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono rounded-2xs"
-              />
+
+              {/* AUTO-GENERATED TABLE OF CONTENTS (TOC) WIDGET */}
+              <div className="bg-white border border-neutral-200 p-4 space-y-3 shadow-2xs rounded-2xs">
+                <div className="flex items-center justify-between border-b border-neutral-100 pb-2">
+                  <span className="text-xs font-extrabold text-maple-black uppercase flex items-center gap-1.5">
+                    <ListTree size={15} className="text-maple-red" />
+                    Mục Lục Bài Viết Auto TOC ({tocHeadings.length})
+                  </span>
+                  <span className="text-[10px] font-mono bg-neutral-100 px-2 py-0.5 rounded-2xs text-neutral-600 font-bold">
+                    ~{wordCount} từ · {readingTimeMins} phút đọc
+                  </span>
+                </div>
+
+                {tocHeadings.length > 0 ? (
+                  <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1 text-xs">
+                    {tocHeadings.map((h, i) => (
+                      <div
+                        key={i}
+                        className={`text-[11px] font-medium py-1 px-2 hover:bg-[#FDFBF7] rounded-2xs transition-colors flex items-center gap-1.5 ${
+                          h.level === 2 ? 'font-bold text-maple-black border-l-2 border-maple-red pl-2' : 'text-neutral-600 pl-4'
+                        }`}
+                      >
+                        <span className="text-neutral-400 font-mono text-[9px]">{h.level === 2 ? 'H2' : 'H3'}</span>
+                        <span className="truncate">{h.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="p-3 bg-[#FDFBF7] border border-neutral-200 text-[11px] text-neutral-500 italic rounded-2xs">
+                    Chưa có thẻ Heading H2/H3. Sử dụng menu Soạn Thảo để thêm Tiêu Đề Mục (Heading) giúp tự động tạo Mục Lục bài viết.
+                  </div>
+                )}
+              </div>
+
+              {/* QUICK SEO SCORECARD SUMMARY */}
+              <div className="bg-white border border-neutral-200 p-4 space-y-3 shadow-2xs rounded-2xs">
+                <div className="flex items-center justify-between border-b border-neutral-100 pb-2">
+                  <span className="text-xs font-extrabold text-maple-black uppercase flex items-center gap-1.5">
+                    <BarChart2 size={15} className="text-emerald-600" />
+                    Điểm SEO Bài Viết
+                  </span>
+                  <span className="text-xs font-extrabold px-2.5 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-300 rounded-2xs">
+                    {overallSeoScore}/100 🟢
+                  </span>
+                </div>
+
+                <div className="space-y-2 text-xs font-medium">
+                  <div className="flex justify-between items-center text-[11px]">
+                    <span className="text-neutral-600">Từ khóa chính (Focus Keyword):</span>
+                    <span className="font-bold font-mono text-maple-black">{focusKw || 'Chưa nhập'}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[11px]">
+                    <span className="text-neutral-600">Mật độ từ khóa (Density):</span>
+                    <span className="font-bold font-mono text-emerald-700">{kwDensityPct}% ({kwOccurrences} lần)</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[11px]">
+                    <span className="text-neutral-600">Liên kết nội bộ (Internal Links):</span>
+                    <span className="font-bold font-mono text-blue-700">{internalLinkMatches} link</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[11px]">
+                    <span className="text-neutral-600">Liên kết ngoài (External Links):</span>
+                    <span className="font-bold font-mono text-purple-700">{externalLinkMatches} link</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* TAB 2: COMPLETE TECHNICAL SEO STUDIO & GOOGLE SNIPPET PREVIEW */}
+        {activeTab === 'SEO' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            
+            {/* Main SEO Studio Settings (7 cols) */}
+            <div className="lg:col-span-7 bg-white border border-neutral-200 p-6 space-y-5 shadow-2xs rounded-2xs">
+              <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
+                <div>
+                  <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">SEARCH ENGINE OPTIMIZATION</span>
+                  <h3 className="text-base font-display font-extrabold text-[#1D1D1B]">Cấu Hình SEO Google & Meta Tags</h3>
+                </div>
+                
+                <span className="px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold text-xs rounded-2xs">
+                  Chỉ số SEO: {overallSeoScore}/100 🟢
+                </span>
+              </div>
+
+              {/* Focus Keyword */}
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-neutral-800 block flex items-center justify-between">
+                  <span>Từ Khóa Chính (Focus Keyword) *</span>
+                  <span className="text-[10px] text-neutral-400 font-normal">Từ khóa khách hàng sẽ tìm trên Google</span>
+                </label>
+                <input
+                  type="text"
+                  value={activeArticle.focusKeyword || ''}
+                  onChange={(e) => handleUpdateArticleField('focusKeyword', e.target.value)}
+                  placeholder="Ví dụ: tiếng anh mầm non, trường mầm non canada..."
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+                />
+              </div>
+
+              {/* SEO Title Tag */}
+              <div className="space-y-1">
+                <div className="flex justify-between items-center text-xs font-bold text-neutral-800">
+                  <span>SEO Title Tag (Thẻ Tiêu Đề Google) *</span>
+                  <span className={`text-[10px] font-mono ${
+                    activeArticle.seoTitle.length >= 40 && activeArticle.seoTitle.length <= 65 ? 'text-emerald-700 font-bold' : 'text-amber-600'
+                  }`}>
+                    {activeArticle.seoTitle.length} / 60 ký tự (Khuyến nghị 50-60)
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  value={activeArticle.seoTitle}
+                  onChange={(e) => handleUpdateArticleField('seoTitle', e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+                />
+              </div>
+
+              {/* SEO Meta Description */}
+              <div className="space-y-1">
+                <div className="flex justify-between items-center text-xs font-bold text-neutral-800">
+                  <span>SEO Meta Description (Thẻ Mô Tả Google) *</span>
+                  <span className={`text-[10px] font-mono ${
+                    activeArticle.seoDescription.length >= 120 && activeArticle.seoDescription.length <= 160 ? 'text-emerald-700 font-bold' : 'text-amber-600'
+                  }`}>
+                    {activeArticle.seoDescription.length} / 160 ký tự (Khuyến nghị 120-160)
+                  </span>
+                </div>
+                <textarea
+                  rows={3}
+                  value={activeArticle.seoDescription}
+                  onChange={(e) => handleUpdateArticleField('seoDescription', e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-medium text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+                />
+              </div>
+
+              {/* Canonical URL & OG Image */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 block mb-1">Canonical URL Slug:</label>
+                  <input
+                    type="text"
+                    value={activeArticle.canonicalUrl || ''}
+                    onChange={(e) => handleUpdateArticleField('canonicalUrl', e.target.value)}
+                    className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono rounded-2xs"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 block mb-1">Open Graph Image (Social Share):</label>
+                  <input
+                    type="text"
+                    value={activeArticle.ogImage || activeArticle.coverImage}
+                    onChange={(e) => handleUpdateArticleField('ogImage', e.target.value)}
+                    className="w-full p-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono rounded-2xs"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Google Live Snippet Preview & SEO Checklist (5 cols) */}
+            <div className="lg:col-span-5 space-y-4">
+              
+              {/* Live Google Search Preview Box */}
+              <div className="bg-white border border-neutral-200 p-5 space-y-3 shadow-2xs rounded-2xs">
+                <div className="flex items-center justify-between border-b border-neutral-100 pb-2">
+                  <span className="text-xs font-extrabold text-maple-black uppercase flex items-center gap-1.5">
+                    <Globe size={15} className="text-blue-600" />
+                    Xem Trước Google Search Snippet
+                  </span>
+                  <div className="flex items-center bg-neutral-100 p-0.5 rounded-2xs text-[10px] font-bold">
+                    <button
+                      onClick={() => setSeoPreviewMode('desktop')}
+                      className={`px-2 py-0.5 rounded-2xs flex items-center gap-1 ${seoPreviewMode === 'desktop' ? 'bg-white text-black shadow-xs' : 'text-neutral-500'}`}
+                    >
+                      <Monitor size={10} /> Máy tính
+                    </button>
+                    <button
+                      onClick={() => setSeoPreviewMode('mobile')}
+                      className={`px-2 py-0.5 rounded-2xs flex items-center gap-1 ${seoPreviewMode === 'mobile' ? 'bg-white text-black shadow-xs' : 'text-neutral-500'}`}
+                    >
+                      <Smartphone size={10} /> Di động
+                    </button>
+                  </div>
+                </div>
+
+                {/* Simulated Google Search Result */}
+                <div className={`p-4 bg-white border border-neutral-200 rounded-2xs space-y-1 ${seoPreviewMode === 'mobile' ? 'max-w-xs mx-auto' : ''}`}>
+                  <div className="flex items-center gap-1.5 text-[11px] text-[#202124] truncate">
+                    <span className="w-4 h-4 rounded-full bg-maple-red text-white text-[8px] font-bold flex items-center justify-center">M</span>
+                    <span className="truncate">sunshinemaplebear.edu.vn › blog › {activeArticle.slug}</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-[#1a0dab] hover:underline cursor-pointer line-clamp-1 leading-snug">
+                    {activeArticle.seoTitle || activeArticle.title}
+                  </h4>
+                  <p className="text-xs text-[#4d5156] line-clamp-2 leading-relaxed font-light">
+                    {activeArticle.seoDescription || activeArticle.excerpt}
+                  </p>
+                </div>
+              </div>
+
+              {/* Interactive SEO Audit Checklist */}
+              <div className="bg-white border border-neutral-200 p-5 space-y-3 shadow-2xs rounded-2xs">
+                <span className="text-xs font-extrabold text-maple-black uppercase block border-b pb-2">
+                  Danh Sách Kiểm Tra Chuẩn SEO Bài Viết
+                </span>
+
+                <div className="space-y-2 text-xs font-medium">
+                  <div className="flex items-center gap-2">
+                    {activeArticle.seoTitle.length >= 40 ? <CheckCircle size={14} className="text-emerald-600" /> : <AlertTriangle size={14} className="text-amber-500" />}
+                    <span>Độ dài SEO Title đạt chuẩn (50-60 ký tự)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {activeArticle.seoDescription.length >= 100 ? <CheckCircle size={14} className="text-emerald-600" /> : <AlertTriangle size={14} className="text-amber-500" />}
+                    <span>Độ dài Meta Description đạt chuẩn (120-160 ký tự)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {focusKw && activeArticle.seoTitle.toLowerCase().includes(focusKw) ? <CheckCircle size={14} className="text-emerald-600" /> : <AlertTriangle size={14} className="text-amber-500" />}
+                    <span>Từ khóa chính xuất hiện trong SEO Title</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {focusKw && activeArticle.seoDescription.toLowerCase().includes(focusKw) ? <CheckCircle size={14} className="text-emerald-600" /> : <AlertTriangle size={14} className="text-amber-500" />}
+                    <span>Từ khóa chính xuất hiện trong Meta Description</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {internalLinkMatches > 0 ? <CheckCircle size={14} className="text-emerald-600" /> : <AlertTriangle size={14} className="text-amber-500" />}
+                    <span>Có liên kết nội bộ (Internal Links): {internalLinkMatches} link</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {tocHeadings.length >= 2 ? <CheckCircle size={14} className="text-emerald-600" /> : <AlertTriangle size={14} className="text-amber-500" />}
+                    <span>Cấu trúc thẻ Heading (H2/H3): {tocHeadings.length} tiêu đề</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         )}
@@ -784,7 +1082,7 @@ export default function AdminBlogPage() {
 
                 <input
                   type="text"
-                  placeholder="🇨🇦 English (VD: Events)..."
+                  placeholder="🇬🇧 UK English (VD: Events)..."
                   value={newCatEn}
                   onChange={(e) => setNewCatEn(e.target.value)}
                   className="p-2 bg-white border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
@@ -853,7 +1151,7 @@ export default function AdminBlogPage() {
                           </div>
                         ) : (
                           <span className="font-extrabold tracking-wide uppercase">
-                            🇻🇳 {parentRoot.name_vi} | 🇨🇦 {parentRoot.name_en}
+                            🇻🇳 {parentRoot.name_vi} | 🇬🇧 {parentRoot.name_en}
                           </span>
                         )}
                       </div>
@@ -912,7 +1210,7 @@ export default function AdminBlogPage() {
                                 </div>
                               ) : (
                                 <span className="font-bold text-neutral-800">
-                                  🇻🇳 {child.name_vi} <span className="text-neutral-400 font-normal">| 🇨🇦 {child.name_en}</span>
+                                  🇻🇳 {child.name_vi} <span className="text-neutral-400 font-normal">| 🇬🇧 {child.name_en}</span>
                                 </span>
                               )}
                             </div>

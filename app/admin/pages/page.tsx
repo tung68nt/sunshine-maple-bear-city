@@ -646,7 +646,7 @@ export default function AdminPagesPage() {
                         </div>
 
                         <div>
-                          <label className="font-bold text-neutral-700 block mb-1">🇨🇦 Title (English):</label>
+                          <label className="font-bold text-neutral-700 block mb-1">🇬🇧 Title (English):</label>
                           <input
                             type="text"
                             value={activeBlock.title_en || ''}
@@ -1229,7 +1229,7 @@ export default function AdminPagesPage() {
                   />
                 </div>
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">🇨🇦 Title (English):</label>
+                  <label className="font-bold text-neutral-700 block mb-1">🇬🇧 Title (English):</label>
                   <input
                     type="text"
                     placeholder="Campaign Homepage..."
@@ -1432,7 +1432,7 @@ export default function AdminPagesPage() {
                 </div>
 
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">🇨🇦 Title (English):</label>
+                  <label className="font-bold text-neutral-700 block mb-1">🇬🇧 Title (English):</label>
                   <input
                     type="text"
                     placeholder="New Page Title..."
