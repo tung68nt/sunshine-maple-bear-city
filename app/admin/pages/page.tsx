@@ -29,7 +29,8 @@ import {
   Monitor,
   Star,
   FolderPlus,
-  Tag
+  Tag,
+  Folder
 } from 'lucide-react'
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
@@ -105,7 +106,7 @@ export default function AdminPagesPage() {
   // Modal States
   const [showAddPageModal, setShowAddPageModal] = useState(false)
   const [showAddVariantModal, setShowAddVariantModal] = useState(false)
-  const [showAddCategoryModal, setShowAddCategoryModal] = useState(false)
+  const [showManageCategoryModal, setShowManageCategoryModal] = useState(false)
 
   // New Page State
   const [newPageTitle, setNewPageTitle] = useState('')
@@ -117,8 +118,10 @@ export default function AdminPagesPage() {
   const [newVariantSlug, setNewVariantSlug] = useState('')
   const [newVariantDesc, setNewVariantDesc] = useState('')
 
-  // New Category State
+  // Category State
   const [newCategoryName, setNewCategoryName] = useState('')
+  const [editingCatIdx, setEditingCatIdx] = useState<number | null>(null)
+  const [editingCatName, setEditingCatName] = useState('')
 
   useEffect(() => {
     const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
@@ -224,8 +227,31 @@ export default function AdminPagesPage() {
     if (!categoriesList.includes(uppercaseCat)) {
       setCategoriesList([...categoriesList, uppercaseCat])
     }
-    setShowAddCategoryModal(false)
     setNewCategoryName('')
+  }
+
+  const handleSaveEditCategory = (idx: number) => {
+    if (!editingCatName) return
+    const updated = [...categoriesList]
+    updated[idx] = editingCatName.trim().toUpperCase()
+    setCategoriesList(updated)
+    setEditingCatIdx(null)
+    setEditingCatName('')
+  }
+
+  const handleDeleteCategory = (catName: string) => {
+    if (categoriesList.length <= 1) {
+      alert('Phải giữ lại ít nhất 1 chuyên mục!')
+      return
+    }
+    if (confirm(`Bạn có chắc muốn xóa chuyên mục [${catName}]?`)) {
+      setCategoriesList(categoriesList.filter(c => c !== catName))
+      if (categoryFilter === catName) setCategoryFilter('ALL')
+    }
+  }
+
+  const handleUpdatePageCategory = (pageId: string, newCat: string) => {
+    setPages(pages.map(p => p.id === pageId ? { ...p, category: newCat } : p))
   }
 
   // -------------------------------------------------------------
@@ -368,7 +394,7 @@ export default function AdminPagesPage() {
   })
 
   // -------------------------------------------------------------
-  // VIEW 1: ELEMENTOR WORDPRESS VISUAL PAGE BUILDER WORKSPACE
+  // VIEW 1: VISUAL BUILDER WORKSPACE
   // -------------------------------------------------------------
   if (activePage) {
     return (
@@ -726,7 +752,7 @@ export default function AdminPagesPage() {
         </button>
       </div>
 
-      {/* MODE 1: DEDICATED HOMEPAGE SECTION BUILDER & DYNAMIC VARIANTS TAB */}
+      {/* MODE 1: DEDICATED HOMEPAGE SECTION BUILDER & DYNAMIC VARIANTS TABLE */}
       {activeTabMode === 'HOMEPAGE_BUILDER' && (
         <div className="space-y-6">
           
@@ -734,7 +760,7 @@ export default function AdminPagesPage() {
           <div className="bg-white border border-neutral-200 p-6 rounded-2xs shadow-2xs space-y-4">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-neutral-100 pb-4">
               <div>
-                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">QUẢN LÝ DYNMAIC HOMEPAGE VARIANTS</span>
+                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">QUẢN LÝ DYNAMIC HOMEPAGE VARIANTS</span>
                 <h3 className="text-base font-display font-extrabold text-maple-black">
                   Các Biến Thể Trang Chủ & Lựa Chọn Trang Chủ Mặc Định (`/`)
                 </h3>
@@ -748,56 +774,72 @@ export default function AdminPagesPage() {
               </button>
             </div>
 
-            {/* Variants Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {homepageVariants.map((variant) => (
-                <div
-                  key={variant.id}
-                  className={`p-4 border rounded-2xs transition-all space-y-3 relative flex flex-col justify-between ${
-                    variant.isDefault
-                      ? 'bg-red-50/40 border-maple-red ring-2 ring-maple-red/30 shadow-xs'
-                      : 'bg-white border-neutral-200 hover:border-neutral-400'
-                  }`}
-                >
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-start">
-                      <span className="font-bold text-xs text-maple-black block">{variant.title}</span>
-                      {variant.isDefault && (
-                        <span className="px-2 py-0.5 bg-emerald-700 text-white text-[9px] font-extrabold uppercase rounded-2xs flex items-center gap-1">
-                          <CheckCircle2 size={10} /> Live ở `/`
+            {/* Homepage Variants Clean Table */}
+            <div className="bg-white border border-neutral-200 overflow-hidden rounded-2xs">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-[#151513] text-white text-[11px] font-extrabold uppercase tracking-wider border-b border-neutral-800">
+                    <th className="py-3 px-4">Đường Dẫn Route</th>
+                    <th className="py-3 px-4">Tên Bản Trang Chủ</th>
+                    <th className="py-3 px-4">Mô Tả Mục Tiêu Chiến Dịch</th>
+                    <th className="py-3 px-4 text-center">Trạng Thái Live</th>
+                    <th className="py-3 px-4 text-center">Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100 font-medium text-[#1D1D1B]">
+                  {homepageVariants.map((variant) => (
+                    <tr
+                      key={variant.id}
+                      className={`transition-colors ${
+                        variant.isDefault ? 'bg-red-50/40 hover:bg-red-50/60' : 'hover:bg-[#FDFBF7]'
+                      }`}
+                    >
+                      <td className="py-3.5 px-4 font-mono font-bold">
+                        <span className="px-2 py-1 bg-neutral-100 text-maple-red border border-neutral-200 rounded-2xs text-xs inline-block">
+                          {variant.slug}
                         </span>
-                      )}
-                    </div>
-                    <div className="text-[10px] font-mono text-maple-red bg-neutral-100 px-2 py-0.5 rounded-2xs inline-block">
-                      {variant.slug}
-                    </div>
-                    <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{variant.description}</p>
-                  </div>
+                      </td>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-neutral-200 text-xs">
-                    {!variant.isDefault ? (
-                      <button
-                        onClick={() => handleSetDefaultVariant(variant.id)}
-                        className="px-2.5 py-1 bg-white hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-700 font-extrabold text-[10px] rounded-2xs transition-all"
-                      >
-                        ★ Đặt Làm Trang Chủ Live (`/`)
-                      </button>
-                    ) : (
-                      <span className="text-[10px] font-bold text-emerald-800 font-mono">🟢 Đang Chạy Live</span>
-                    )}
+                      <td className="py-3.5 px-4 font-bold text-maple-black">
+                        {variant.title}
+                      </td>
 
-                    {!variant.isDefault && (
-                      <button
-                        onClick={() => handleDeleteVariant(variant.id)}
-                        className="p-1 text-neutral-400 hover:text-red-600 transition-colors"
-                        title="Xóa biến thể"
-                      >
-                        <Trash2 size={14} />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))}
+                      <td className="py-3.5 px-4 text-neutral-600 font-light max-w-xs">
+                        {variant.description}
+                      </td>
+
+                      <td className="py-3.5 px-4 text-center">
+                        {variant.isDefault ? (
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold rounded-2xs text-[10px]">
+                            <CheckCircle2 size={12} className="text-emerald-700" /> 🟢 LIVE Ở `/`
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => handleSetDefaultVariant(variant.id)}
+                            className="px-3 py-1 bg-white hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-700 font-extrabold text-[10px] rounded-2xs transition-all shadow-2xs"
+                          >
+                            ★ Đặt Làm Trang Chủ Live (`/`)
+                          </button>
+                        )}
+                      </td>
+
+                      <td className="py-3.5 px-4 text-center">
+                        <div className="flex items-center justify-center gap-2">
+                          {!variant.isDefault && (
+                            <button
+                              onClick={() => handleDeleteVariant(variant.id)}
+                              className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-400 hover:text-red-600 hover:bg-neutral-100 transition-colors"
+                              title="Xóa biến thể"
+                            >
+                              <Trash2 size={14} />
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
@@ -899,10 +941,10 @@ export default function AdminPagesPage() {
             
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setShowAddCategoryModal(true)}
+                onClick={() => setShowManageCategoryModal(true)}
                 className="px-3.5 py-2.5 bg-white text-neutral-800 border border-neutral-300 hover:bg-[#FDFBF7] text-xs font-extrabold transition-all flex items-center gap-1.5 rounded-2xs shadow-2xs"
               >
-                <FolderPlus size={15} /> Thêm Chuyên Mục Mới
+                <FolderPlus size={15} /> Quản Lý Chuyên Mục ({categoriesList.length})
               </button>
 
               <button
@@ -977,9 +1019,15 @@ export default function AdminPagesPage() {
                     </td>
 
                     <td className="py-3.5 px-4">
-                      <span className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 text-neutral-600 text-[10px] font-extrabold uppercase tracking-wider rounded-2xs">
-                        {p.category}
-                      </span>
+                      <select
+                        value={p.category}
+                        onChange={(e) => handleUpdatePageCategory(p.id, e.target.value)}
+                        className="bg-[#FDFBF7] border border-neutral-300 text-[10px] font-extrabold uppercase tracking-wider p-1 rounded-2xs focus:outline-none focus:border-maple-red cursor-pointer"
+                      >
+                        {categoriesList.map(c => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
                     </td>
 
                     <td className="py-3.5 px-4 text-center">
@@ -1107,52 +1155,97 @@ export default function AdminPagesPage() {
         </div>
       )}
 
-      {/* CREATE NEW CATEGORY MODAL */}
-      {showAddCategoryModal && (
+      {/* MANAGE CATEGORIES MODAL */}
+      {showManageCategoryModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-white border border-neutral-200 max-w-sm w-full p-6 space-y-4 shadow-2xl rounded-2xs">
+          <div className="bg-white border border-neutral-200 max-w-lg w-full p-6 space-y-5 shadow-2xl rounded-2xs">
             <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+                <Folder size={18} className="text-maple-red" />
                 <h3 className="text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
-                  Thêm Chuyên Mục Mới
+                  Quản Lý Danh Sách Chuyên Mục Trang Tĩnh
                 </h3>
               </div>
-              <button onClick={() => setShowAddCategoryModal(false)} className="text-neutral-400 hover:text-black">
+              <button onClick={() => setShowManageCategoryModal(false)} className="text-neutral-400 hover:text-black">
                 <X size={18} />
               </button>
             </div>
 
-            <form onSubmit={handleAddCategory} className="space-y-3.5 text-xs">
-              <div className="space-y-1">
-                <label className="font-bold text-neutral-700 block">Tên Chuyên Mục *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ví dụ: FACILITY & SERVICES"
-                  value={newCategoryName}
-                  onChange={(e) => setNewCategoryName(e.target.value)}
-                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold uppercase text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
-                />
-              </div>
-
-              <div className="flex justify-end gap-2.5 pt-3 border-t border-neutral-200">
-                <button
-                  type="button"
-                  onClick={() => setShowAddCategoryModal(false)}
-                  className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
-                >
-                  Hủy bỏ
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors flex items-center gap-1.5 rounded-2xs shadow-2xs"
-                >
-                  <FolderPlus size={15} />
-                  Thêm Chuyên Mục
-                </button>
-              </div>
+            {/* Add New Category Form */}
+            <form onSubmit={handleAddCategory} className="flex gap-2 text-xs">
+              <input
+                type="text"
+                required
+                placeholder="Nhập tên chuyên mục mới (VD: FACILITIES)..."
+                value={newCategoryName}
+                onChange={(e) => setNewCategoryName(e.target.value)}
+                className="flex-1 p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold uppercase text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2.5 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors rounded-2xs flex items-center gap-1"
+              >
+                <Plus size={15} /> Thêm
+              </button>
             </form>
+
+            {/* Existing Categories List */}
+            <div className="space-y-2 max-h-60 overflow-y-auto border border-neutral-200 p-3 rounded-2xs divide-y divide-neutral-100">
+              {categoriesList.map((cat, idx) => (
+                <div key={cat} className="pt-2 first:pt-0 flex items-center justify-between text-xs">
+                  {editingCatIdx === idx ? (
+                    <div className="flex items-center gap-2 flex-1 mr-2">
+                      <input
+                        type="text"
+                        value={editingCatName}
+                        onChange={(e) => setEditingCatName(e.target.value)}
+                        className="flex-1 p-1 bg-white border border-neutral-300 text-xs font-bold uppercase rounded-2xs"
+                      />
+                      <button
+                        onClick={() => handleSaveEditCategory(idx)}
+                        className="px-2.5 py-1 bg-emerald-700 text-white font-bold rounded-2xs text-[10px]"
+                      >
+                        Lưu
+                      </button>
+                    </div>
+                  ) : (
+                    <span className="font-bold text-maple-black font-mono">{cat}</span>
+                  )}
+
+                  <div className="flex items-center gap-1">
+                    {editingCatIdx !== idx && (
+                      <button
+                        onClick={() => {
+                          setEditingCatIdx(idx)
+                          setEditingCatName(cat)
+                        }}
+                        className="p-1 text-neutral-500 hover:text-maple-black"
+                        title="Đổi tên"
+                      >
+                        <Edit3 size={13} />
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleDeleteCategory(cat)}
+                      className="p-1 text-neutral-400 hover:text-red-600"
+                      title="Xóa chuyên mục"
+                    >
+                      <Trash2 size={13} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-end pt-2 border-t border-neutral-100">
+              <button
+                type="button"
+                onClick={() => setShowManageCategoryModal(false)}
+                className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
+              >
+                Đóng
+              </button>
+            </div>
           </div>
         </div>
       )}

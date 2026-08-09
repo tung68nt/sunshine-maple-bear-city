@@ -139,6 +139,22 @@ export default function AdminBlogPage() {
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<'EDITOR' | 'SEO' | 'PUBLISH'>('EDITOR')
   const [searchTerm, setSearchTerm] = useState('')
+  const [categoryFilter, setCategoryFilter] = useState('ALL')
+  const [blogCategories, setBlogCategories] = useState<string[]>([
+    'ACADEMICS',
+    'PHILOSOPHY',
+    'HEALTH',
+    'PARENTING',
+    'COMMUNITY',
+    'EVENTS'
+  ])
+
+  // Modals
+  const [showManageCatModal, setShowManageCatModal] = useState(false)
+  const [newCatName, setNewCatName] = useState('')
+  const [editingCatIdx, setEditingCatIdx] = useState<number | null>(null)
+  const [editingCatName, setEditingCatName] = useState('')
+
   const [convertingArticle, setConvertingArticle] = useState<Article | null>(null)
   const [conversionSuccess, setConversionSuccess] = useState<string | null>(null)
   const [savedSuccess, setSavedSuccess] = useState(false)
@@ -157,6 +173,36 @@ export default function AdminBlogPage() {
     window.addEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
+
+  const handleAddBlogCategory = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newCatName) return
+    const uppercaseCat = newCatName.trim().toUpperCase()
+    if (!blogCategories.includes(uppercaseCat)) {
+      setBlogCategories([...blogCategories, uppercaseCat])
+    }
+    setNewCatName('')
+  }
+
+  const handleSaveEditCat = (idx: number) => {
+    if (!editingCatName) return
+    const updated = [...blogCategories]
+    updated[idx] = editingCatName.trim().toUpperCase()
+    setBlogCategories(updated)
+    setEditingCatIdx(null)
+    setEditingCatName('')
+  }
+
+  const handleDeleteBlogCat = (catName: string) => {
+    if (blogCategories.length <= 1) {
+      alert('Phải giữ lại ít nhất 1 chuyên mục!')
+      return
+    }
+    if (confirm(`Bạn có chắc muốn xóa chuyên mục tin tức [${catName}]?`)) {
+      setBlogCategories(blogCategories.filter(c => c !== catName))
+      if (categoryFilter === catName) setCategoryFilter('ALL')
+    }
+  }
 
   // Convert Form Fields & Manual Bilingual Editor State
   const [targetPath, setTargetPath] = useState('')
@@ -811,16 +857,15 @@ export default function AdminBlogPage() {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-700 block mb-1">Chuyên mục *</label>
+                <label className="text-xs font-semibold text-neutral-700 block mb-1">Chuyên mục bài viết *</label>
                 <select
                   value={activeArticle.category}
                   onChange={(e) => handleUpdateArticleField('category', e.target.value)}
-                  className="w-full px-3 py-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold"
+                  className="w-full px-3 py-2 bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold rounded-2xs"
                 >
-                  <option value="ACADEMICS">Chương trình học (Academics)</option>
-                  <option value="PHILOSOPHY">Triết lý giáo dục (Philosophy)</option>
-                  <option value="HEALTH">Sức khỏe & Dinh dưỡng (Health)</option>
-                  <option value="PARENTING">Góc phụ huynh (Parenting)</option>
+                  {blogCategories.map(c => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -835,20 +880,27 @@ export default function AdminBlogPage() {
   // VIEW 2: BLOG ARTICLES LISTING TABLE
   // -------------------------------------------------------------
   return (
-    <div className="space-y-8 w-full">
+    <div className="space-y-6 w-full text-[#1D1D1B]">
       
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white border border-neutral-200 p-5 shadow-2xs">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white border border-neutral-200 p-5 shadow-2xs rounded-2xs">
         <div>
-          <span className="text-[10px] font-semibold text-maple-red block">Quản lý Nội dung & Bài viết</span>
-          <h2 className="text-xl font-display font-bold text-[#1D1D1B]">Tin tức & Bài viết Blog</h2>
-          <p className="text-xs text-neutral-500 font-light mt-0.5">Quản lý bài viết, xuất bản tin tức hoặc chuyển đổi bài viết trực tiếp thành Trang tĩnh.</p>
+          <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">Quản lý Nội dung & Bài viết</span>
+          <h2 className="text-xl font-display font-extrabold text-[#1D1D1B]">Tin tức & Bài viết Blog</h2>
+          <p className="text-xs text-neutral-500 font-normal mt-0.5">Quản lý bài viết, chuyên mục tin tức hoặc chuyển đổi bài viết trực tiếp thành Trang tĩnh.</p>
         </div>
         
         <div className="flex items-center gap-3">
           <button
+            onClick={() => setShowManageCatModal(true)}
+            className="px-3.5 py-2 bg-white text-neutral-800 border border-neutral-300 hover:bg-[#FDFBF7] text-xs font-extrabold transition-all flex items-center gap-1.5 rounded-2xs shadow-2xs"
+          >
+            <Tag size={15} /> Quản Lý Chuyên Mục Blog ({blogCategories.length})
+          </button>
+
+          <button
             onClick={handleCreateNewArticle}
-            className="px-3.5 py-1.5 bg-[#1D1D1B] text-white text-xs font-semibold hover:bg-maple-red transition-colors border border-[#1D1D1B] flex items-center gap-1.5 shadow-2xs rounded-2xs"
+            className="px-4 py-2 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all border border-[#151513] flex items-center gap-1.5 shadow-2xs rounded-2xs uppercase tracking-wider"
           >
             <Plus size={15} />
             Tạo bài viết mới
@@ -1035,6 +1087,101 @@ export default function AdminBlogPage() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* MANAGE BLOG CATEGORIES MODAL */}
+      {showManageCatModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white border border-neutral-200 max-w-lg w-full p-6 space-y-5 shadow-2xl rounded-2xs">
+            <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Tag size={18} className="text-maple-red" />
+                <h3 className="text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
+                  Quản Lý Chuyên Mục Bài Viết Blog
+                </h3>
+              </div>
+              <button onClick={() => setShowManageCatModal(false)} className="text-neutral-400 hover:text-black">
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Add New Category Form */}
+            <form onSubmit={handleAddBlogCategory} className="flex gap-2 text-xs">
+              <input
+                type="text"
+                required
+                placeholder="Nhập tên chuyên mục tin tức mới (VD: HOẠT ĐỘNG SỰ KIỆN)..."
+                value={newCatName}
+                onChange={(e) => setNewCatName(e.target.value)}
+                className="flex-1 p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold uppercase text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2.5 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors rounded-2xs flex items-center gap-1"
+              >
+                <Plus size={15} /> Thêm
+              </button>
+            </form>
+
+            {/* Existing Categories List */}
+            <div className="space-y-2 max-h-60 overflow-y-auto border border-neutral-200 p-3 rounded-2xs divide-y divide-neutral-100">
+              {blogCategories.map((cat, idx) => (
+                <div key={cat} className="pt-2 first:pt-0 flex items-center justify-between text-xs">
+                  {editingCatIdx === idx ? (
+                    <div className="flex items-center gap-2 flex-1 mr-2">
+                      <input
+                        type="text"
+                        value={editingCatName}
+                        onChange={(e) => setEditingCatName(e.target.value)}
+                        className="flex-1 p-1 bg-white border border-neutral-300 text-xs font-bold uppercase rounded-2xs"
+                      />
+                      <button
+                        onClick={() => handleSaveEditCat(idx)}
+                        className="px-2.5 py-1 bg-emerald-700 text-white font-bold rounded-2xs text-[10px]"
+                      >
+                        Lưu
+                      </button>
+                    </div>
+                  ) : (
+                    <span className="font-bold text-maple-black font-mono">{cat}</span>
+                  )}
+
+                  <div className="flex items-center gap-1">
+                    {editingCatIdx !== idx && (
+                      <button
+                        onClick={() => {
+                          setEditingCatIdx(idx)
+                          setEditingCatName(cat)
+                        }}
+                        className="p-1 text-neutral-500 hover:text-maple-black"
+                        title="Đổi tên"
+                      >
+                        <Edit2 size={13} />
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleDeleteBlogCat(cat)}
+                      className="p-1 text-neutral-400 hover:text-red-600"
+                      title="Xóa chuyên mục"
+                    >
+                      <Trash2 size={13} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-end pt-2 border-t border-neutral-100">
+              <button
+                type="button"
+                onClick={() => setShowManageCatModal(false)}
+                className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
+              >
+                Đóng
+              </button>
+            </div>
           </div>
         </div>
       )}
