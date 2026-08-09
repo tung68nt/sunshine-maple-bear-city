@@ -306,6 +306,56 @@ export default function AdminAnalyticsPage() {
         </div>
       </div>
 
+      {/* CPL MEASUREMENT METHODOLOGY & SQL DATA SOURCE INSPECTOR */}
+      <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-neutral-100 pb-3">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
+            <h3 className="text-sm font-display font-extrabold text-maple-black uppercase tracking-wide">
+              Cơ Chế Đo Lường CPL (Cost Per Lead) & Nguồn Dữ Liệu Thực Từ Hệ Thống
+            </h3>
+          </div>
+          <span className="px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-mono font-bold rounded-2xs flex items-center gap-1">
+            <CheckCircle2 size={12} /> Tự Động Kết Nối Database & UTM Engine
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div className="p-4 bg-[#FDFBF7] rounded-2xs border border-neutral-200 space-y-2">
+            <span className="text-[10px] font-extrabold text-maple-red uppercase tracking-wider block">1. Mẫu Số: Tổng Lead Thực Tế</span>
+            <p className="text-neutral-700 font-medium leading-relaxed m-0">
+              Số Lead được đếm tự động từ 3 bảng dữ liệu chính trên Database:
+            </p>
+            <ul className="list-disc pl-4 text-neutral-600 space-y-1 font-mono text-[11px]">
+              <li><strong className="text-maple-black">public.admissions</strong> (Đơn Đăng Ký Tuyển Sinh)</li>
+              <li><strong className="text-maple-black">public.tour_bookings</strong> (Đặt Lịch Tham Quan 5 Sao)</li>
+              <li><strong className="text-maple-black">public.form_responses</strong> (Phản hồi Form Động)</li>
+            </ul>
+          </div>
+
+          <div className="p-4 bg-[#FDFBF7] rounded-2xs border border-neutral-200 space-y-2">
+            <span className="text-[10px] font-extrabold text-maple-gold uppercase tracking-wider block">2. Tử Số: Ngân Sách Ads Thực Chi</span>
+            <p className="text-neutral-700 font-medium leading-relaxed m-0">
+              Ngân sách quảng cáo được quản lý và ghi nhận từ:
+            </p>
+            <ul className="list-disc pl-4 text-neutral-600 space-y-1 font-mono text-[11px]">
+              <li>Mô-đun <strong className="text-maple-black">UTM Link Builder (/admin/utm-builder)</strong> nhập theo chiến dịch.</li>
+              <li>API tích hợp <strong className="text-maple-black">Meta Marketing API</strong> & <strong className="text-maple-black">Google Ads CPC</strong>.</li>
+            </ul>
+          </div>
+
+          <div className="p-4 bg-[#FDFBF7] rounded-2xs border border-neutral-200 space-y-2">
+            <span className="text-[10px] font-extrabold text-blue-700 uppercase tracking-wider block">3. Công Thức Tính Tự Động</span>
+            <div className="p-3 bg-white border border-neutral-200 rounded-2xs text-center font-mono font-bold text-maple-black text-xs">
+              CPL = Tổng Ngân Sách Ads ÷ Tổng Lead Thu Nhận
+            </div>
+            <p className="text-[11px] text-neutral-500 font-normal m-0 text-center">
+              Dữ liệu được cập nhật theo thời gian thực mỗi khi có khách hàng hoàn tất gửi Form.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* DYNAMIC SECTION 2: MARKETING CHANNEL ATTRIBUTION & ADMISSIONS FUNNEL */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
