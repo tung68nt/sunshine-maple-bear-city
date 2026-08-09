@@ -32,6 +32,14 @@ import {
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
 import { PageSectionBlock } from '@/lib/supabase'
+import {
+  getHomepageSectionsConfig,
+  saveHomepageSectionsConfig,
+  getHomepageVariants,
+  saveHomepageVariants,
+  HomepageSection,
+  HomepageVariant
+} from '@/lib/homepage-builder'
 
 type StaticPage = {
   id: string
@@ -72,8 +80,8 @@ const initialPages: StaticPage[] = Object.values(staticPagesRegistry) as any
 
 export default function AdminPagesPage() {
   const [pages, setPages] = useState<StaticPage[]>(initialPages)
+  const [activeTabMode, setActiveTabMode] = useState<'HOMEPAGE_BUILDER' | 'PAGES_TABLE'>('HOMEPAGE_BUILDER')
   const [activePageId, setActivePageId] = useState<string | null>(null)
-  const [defaultHomepageId, setDefaultHomepageId] = useState<string>('0') // ID 0 is '/'
   const [leftTab, setLeftTab] = useState<'WIDGETS' | 'FIELDS' | 'SEO'>('WIDGETS')
   const [editingSectionIdx, setEditingSectionIdx] = useState<number>(0)
   const [searchTerm, setSearchTerm] = useState('')
@@ -81,6 +89,10 @@ export default function AdminPagesPage() {
   const [savedSuccess, setSavedSuccess] = useState(false)
   const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(true)
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
+
+  // Homepage Builder State
+  const [homepageSections, setHomepageSections] = useState<HomepageSection[]>([])
+  const [homepageVariants, setHomepageVariants] = useState<HomepageVariant[]>([])
 
   // Create Static Page Modal State
   const [showAddModal, setShowAddModal] = useState(false)
@@ -92,8 +104,8 @@ export default function AdminPagesPage() {
     const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
     setAdminUiLang(saved)
 
-    const savedHp = localStorage.getItem('smb_default_homepage_id')
-    if (savedHp) setDefaultHomepageId(savedHp)
+    setHomepageSections(getHomepageSectionsConfig().sort((a, b) => a.order - b.order))
+    setHomepageVariants(getHomepageVariants())
 
     const handleLangChange = (e: CustomEvent) => {
       if (e.detail === 'vi' || e.detail === 'en') {
@@ -105,9 +117,56 @@ export default function AdminPagesPage() {
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
-  const handleSetDefaultHomepage = (pageId: string) => {
-    setDefaultHomepageId(pageId)
-    localStorage.setItem('smb_default_homepage_id', pageId)
+  const handleSetDefaultVariant = (variantId: string) => {
+    const updated = homepageVariants.map(v => ({
+      ...v,
+      isDefault: v.id === variantId
+    }))
+    setHomepageVariants(updated)
+    saveHomepageVariants(updated)
+  }
+
+  const handleToggleSectionEnabled = (secId: string) => {
+    const updated = homepageSections.map(s => s.id === secId ? { ...s, enabled: !s.enabled } : s)
+    setHomepageSections(updated)
+    saveHomepageSectionsConfig(updated)
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+  }
+
+  const handleMoveHomepageSectionUp = (idx: number) => {
+    if (idx === 0) return
+    const copy = [...homepageSections]
+    const tempOrder = copy[idx].order
+    copy[idx].order = copy[idx - 1].order
+    copy[idx - 1].order = tempOrder
+    copy.sort((a, b) => a.order - b.order)
+    setHomepageSections(copy)
+    saveHomepageSectionsConfig(copy)
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+  }
+
+  const handleMoveHomepageSectionDown = (idx: number) => {
+    if (idx >= homepageSections.length - 1) return
+    const copy = [...homepageSections]
+    const tempOrder = copy[idx].order
+    copy[idx].order = copy[idx + 1].order
+    copy[idx + 1].order = tempOrder
+    copy.sort((a, b) => a.order - b.order)
+    setHomepageSections(copy)
+    saveHomepageSectionsConfig(copy)
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+  }
+
+  const handleTogglePageStatus = (pageId: string) => {
+    setPages(pages.map(p => {
+      if (p.id === pageId) {
+        return {
+          ...p,
+          status: p.status === 'Published' ? 'Draft' : 'Published'
+        }
+      }
+      return p
+    }))
   }
 
   const activePage = pages.find(p => p.id === activePageId)
@@ -262,11 +321,6 @@ export default function AdminPagesPage() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono font-bold text-maple-gold">{activePage.path}</span>
-                {activePage.id === defaultHomepageId && (
-                  <span className="px-2 py-0.5 bg-maple-red text-white font-extrabold text-[10px] uppercase rounded-2xs flex items-center gap-1">
-                    <Star size={11} className="fill-white" /> TRANG CHỦ MẶC ĐỊNH
-                  </span>
-                )}
               </div>
               <h2 className="text-lg font-display font-extrabold text-white">{activePage.title}</h2>
             </div>
@@ -572,190 +626,330 @@ export default function AdminPagesPage() {
   return (
     <div className="space-y-6 w-full text-[#1D1D1B] animate-fade-in pb-12">
       
-      {/* Sleek Top Banner & Quick Stats */}
-      <div className="bg-white border border-neutral-200 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs rounded-2xs">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
-            <span className="text-xs font-bold text-maple-red uppercase tracking-wider">HỆ THỐNG CMS QUẢN LÝ NỘI DUNG</span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-display font-extrabold text-[#1D1D1B]">
-            Quản Lý & Biên Tập Trang Website ({pages.length} Trang)
-          </h2>
-          <p className="text-xs text-neutral-500 font-normal mt-1">
-            Chỉnh sửa nội dung, thêm/bớt section cho tất cả các trang (bao gồm Trang Chủ `/`) và thiết lập Trang Chủ Mặc Định.
-          </p>
-        </div>
-        
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setShowAddModal(true)}
-            className="px-4 py-2.5 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all flex items-center gap-2 rounded-2xs shadow-2xs uppercase tracking-wider"
-          >
-            <Plus size={16} />
-            Tạo Trang Mới
-          </button>
-        </div>
+      {/* Navigation Mode Tabs */}
+      <div className="flex border-b border-neutral-200 bg-white rounded-2xs shadow-2xs overflow-hidden">
+        <button
+          onClick={() => setActiveTabMode('HOMEPAGE_BUILDER')}
+          className={`py-3.5 px-6 text-xs font-extrabold border-b-2 transition-all flex items-center gap-2 ${
+            activeTabMode === 'HOMEPAGE_BUILDER'
+              ? 'border-maple-red text-maple-red bg-white'
+              : 'border-transparent text-neutral-500 hover:text-maple-black bg-[#FDFBF7]'
+          }`}
+        >
+          <Settings2 size={16} />
+          ⚙️ Cấu Hình Section Builder Trang Chủ (Homepage Builder)
+        </button>
+        <button
+          onClick={() => setActiveTabMode('PAGES_TABLE')}
+          className={`py-3.5 px-6 text-xs font-extrabold border-b-2 transition-all flex items-center gap-2 ${
+            activeTabMode === 'PAGES_TABLE'
+              ? 'border-maple-red text-maple-red bg-white'
+              : 'border-transparent text-neutral-500 hover:text-maple-black bg-[#FDFBF7]'
+          }`}
+        >
+          <Globe size={16} />
+          📄 Danh Sách 14 Trang Tĩnh Website ({pages.length})
+        </button>
       </div>
 
-      {/* Category Pills & Search Filter */}
-      <div className="bg-white border border-neutral-200 p-4 rounded-2xs shadow-2xs flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
-        
-        {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold">
-          <button
-            onClick={() => setCategoryFilter('ALL')}
-            className={`px-3 py-1.5 rounded-2xs transition-all ${
-              categoryFilter === 'ALL' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-            }`}
-          >
-            Tất cả ({pages.length})
-          </button>
-          <button
-            onClick={() => setCategoryFilter('ABOUT US')}
-            className={`px-3 py-1.5 rounded-2xs transition-all ${
-              categoryFilter === 'ABOUT US' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-            }`}
-          >
-            Giới Thiệu (About)
-          </button>
-          <button
-            onClick={() => setCategoryFilter('ACADEMICS')}
-            className={`px-3 py-1.5 rounded-2xs transition-all ${
-              categoryFilter === 'ACADEMICS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-            }`}
-          >
-            Chương Trình Học
-          </button>
-          <button
-            onClick={() => setCategoryFilter('ADMISSIONS')}
-            className={`px-3 py-1.5 rounded-2xs transition-all ${
-              categoryFilter === 'ADMISSIONS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-            }`}
-          >
-            Tuyển Sinh & Tour
-          </button>
-          <button
-            onClick={() => setCategoryFilter('COMMUNITY')}
-            className={`px-3 py-1.5 rounded-2xs transition-all ${
-              categoryFilter === 'COMMUNITY' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-            }`}
-          >
-            Cộng Đồng Phụ Huynh
-          </button>
-        </div>
+      {/* MODE 1: DEDICATED HOMEPAGE SECTION BUILDER TAB */}
+      {activeTabMode === 'HOMEPAGE_BUILDER' && (
+        <div className="space-y-6">
+          
+          {/* Default Homepage Variant Selector */}
+          <div className="bg-white border border-neutral-200 p-6 rounded-2xs shadow-2xs space-y-4">
+            <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
+              <div>
+                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">CƠ CHẾ ĐẶT TRANG MẶC ĐỊNH (DEFAULT HOMEPAGE)</span>
+                <h3 className="text-base font-display font-extrabold text-maple-black">
+                  Thiết Lập Trang Nào Làm Homepage Mặc Định (`/`)
+                </h3>
+              </div>
+              <span className="px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono font-bold text-xs rounded-2xs flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-emerald-700" /> Active Route: `/`
+              </span>
+            </div>
 
-        {/* Search Input */}
-        <div className="relative w-full md:w-72">
-          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
-          <input
-            type="text"
-            placeholder="Tìm theo tên trang hoặc route..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold focus:outline-none focus:border-maple-red rounded-2xs"
-          />
-        </div>
-
-      </div>
-
-      {/* Modern High-End Table */}
-      <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
-        <table className="w-full text-left text-xs border-collapse">
-          <thead>
-            <tr className="bg-[#151513] text-white text-[11px] font-extrabold uppercase tracking-wider border-b border-neutral-800">
-              <th className="py-3 px-4">Đường Dẫn Route</th>
-              <th className="py-3 px-4">Tiêu Đề Trang Website</th>
-              <th className="py-3 px-4">Chuyên Mục</th>
-              <th className="py-3 px-4 text-center">Cấu Hình Trang Chủ</th>
-              <th className="py-3 px-4 text-center">Thao Tác Biên Tập</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-neutral-100 font-medium text-[#1D1D1B]">
-            {filteredPages.map((p) => {
-              const isDefaultHp = p.id === defaultHomepageId || p.path === '/'
-              return (
-                <tr
-                  key={p.id}
-                  className={`transition-colors ${
-                    isDefaultHp ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-[#FDFBF7]'
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {homepageVariants.map((variant) => (
+                <div
+                  key={variant.id}
+                  onClick={() => handleSetDefaultVariant(variant.id)}
+                  className={`p-4 border rounded-2xs cursor-pointer transition-all space-y-2 relative ${
+                    variant.isDefault
+                      ? 'bg-red-50/40 border-maple-red ring-2 ring-maple-red/30 shadow-xs'
+                      : 'bg-white border-neutral-200 hover:border-neutral-400'
                   }`}
                 >
-                  <td className="py-3.5 px-4 font-mono font-bold">
-                    <span className="px-2 py-1 bg-neutral-100 text-maple-red border border-neutral-200 rounded-2xs text-xs inline-block">
-                      {p.path}
-                    </span>
-                  </td>
-
-                  <td className="py-3.5 px-4 font-bold text-maple-black">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm">{p.title}</span>
-                      {isDefaultHp && (
-                        <span className="px-2 py-0.5 bg-maple-red text-white text-[9px] font-extrabold uppercase tracking-wider rounded-2xs flex items-center gap-1">
-                          <Star size={10} className="fill-white" /> Mặc Định
-                        </span>
-                      )}
-                    </div>
-                  </td>
-
-                  <td className="py-3.5 px-4">
-                    <span className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 text-neutral-600 text-[10px] font-extrabold uppercase tracking-wider rounded-2xs">
-                      {p.category}
-                    </span>
-                  </td>
-
-                  <td className="py-3.5 px-4 text-center">
-                    {isDefaultHp ? (
-                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold rounded-2xs text-[10px]">
-                        <CheckCircle2 size={12} className="text-emerald-700" /> 🟢 TRANG CHỦ MẶC ĐỊNH
+                  <div className="flex justify-between items-start">
+                    <span className="font-bold text-xs text-maple-black block">{variant.title}</span>
+                    {variant.isDefault && (
+                      <span className="px-2 py-0.5 bg-maple-red text-white text-[9px] font-extrabold uppercase rounded-2xs">
+                        Đang Chạy Live
                       </span>
-                    ) : (
-                      <button
-                        onClick={() => handleSetDefaultHomepage(p.id)}
-                        className="px-3 py-1 bg-white hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-600 text-[10px] font-bold rounded-2xs transition-all shadow-2xs"
-                      >
-                        ★ Set Làm Trang Chủ (`/`)
-                      </button>
                     )}
-                  </td>
+                  </div>
+                  <div className="text-[10px] font-mono text-neutral-500">{variant.slug}</div>
+                  <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{variant.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-                  <td className="py-3.5 px-4 text-center">
-                    <div className="flex items-center justify-center gap-2">
-                      <button
-                        onClick={() => setActivePageId(p.id)}
-                        className="px-3.5 py-1.5 bg-[#151513] text-white hover:bg-maple-red text-[11px] font-extrabold rounded-2xs transition-colors inline-flex items-center gap-1.5 shadow-2xs"
-                      >
-                        <Edit3 size={13} />
-                        Chỉnh Sửa Trang
-                      </button>
+          {/* Homepage Section Order & Visibility Controls */}
+          <div className="bg-white border border-neutral-200 p-6 rounded-2xs shadow-2xs space-y-5">
+            <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
+              <div>
+                <span className="text-[10px] font-bold text-maple-gold uppercase tracking-wider block">CẤU TRÚC 8 SECTION TRANG CHỦ</span>
+                <h3 className="text-base font-display font-extrabold text-maple-black">
+                  Quản Lý Thứ Tự & Ẩn / Hiện Section Trang Chủ
+                </h3>
+              </div>
+              <button
+                onClick={() => setActivePageId('0')}
+                className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors rounded-2xs flex items-center gap-1.5 shadow-2xs"
+              >
+                <Edit3 size={14} /> Sửa Chi Tiết Nội Dung Trang Chủ ↗
+              </button>
+            </div>
 
-                      <a
-                        href={p.path}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-500 hover:text-maple-black hover:bg-neutral-100 transition-colors"
-                        title="Xem trang thực tế"
-                      >
-                        <ExternalLink size={14} />
-                      </a>
-
-                      {p.path !== '/' && (
-                        <button
-                          onClick={() => handleDeletePage(p.id)}
-                          className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-400 hover:text-red-600 hover:bg-neutral-100 transition-colors"
-                          title="Xóa trang"
-                        >
-                          <Trash2 size={14} />
-                        </button>
-                      )}
+            <div className="space-y-3">
+              {homepageSections.map((sec, idx) => (
+                <div
+                  key={sec.id}
+                  className={`p-4 border rounded-2xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all ${
+                    sec.enabled ? 'bg-white border-neutral-200 shadow-2xs' : 'bg-neutral-50 border-neutral-200 opacity-60'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 bg-[#151513] text-maple-gold font-mono font-bold text-xs rounded-2xs flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-xs text-maple-black">{sec.name}</span>
+                        {sec.enabled ? (
+                          <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-extrabold rounded-2xs">
+                            Hiển thị
+                          </span>
+                        ) : (
+                          <span className="px-2 py-0.5 bg-neutral-200 text-neutral-600 text-[10px] font-bold rounded-2xs">
+                            Đã ẩn
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[11px] text-neutral-500 font-light block mt-0.5">
+                        {sec.customTitle || sec.name}
+                      </span>
                     </div>
-                  </td>
+                  </div>
+
+                  <div className="flex items-center gap-2 self-end sm:self-center">
+                    <button
+                      onClick={() => handleMoveHomepageSectionUp(idx)}
+                      disabled={idx === 0}
+                      className="p-1.5 bg-white border border-neutral-300 hover:bg-[#FDFBF7] disabled:opacity-30 rounded-2xs transition-colors"
+                      title="Chuyển Section lên trên"
+                    >
+                      <MoveUp size={14} />
+                    </button>
+
+                    <button
+                      onClick={() => handleMoveHomepageSectionDown(idx)}
+                      disabled={idx === homepageSections.length - 1}
+                      className="p-1.5 bg-white border border-neutral-300 hover:bg-[#FDFBF7] disabled:opacity-30 rounded-2xs transition-colors"
+                      title="Chuyển Section xuống dưới"
+                    >
+                      <MoveDown size={14} />
+                    </button>
+
+                    <button
+                      onClick={() => handleToggleSectionEnabled(sec.id)}
+                      className={`px-3 py-1.5 text-xs font-bold rounded-2xs border transition-colors ${
+                        sec.enabled
+                          ? 'bg-maple-red text-white border-maple-red hover:bg-red-700'
+                          : 'bg-neutral-200 text-neutral-700 border-neutral-300 hover:bg-neutral-300'
+                      }`}
+                    >
+                      {sec.enabled ? 'Ẩn Section' : 'Hiện Section'}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      {/* MODE 2: CLEAN STATIC PAGES TABLE WITH STATUS TOGGLE */}
+      {activeTabMode === 'PAGES_TABLE' && (
+        <div className="space-y-6">
+          
+          {/* Sleek Header */}
+          <div className="bg-white border border-neutral-200 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs rounded-2xs">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+                <span className="text-xs font-bold text-maple-red uppercase tracking-wider">HỆ THỐNG CMS QUẢN LÝ TRANG TĨNH</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-display font-extrabold text-[#1D1D1B]">
+                Danh Sách {pages.length} Trang Tĩnh Website
+              </h2>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setShowAddModal(true)}
+                className="px-4 py-2.5 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all flex items-center gap-2 rounded-2xs shadow-2xs uppercase tracking-wider"
+              >
+                <Plus size={16} />
+                Tạo Trang Mới
+              </button>
+            </div>
+          </div>
+
+          {/* Filter & Search Bar */}
+          <div className="bg-white border border-neutral-200 p-4 rounded-2xs shadow-2xs flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+              <button
+                onClick={() => setCategoryFilter('ALL')}
+                className={`px-3 py-1.5 rounded-2xs transition-all ${
+                  categoryFilter === 'ALL' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+                }`}
+              >
+                Tất cả ({pages.length})
+              </button>
+              <button
+                onClick={() => setCategoryFilter('ABOUT US')}
+                className={`px-3 py-1.5 rounded-2xs transition-all ${
+                  categoryFilter === 'ABOUT US' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+                }`}
+              >
+                Giới Thiệu (About)
+              </button>
+              <button
+                onClick={() => setCategoryFilter('ACADEMICS')}
+                className={`px-3 py-1.5 rounded-2xs transition-all ${
+                  categoryFilter === 'ACADEMICS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+                }`}
+              >
+                Chương Trình Học
+              </button>
+              <button
+                onClick={() => setCategoryFilter('ADMISSIONS')}
+                className={`px-3 py-1.5 rounded-2xs transition-all ${
+                  categoryFilter === 'ADMISSIONS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+                }`}
+              >
+                Tuyển Sinh & Tour
+              </button>
+              <button
+                onClick={() => setCategoryFilter('COMMUNITY')}
+                className={`px-3 py-1.5 rounded-2xs transition-all ${
+                  categoryFilter === 'COMMUNITY' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+                }`}
+              >
+                Cộng Đồng Phụ Huynh
+              </button>
+            </div>
+
+            <div className="relative w-full md:w-72">
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+              <input
+                type="text"
+                placeholder="Tìm theo tên trang hoặc route..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-9 pr-3 py-1.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold focus:outline-none focus:border-maple-red rounded-2xs"
+              />
+            </div>
+          </div>
+
+          {/* Clean Table with Status Column */}
+          <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="bg-[#151513] text-white text-[11px] font-extrabold uppercase tracking-wider border-b border-neutral-800">
+                  <th className="py-3.5 px-4">Đường Dẫn Route</th>
+                  <th className="py-3.5 px-4">Tiêu Đề Trang Website</th>
+                  <th className="py-3.5 px-4">Chuyên Mục</th>
+                  <th className="py-3.5 px-4 text-center">Trạng Thái Trang</th>
+                  <th className="py-3.5 px-4 text-center">Thao Tác Biên Tập</th>
                 </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody className="divide-y divide-neutral-100 font-medium text-[#1D1D1B]">
+                {filteredPages.map((p) => (
+                  <tr key={p.id} className="hover:bg-[#FDFBF7] transition-colors">
+                    <td className="py-3.5 px-4 font-mono font-bold">
+                      <span className="px-2 py-1 bg-neutral-100 text-maple-red border border-neutral-200 rounded-2xs text-xs inline-block">
+                        {p.path}
+                      </span>
+                    </td>
+
+                    <td className="py-3.5 px-4 font-bold text-maple-black">
+                      <span className="text-sm">{p.title}</span>
+                    </td>
+
+                    <td className="py-3.5 px-4">
+                      <span className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 text-neutral-600 text-[10px] font-extrabold uppercase tracking-wider rounded-2xs">
+                        {p.category}
+                      </span>
+                    </td>
+
+                    <td className="py-3.5 px-4 text-center">
+                      <button
+                        onClick={() => handleTogglePageStatus(p.id)}
+                        className={`px-3 py-1 font-extrabold rounded-2xs text-[10px] border transition-all cursor-pointer ${
+                          p.status === 'Published'
+                            ? 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100'
+                            : 'bg-neutral-100 text-neutral-600 border-neutral-300 hover:bg-neutral-200'
+                        }`}
+                        title="Click để đổi trạng thái"
+                      >
+                        {p.status === 'Published' ? '🟢 Hoạt Động (Published)' : '⚪ Bản Nháp (Draft)'}
+                      </button>
+                    </td>
+
+                    <td className="py-3.5 px-4 text-center">
+                      <div className="flex items-center justify-center gap-2">
+                        <button
+                          onClick={() => setActivePageId(p.id)}
+                          className="px-3.5 py-1.5 bg-[#151513] text-white hover:bg-maple-red text-[11px] font-extrabold rounded-2xs transition-colors inline-flex items-center gap-1.5 shadow-2xs"
+                        >
+                          <Edit3 size={13} />
+                          Chỉnh Sửa Trang
+                        </button>
+
+                        <a
+                          href={p.path}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-500 hover:text-maple-black hover:bg-neutral-100 transition-colors"
+                          title="Xem trang thực tế"
+                        >
+                          <ExternalLink size={14} />
+                        </a>
+
+                        {p.path !== '/' && (
+                          <button
+                            onClick={() => handleDeletePage(p.id)}
+                            className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-400 hover:text-red-600 hover:bg-neutral-100 transition-colors"
+                            title="Xóa trang"
+                          >
+                            <Trash2 size={14} />
+                          </button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      )}
 
       {/* CREATE NEW PAGE MODAL */}
       {showAddModal && (
