@@ -5,106 +5,138 @@ import Link from 'next/link'
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#FDFBF7]">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-24 bg-maple-black overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-bl from-maple-black via-maple-black/90 to-maple-gold/20" />
-          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <div className="max-w-3xl mx-auto space-y-6 animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-4">
-                <Scale size={18} className="text-maple-gold" />
-                <span className="text-sm font-bold uppercase tracking-widest text-white">General Agreement</span>
+        <section className="relative py-20 md:py-28 bg-[#151513] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#151513] via-[#151513]/90 to-transparent z-10" />
+          <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div className="max-w-3xl mx-auto space-y-5 animate-fade-in-up">
+              <div className="flex items-center justify-center gap-2.5 mb-2">
+                <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+                <span className="text-xs font-bold uppercase tracking-wider text-maple-gold">
+                  QUY ĐỊNH & THỎA THUẬN CHUNG
+                </span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tight">Terms of <span className="text-maple-gold">Use</span></h1>
-              <p className="text-lg text-white/70 font-light leading-relaxed">
-                Please read the following terms carefully before using the website and services of Sunshine Maple Bear.
+              <h1 className="text-4xl md:text-6xl font-display font-extrabold text-white tracking-tight">
+                Điều Khoản <span className="text-maple-gold">Sử Dụng</span>
+              </h1>
+              <p className="text-base sm:text-lg text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
+                Vui lòng đọc kỹ các điều khoản dưới đây trước khi truy cập và sử dụng dịch vụ thông tin của Sunshine Maple Bear.
               </p>
             </div>
           </div>
         </section>
 
         {/* Content Section */}
-        <section className="py-20">
+        <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               
-              {/* Sidebar */}
+              {/* Sidebar Navigator */}
               <div className="lg:col-span-4 hidden lg:block">
-                <div className="sticky top-24 p-8 bg-neutral-50 rounded-[32px] border border-neutral-100 space-y-6">
-                  <h3 className="text-xl font-bold text-maple-black border-b border-neutral-200 pb-4">Current Regulations</h3>
-                  <ul className="space-y-4 text-sm font-medium text-neutral-500">
-                    <li className="flex items-center gap-3 text-maple-gold cursor-pointer">
-                      <div className="w-1.5 h-1.5 rounded-full bg-maple-gold" /> Intellectual Property
+                <div className="sticky top-28 p-6 bg-white rounded-2xs border border-neutral-200 shadow-sm space-y-5">
+                  <h3 className="text-lg font-display font-extrabold text-maple-black border-b border-neutral-200 pb-3 uppercase tracking-wide">
+                    Quy Định Hiện Hành
+                  </h3>
+                  <ul className="space-y-3.5 text-xs font-bold text-neutral-600">
+                    <li className="flex items-center gap-2.5 text-maple-gold cursor-pointer">
+                      <span className="w-1.5 h-1.5 rounded-full bg-maple-gold" />
+                      1. Quyền Sở Hữu Trí Tuệ
                     </li>
-                    <li className="flex items-center gap-3 hover:text-maple-gold cursor-pointer transition-colors">
-                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-300" /> User Conduct
+                    <li className="flex items-center gap-2.5 hover:text-maple-gold cursor-pointer transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
+                      2. Quy Định Sử Dụng Website
                     </li>
-                    <li className="flex items-center gap-3 hover:text-maple-gold cursor-pointer transition-colors">
-                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-300" /> Disclaimer
+                    <li className="flex items-center gap-2.5 hover:text-maple-gold cursor-pointer transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
+                      3. Miễn Trừ Trách Nhiệm
                     </li>
-                    <li className="flex items-center gap-3 hover:text-maple-gold cursor-pointer transition-colors">
-                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-300" /> Third-party Links
+                    <li className="flex items-center gap-2.5 hover:text-maple-gold cursor-pointer transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
+                      4. Liên Kết Bên Thứ Ba
                     </li>
                   </ul>
-                  <div className="pt-6 mt-6 border-t border-neutral-200">
+                  <div className="pt-5 border-t border-neutral-200">
                     <Link href="/privacy" className="flex items-center justify-between group">
-                      <span className="font-bold text-maple-black group-hover:text-maple-gold transition-colors">View Privacy Policy</span>
-                      <ArrowRight size={18} className="text-neutral-400 group-hover:translate-x-1 group-hover:text-maple-gold transition-all" />
+                      <span className="text-xs font-extrabold text-maple-black group-hover:text-maple-gold transition-colors uppercase">
+                        Xem Chính Sách Bảo Mật
+                      </span>
+                      <ArrowRight size={16} className="text-neutral-400 group-hover:translate-x-1 group-hover:text-maple-gold transition-all" />
                     </Link>
                   </div>
                 </div>
               </div>
 
-              {/* Main Content */}
+              {/* Main Content Body */}
               <div className="lg:col-span-8">
-                <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-maple-black prose-p:text-neutral-600 prose-p:leading-relaxed prose-li:text-neutral-600">
-                  <div className="bg-maple-gold/10 p-8 rounded-[32px] border border-maple-gold/20 mb-10 flex gap-4 items-start">
-                    <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-maple-gold flex-shrink-0 shadow-sm">
-                      <Info size={24} />
+                <div className="bg-white p-8 sm:p-12 rounded-2xs border border-neutral-200 shadow-sm space-y-8">
+                  
+                  {/* Notice Box */}
+                  <div className="bg-maple-gold/10 p-6 rounded-2xs border-l-4 border-maple-gold flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-2xs bg-white flex items-center justify-center text-maple-gold flex-shrink-0 shadow-xs">
+                      <Info size={20} />
                     </div>
-                    <p className="text-sm text-maple-black font-medium leading-relaxed m-0 pt-1">
-                      By accessing and using this website, you agree to comply with and be bound by the Terms and Conditions below. If you do not agree, please stop using the service.
+                    <p className="text-xs sm:text-sm text-neutral-700 font-medium leading-relaxed m-0">
+                      Bằng việc truy cập và tiếp tục sử dụng website này, Phụ huynh đồng ý tuân thủ và chịu sự ràng buộc bởi các Điều khoản & Điều kiện dưới đây. Nếu không đồng ý, xin vui lòng ngừng truy cập.
                     </p>
                   </div>
 
-                  <h2>1. Intellectual Property Rights</h2>
-                  <p>All content on the website, including but not limited to: text, graphic design, images, logos, videos, and source code, are the legal property of the Sunshine Maple Bear system and are protected by Vietnamese Intellectual Property law as well as international treaties.</p>
-                  <ul>
-                    <li>Any act of copying, distributing, publishing, or reusing content for commercial purposes without written consent from the School Management is strictly prohibited.</li>
-                    <li>The "Maple Bear" brand and the Maple Bear logo are globally registered trademarks.</li>
-                  </ul>
+                  <div className="space-y-6 text-sm text-neutral-700 leading-relaxed font-body">
+                    <h2 className="text-xl sm:text-2xl font-display font-extrabold text-maple-black border-b border-neutral-100 pb-3">
+                      1. Quyền Sở Hữu Trí Tuệ
+                    </h2>
+                    <p>
+                      Toàn bộ nội dung hiển thị trên website bao gồm: văn bản, thiết kế đồ họa, hình ảnh, logo, video clip và mã nguồn đều thuộc quyền sở hữu hợp pháp của hệ thống Sunshine Maple Bear và được bảo hộ bởi luật Sở hữu trí tuệ Việt Nam.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2 text-neutral-600">
+                      <li>Nghiêm cấm mọi hành vi sao chép, trích dẫn, phân phối hoặc tái sử dụng nội dung vì mục đích thương mại khi chưa có sự đồng ý bằng văn bản từ Ban Giám Hiệu.</li>
+                      <li>Thương hiệu "Maple Bear" và hình ảnh nhãn hiệu biểu tượng là tài sản sở hữu trí tuệ đã được đăng ký toàn cầu.</li>
+                    </ul>
 
-                  <h2>2. Use of Website</h2>
-                  <p>You agree to use the website for lawful purposes and NOT to perform the following acts:</p>
-                  <ul>
-                    <li>Spread malicious code, viruses, or carry out cyber attacks (DDoS) that obstruct server operations.</li>
-                    <li>Use information on the website to defame, slander, or adversely affect the school\'s reputation.</li>
-                    <li>Unauthorized access to parent and student data storage systems.</li>
-                  </ul>
+                    <h2 className="text-xl sm:text-2xl font-display font-extrabold text-maple-black border-b border-neutral-100 pb-3 pt-4">
+                      2. Quy Định Sử Dụng Website
+                    </h2>
+                    <p>Người sử dụng cam kết KHÔNG thực hiện các hành vi sau:</p>
+                    <ul className="list-disc pl-5 space-y-2 text-neutral-600">
+                      <li>Phát tán mã độc, virus hoặc thực hiện các cuộc tấn công mạng gây cản trở hoạt động của máy chủ.</li>
+                      <li>Sử dụng thông tin trên website để bôi nhọ, xúc phạm danh dự hoặc gây ảnh hưởng xấu tới uy tín nhà trường.</li>
+                      <li>Truy cập trái phép vào dữ liệu hệ thống lưu trữ của Phụ huynh và Học sinh.</li>
+                    </ul>
 
-                  <h2>3. Disclaimer</h2>
-                  <p>We make every effort to provide the most accurate and complete information on the website. However:</p>
-                  <ul>
-                    <li>Sunshine Maple Bear does not absolutely guarantee that all information (such as tuition, class schedules, teachers) on the website at any given time is completely free of objective errors.</li>
-                    <li>Information on admission policies and curriculum is subject to adjustment and change without prior notice, in accordance with the educational direction of each school year.</li>
-                  </ul>
+                    <h2 className="text-xl sm:text-2xl font-display font-extrabold text-maple-black border-b border-neutral-100 pb-3 pt-4">
+                      3. Miễn Trừ Trách Nhiệm
+                    </h2>
+                    <p>Nhà trường luôn nỗ lực đảm bảo thông tin đăng tải được chính xác nhất. Tuy nhiên:</p>
+                    <ul className="list-disc pl-5 space-y-2 text-neutral-600">
+                      <li>Thông tin về chính sách tuyển sinh, học phí và lịch trình hoạt động có thể điều chỉnh phù hợp với thực tế năm học mà không cần báo trước.</li>
+                      <li>Nhà trường không chịu trách nhiệm pháp lý đối với bất kỳ thiệt hại gián tiếp nào phát sinh từ việc gián đoạn kết nối mạng internet của người dùng.</li>
+                    </ul>
 
-                  <h2>4. Links to Third Parties</h2>
-                  <p>The website may contain links to the websites of partners or affiliated educational organizations (e.g., Maple Bear Global Schools). Providing these links is for the convenience of parents. However, we do not control and are not legally responsible for the content or privacy policies of these external websites.</p>
+                    <h2 className="text-xl sm:text-2xl font-display font-extrabold text-maple-black border-b border-neutral-100 pb-3 pt-4">
+                      4. Liên Kết Bên Thứ Ba
+                    </h2>
+                    <p>
+                      Website có thể chứa liên kết tới các trang web của đối tác hoặc tổ chức giáo dục liên kết (VD: Maple Bear Global Schools). Việc cung cấp liên kết này nhằm mục đích hỗ trợ tra cứu cho Phụ huynh. Nhà trường không chịu trách nhiệm về nội dung hay chính sách bảo mật của các website bên thứ ba này.
+                    </p>
+                  </div>
 
-                  <div className="mt-12 p-8 bg-neutral-50 rounded-3xl border border-neutral-200 flex items-start gap-4">
-                    <div className="mt-1">
-                      <AlertCircle size={24} className="text-neutral-400" />
+                  {/* Warning Box */}
+                  <div className="p-6 bg-[#FDFBF7] rounded-2xs border border-neutral-200 flex items-start gap-4">
+                    <div className="p-2.5 bg-neutral-200/50 rounded-2xs text-neutral-600">
+                      <AlertCircle size={22} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-maple-black mb-2 mt-0">Effectiveness and Amendments</h4>
-                      <p className="text-neutral-600 mb-0 text-sm">
-                        These Terms of Use are effective from the time they are publicly posted. Sunshine Maple Bear reserves the right to amend or supplement the terms at any time to comply with the law and the school\'s practical activities.
+                      <h4 className="text-base font-display font-extrabold text-maple-black mb-1">
+                        Hiệu Lực & Sửa Đổi
+                      </h4>
+                      <p className="text-xs text-neutral-600 leading-relaxed mb-0">
+                        Các Điều khoản Sử dụng này có hiệu lực kể từ thời điểm được đăng tải công khai. Sunshine Maple Bear có quyền sửa đổi, bổ sung nội dung bất kỳ lúc nào để phù hợp với quy định pháp luật và hoạt động thực tế.
                       </p>
                     </div>
                   </div>
+
                 </div>
               </div>
 

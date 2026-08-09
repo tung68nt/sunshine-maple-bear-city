@@ -1,136 +1,198 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { Calendar, ArrowRight, Search, Newspaper } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, User, ArrowRight, Newspaper, Search, ChevronRight } from 'lucide-react'
 import { SCHOOL_IMAGES } from '@/lib/constants'
-import { MOCK_BLOG_POSTS } from '@/lib/blog-data'
+
+interface BlogPost {
+  id: string
+  title: string
+  excerpt: string
+  content: string
+  category: string
+  author: string
+  created_at: string
+  featured_image: string
+  slug: string
+}
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState<any[]>([])
+  const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Load local SEO-optimized blog data instantly instead of external API calls
-    setPosts(MOCK_BLOG_POSTS)
-    setLoading(false)
+    async function fetchPosts() {
+      try {
+        const res = await fetch('/api/admin/blog')
+        if (res.ok) {
+          const data = await res.json()
+          if (Array.isArray(data) && data.length > 0) {
+            setPosts(data)
+          } else {
+            setFallbackPosts()
+          }
+        } else {
+          setFallbackPosts()
+        }
+      } catch (err) {
+        console.error(err)
+        setFallbackPosts()
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPosts()
   }, [])
 
+  const setFallbackPosts = () => {
+    setPosts([
+      {
+        id: 'safety-foundation',
+        slug: 'safety-foundation',
+        title: 'Tại Sao An Toàn Là Nền Tảng Hàng Đầu Tại Sunshine Maple Bear?',
+        excerpt: 'Khám phá cách Sunshine Maple Bear xây dựng môi trường an toàn chuẩn Canada từ thể chất, cảm xúc đến dinh dưỡng học đường cho bé.',
+        content: 'Chăm sóc an toàn toàn diện cho trẻ mầm non...',
+        category: 'Chương trình học',
+        author: 'Sunshine Maple Bear',
+        created_at: '2026-05-10T00:00:00Z',
+        featured_image: SCHOOL_IMAGES.render.lopHoc1
+      },
+      {
+        id: '2',
+        slug: 'parent-partnership',
+        title: 'Đồng Hành Cùng Con Trong Giai Đoạn Thẩm Thấu Ngôn Ngữ',
+        excerpt: 'Chuyên gia giáo dục Canada chia sẻ phương pháp tương tác tiếng Anh tự nhiên tại nhà cùng phụ huynh.',
+        content: 'Giai đoạn từ 1-5 tuổi là thời điểm vàng...',
+        category: 'Góc Phụ Huynh',
+        author: 'Hội Đồng Cố Vấn Canada',
+        created_at: '2026-05-02T00:00:00Z',
+        featured_image: SCHOOL_IMAGES.render.lopHoc2
+      },
+      {
+        id: '3',
+        slug: 'nutrition-menu-2026',
+        title: 'Thực Đơn Dinh Dưỡng Hữu Cơ 5 Sao Cho Trẻ Mầm Non',
+        excerpt: 'Tìm hiểu quy trình kiểm soát nguồn thực phẩm hữu cơ khép kín và chế độ ăn cân bằng dưỡng chất cho học sinh.',
+        content: 'Dinh dưỡng là nền tảng thể lực tốt nhất...',
+        category: 'Dinh Dưỡng',
+        author: 'Ban Dinh Dưỡng School Care',
+        created_at: '2026-04-28T00:00:00Z',
+        featured_image: SCHOOL_IMAGES.render.canTeen
+      }
+    ])
+  }
 
   const categories = [
-    'All',
-    'Education',
-    'Nutrition',
-    'Events',
-    'Parenting Tips',
-    'Curriculum',
+    { name: 'Tất cả bài viết', count: 12 },
+    { name: 'Chương trình học Canada', count: 5 },
+    { name: 'Góc Phụ huynh & Nuôi dạy con', count: 4 },
+    { name: 'Dinh dưỡng & Sức khỏe', count: 3 },
+    { name: 'Sự kiện & Hoạt động trường', count: 6 },
   ]
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#FDFBF7]">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--color-dark)]">
-          <div className="absolute inset-0 opacity-40">
-            <Image
-              src={SCHOOL_IMAGES.render.hanhLang1}
-              alt="Blog Hero"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/90 to-[var(--color-dark)]/30" />
-          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="max-w-3xl mx-auto space-y-6 animate-fade-in-up">
+        <section className="relative py-20 md:py-28 bg-[#151513] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#151513] via-[#151513]/90 to-transparent z-10" />
+          <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div className="max-w-3xl mx-auto space-y-5 animate-fade-in-up">
               <div className="flex items-center justify-center gap-2.5 mb-2">
                 <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
-                <span className="text-xs font-bold uppercase tracking-wider text-maple-gold">Tin Tức & Góc Nhìn Chuyên Gia Mầm Non</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-maple-gold">TIN TỨC & GÓC NHÌN CHUYÊN GIA MẦM NON</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">Knowledge <span className="text-maple-gold">Blog</span></h1>
-              <p className="text-xl text-white/60 font-light max-w-2xl mx-auto">
-                Stay updated with the latest school activities and expert insights on early childhood education and parenting.
+              <h1 className="text-4xl md:text-6xl font-display font-extrabold text-white tracking-tight">
+                Góc Nhìn <span className="text-maple-gold">Giáo Dục</span>
+              </h1>
+              <p className="text-base sm:text-lg text-white/70 font-light max-w-2xl mx-auto leading-relaxed">
+                Cập nhật những tin tức mới nhất về hoạt động trường, phương pháp giáo dục Canada và kinh nghiệm nuôi dạy con song ngữ.
               </p>
             </div>
           </div>
         </section>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-8 space-y-16">
+            <div className="lg:col-span-8 space-y-12">
               {loading ? (
                 <div className="text-center py-20">
-                  <div className="w-12 h-12 border-4 border-maple-red/20 border-t-maple-red rounded-full animate-spin mx-auto mb-4" />
-                  <p className="text-neutral-500 font-light">Loading articles...</p>
+                  <div className="w-10 h-10 border-4 border-maple-red/20 border-t-maple-red rounded-full animate-spin mx-auto mb-4" />
+                  <p className="text-neutral-500 font-light text-sm">Đang tải bài viết...</p>
                 </div>
               ) : posts.length > 0 ? (
                 <>
                   {/* Featured Post */}
-                  <div className="group relative bg-neutral-light-gray rounded-[40px] overflow-hidden border border-neutral-100 hover:shadow-2xl transition-all duration-500">
+                  <div className="group relative bg-white rounded-2xs overflow-hidden border border-neutral-200 shadow-sm hover:shadow-xl transition-all duration-300">
                     <div className="grid grid-cols-1 md:grid-cols-2">
-                      <div className="relative h-80 md:h-full">
+                      <div className="relative h-64 md:h-full min-h-[260px]">
                         <Image
                           src={posts[0].featured_image || SCHOOL_IMAGES.render.lopHoc1}
                           alt={posts[0].title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <div className="p-10 flex flex-col justify-center">
-                        <div className="flex items-center gap-4 mb-6">
-                          <span className="px-4 py-1 bg-maple-red text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Featured</span>
-                          <span className="text-sm text-neutral-400 font-light">{new Date(posts[0].created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                      <div className="p-8 sm:p-10 flex flex-col justify-center">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="px-3 py-1 bg-maple-red text-white text-[10px] font-extrabold uppercase tracking-wider rounded-2xs">Nổi bật</span>
+                          <span className="text-xs text-neutral-400 font-medium">
+                            {new Date(posts[0].created_at).toLocaleDateString('vi-VN')}
+                          </span>
                         </div>
-                        <h2 className="text-3xl font-bold text-maple-black mb-4 leading-tight group-hover:text-maple-red transition-colors">{posts[0].title}</h2>
-                        <p className="text-neutral-500 font-light mb-8 line-clamp-3 leading-relaxed">{posts[0].excerpt}</p>
-                        <a href={`/blog/${posts[0].id}`} className="flex items-center gap-2 text-maple-red font-bold group/btn">
-                          Read Article <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
-                        </a>
+                        <h2 className="text-xl sm:text-2xl font-display font-extrabold text-maple-black mb-3 leading-snug group-hover:text-maple-red transition-colors">
+                          {posts[0].title}
+                        </h2>
+                        <p className="text-xs sm:text-sm text-neutral-600 font-normal mb-6 line-clamp-3 leading-relaxed">
+                          {posts[0].excerpt}
+                        </p>
+                        <Link href={`/blog/${posts[0].slug || posts[0].id}`} className="inline-flex items-center gap-2 text-maple-red font-bold text-xs uppercase tracking-wider group/btn">
+                          Xem chi tiết <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
                       </div>
                     </div>
                   </div>
 
                   {/* Regular Posts Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {posts.slice(1).map((post, idx) => (
-                      <div key={idx} className="group space-y-6">
-                        <div className="relative h-64 rounded-3xl overflow-hidden shadow-lg">
+                      <div key={idx} className="group flex flex-col bg-white rounded-2xs overflow-hidden border border-neutral-200 shadow-sm hover:shadow-md transition-all">
+                        <div className="relative h-52 w-full overflow-hidden">
                           <Image
                             src={post.featured_image || SCHOOL_IMAGES.render.lopHoc2}
                             alt={post.title}
                             fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute top-4 left-4">
-                            <span className="px-4 py-1 bg-white/90 backdrop-blur-sm text-maple-black text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm">{post.category}</span>
+                          <div className="absolute top-3 left-3">
+                            <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-maple-black text-[10px] font-bold uppercase tracking-wider rounded-2xs shadow-xs">
+                              {post.category}
+                            </span>
                           </div>
                         </div>
-                        <div className="flex flex-col flex-1 p-8">
-                          <div className="flex items-center gap-4 text-sm text-neutral-500 mb-4">
-                            <span className="text-maple-red font-bold uppercase tracking-wider">{post.category}</span>
-                            <span>•</span>
-                            <div className="flex items-center gap-1.5">
-                              <Calendar size={14} />
-                              {new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                            </div>
+                        <div className="flex flex-col flex-1 p-6">
+                          <div className="flex items-center gap-2 text-xs text-neutral-400 mb-3">
+                            <Calendar size={13} className="text-maple-gold" />
+                            <span>{new Date(post.created_at).toLocaleDateString('vi-VN')}</span>
                           </div>
                           
-                          <h3 className="text-2xl md:text-3xl font-display font-bold text-maple-black mb-4 group-hover:text-maple-red transition-colors leading-tight">
+                          <h3 className="text-base font-display font-bold text-maple-black mb-3 group-hover:text-maple-red transition-colors leading-snug line-clamp-2">
                             {post.title}
                           </h3>
                           
-                          <p className="text-neutral-500 font-light leading-relaxed mb-8 flex-1">
+                          <p className="text-xs text-neutral-600 font-normal leading-relaxed mb-6 flex-1 line-clamp-3">
                             {post.excerpt}
                           </p>
                           
-                          <div className="flex items-center text-maple-red font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
-                            <Link href={`/blog/${post.slug || post.id}`} className="absolute inset-0 z-10"><span className="sr-only">Read more</span></Link>
-                            <span>Read Full Article</span>
-                            <ArrowRight size={16} />
+                          <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-maple-red font-extrabold text-xs uppercase tracking-wider">
+                            <Link href={`/blog/${post.slug || post.id}`} className="hover:underline">Đọc bài viết</Link>
+                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
                       </div>
@@ -139,67 +201,43 @@ export default function BlogPage() {
                 </>
               ) : (
                 <div className="text-center py-20 text-neutral-400 font-light">
-                  No articles have been published yet.
-                </div>
-              )}
-
-              {/* Pagination Placeholder */}
-              {!loading && posts.length > 5 && (
-                <div className="flex justify-center pt-10">
-                  <div className="flex gap-2">
-                    {[1, 2, 3].map(n => (
-                      <button key={n} className={`w-12 h-12 rounded-2xl flex items-center justify-center font-bold transition-all ${n === 1 ? 'bg-maple-red text-white shadow-lg' : 'bg-neutral-100 text-maple-black hover:bg-neutral-200'}`}>
-                        {n}
-                      </button>
-                    ))}
-                  </div>
+                  Chưa có bài viết nào được đăng tải.
                 </div>
               )}
             </div>
 
             {/* Sidebar */}
-            <aside className="lg:col-span-4 space-y-12">
+            <aside className="lg:col-span-4 space-y-8">
               {/* Search */}
-              <div className="bg-neutral-light-gray p-8 rounded-[32px] border border-neutral-100">
-                <h4 className="text-lg font-bold text-maple-black mb-6">Search Articles</h4>
+              <div className="bg-white p-6 rounded-2xs border border-neutral-200 shadow-sm">
+                <h4 className="text-base font-display font-extrabold text-maple-black mb-4 uppercase tracking-wide">
+                  Tìm Kiếm Bài Viết
+                </h4>
                 <div className="relative">
                   <input
                     type="text"
-                    placeholder="Enter keywords..."
-                    className="w-full bg-white border border-neutral-200 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-maple-red transition-all"
+                    placeholder="Nhập từ khóa tìm kiếm..."
+                    className="w-full bg-[#FDFBF7] border border-neutral-200 rounded-2xs px-4 py-3 text-xs focus:outline-none focus:border-maple-red transition-all font-bold"
                   />
-                  <Search size={20} className="absolute right-6 top-1/2 -translate-y-1/2 text-neutral-300" />
+                  <Search size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400" />
                 </div>
               </div>
 
               {/* Categories */}
-              <div className="bg-neutral-light-gray p-8 rounded-[32px] border border-neutral-100">
-                <h4 className="text-lg font-bold text-maple-black mb-6">Categories</h4>
-                <div className="space-y-3">
+              <div className="bg-white p-6 rounded-2xs border border-neutral-200 shadow-sm">
+                <h4 className="text-base font-display font-extrabold text-maple-black mb-4 uppercase tracking-wide">
+                  Chủ Đề Nổi Bật
+                </h4>
+                <div className="space-y-2">
                   {categories.map((cat, idx) => (
-                    <button key={idx} className="w-full flex items-center justify-between p-4 bg-white rounded-2xl text-sm text-neutral-600 hover:text-maple-red transition-all group">
-                      <span className="font-medium">{cat}</span>
-                      <ChevronRight size={16} className="text-neutral-300 group-hover:translate-x-1 transition-transform" />
+                    <button key={idx} className="w-full flex items-center justify-between p-3 bg-[#FDFBF7] rounded-2xs text-xs font-bold text-neutral-700 hover:bg-maple-red hover:text-white transition-all group">
+                      <span>{cat.name}</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-2xs bg-neutral-200 text-neutral-700 group-hover:bg-white group-hover:text-maple-red font-mono">
+                        {cat.count}
+                      </span>
                     </button>
                   ))}
                 </div>
-              </div>
-
-              {/* Newsletter Sidebar */}
-              <div className="bg-[var(--color-dark)] text-white p-10 rounded-[32px] relative overflow-hidden group">
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-maple-red/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000" />
-                <h4 className="text-2xl font-bold mb-4 relative z-10">Maple Bear <br />Newsletter</h4>
-                <p className="text-white/60 font-light text-sm mb-8 relative z-10">Don&apos;t miss helpful articles and exciting upcoming events.</p>
-                <form className="space-y-4 relative z-10">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    className="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-maple-gold transition-colors"
-                  />
-                  <button className="w-full py-4 bg-maple-red text-white font-bold rounded-2xl hover:bg-red-700 transition-all shadow-xl shadow-maple-red/20">
-                    Subscribe Now
-                  </button>
-                </form>
               </div>
             </aside>
           </div>

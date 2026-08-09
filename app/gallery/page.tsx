@@ -1,267 +1,137 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import Image from 'next/image'
 import { SCHOOL_IMAGES } from '@/lib/constants'
-import { Camera, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { Camera, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react'
+import Image from 'next/image'
+
+interface GalleryItem {
+  id: string
+  title: string
+  category: string
+  image_url: string
+  description?: string
+}
 
 export default function GalleryPage() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
-  const [images, setImages] = useState<any[]>([])
+  const [images, setImages] = useState<GalleryItem[]>([])
   const [loading, setLoading] = useState(true)
+  const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   useEffect(() => {
-    // Use local render images directly — no external API dependency
-    const localImages = [
-      { id: '1', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien1, title: 'Library' },
-      { id: '2', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien2, title: 'Reading Corner' },
-      { id: '3', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien3, title: 'Sunshine Classroom' },
-      { id: '4', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien4, title: 'Study Area' },
-      { id: '5', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien5, title: 'Book Collection' },
-      { id: '6', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien6, title: 'Open Library' },
-      { id: '7', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien7, title: 'Learning Hub' },
-      { id: '8', album: 'library', image_url: SCHOOL_IMAGES.render.thuVien8, title: 'Discovery Space' },
-      { id: '9', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc1, title: 'Teddy Bears Classroom' },
-      { id: '10', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc2, title: 'Koala Bears Classroom' },
-      { id: '11', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc3, title: 'Panda Bears Classroom' },
-      { id: '12', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc4, title: 'Polar Bears Classroom' },
-      { id: '13', album: 'classroom', image_url: SCHOOL_IMAGES.render.lopHoc5, title: 'Sun Bears Classroom' },
-      { id: '14', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang1, title: 'STEAM Lab' },
-      { id: '15', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang2, title: 'Music Studio' },
-      { id: '16', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang3, title: 'Activity Room' },
-      { id: '17', album: 'facilities', image_url: SCHOOL_IMAGES.render.phongChucNang4, title: 'Art Workshop' },
-      { id: '18', album: 'facilities', image_url: SCHOOL_IMAGES.render.hanhLang1, title: 'Main Hallway' },
-      { id: '19', album: 'facilities', image_url: SCHOOL_IMAGES.render.hanhLang2, title: 'Corridor' },
-      { id: '20', album: 'facilities', image_url: SCHOOL_IMAGES.render.vanPhong, title: 'Administration Office' },
-      { id: '21', album: 'healthcare', image_url: SCHOOL_IMAGES.render.phongYTe1, title: 'Health Room' },
-      { id: '22', album: 'healthcare', image_url: SCHOOL_IMAGES.render.phongYTe2, title: 'Nurse Station' },
-      { id: '23', album: 'healthcare', image_url: SCHOOL_IMAGES.render.phongYTe3, title: 'Medical Bay' },
-    ]
-    setImages(localImages)
-    setLoading(false)
+    async function fetchGallery() {
+      try {
+        const res = await fetch('/api/admin/gallery')
+        if (res.ok) {
+          const data = await res.json()
+          if (Array.isArray(data) && data.length > 0) {
+            setImages(data)
+          } else {
+            setFallbackImages()
+          }
+        } else {
+          setFallbackImages()
+        }
+      } catch (err) {
+        console.error(err)
+        setFallbackImages()
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchGallery()
   }, [])
 
-  // Derived albums from unique gallery_items.album
-  const albums = Array.from(new Set(images.map(img => img.album))).map(albumName => {
-    const albumImages = images.filter(img => img.album === albumName)
-    return {
-      title: albumName === 'facilities' ? 'Facilities' : 
-             albumName === 'library' ? 'Library & Learning Spaces' :
-             albumName === 'activities' ? 'Learning Activities' :
-             albumName === 'classroom' ? 'Classrooms' :
-             albumName === 'healthcare' ? 'Healthcare' :
-             albumName === 'events' ? 'Events' : albumName,
-      slug: albumName,
-      imageCount: albumImages.length,
-      coverImage: albumImages[0]?.image_url
-    }
-  })
+  const setFallbackImages = () => {
+    setImages([
+      { id: '1', title: 'Lớp Học Điển Hình 1', category: 'Cơ sở vật chất', image_url: SCHOOL_IMAGES.render.lopHoc1 },
+      { id: '2', title: 'Thư Viện Sách 5 Sao', category: 'Cơ sở vật chất', image_url: SCHOOL_IMAGES.render.thuVien3 },
+      { id: '3', title: 'Sân Chơi Vận Động', category: 'Sân chơi', image_url: SCHOOL_IMAGES.render.sanChoi2 },
+      { id: '4', title: 'Bể Bơi Bốn Mùa', category: 'Bể bơi', image_url: SCHOOL_IMAGES.render.beBoi1 },
+      { id: '5', title: 'Phòng Âm Nhạc Atelier', category: 'Phòng chức năng', image_url: SCHOOL_IMAGES.render.phongChucNang1 },
+      { id: '6', title: 'Nhà Ăn Căn Tin 5 Sao', category: 'Nhà ăn', image_url: SCHOOL_IMAGES.render.canTeen },
+    ])
+  }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#FDFBF7]">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--color-dark)]">
-          <div className="absolute top-10 right-10 opacity-10">
-            <svg width="200" height="200" viewBox="0 0 14 14" fill="white">
-              <path d="M6.7552516 12.9749c0-.014.026-.6078.057-1.3203.07-1.5937.069-1.5091.014-1.5845-.05-.069-.1077-.1023-.1772-.1023-.083 0-.6683.078-1.4387.1904-.7811.1145-1.2022.1714-1.2088.1634 0 0 .049-.178.114-.3894.1362-.4432.1431-.4966.081-.6202-.037-.072-.1235-.1458-1.3903-1.174-.7431-.6032-1.3498-1.1029-1.3482-1.1104 0-.01.1399-.078.3074-.1559.1674-.078.3208-.1578.3409-.1767.047-.044.06-.1153.039-.2162-.01-.044-.1191-.4536-.2445-.9098-.1254-.4562-.2262-.831-.224-.8328 0 0 .3498.069.7726.1586.4228.089.7944.1619.8258.1619.071 0 .1472-.039.186-.096.016-.024.073-.1961.1262-.3829.053-.1868.101-.3477.1063-.3576.01-.012.2307.2294.6279.6742.34.3808.6426.7132.6725.7388.063.054.1597.085.2205.072.09-.02.1459-.1186.1458-.2569 0-.039-.1214-.7149-.2696-1.5015-.1483-.7867-.2675-1.4324-.2648-1.4351 0 0 .196.092.4297.2111.4084.2074.4284.2159.5121.2164.1052.0006.1874-.04.2375-.1163.018-.028.2467-.4496.5077-.937.2609-.4873.4788-.8861.4842-.8861.01 0 .2234.3988.4845.8861.261.4874.4894.9087.5074.9363.037.056.099.098.1693.1137.098.022.1873-.011.6018-.223.2219-.1136.4057-.2042.4084-.2014 0 0-.1162.6486-.2645 1.4353-.1502.7968-.2696 1.4661-.2696 1.5111-.0001.1929.1119.2909.2654.2322.036-.014.086-.043.1113-.065.025-.022.3239-.3516.6633-.7316.3964004-.444.6204004-.6845.6266004-.6729.01.01.053.1708.1064.3576.053.1868.1099.3591.1262.3829.039.057.1148.096.1859.096.032 0 .4031-.073.8259-.1619.4228-.089.7704-.1604.7726-.1586 0 0-.1026.3902-.2328.863s-.2401.8987-.2442.9464c-.011.1313.011.1499.3886.3264.1717.08.3122.1507.3122.1566 0 .01-.6085.5047-1.3523 1.1084-1.2679004 1.0292-1.3548004 1.1025-1.3915004 1.175-.063.1236-.056.177.081.6202.065.2114.1163.3866.114.3894-.01.01-.4278-.049-1.2088-.1634-.7893-.1157-1.3563-.1904-1.4447-.1904-.069 0-.1496.065-.1857.1494-.023.054-.022.1261.01 1.3025.018.6851.033 1.3208.034 1.4128l.0008.1673h-.2206c-.2007 0-.2207 0-.2206-.025z" />
-            </svg>
-          </div>
-          <div className="absolute bottom-10 left-10 opacity-5">
-            <svg width="300" height="300" viewBox="0 0 14 14" fill="white">
-              <path d="M6.7552516 12.9749c0-.014.026-.6078.057-1.3203.07-1.5937.069-1.5091.014-1.5845-.05-.069-.1077-.1023-.1772-.1023-.083 0-.6683.078-1.4387.1904-.7811.1145-1.2022.1714-1.2088.1634 0 0 .049-.178.114-.3894.1362-.4432.1431-.4966.081-.6202-.037-.072-.1235-.1458-1.3903-1.174-.7431-.6032-1.3498-1.1029-1.3482-1.1104 0-.01.1399-.078.3074-.1559.1674-.078.3208-.1578.3409-.1767.047-.044.06-.1153.039-.2162-.01-.044-.1191-.4536-.2445-.9098-.1254-.4562-.2262-.831-.224-.8328 0 0 .3498.069.7726.1586.4228.089.7944.1619.8258.1619.071 0 .1472-.039.186-.096.016-.024.073-.1961.1262-.3829.053-.1868.101-.3477.1063-.3576.01-.012.2307.2294.6279.6742.34.3808.6426.7132.6725.7388.063.054.1597.085.2205.072.09-.02.1459-.1186.1458-.2569 0-.039-.1214-.7149-.2696-1.5015-.1483-.7867-.2675-1.4324-.2648-1.4351 0 0 .196.092.4297.2111.4084.2074.4284.2159.5121.2164.1052.0006.1874-.04.2375-.1163.018-.028.2467-.4496.5077-.937.2609-.4873.4788-.8861.4842-.8861.01 0 .2234.3988.4845.8861.261.4874.4894.9087.5074.9363.037.056.099.098.1693.1137.098.022.1873-.011.6018-.223.2219-.1136.4057-.2042.4084-.2014 0 0-.1162.6486-.2645 1.4353-.1502.7968-.2696 1.4661-.2696 1.5111-.0001.1929.1119.2909.2654.2322.036-.014.086-.043.1113-.065.025-.022.3239-.3516.6633-.7316.3964004-.444.6204004-.6845.6266004-.6729.01.01.053.1708.1064.3576.053.1868.1099.3591.1262.3829.039.057.1148.096.1859.096.032 0 .4031-.073.8259-.1619.4228-.089.7704-.1604.7726-.1586 0 0-.1026.3902-.2328.863s-.2401.8987-.2442.9464c-.011.1313.011.1499.3886.3264.1717.08.3122.1507.3122.1566 0 .01-.6085.5047-1.3523 1.1084-1.2679004 1.0292-1.3548004 1.1025-1.3915004 1.175-.063.1236-.056.177.081.6202.065.2114.1163.3866.114.3894-.01.01-.4278-.049-1.2088-.1634-.7893-.1157-1.3563-.1904-1.4447-.1904-.069 0-.1496.065-.1857.1494-.023.054-.022.1261.01 1.3025.018.6851.033 1.3208.034 1.4128l.0008.1673h-.2206c-.2007 0-.2207 0-.2206-.025z" />
-            </svg>
-          </div>
-          <div className="absolute inset-0 opacity-40">
-            <Image
-              src={SCHOOL_IMAGES.render.thuVien6}
-              alt="Gallery Hero"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/90 to-[var(--color-dark)]/30" />
-          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <div className="max-w-3xl mx-auto space-y-6 animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-4">
-                <Camera size={18} className="text-maple-gold" />
-                <span className="text-sm font-bold uppercase tracking-widest">Experience Space</span>
+        <section className="relative py-20 md:py-28 bg-[#151513] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#151513] via-[#151513]/90 to-transparent z-10" />
+          <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div className="max-w-3xl mx-auto space-y-5 animate-fade-in-up">
+              <div className="flex items-center justify-center gap-2.5 mb-2">
+                <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+                <span className="text-xs font-bold uppercase tracking-wider text-maple-gold">
+                  THƯ VIỆN HÌNH ẢNH & KHÔNG GIAN HỌC TẬP 5 SAO
+                </span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Photo Gallery</h1>
-              <p className="text-xl text-white/80 font-light">Admiring international standard facilities at Sunshine City</p>
+              <h1 className="text-4xl md:text-6xl font-display font-extrabold text-white tracking-tight">
+                Thư Viện <span className="text-maple-gold">Hình Ảnh</span>
+              </h1>
+              <p className="text-base sm:text-lg text-white/70 font-light max-w-2xl mx-auto leading-relaxed">
+                Ngắm nhìn không gian cơ sở vật chất chuẩn quốc tế và những khoảnh khắc rạng rỡ của các bé tại Sunshine Maple Bear.
+              </p>
             </div>
           </div>
         </section>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           {loading ? (
             <div className="text-center py-20">
-              <div className="w-12 h-12 border-4 border-maple-red/20 border-t-maple-red rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-neutral-500 font-light">Loading images...</p>
+              <div className="w-10 h-10 border-4 border-maple-red/20 border-t-maple-red rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-neutral-500 font-light text-sm">Đang tải hình ảnh...</p>
             </div>
-          ) : images.length > 0 ? (
-            <>
-              {/* Album Categories */}
-              <section className="mb-24">
-                <div className="flex items-center justify-between mb-12">
-                  <h2 className="text-3xl font-bold text-maple-black">Collections</h2>
-                  <div className="h-px bg-neutral-200 flex-1 mx-8 hidden md:block" />
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {albums.map((album, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => {
-                        const firstIndex = images.findIndex(img => img.image_url === album.coverImage);
-                        if (firstIndex !== -1) setSelectedImage(firstIndex);
-                      }}
-                      className="group relative h-[350px] rounded-[32px] overflow-hidden shadow-lg cursor-pointer"
-                    >
-                      <Image
-                        src={album.coverImage || SCHOOL_IMAGES.render.lopHoc1}
-                        alt={album.title || 'Gallery Album'}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-maple-black/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-8 w-full">
-                        <p className="text-maple-gold font-bold text-xs uppercase tracking-widest mb-2">{album.imageCount} Images</p>
-                        <h3 className="text-2xl font-bold text-white">{album.title}</h3>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Masonry-like Grid for All Photos */}
-              <section>
-                <div className="flex items-center justify-between mb-12">
-                  <h2 className="text-3xl font-bold text-maple-black">All Photos</h2>
-                  <div className="h-px bg-neutral-200 flex-1 mx-8 hidden md:block" />
-                </div>
-
-                <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-                  {images.map((img, index) => (
-                    <div
-                      key={index}
-                      onClick={() => setSelectedImage(index)}
-                      className="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer break-inside-avoid"
-                    >
-                      <Image
-                        src={img.image_url}
-                        alt={img.title || 'Gallery Image'}
-                        width={600}
-                        height={400}
-                        className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-[var(--color-dark)]/0 group-hover:bg-[var(--color-dark)]/40 transition-all duration-300 flex items-center justify-center">
-                        <Maximize2 className="text-white opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all" size={32} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            </>
           ) : (
-            <div className="text-center py-20 text-neutral-400 font-light">
-              No images in the gallery yet.
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {images.map((img, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className="group relative h-64 rounded-2xs overflow-hidden border border-neutral-200 shadow-sm cursor-pointer"
+                >
+                  <Image
+                    src={img.image_url}
+                    alt={img.title || 'Gallery Image'}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-maple-gold text-[10px] font-bold uppercase tracking-wider block">{img.category}</span>
+                    <h4 className="text-white font-bold text-sm truncate">{img.title}</h4>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
-
-        {/* Lightbox Modal */}
-        {selectedImage !== null && (
-          <div className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-between p-4 md:p-8">
-            <div className="absolute inset-0" onClick={() => setSelectedImage(null)} />
-            
-            <button 
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 md:top-8 md:right-8 text-white/60 hover:text-white transition-colors z-10 bg-black/20 hover:bg-black/40 rounded-full p-2"
-            >
-              <X size={32} />
-            </button>
-            
-            {/* Top Bar with Title */}
-            <div className="w-full max-w-7xl flex justify-between items-center z-10 mb-4">
-              <div className="text-white">
-                <h3 className="text-xl md:text-2xl font-medium">{images[selectedImage].title}</h3>
-                <p className="text-white/50 text-sm">{selectedImage + 1} of {images.length}</p>
-              </div>
-            </div>
-            
-            {/* Main Image Container */}
-            <div className="relative w-full max-w-7xl flex-1 flex items-center justify-center min-h-0 z-10 my-4">
-              <button 
-                onClick={(e) => { e.stopPropagation(); setSelectedImage((selectedImage - 1 + images.length) % images.length); }}
-                className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors bg-black/20 hover:bg-black/60 p-3 md:p-4 rounded-full z-20"
-              >
-                <ChevronLeft size={40} />
-              </button>
-   
-              <button 
-                onClick={(e) => { e.stopPropagation(); setSelectedImage((selectedImage + 1) % images.length); }}
-                className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors bg-black/20 hover:bg-black/60 p-3 md:p-4 rounded-full z-20"
-              >
-                <ChevronRight size={40} />
-              </button>
-   
-              <div className="relative w-full h-full max-h-[70vh]">
-                <Image
-                  src={images[selectedImage].image_url}
-                  alt={images[selectedImage].title || 'Gallery Image'}
-                  fill
-                  className="object-contain"
-                  quality={100}
-                />
-              </div>
-            </div>
-            
-            {/* Thumbnail Strip */}
-            <div className="w-full max-w-7xl h-24 mt-auto z-10 hidden md:block">
-              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide snap-x">
-                {images.map((img, idx) => (
-                  <div 
-                    key={idx}
-                    onClick={() => setSelectedImage(idx)}
-                    className={`relative h-20 w-32 flex-shrink-0 cursor-pointer rounded-lg overflow-hidden snap-center transition-all duration-300 ${
-                      selectedImage === idx ? 'ring-2 ring-white opacity-100 scale-105' : 'opacity-40 hover:opacity-100'
-                    }`}
-                  >
-                    <Image
-                      src={img.image_url}
-                      alt={img.title || `Thumbnail ${idx}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* CTA Section */}
-        <section className="bg-neutral-light-gray py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-maple-black mb-6">Want to experience it first-hand?</h2>
-            <p className="text-lg text-neutral-500 mb-10 max-w-2xl mx-auto font-light">
-              Schedule a school tour to discover the wonderful learning environment of Sunshine Maple Bear at Sunshine City.
-            </p>
-            <a
-              href="/tour-booking"
-              className="inline-flex items-center justify-center px-10 py-4 bg-maple-red text-white font-bold rounded-full hover:bg-red-700 transition-all shadow-xl"
-            >
-              Book a Tour Now
-            </a>
-          </div>
-        </section>
       </main>
+
+      {/* Lightbox Modal */}
+      {selectedImage !== null && images[selectedImage] && (
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-6 right-6 text-white/70 hover:text-white p-2 rounded-2xs bg-neutral-800/80"
+          >
+            <X size={24} />
+          </button>
+          <div className="relative max-w-4xl max-h-[85vh] w-full h-full flex items-center justify-center">
+            <Image
+              src={images[selectedImage].image_url}
+              alt={images[selectedImage].title}
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   )

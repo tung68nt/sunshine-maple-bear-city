@@ -45,26 +45,22 @@ export function ProgramCards() {
           {BEAR_CLASSES.map((cls, idx) => (
             <div
               key={idx}
-              className="program-card scroll-animate fade-up group relative rounded-[32px] overflow-hidden bg-white border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              className="program-card scroll-animate fade-up group relative rounded-2xs overflow-hidden bg-white border border-neutral-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               {/* Image */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-52 overflow-hidden">
                 <Image
                   src={cls.image}
                   alt={cls.nameEn}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                {/* Bear emoji badge */}
-                <div className="absolute top-4 right-4 w-12 h-12 rounded-2xl bg-white/90 backdrop-blur-md flex items-center justify-center text-2xl shadow-xl transform group-hover:rotate-12 transition-transform">
-                  {cls.emoji}
-                </div>
                 {/* Age badge */}
-                <div className="absolute bottom-4 left-4">
+                <div className="absolute bottom-3 left-3">
                   <span
-                    className="inline-block px-4 py-1.5 rounded-full text-white text-[10px] font-display font-bold uppercase tracking-widest shadow-lg"
+                    className="inline-block px-3 py-1 rounded-2xs text-white text-[10px] font-display font-extrabold uppercase tracking-wider shadow-xs"
                     style={{ backgroundColor: cls.color }}
                   >
                     {cls.ageEn}
