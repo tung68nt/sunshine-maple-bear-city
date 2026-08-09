@@ -31,6 +31,14 @@ import {
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
 import { PageSectionBlock } from '@/lib/supabase'
+import {
+  getHomepageSectionsConfig,
+  saveHomepageSectionsConfig,
+  getHomepageVariants,
+  saveHomepageVariants,
+  HomepageSection,
+  HomepageVariant
+} from '@/lib/homepage-builder'
 
 type StaticPage = {
   id: string
@@ -306,6 +314,56 @@ export default function AdminPagesPage() {
     window.addEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
+
+  // Homepage Section Builder & Variant Selection State
+  const [activeTabMode, setActiveTabMode] = useState<'HOMEPAGE_BUILDER' | 'PAGES_TABLE'>('HOMEPAGE_BUILDER')
+  const [homepageSections, setHomepageSections] = useState<HomepageSection[]>([])
+  const [homepageVariants, setHomepageVariants] = useState<HomepageVariant[]>([])
+
+  useEffect(() => {
+    setHomepageSections(getHomepageSectionsConfig().sort((a, b) => a.order - b.order))
+    setHomepageVariants(getHomepageVariants())
+  }, [])
+
+  const handleSetDefaultVariant = (variantId: string) => {
+    const updated = homepageVariants.map(v => ({
+      ...v,
+      isDefault: v.id === variantId
+    }))
+    setHomepageVariants(updated)
+    saveHomepageVariants(updated)
+  }
+
+  const handleToggleSectionEnabled = (secId: string) => {
+    const updated = homepageSections.map(s => s.id === secId ? { ...s, enabled: !s.enabled } : s)
+    setHomepageSections(updated)
+    saveHomepageSectionsConfig(updated)
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+  }
+
+  const handleMoveHomepageSectionUp = (idx: number) => {
+    if (idx === 0) return
+    const copy = [...homepageSections]
+    const tempOrder = copy[idx].order
+    copy[idx].order = copy[idx - 1].order
+    copy[idx - 1].order = tempOrder
+    copy.sort((a, b) => a.order - b.order)
+    setHomepageSections(copy)
+    saveHomepageSectionsConfig(copy)
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+  }
+
+  const handleMoveHomepageSectionDown = (idx: number) => {
+    if (idx >= homepageSections.length - 1) return
+    const copy = [...homepageSections]
+    const tempOrder = copy[idx].order
+    copy[idx].order = copy[idx + 1].order
+    copy[idx + 1].order = tempOrder
+    copy.sort((a, b) => a.order - b.order)
+    setHomepageSections(copy)
+    saveHomepageSectionsConfig(copy)
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+  }
 
   // Elementor Page Section Stack State
   const [sectionsStack, setSectionsStack] = useState<SectionBlock[]>([
@@ -976,33 +1034,183 @@ export default function AdminPagesPage() {
   // -------------------------------------------------------------
   return (
     <div className="space-y-4 w-full text-[#1D1D1B]">
-      
-      {/* Header */}
-      <div className="bg-white border border-neutral-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs">
-        <div>
-          <span className="text-[10px] font-semibold text-maple-red block">
-            {adminUiLang === 'vi' ? 'Quản lý Trang Tĩnh CMS' : 'Static Pages CMS'}
-          </span>
-          <h2 className="text-xl font-display font-bold text-[#1D1D1B]">
-            {adminUiLang === 'vi' ? `Quản lý Nội dung ${pages.length} Trang Tĩnh Website` : `Static Information Pages Manager (${pages.length} Pages)`}
-          </h2>
-          <p className="text-xs text-neutral-500 font-light mt-0.5">
-            {adminUiLang === 'vi'
-              ? 'Tùy chỉnh cấu trúc section block hoặc xem trang chuyển đổi từ bài viết blog.'
-              : 'Edit section block stacks or manage pages converted from blog posts.'}
-          </p>
-        </div>
-        
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setShowAddModal(true)}
-            className="px-3.5 py-1.5 bg-[#1D1D1B] text-white text-xs font-semibold hover:bg-maple-red transition-colors border border-[#1D1D1B] flex items-center gap-1.5 rounded-2xs shadow-2xs"
-          >
-            <Plus size={15} />
-            {adminUiLang === 'vi' ? 'Thêm Trang Tĩnh Mới' : 'Add New Static Page'}
-          </button>
-        </div>
+      {/* Navigation Tabs Mode */}
+      <div className="flex border-b border-neutral-200 bg-white px-4 rounded-2xs shadow-2xs">
+        <button
+          onClick={() => setActiveTabMode('HOMEPAGE_BUILDER')}
+          className={`py-3 px-5 text-xs font-extrabold border-b-2 transition-all flex items-center gap-2 ${
+            activeTabMode === 'HOMEPAGE_BUILDER' ? 'border-maple-red text-maple-red' : 'border-transparent text-neutral-500 hover:text-maple-black'
+          }`}
+        >
+          <Settings2 size={16} />
+          Giao Diện Section Builder Trang Chủ (Homepage Builder)
+        </button>
+        <button
+          onClick={() => setActiveTabMode('PAGES_TABLE')}
+          className={`py-3 px-5 text-xs font-extrabold border-b-2 transition-all flex items-center gap-2 ${
+            activeTabMode === 'PAGES_TABLE' ? 'border-maple-red text-maple-red' : 'border-transparent text-neutral-500 hover:text-maple-black'
+          }`}
+        >
+          <Globe size={16} />
+          Danh Sách 14 Trang Tĩnh Website ({pages.length})
+        </button>
       </div>
+
+      {/* MODE 1: HOMEPAGE SECTION BUILDER & DEFAULT HOMEPAGE VARIANT SELECTOR */}
+      {activeTabMode === 'HOMEPAGE_BUILDER' && (
+        <div className="space-y-6">
+          
+          {/* Default Homepage Selector Panel */}
+          <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-4">
+            <div className="flex justify-between items-center border-b border-neutral-200 pb-3">
+              <div>
+                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">CƠ CHẾ ĐẶT TRANG MẶC ĐỊNH (DEFAULT HOMEPAGE)</span>
+                <h3 className="text-base font-display font-extrabold text-maple-black">
+                  Thiết Lập Trang Nào Làm Homepage Mặc Định (`/`)
+                </h3>
+              </div>
+              <span className="px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono font-bold text-[11px] rounded-2xs flex items-center gap-1">
+                <CheckCircle2 size={13} /> Active Route: `/`
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {homepageVariants.map((variant) => (
+                <div
+                  key={variant.id}
+                  onClick={() => handleSetDefaultVariant(variant.id)}
+                  className={`p-4 border rounded-2xs cursor-pointer transition-all space-y-2 relative ${
+                    variant.isDefault
+                      ? 'bg-red-50/40 border-maple-red ring-2 ring-maple-red/30 shadow-xs'
+                      : 'bg-white border-neutral-200 hover:border-neutral-400'
+                  }`}
+                >
+                  <div className="flex justify-between items-start">
+                    <span className="font-bold text-xs text-maple-black block">{variant.title}</span>
+                    {variant.isDefault && (
+                      <span className="px-2 py-0.5 bg-maple-red text-white text-[9px] font-extrabold uppercase rounded-2xs">
+                        Mặc Định
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-[10px] font-mono text-neutral-500">{variant.slug}</div>
+                  <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{variant.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section Reorder & Visibility Builder Panel */}
+          <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-5">
+            <div className="flex justify-between items-center border-b border-neutral-200 pb-3">
+              <div>
+                <span className="text-[10px] font-bold text-maple-gold uppercase tracking-wider block">QUẢN LÝ THỨ TỰ & ẨN/HIỆN SECTION TRANG CHỦ</span>
+                <h3 className="text-base font-display font-extrabold text-maple-black">
+                  Cấu Trúc 8 Section Chuẩn Excel Website Spec
+                </h3>
+              </div>
+              <div className="flex items-center gap-2">
+                <Link2 size={14} className="text-neutral-400" />
+                <span className="text-xs text-neutral-500 font-mono">Tự động cập nhật real-time</span>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {homepageSections.map((sec, idx) => (
+                <div
+                  key={sec.id}
+                  className={`p-4 border rounded-2xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all ${
+                    sec.enabled ? 'bg-white border-neutral-200 shadow-2xs' : 'bg-neutral-50 border-neutral-200 opacity-60'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 bg-[#151513] text-maple-gold font-mono font-bold text-xs rounded-2xs flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-xs text-maple-black">{sec.name}</span>
+                        {sec.enabled ? (
+                          <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-extrabold rounded-2xs">
+                            Hiển thị
+                          </span>
+                        ) : (
+                          <span className="px-2 py-0.5 bg-neutral-200 text-neutral-600 text-[10px] font-bold rounded-2xs">
+                            Đã ẩn
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[11px] text-neutral-500 font-light block mt-0.5">
+                        {sec.customTitle || sec.name}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 self-end sm:self-center">
+                    {/* Move Up */}
+                    <button
+                      onClick={() => handleMoveHomepageSectionUp(idx)}
+                      disabled={idx === 0}
+                      className="p-1.5 bg-white border border-neutral-300 hover:bg-[#FDFBF7] disabled:opacity-30 rounded-2xs transition-colors"
+                      title="Chuyển Section lên trên"
+                    >
+                      <MoveUp size={14} />
+                    </button>
+
+                    {/* Move Down */}
+                    <button
+                      onClick={() => handleMoveHomepageSectionDown(idx)}
+                      disabled={idx === homepageSections.length - 1}
+                      className="p-1.5 bg-white border border-neutral-300 hover:bg-[#FDFBF7] disabled:opacity-30 rounded-2xs transition-colors"
+                      title="Chuyển Section xuống dưới"
+                    >
+                      <MoveDown size={14} />
+                    </button>
+
+                    {/* Toggle Enabled */}
+                    <button
+                      onClick={() => handleToggleSectionEnabled(sec.id)}
+                      className={`px-3 py-1.5 text-xs font-bold rounded-2xs border transition-colors ${
+                        sec.enabled
+                          ? 'bg-maple-red text-white border-maple-red hover:bg-red-700'
+                          : 'bg-neutral-200 text-neutral-700 border-neutral-300 hover:bg-neutral-300'
+                      }`}
+                    >
+                      {sec.enabled ? 'Ẩn Section' : 'Hiện Section'}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      {/* MODE 2: STATIC PAGES LISTING TABLE */}
+      {activeTabMode === 'PAGES_TABLE' && (
+        <div className="space-y-4">
+          {/* Header */}
+          <div className="bg-white border border-neutral-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs">
+            <div>
+              <span className="text-[10px] font-semibold text-maple-red block">
+                {adminUiLang === 'vi' ? 'Quản lý Trang Tĩnh CMS' : 'Static Pages CMS'}
+              </span>
+              <h2 className="text-xl font-display font-bold text-[#1D1D1B]">
+                {adminUiLang === 'vi' ? `Quản lý Nội dung ${pages.length} Trang Tĩnh Website` : `Static Information Pages Manager (${pages.length} Pages)`}
+              </h2>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setShowAddModal(true)}
+                className="px-3.5 py-1.5 bg-[#1D1D1B] text-white text-xs font-semibold hover:bg-maple-red transition-colors border border-[#1D1D1B] flex items-center gap-1.5 rounded-2xs shadow-2xs"
+              >
+                <Plus size={15} />
+                {adminUiLang === 'vi' ? 'Thêm Trang Tĩnh Mới' : 'Add New Static Page'}
+              </button>
+            </div>
+          </div>
 
       {/* Filter Bar */}
       <div className="flex flex-col sm:flex-row gap-3 bg-white border border-neutral-200 p-3 shadow-2xs">
@@ -1095,6 +1303,8 @@ export default function AdminPagesPage() {
           </tbody>
         </table>
       </div>
+      </div>
+      )}
 
       {/* CREATE NEW STATIC PAGE MODAL */}
       {showAddModal && (
