@@ -15,7 +15,6 @@ export interface SavedUtmLink {
   utmTerm?: string
   utmContent?: string
   leadCount: number
-  adBudget?: number
   createdAt: string
 }
 
@@ -31,7 +30,6 @@ const initialSavedLinks: SavedUtmLink[] = [
     utmTerm: 'mam_non_quoc_te',
     utmContent: 'banner_video_v1',
     leadCount: 42,
-    adBudget: 5800000,
     createdAt: '2026-08-01'
   },
   {
@@ -44,7 +42,6 @@ const initialSavedLinks: SavedUtmLink[] = [
     utmCampaign: 'brand_sunshine_maple_bear',
     utmTerm: 'truong_mam_non_ciputra',
     leadCount: 28,
-    adBudget: 4000000,
     createdAt: '2026-08-03'
   },
   {
@@ -56,7 +53,6 @@ const initialSavedLinks: SavedUtmLink[] = [
     utmMedium: 'organic',
     utmCampaign: 'newsletter_august',
     leadCount: 15,
-    adBudget: 1500000,
     createdAt: '2026-08-05'
   }
 ]
