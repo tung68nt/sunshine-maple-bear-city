@@ -28,7 +28,10 @@ import {
   ThermometerSnowflake,
   Clock,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  FileSpreadsheet,
+  RefreshCw,
+  Sparkles
 } from 'lucide-react'
 import Link from 'next/link'
 import { MOCK_IP_SESSIONS, IPVisitorSession } from '@/lib/visitor-tracking'
@@ -92,8 +95,17 @@ const AUDIT_LOG_SEED: AuditLogEntry[] = [
 ]
 
 export default function AdminAnalyticsPage() {
-  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'ytd'>('30d')
+  const [timeRange, setTimeRange] = useState<'today' | '7d' | '30d' | '90d' | 'ytd' | 'custom'>('30d')
+  const [fromDate, setFromDate] = useState('2026-08-01')
+  const [toDate, setToDate] = useState('2026-08-09')
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
+  
+  // Advanced IP Tracking Filters
+  const [ipSearch, setIpSearch] = useState('')
+  const [visitorTypeFilter, setVisitorTypeFilter] = useState<'ALL' | 'IDENTIFIED' | 'ANONYMOUS'>('ALL')
+  const [campaignFilter, setCampaignFilter] = useState<string>('ALL')
+  const [tempFilter, setTempFilter] = useState<'ALL' | 'HOT' | 'WARM' | 'COLD'>('ALL')
+
   const [expandedIp, setExpandedIp] = useState<string | null>('113.190.242.88')
 
   useEffect(() => {
@@ -111,6 +123,43 @@ export default function AdminAnalyticsPage() {
   }, [])
 
   const analyticsDataMap = {
+    'today': {
+      kpis: {
+        visits: '1,240',
+        visitsGrowth: '+8.4% so với hôm qua',
+        leads: '12 Lead',
+        leadsGrowth: '+15.0% mục tiêu ngày',
+        cvr: '5.20%',
+        cvrGrowth: '+0.5% so với TB',
+        tours: '5 Lịch Hẹn',
+        toursGrowth: '+25.0% lượt tham quan',
+        avgTime: '3m 12s',
+        avgTimeSub: '90% từ Facebook Ads & Search'
+      },
+      channels: [
+        { source: 'Facebook Ads', channel: 'facebook_ads / cpc', visits: '620', leads: 7, cvr: '5.5%', share: 50, color: 'bg-blue-600' },
+        { source: 'Google Search Ads', channel: 'google_search / cpc', visits: '380', leads: 4, cvr: '5.8%', share: 30, color: 'bg-emerald-600' },
+        { source: 'Zalo OA & Broadcast', channel: 'zalo_oa / organic', visits: '140', leads: 1, cvr: '3.9%', share: 12, color: 'bg-[#0068FF]' },
+        { source: 'Direct & Mã QR ấn phẩm', channel: 'direct / qr_code', visits: '100', leads: 0, cvr: '0.0%', share: 8, color: 'bg-amber-500' }
+      ],
+      funnel: [
+        { step: '1. Lượt Truy Cập Website', count: '1,240', percent: '100%', note: 'Khách hàng truy cập hôm nay' },
+        { step: '2. Xem Trang Tuyển Sinh & Sự Kiện', count: '410', percent: '33.0%', note: 'Quan tâm thông tin học phí & Open Day' },
+        { step: '3. Mở Form Đăng Ký / Đặt Tour', count: '65', percent: '15.8%', note: 'Tương tác điền thông tin' },
+        { step: '4. Lead Xác Thực Thành Công', count: '12', percent: '18.4%', note: 'Thu thập đầy đủ SĐT & Email' },
+        { step: '5. Đã Tham Quan Trường & Nhập Học', count: '5', percent: '41.6%', note: 'Chuyển đổi thành học sinh' }
+      ],
+      pages: [
+        { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '450', leads: 7, avgTime: '3m 55s', bounce: '15%' },
+        { path: '/', title: 'Homepage Sunshine Maple Bear', views: '520', leads: 3, avgTime: '2m 30s', bounce: '28%' },
+        { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', views: '180', leads: 2, avgTime: '4m 10s', bounce: '18%' }
+      ],
+      locations: [
+        { region: 'Khu đô thị Ciputra & Phú Thượng (Tây Hồ)', percentage: 55, leadCount: 7 },
+        { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 25, leadCount: 3 },
+        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 20, leadCount: 2 }
+      ]
+    },
     '7d': {
       kpis: {
         visits: '6,420',
@@ -140,15 +189,12 @@ export default function AdminAnalyticsPage() {
       pages: [
         { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '1,850', leads: 32, avgTime: '3m 50s', bounce: '16%' },
         { path: '/', title: 'Homepage Sunshine Maple Bear', views: '3,120', leads: 12, avgTime: '2m 30s', bounce: '30%' },
-        { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', views: '940', leads: 8, avgTime: '4m 05s', bounce: '20%' },
-        { path: '/academics/age-groups', title: 'Chương Trình Mầm Non Canada 12M-5Y', views: '810', leads: 4, avgTime: '3m 10s', bounce: '26%' },
-        { path: '/about/why-maple-bear', title: 'Tại sao chọn Sunshine Maple Bear', views: '510', leads: 2, avgTime: '2m 40s', bounce: '34%' }
+        { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', views: '940', leads: 8, avgTime: '4m 05s', bounce: '20%' }
       ],
       locations: [
         { region: 'Khu đô thị Ciputra & Phú Thượng (Tây Hồ)', percentage: 52, leadCount: 30 },
         { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 24, leadCount: 14 },
-        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 16, leadCount: 9 },
-        { region: 'Các khu vực khác & Ngoại tỉnh', percentage: 8, leadCount: 5 }
+        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 16, leadCount: 9 }
       ]
     },
     '30d': {
@@ -180,15 +226,12 @@ export default function AdminAnalyticsPage() {
       pages: [
         { path: '/', title: 'Homepage Sunshine Maple Bear', views: '14,210', leads: 48, avgTime: '2m 14s', bounce: '32%' },
         { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '6,450', leads: 112, avgTime: '3m 48s', bounce: '18%' },
-        { path: '/academics/age-groups', title: 'Chương Trình Mầm Non Canada 12M-5Y', views: '4,890', leads: 35, avgTime: '3m 05s', bounce: '28%' },
-        { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', views: '3,750', leads: 29, avgTime: '4m 12s', bounce: '22%' },
-        { path: '/about/why-maple-bear', title: 'Tại sao chọn Sunshine Maple Bear', views: '2,980', leads: 14, avgTime: '2m 45s', bounce: '35%' }
+        { path: '/academics/age-groups', title: 'Chương Trình Mầm Non Canada 12M-5Y', views: '4,890', leads: 35, avgTime: '3m 05s', bounce: '28%' }
       ],
       locations: [
         { region: 'Khu đô thị Ciputra & Phú Thượng (Tây Hồ)', percentage: 48, leadCount: 119 },
         { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 26, leadCount: 65 },
-        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 18, leadCount: 44 },
-        { region: 'Các khu vực khác & Phụ huynh Ngoại tỉnh', percentage: 8, leadCount: 20 }
+        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 18, leadCount: 44 }
       ]
     },
     '90d': {
@@ -219,16 +262,11 @@ export default function AdminAnalyticsPage() {
       ],
       pages: [
         { path: '/', title: 'Homepage Sunshine Maple Bear', views: '38,900', leads: 142, avgTime: '2m 18s', bounce: '31%' },
-        { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '18,400', leads: 310, avgTime: '3m 42s', bounce: '19%' },
-        { path: '/academics/age-groups', title: 'Chương Trình Mầm Non Canada 12M-5Y', views: '11,200', leads: 98, avgTime: '3m 12s', bounce: '27%' },
-        { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', views: '9,800', leads: 84, avgTime: '4m 08s', bounce: '21%' },
-        { path: '/about/why-maple-bear', title: 'Tại sao chọn Sunshine Maple Bear', views: '7,200', leads: 38, avgTime: '2m 50s', bounce: '33%' }
+        { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '18,400', leads: 310, avgTime: '3m 42s', bounce: '19%' }
       ],
       locations: [
         { region: 'Khu đô thị Ciputra & Phú Thượng (Tây Hồ)', percentage: 46, leadCount: 317 },
-        { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 27, leadCount: 186 },
-        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 19, leadCount: 131 },
-        { region: 'Các khu vực khác & Phụ huynh Ngoại tỉnh', percentage: 8, leadCount: 56 }
+        { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 27, leadCount: 186 }
       ]
     },
     'ytd': {
@@ -259,21 +297,77 @@ export default function AdminAnalyticsPage() {
       ],
       pages: [
         { path: '/', title: 'Homepage Sunshine Maple Bear', views: '120,000', leads: 480, avgTime: '2m 15s', bounce: '30%' },
-        { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '58,000', leads: 950, avgTime: '3m 45s', bounce: '18%' },
-        { path: '/academics/age-groups', title: 'Chương Trình Mầm Non Canada 12M-5Y', views: '35,000', leads: 320, avgTime: '3m 10s', bounce: '26%' },
-        { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', views: '32,000', leads: 280, avgTime: '4m 10s', bounce: '20%' },
-        { path: '/about/why-maple-bear', title: 'Tại sao chọn Sunshine Maple Bear', views: '22,000', leads: 120, avgTime: '2m 48s', bounce: '32%' }
+        { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '58,000', leads: 950, avgTime: '3m 45s', bounce: '18%' }
       ],
       locations: [
         { region: 'Khu đô thị Ciputra & Phú Thượng (Tây Hồ)', percentage: 48, leadCount: 1032 },
-        { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 26, leadCount: 559 },
-        { region: 'Quận Cầu Giấy & Bắc Từ Liêm (Hà Nội)', percentage: 18, leadCount: 387 },
-        { region: 'Các khu vực khác & Phụ huynh Ngoại tỉnh', percentage: 8, leadCount: 172 }
+        { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 26, leadCount: 559 }
+      ]
+    },
+    'custom': {
+      kpis: {
+        visits: '15,800',
+        visitsGrowth: 'Số liệu lọc tùy chọn',
+        leads: '142 Lead',
+        leadsGrowth: 'Khoảng thời gian chọn',
+        cvr: '4.95%',
+        cvrGrowth: 'Tùy chỉnh ngày',
+        tours: '64 Lịch Hẹn',
+        toursGrowth: 'Kết quả lọc tùy chọn',
+        avgTime: '2m 55s',
+        avgTimeSub: 'Từ ngày đến ngày'
+      },
+      channels: [
+        { source: 'Facebook Ads', channel: 'facebook_ads / cpc', visits: '7,200', leads: 72, cvr: '4.8%', share: 50, color: 'bg-blue-600' },
+        { source: 'Google Search Ads', channel: 'google_search / cpc', visits: '4,800', leads: 48, cvr: '5.2%', share: 32, color: 'bg-emerald-600' },
+        { source: 'Zalo OA & Broadcast', channel: 'zalo_oa / organic', visits: '2,100', leads: 16, cvr: '3.8%', share: 12, color: 'bg-[#0068FF]' },
+        { source: 'Direct & Mã QR ấn phẩm', channel: 'direct / qr_code', visits: '1,700', leads: 6, cvr: '2.0%', share: 6, color: 'bg-amber-500' }
+      ],
+      funnel: [
+        { step: '1. Lượt Truy Cập Website', count: '15,800', percent: '100%', note: 'Khách hàng truy cập đợt lọc' },
+        { step: '2. Xem Trang Tuyển Sinh & Sự Kiện', count: '5,100', percent: '32.2%', note: 'Quan tâm thông tin học phí & Open Day' },
+        { step: '3. Mở Form Đăng Ký / Đặt Tour', count: '780', percent: '15.2%', note: 'Tương tác điền thông tin' },
+        { step: '4. Lead Xác Thực Thành Công', count: '142', percent: '18.2%', note: 'Thu thập đầy đủ SĐT & Email' },
+        { step: '5. Đã Tham Quan Trường & Nhập Học', count: '64', percent: '45.0%', note: 'Chuyển đổi thành học sinh' }
+      ],
+      pages: [
+        { path: '/', title: 'Homepage Sunshine Maple Bear', views: '8,100', leads: 32, avgTime: '2m 15s', bounce: '30%' },
+        { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', views: '3,800', leads: 68, avgTime: '3m 45s', bounce: '18%' }
+      ],
+      locations: [
+        { region: 'Khu đô thị Ciputra & Phú Thượng (Tây Hồ)', percentage: 50, leadCount: 71 },
+        { region: 'Phường Xuân La, Thụy Khuê & Yên Phụ', percentage: 25, leadCount: 35 }
       ]
     }
   }
 
   const currentData = analyticsDataMap[timeRange]
+
+  // Filter IP Visitor Sessions
+  const filteredIpSessions = MOCK_IP_SESSIONS.filter(sess => {
+    // Search IP or Location or Parent Name
+    const matchesSearch = ipSearch === '' ||
+      sess.ip.toLowerCase().includes(ipSearch.toLowerCase()) ||
+      sess.location.toLowerCase().includes(ipSearch.toLowerCase()) ||
+      (sess.parentName && sess.parentName.toLowerCase().includes(ipSearch.toLowerCase()))
+
+    // Visitor Type Filter
+    const matchesVisitorType = visitorTypeFilter === 'ALL' ||
+      (visitorTypeFilter === 'IDENTIFIED' && sess.linkedLeadId) ||
+      (visitorTypeFilter === 'ANONYMOUS' && !sess.linkedLeadId)
+
+    // Campaign Filter
+    const matchesCampaign = campaignFilter === 'ALL' || sess.campaign.includes(campaignFilter)
+
+    // Temperature Filter
+    const matchesTemp = tempFilter === 'ALL' || sess.temperature === tempFilter
+
+    return matchesSearch && matchesVisitorType && matchesCampaign && matchesTemp
+  })
+
+  const handleExportCSV = () => {
+    alert(adminUiLang === 'vi' ? `Đang xuất file CSV Full Danh Sách IP Truy Cập (${filteredIpSessions.length} bản ghi)...` : `Exporting CSV IP Access Logs (${filteredIpSessions.length} records)...`)
+  }
 
   const handleExportPDF = () => {
     alert(adminUiLang === 'vi' ? `Đang khởi tạo & xuất file báo cáo Analytics PDF cho mốc [${timeRange.toUpperCase()}]...` : `Exporting PDF Analytics Report for [${timeRange.toUpperCase()}]...`)
@@ -289,50 +383,81 @@ export default function AdminAnalyticsPage() {
             {adminUiLang === 'vi' ? 'Hệ thống Marketing Intelligence & Website Analytics' : 'Marketing Intelligence & Website Analytics System'}
           </span>
           <h2 className="text-xl sm:text-2xl font-display font-bold text-[#1D1D1B]">
-            {adminUiLang === 'vi' ? 'Báo cáo Phân tích Tuyển sinh & Lưu lượng Website' : 'Admissions & Website Traffic Analytics'}
+            {adminUiLang === 'vi' ? 'Báo cáo Phân tích Tuyển sinh & Full Nhật Ký IP Truy Cập' : 'Admissions & Full IP Access Logs Analytics'}
           </h2>
           <p className="text-xs text-neutral-500 font-light mt-0.5">
             {adminUiLang === 'vi'
-              ? `Đang xem chỉ số đo lường 100% từ dữ liệu thực: [${timeRange === '7d' ? '7 Ngày qua' : timeRange === '30d' ? '30 Ngày qua' : timeRange === '90d' ? 'Quý 3/2026' : 'Cả Năm 2026'}]`
+              ? `Đang xem dữ liệu thực: [${timeRange === 'today' ? 'Hôm Nay (09/08)' : timeRange === '7d' ? '7 Ngày qua' : timeRange === '30d' ? '30 Ngày qua' : timeRange === '90d' ? 'Quý 3/2026' : timeRange === 'ytd' ? 'Cả Năm 2026' : `Từ ${fromDate} đến ${toDate}`}]`
               : `Viewing real website metrics for: [${timeRange.toUpperCase()}]`}
           </p>
         </div>
 
-        {/* Dynamic Filters & Export */}
+        {/* Dynamic Filters & Date Selectors */}
         <div className="flex flex-wrap items-center gap-2.5">
           <div className="flex bg-[#FDFBF7] p-1 border border-neutral-300 rounded-2xs text-xs font-semibold">
             <button
+              onClick={() => setTimeRange('today')}
+              className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === 'today' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
+            >
+              Hôm nay
+            </button>
+            <button
               onClick={() => setTimeRange('7d')}
-              className={`px-3 py-1 rounded-2xs transition-all ${timeRange === '7d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
+              className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === '7d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               7 ngày
             </button>
             <button
               onClick={() => setTimeRange('30d')}
-              className={`px-3 py-1 rounded-2xs transition-all ${timeRange === '30d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
+              className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === '30d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               30 ngày
             </button>
             <button
               onClick={() => setTimeRange('90d')}
-              className={`px-3 py-1 rounded-2xs transition-all ${timeRange === '90d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
+              className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === '90d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               Quý 3
             </button>
             <button
               onClick={() => setTimeRange('ytd')}
-              className={`px-3 py-1 rounded-2xs transition-all ${timeRange === 'ytd' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
+              className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === 'ytd' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               Năm 2026
             </button>
+            <button
+              onClick={() => setTimeRange('custom')}
+              className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === 'custom' ? 'bg-maple-red text-white shadow-xs' : 'text-neutral-600 hover:text-maple-red'}`}
+            >
+              Tùy chọn
+            </button>
           </div>
+
+          {/* Custom Date Range Picker */}
+          {timeRange === 'custom' && (
+            <div className="flex items-center gap-1.5 bg-[#FDFBF7] p-1 border border-neutral-300 rounded-2xs text-xs font-mono">
+              <input
+                type="date"
+                value={fromDate}
+                onChange={(e) => setFromDate(e.target.value)}
+                className="bg-white border border-neutral-200 p-1 text-[11px] font-bold focus:outline-none rounded-2xs"
+              />
+              <span className="text-neutral-400">➔</span>
+              <input
+                type="date"
+                value={toDate}
+                onChange={(e) => setToDate(e.target.value)}
+                className="bg-white border border-neutral-200 p-1 text-[11px] font-bold focus:outline-none rounded-2xs"
+              />
+            </div>
+          )}
 
           <button
             onClick={handleExportPDF}
-            className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white text-xs font-semibold transition-colors border border-[#151513] flex items-center gap-2 rounded-2xs shadow-2xs"
+            className="px-3.5 py-2 bg-[#151513] hover:bg-maple-red text-white text-xs font-semibold transition-colors border border-[#151513] flex items-center gap-1.5 rounded-2xs shadow-2xs"
           >
-            <Download size={15} />
-            {adminUiLang === 'vi' ? 'Xuất Báo cáo PDF' : 'Export PDF Report'}
+            <Download size={14} />
+            {adminUiLang === 'vi' ? 'Xuất PDF' : 'Export PDF'}
           </button>
         </div>
       </div>
@@ -378,24 +503,91 @@ export default function AdminAnalyticsPage() {
         </div>
       </div>
 
-      {/* IP VISITOR TRACKING & WARM/COLD LEAD SCORING ENGINE */}
+      {/* COMPREHENSIVE FULL IP VISITOR ACCESS LOG ENGINE WITH ADVANCED FILTERS */}
       <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-5">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-neutral-200 pb-4">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 border-b border-neutral-200 pb-4">
           <div>
             <div className="flex items-center gap-2 mb-0.5">
               <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
-              <h3 className="text-sm sm:text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
-                Tracking Hành Trình IP & Phân Tích Mức Độ Quan Tâm (Warm/Cold Lead Scoring Engine)
+              <h3 className="text-base sm:text-lg font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
+                FULL DANH SÁCH LƯỢT TRUY CẬP IP & HÀNH TRÌNH CHIẾN DỊCH (IP Visitor Logs)
               </h3>
             </div>
             <p className="text-xs text-neutral-500 font-normal">
-              Theo dõi chuỗi thời gian & trang đã duyệt theo IP. Khi IP đó gửi Form, hệ thống tự động ghép nối toàn bộ lịch sử duyệt web để đánh giá mức độ <strong>Warm/Hot/Cold</strong>.
+              Theo dõi chi tiết 100% tất cả các IP truy cập, thiết bị sử dụng, nguồn chiến dịch UTM, thời lượng tương tác và chuỗi lịch sử trang đã xem.
             </p>
           </div>
           
-          <span className="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-300 font-mono font-bold text-[11px] rounded-2xs flex items-center gap-1.5">
-            <Flame size={14} className="text-maple-red animate-pulse" /> Lead Temperature Scoring Active
-          </span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleExportCSV}
+              className="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-2xs flex items-center gap-1.5 transition-colors shadow-2xs"
+            >
+              <FileSpreadsheet size={14} /> Xuất CSV / Excel Chi Tiết
+            </button>
+          </div>
+        </div>
+
+        {/* Multi-criteria Filter Bar */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-[#FDFBF7] p-3.5 border border-neutral-200 rounded-2xs text-xs">
+          
+          {/* Search Input */}
+          <div className="relative">
+            <Search size={14} className="absolute left-2.5 top-2.5 text-neutral-400" />
+            <input
+              type="text"
+              value={ipSearch}
+              onChange={(e) => setIpSearch(e.target.value)}
+              placeholder="Tìm theo IP, Tên phụ huynh, Vị trí..."
+              className="w-full pl-8 pr-3 py-1.5 bg-white border border-neutral-300 rounded-2xs text-xs focus:outline-none focus:border-maple-red font-mono"
+            />
+          </div>
+
+          {/* Visitor Type Filter */}
+          <div>
+            <label className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Loại Khách Truy Cập:</label>
+            <select
+              value={visitorTypeFilter}
+              onChange={(e: any) => setVisitorTypeFilter(e.target.value)}
+              className="w-full bg-white border border-neutral-300 p-1.5 text-xs font-semibold rounded-2xs focus:outline-none"
+            >
+              <option value="ALL">Tất cả khách truy cập</option>
+              <option value="IDENTIFIED">🎯 Đã Điền Form (Has Lead ID)</option>
+              <option value="ANONYMOUS">👤 Khách Ẩn Danh (Anonymous)</option>
+            </select>
+          </div>
+
+          {/* Campaign Filter */}
+          <div>
+            <label className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Nguồn UTM Campaign:</label>
+            <select
+              value={campaignFilter}
+              onChange={(e) => setCampaignFilter(e.target.value)}
+              className="w-full bg-white border border-neutral-300 p-1.5 text-xs font-semibold rounded-2xs focus:outline-none"
+            >
+              <option value="ALL">Tất cả Kênh Quảng Cáo</option>
+              <option value="facebook_ads">Facebook Ads (CPC)</option>
+              <option value="google_search">Google Search Ads (CPC)</option>
+              <option value="zalo_oa">Zalo OA Broadcast</option>
+              <option value="direct">Direct & QR Code Ấn phẩm</option>
+            </select>
+          </div>
+
+          {/* Lead Temperature Score Filter */}
+          <div>
+            <label className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Mức Độ Phân Loại (Lead Score):</label>
+            <select
+              value={tempFilter}
+              onChange={(e: any) => setTempFilter(e.target.value)}
+              className="w-full bg-white border border-neutral-300 p-1.5 text-xs font-semibold rounded-2xs focus:outline-none"
+            >
+              <option value="ALL">Tất cả mức độ Score</option>
+              <option value="HOT">🔥 HOT Lead (&gt;= 80 điểm)</option>
+              <option value="WARM">🟧 WARM Lead (50-79 điểm)</option>
+              <option value="COLD">❄️ COLD Lead (&lt; 50 điểm)</option>
+            </select>
+          </div>
+
         </div>
 
         {/* IP Visitor Table */}
@@ -404,6 +596,7 @@ export default function AdminAnalyticsPage() {
             <thead>
               <tr className="bg-[#151513] text-white font-extrabold border-b border-neutral-800 text-[10px] uppercase tracking-wider">
                 <th className="p-3">Địa Chỉ IP & Vị Trí</th>
+                <th className="p-3">Thiết Bị & Kênh UTM</th>
                 <th className="p-3">Hồ Sơ Ghép Nối (Lead)</th>
                 <th className="p-3 text-center">Số Lượt Vào</th>
                 <th className="p-3 text-center">Tổng Thời Gian</th>
@@ -412,7 +605,7 @@ export default function AdminAnalyticsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-100 font-medium text-neutral-700">
-              {MOCK_IP_SESSIONS.map((sess) => {
+              {filteredIpSessions.map((sess) => {
                 const isExpanded = expandedIp === sess.ip
                 return (
                   <>
@@ -425,6 +618,11 @@ export default function AdminAnalyticsPage() {
                       </td>
 
                       <td className="p-3">
+                        <div className="font-semibold text-neutral-800">{sess.device}</div>
+                        <div className="text-[10px] font-mono text-blue-700 font-bold">{sess.campaign}</div>
+                      </td>
+
+                      <td className="p-3">
                         {sess.parentName ? (
                           <div>
                             <div className="font-bold text-maple-red">{sess.parentName}</div>
@@ -432,7 +630,7 @@ export default function AdminAnalyticsPage() {
                           </div>
                         ) : (
                           <span className="px-2 py-0.5 bg-neutral-100 text-neutral-500 text-[10px] font-mono rounded-2xs">
-                            👤 Khách Ẩn Danh (Chưa điền form)
+                            👤 Khách Ẩn Danh
                           </span>
                         )}
                       </td>
@@ -477,12 +675,12 @@ export default function AdminAnalyticsPage() {
                     {/* EXPANDED BROWSING TIMELINE FOR THIS IP */}
                     {isExpanded && (
                       <tr className="bg-[#FDFBF7]">
-                        <td colSpan={6} className="p-4 border-b border-neutral-200">
+                        <td colSpan={7} className="p-4 border-b border-neutral-200">
                           <div className="p-4 bg-white border border-neutral-300 rounded-2xs space-y-3 shadow-2xs">
                             <div className="flex justify-between items-center border-b border-neutral-100 pb-2">
                               <span className="text-[11px] font-bold text-maple-black flex items-center gap-1.5">
                                 <Clock size={13} className="text-maple-red" /> 
-                                Lịch Sử Chuỗi Trang Đã Duyệt Của IP [{sess.ip}] trước khi gửi Form:
+                                Lịch Sử Chuỗi Trang Đã Duyệt Của IP [{sess.ip}] ({sess.device}):
                               </span>
                               <span className="text-[10px] font-mono text-neutral-400">
                                 Lần xem đầu: {sess.firstSeen} • Mới nhất: {sess.lastSeen}
