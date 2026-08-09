@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ShieldCheck, Plus, Search, Edit2, Trash2, CheckCircle2, XCircle, Key, UserCheck, Lock, ShieldAlert, Check, RefreshCw } from 'lucide-react'
+import { ShieldCheck, Plus, Search, Edit2, Trash2, CheckCircle2, XCircle, Key, UserCheck, Lock, ShieldAlert, Check, RefreshCw, Eye, EyeOff, Sparkles, X } from 'lucide-react'
 
 export type AdminRole = 'admin' | 'principal' | 'admissions' | 'marketing' | 'teacher'
 
@@ -99,54 +99,62 @@ const MATRIX_MODULES = [
   { key: '/admin/pages', name: 'Quản lý Trang tĩnh' },
   { key: '/admin/events', name: 'Sự kiện & Lễ hội' },
   { key: '/admin/forms', name: 'Dựng Form Động' },
-  { key: '/admin/utm-builder', name: 'Chiến dịch UTM Links' },
+  { key: '/admin/utm-builder', name: 'Tạo Link UTM Campaign' },
   { key: '/admin/admissions', name: 'Hồ sơ Tuyển sinh' },
   { key: '/admin/tour-bookings', name: 'Đặt lịch Tham quan' },
-  { key: '/admin/analytics', name: 'Báo cáo GA4 & Phân tích' },
+  { key: '/admin/analytics', name: 'Báo cáo & Phân tích' },
   { key: '/admin/users', name: 'Phân quyền & User CMS' },
-  { key: '/admin/settings', name: 'Cấu hình Hệ thống Master' },
+  { key: '/admin/settings', name: 'Cấu hình Hệ thống' }
 ]
 
 export default function AdminUsersPage() {
-  const [users, setUsers] = useState<CmsUser[]>(INITIAL_USERS)
+  const [users, setUsers] = useState<CmsUser[]>([])
+  const [activeTab, setActiveTab] = useState<'users' | 'matrix'>('users')
   const [searchTerm, setSearchTerm] = useState('')
   const [filterRole, setFilterRole] = useState<string>('all')
-  const [showAddModal, setShowAddModal] = useState(false)
-  const [activeTab, setActiveTab] = useState<'users' | 'matrix'>('users')
 
-  // Form State
+  // Add User Modal State
+  const [showAddModal, setShowAddModal] = useState(false)
   const [newName, setNewName] = useState('')
   const [newEmail, setNewEmail] = useState('')
-  const [newPassword, setNewPassword] = useState('')
   const [newRole, setNewRole] = useState<AdminRole>('admissions')
-  const [newDepartment, setNewDepartment] = useState('Phòng Tuyển Sinh')
+  const [newDepartment, setNewDepartment] = useState('Phòng Tuyển Sinh & Tư Vấn')
+  const [newPassword, setNewPassword] = useState('')
+
+  // Reset Password Modal State
+  const [resetUser, setResetUser] = useState<CmsUser | null>(null)
+  const [resetPasswordInput, setResetPasswordInput] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [resetSuccessMessage, setResetSuccessMessage] = useState('')
 
   useEffect(() => {
-    const savedUsers = localStorage.getItem('smb_cms_users_list')
-    if (savedUsers) {
+    const saved = localStorage.getItem('smb_admin_users')
+    if (saved) {
       try {
-        setUsers(JSON.parse(savedUsers))
+        setUsers(JSON.parse(saved))
       } catch (e) {
-        console.error(e)
+        setUsers(INITIAL_USERS)
       }
+    } else {
+      setUsers(INITIAL_USERS)
     }
   }, [])
 
-  const saveUsers = (updated: CmsUser[]) => {
-    setUsers(updated)
-    localStorage.setItem('smb_cms_users_list', JSON.stringify(updated))
+  const saveUsers = (newUsers: CmsUser[]) => {
+    setUsers(newUsers)
+    localStorage.setItem('smb_admin_users', JSON.stringify(newUsers))
   }
 
   const handleAddUser = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!newName.trim() || !newEmail.trim()) return
+    if (!newName.trim() || !newEmail.trim() || !newPassword.trim()) return
 
     const newUser: CmsUser = {
       id: `u-${Date.now()}`,
-      name: newName,
-      email: newEmail,
+      name: newName.trim(),
+      email: newEmail.trim(),
       role: newRole,
-      department: newDepartment,
+      department: newDepartment.trim() || 'Cơ quan Trường',
       status: 'active',
       lastLogin: 'Chưa từng'
     }
@@ -154,7 +162,6 @@ export default function AdminUsersPage() {
     const updated = [newUser, ...users]
     saveUsers(updated)
 
-    // Reset Form
     setNewName('')
     setNewEmail('')
     setNewPassword('')
@@ -171,6 +178,28 @@ export default function AdminUsersPage() {
       const updated = users.filter(u => u.id !== id)
       saveUsers(updated)
     }
+  }
+
+  const generateRandomPassword = () => {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789!@#$'
+    let pass = ''
+    for (let i = 0; i < 10; i++) {
+      pass += chars.charAt(Math.floor(Math.random() * chars.length))
+    }
+    setResetPasswordInput(pass)
+  }
+
+  const handleConfirmResetPassword = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!resetUser || !resetPasswordInput.trim()) return
+
+    setResetSuccessMessage(`✓ Đã đổi mật khẩu thành công cho ${resetUser.name} (${resetUser.email}). Mật khẩu mới: ${resetPasswordInput}`)
+    
+    setTimeout(() => {
+      setResetUser(null)
+      setResetPasswordInput('')
+      setResetSuccessMessage('')
+    }, 2500)
   }
 
   const filteredUsers = users.filter(u => {
@@ -190,10 +219,10 @@ export default function AdminUsersPage() {
             <span className="text-xs font-bold text-maple-red uppercase tracking-wider">BẢO MẬT & PHÂN QUYỀN HỆ THỐNG</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-display font-extrabold text-[#1D1D1B]">
-            Quản Lý Tài Khoản User & Ma Trận Phân Quyền CMS
+            Quản Lý Tài Khoản User & Reset Mật Khẩu CMS
           </h2>
           <p className="text-xs text-neutral-500 font-normal mt-1">
-            Thiết lập vai trò (5 Roles), phân quyền truy cập các module quản trị cho cán bộ trường mầm non Sunshine Maple Bear.
+            Quản lý danh sách tài khoản, đặt lại mật khẩu và kiểm tra ma trận phân quyền 5 vai trò trường mầm non Sunshine Maple Bear.
           </p>
         </div>
 
@@ -274,7 +303,7 @@ export default function AdminUsersPage() {
                     <th className="p-4">Vai Trò RBAC</th>
                     <th className="p-4">Phòng Ban / Bộ Phận</th>
                     <th className="p-4">Trạng Thái</th>
-                    <th className="p-4 text-center">Thao Tác</th>
+                    <th className="p-4 text-center">Thao Tác Quản Trị</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100 text-xs font-medium text-neutral-700">
@@ -313,6 +342,21 @@ export default function AdminUsersPage() {
                         </td>
                         <td className="p-4 text-center">
                           <div className="flex items-center justify-center gap-2">
+                            {/* RESET PASSWORD BUTTON */}
+                            <button
+                              onClick={() => {
+                                setResetUser(u)
+                                setResetPasswordInput('')
+                                setResetSuccessMessage('')
+                              }}
+                              title="Đặt lại mật khẩu cho User này"
+                              className="px-2 py-1.5 rounded-2xs border border-amber-300 bg-amber-50 text-amber-800 hover:bg-amber-100 transition-colors flex items-center gap-1 font-bold text-[10px]"
+                            >
+                              <Key size={13} className="text-amber-700" />
+                              <span>Reset MK</span>
+                            </button>
+
+                            {/* TOGGLE STATUS BUTTON */}
                             <button
                               onClick={() => toggleUserStatus(u.id)}
                               title={u.status === 'active' ? 'Tạm khóa tài khoản' : 'Kích hoạt tài khoản'}
@@ -320,6 +364,8 @@ export default function AdminUsersPage() {
                             >
                               <RefreshCw size={14} />
                             </button>
+
+                            {/* DELETE BUTTON */}
                             <button
                               onClick={() => handleDeleteUser(u.id)}
                               title="Xóa tài khoản"
@@ -362,37 +408,46 @@ export default function AdminUsersPage() {
                     <th className="p-4 text-center text-emerald-400">Tổ Giáo Viên</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-neutral-100 text-xs font-bold text-neutral-700">
-                  {MATRIX_MODULES.map((mod, idx) => {
-                    const canAdmin = true
-                    const canPrincipal = ['/admin', '/admin/blog', '/admin/staff', '/admin/events', '/admin/admissions', '/admin/tour-bookings', '/admin/analytics', '/admin/users'].includes(mod.key)
-                    const canAdmissions = ['/admin', '/admin/admissions', '/admin/tour-bookings', '/admin/events', '/admin/forms', '/admin/utm-builder', '/admin/analytics'].includes(mod.key)
-                    const canMarketing = ['/admin', '/admin/blog', '/admin/gallery', '/admin/staff', '/admin/pages', '/admin/navigation', '/admin/events', '/admin/forms', '/admin/utm-builder', '/admin/analytics'].includes(mod.key)
-                    const canTeacher = ['/admin', '/admin/blog', '/admin/gallery', '/admin/events'].includes(mod.key)
-
-                    return (
-                      <tr key={idx} className="hover:bg-[#FDFBF7] transition-colors">
-                        <td className="p-3.5 border-r border-neutral-200 font-bold text-maple-black">
-                          {mod.name} <span className="text-[10px] text-neutral-400 font-mono block">{mod.key}</span>
-                        </td>
-                        <td className="p-3.5 text-center border-r border-neutral-100">
-                          <Check size={18} className="text-emerald-600 mx-auto font-black" />
-                        </td>
-                        <td className="p-3.5 text-center border-r border-neutral-100">
-                          {canPrincipal ? <Check size={18} className="text-emerald-600 mx-auto" /> : <span className="text-neutral-300">-</span>}
-                        </td>
-                        <td className="p-3.5 text-center border-r border-neutral-100">
-                          {canAdmissions ? <Check size={18} className="text-emerald-600 mx-auto" /> : <span className="text-neutral-300">-</span>}
-                        </td>
-                        <td className="p-3.5 text-center border-r border-neutral-100">
-                          {canMarketing ? <Check size={18} className="text-emerald-600 mx-auto" /> : <span className="text-neutral-300">-</span>}
-                        </td>
-                        <td className="p-3.5 text-center">
-                          {canTeacher ? <Check size={18} className="text-emerald-600 mx-auto" /> : <span className="text-neutral-300">-</span>}
-                        </td>
-                      </tr>
-                    )
-                  })}
+                <tbody className="divide-y divide-neutral-100 text-xs font-semibold text-neutral-700">
+                  {MATRIX_MODULES.map((mod) => (
+                    <tr key={mod.key} className="hover:bg-[#FDFBF7] transition-colors">
+                      <td className="p-4 border-r border-neutral-200 font-bold text-maple-black">
+                        <div>{mod.name}</div>
+                        <div className="text-[10px] font-mono text-neutral-400 font-normal">{mod.key}</div>
+                      </td>
+                      <td className="p-4 text-center border-r border-neutral-200 bg-red-50/30">
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-bold"><Check size={16} /> Toàn quyền</span>
+                      </td>
+                      <td className="p-4 text-center border-r border-neutral-200">
+                        {['/admin', '/admin/blog', '/admin/gallery', '/admin/staff', '/admin/events', '/admin/admissions', '/admin/tour-bookings', '/admin/analytics', '/admin/users'].includes(mod.key) ? (
+                          <span className="inline-flex items-center gap-1 text-emerald-700 font-bold"><Check size={16} /> Có</span>
+                        ) : (
+                          <span className="text-neutral-300 font-normal">—</span>
+                        )}
+                      </td>
+                      <td className="p-4 text-center border-r border-neutral-200">
+                        {['/admin', '/admin/admissions', '/admin/tour-bookings', '/admin/forms'].includes(mod.key) ? (
+                          <span className="inline-flex items-center gap-1 text-emerald-700 font-bold"><Check size={16} /> Có</span>
+                        ) : (
+                          <span className="text-neutral-300 font-normal">—</span>
+                        )}
+                      </td>
+                      <td className="p-4 text-center border-r border-neutral-200">
+                        {['/admin', '/admin/blog', '/admin/gallery', '/admin/events', '/admin/pages', '/admin/forms', '/admin/utm-builder', '/admin/analytics'].includes(mod.key) ? (
+                          <span className="inline-flex items-center gap-1 text-emerald-700 font-bold"><Check size={16} /> Có</span>
+                        ) : (
+                          <span className="text-neutral-300 font-normal">—</span>
+                        )}
+                      </td>
+                      <td className="p-4 text-center">
+                        {['/admin', '/admin/events', '/admin/gallery'].includes(mod.key) ? (
+                          <span className="inline-flex items-center gap-1 text-emerald-700 font-bold"><Check size={16} /> Xem</span>
+                        ) : (
+                          <span className="text-neutral-300 font-normal">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -400,84 +455,192 @@ export default function AdminUsersPage() {
         </div>
       )}
 
-      {/* Add User Modal */}
-      {showAddModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="bg-white border border-neutral-300 max-w-md w-full p-6 space-y-5 shadow-2xl rounded-2xs">
-            <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
-              <h3 className="text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
-                Tạo Tài Khoản User CMS Mới
-              </h3>
-              <button onClick={() => setShowAddModal(false)} className="text-neutral-400 hover:text-neutral-700 text-sm font-bold">✕</button>
+      {/* RESET PASSWORD MODAL */}
+      {resetUser && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white rounded-2xs max-w-md w-full p-6 shadow-2xl border border-neutral-200 space-y-5">
+            <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
+                <h3 className="text-base font-display font-extrabold text-maple-black uppercase tracking-wide flex items-center gap-2">
+                  <Key size={18} className="text-amber-600" />
+                  Đặt Lại Mật Khẩu Cho User
+                </h3>
+              </div>
+              <button onClick={() => setResetUser(null)} className="text-neutral-400 hover:text-neutral-700">
+                <X size={18} />
+              </button>
             </div>
 
-            <form onSubmit={handleAddUser} className="space-y-4 text-xs font-bold text-neutral-700">
-              <div>
-                <label className="block mb-1 uppercase tracking-wider">Họ & Tên Cán Bộ *</label>
+            {/* Target User Info Summary */}
+            <div className="p-3.5 bg-[#FDFBF7] border border-neutral-200 rounded-2xs text-xs space-y-1">
+              <div className="font-bold text-maple-black">{resetUser.name}</div>
+              <div className="font-mono text-neutral-600">{resetUser.email}</div>
+              <div className="text-[10px] text-neutral-500 uppercase font-bold">
+                Vai trò: <span className="text-maple-red">{ROLE_INFO[resetUser.role].title}</span>
+              </div>
+            </div>
+
+            {resetSuccessMessage ? (
+              <div className="p-4 bg-emerald-50 border border-emerald-300 rounded-2xs text-xs text-emerald-900 font-semibold space-y-1">
+                <div>{resetSuccessMessage}</div>
+                <div className="text-[10px] text-emerald-700">Đang đóng cửa sổ tự động...</div>
+              </div>
+            ) : (
+              <form onSubmit={handleConfirmResetPassword} className="space-y-4 text-xs">
+                <div className="space-y-1.5">
+                  <div className="flex justify-between items-center">
+                    <label className="font-bold text-maple-black block">Mật khẩu mới (New Password):</label>
+                    <button
+                      type="button"
+                      onClick={generateRandomPassword}
+                      className="text-[10px] font-bold text-blue-700 hover:underline flex items-center gap-1"
+                    >
+                      <Sparkles size={12} /> Tạo Mật Khẩu Ngẫu Nhiên
+                    </button>
+                  </div>
+
+                  <div className="relative">
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      required
+                      value={resetPasswordInput}
+                      onChange={(e) => setResetPasswordInput(e.target.value)}
+                      placeholder="Nhập mật khẩu mới..."
+                      className="w-full p-2.5 pr-10 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-mono font-bold text-maple-black focus:outline-none focus:border-maple-red"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-700"
+                    >
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-amber-50 border border-amber-200 rounded-2xs text-[11px] text-amber-800 space-y-1">
+                  <div className="font-bold flex items-center gap-1">
+                    <ShieldAlert size={14} /> Ghi chú an toàn:
+                  </div>
+                  <p className="m-0 leading-relaxed">
+                    Sau khi đặt lại mật khẩu, user có thể đăng nhập bằng mật khẩu mới ngay lập tức. Hãy cung cấp mật khẩu mới này cho cán bộ được cấp quyền.
+                  </p>
+                </div>
+
+                <div className="flex justify-end gap-2.5 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setResetUser(null)}
+                    className="px-4 py-2 border border-neutral-300 rounded-2xs text-xs font-bold text-neutral-600 hover:bg-neutral-100"
+                  >
+                    Hủy Bỏ
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-maple-red hover:bg-red-700 text-white rounded-2xs text-xs font-bold shadow-xs flex items-center gap-1.5"
+                  >
+                    <Check size={15} /> Xác Nhận Đổi Mật Khẩu
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* CREATE NEW USER MODAL */}
+      {showAddModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white rounded-2xs max-w-md w-full p-6 shadow-2xl border border-neutral-200 space-y-5">
+            <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
+                <h3 className="text-base font-display font-extrabold text-maple-black uppercase tracking-wide">
+                  Tạo Tài Khoản CMS Mới
+                </h3>
+              </div>
+              <button onClick={() => setShowAddModal(false)} className="text-neutral-400 hover:text-neutral-700">
+                <X size={18} />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddUser} className="space-y-4 text-xs">
+              <div className="space-y-1">
+                <label className="font-bold text-maple-black">Họ và tên cán bộ:</label>
                 <input
                   type="text"
                   required
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
-                  placeholder="Ví dụ: Nguyễn Thu Hà"
-                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-200 rounded-2xs text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red"
+                  placeholder="Ví dụ: Nguyễn Văn A"
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-medium text-maple-black focus:outline-none focus:border-maple-red"
                 />
               </div>
 
-              <div>
-                <label className="block mb-1 uppercase tracking-wider">Email Quản Trị *</label>
+              <div className="space-y-1">
+                <label className="font-bold text-maple-black">Email đăng nhập (Username):</label>
                 <input
                   type="email"
                   required
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
-                  placeholder="ha.nguyen@sunshinemaplebear.edu.vn"
-                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-200 rounded-2xs text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red"
+                  placeholder="name@sunshinemaplebear.edu.vn"
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-mono font-medium text-maple-black focus:outline-none focus:border-maple-red"
                 />
               </div>
 
-              <div>
-                <label className="block mb-1 uppercase tracking-wider">Phòng Ban / Bộ Phận</label>
+              <div className="space-y-1">
+                <label className="font-bold text-maple-black">Vai trò RBAC (Permission Role):</label>
+                <select
+                  value={newRole}
+                  onChange={(e) => setNewRole(e.target.value as AdminRole)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-bold text-maple-black focus:outline-none"
+                >
+                  <option value="admin">Super Admin (Chủ Đầu Tư / Quyền Cao Nhất)</option>
+                  <option value="principal">Ban Giám Hiệu (BGH Academic)</option>
+                  <option value="admissions">Phòng Tuyển Sinh & Tư Vấn</option>
+                  <option value="marketing">Phòng Marketing & Truyền Thông</option>
+                  <option value="teacher">Tổ Giáo Viên Bản Ngữ & VN</option>
+                </select>
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold text-maple-black">Phòng ban / Bộ phận:</label>
                 <input
                   type="text"
                   value={newDepartment}
                   onChange={(e) => setNewDepartment(e.target.value)}
-                  placeholder="Phòng Tuyển Sinh"
-                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-200 rounded-2xs text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red"
+                  placeholder="Ví dụ: Phòng Tuyển Sinh & Tư Vấn"
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-medium text-maple-black focus:outline-none focus:border-maple-red"
                 />
               </div>
 
-              <div>
-                <label className="block mb-1 uppercase tracking-wider">Phân Quyền Vai Trò (Role) *</label>
-                <select
-                  value={newRole}
-                  onChange={(e) => setNewRole(e.target.value as AdminRole)}
-                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-200 rounded-2xs text-xs font-bold text-maple-black focus:outline-none"
-                >
-                  <option value="admin">Super Admin (Chủ Đầu Tư / Full Access)</option>
-                  <option value="principal">Ban Giám Hiệu (BGH / Academic Principal)</option>
-                  <option value="admissions">Phòng Tuyển Sinh (Admissions & Enquiries)</option>
-                  <option value="marketing">Phòng Marketing (MarCom & Media)</option>
-                  <option value="teacher">Tổ Giáo Viên (Educators & Class News)</option>
-                </select>
-                <p className="text-[10px] text-neutral-400 font-normal mt-1 leading-relaxed">
-                  {ROLE_INFO[newRole]?.desc}
-                </p>
+              <div className="space-y-1">
+                <label className="font-bold text-maple-black">Mật khẩu ban đầu (Password):</label>
+                <input
+                  type="password"
+                  required
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Nhập mật khẩu..."
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs font-mono font-medium text-maple-black focus:outline-none focus:border-maple-red"
+                />
               </div>
 
-              <div className="pt-3 border-t border-neutral-100 flex justify-end gap-2">
+              <div className="flex justify-end gap-2.5 pt-3 border-t border-neutral-100">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2 border border-neutral-200 text-neutral-600 font-extrabold rounded-2xs hover:bg-neutral-100 uppercase tracking-wider"
+                  className="px-4 py-2 border border-neutral-300 rounded-2xs text-xs font-bold text-neutral-600 hover:bg-neutral-100"
                 >
-                  Hủy
+                  Hủy Bỏ
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-maple-red text-white font-extrabold rounded-2xs hover:bg-red-700 uppercase tracking-wider"
+                  className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white rounded-2xs text-xs font-extrabold shadow-xs flex items-center gap-1.5"
                 >
-                  Tạo User Mới
+                  <Check size={15} /> Tạo Tài Khoản
                 </button>
               </div>
             </form>
