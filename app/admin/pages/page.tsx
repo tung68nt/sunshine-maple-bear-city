@@ -30,7 +30,8 @@ import {
   Star,
   FolderPlus,
   Tag,
-  Folder
+  Folder,
+  Copy
 } from 'lucide-react'
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
@@ -41,7 +42,8 @@ import {
   getHomepageVariants,
   saveHomepageVariants,
   HomepageSection,
-  HomepageVariant
+  HomepageVariant,
+  INITIAL_HOMEPAGE_SECTIONS
 } from '@/lib/homepage-builder'
 
 type StaticPage = {
@@ -85,6 +87,7 @@ export default function AdminPagesPage() {
   const [pages, setPages] = useState<StaticPage[]>(initialPages)
   const [activeTabMode, setActiveTabMode] = useState<'HOMEPAGE_BUILDER' | 'PAGES_TABLE'>('HOMEPAGE_BUILDER')
   const [activePageId, setActivePageId] = useState<string | null>(null)
+  const [activeVariantId, setActiveVariantId] = useState<string | null>(null)
   const [leftTab, setLeftTab] = useState<'WIDGETS' | 'FIELDS' | 'SEO'>('WIDGETS')
   const [editingSectionIdx, setEditingSectionIdx] = useState<number>(0)
   const [searchTerm, setSearchTerm] = useState('')
@@ -144,10 +147,41 @@ export default function AdminPagesPage() {
   // HOMEPAGE VARIANT HANDLERS
   // -------------------------------------------------------------
   const handleSetDefaultVariant = (variantId: string) => {
+    const selectedVariant = homepageVariants.find(v => v.id === variantId)
+    if (!selectedVariant) return
+
     const updated = homepageVariants.map(v => ({
       ...v,
       isDefault: v.id === variantId
     }))
+    setHomepageVariants(updated)
+    saveHomepageVariants(updated)
+
+    // Save selected variant's section config to live homepage config
+    if (selectedVariant.sectionsConfig) {
+      setHomepageSections(selectedVariant.sectionsConfig.sort((a, b) => a.order - b.order))
+      saveHomepageSectionsConfig(selectedVariant.sectionsConfig)
+    }
+    window.dispatchEvent(new Event('smbHomepageConfigChange'))
+    setSavedSuccess(true)
+    setTimeout(() => setSavedSuccess(false), 3000)
+  }
+
+  const handleDuplicateVariant = (variantId: string) => {
+    const target = homepageVariants.find(v => v.id === variantId)
+    if (!target) return
+
+    const newVariant: HomepageVariant = {
+      id: `variant-${Date.now()}`,
+      title: `${target.title} (Bản Sao Demo)`,
+      slug: `/homepage-demo-${Date.now().toString().slice(-4)}`,
+      isDefault: false,
+      updatedAt: new Date().toLocaleDateString('en-GB'),
+      description: `Bản sao nhân bản từ [${target.title}] dùng để test cấu hình Trang Chủ.`,
+      sectionsConfig: target.sectionsConfig ? JSON.parse(JSON.stringify(target.sectionsConfig)) : [...INITIAL_HOMEPAGE_SECTIONS]
+    }
+
+    const updated = [...homepageVariants, newVariant]
     setHomepageVariants(updated)
     saveHomepageVariants(updated)
   }
@@ -162,7 +196,8 @@ export default function AdminPagesPage() {
       slug: formattedSlug,
       isDefault: false,
       updatedAt: new Date().toLocaleDateString('en-GB'),
-      description: newVariantDesc || 'Biến thể trang chủ mới tạo.'
+      description: newVariantDesc || 'Biến thể trang chủ mới tạo.',
+      sectionsConfig: [...INITIAL_HOMEPAGE_SECTIONS]
     }
     const updated = [...homepageVariants, newVariant]
     setHomepageVariants(updated)
@@ -190,6 +225,14 @@ export default function AdminPagesPage() {
     const updated = homepageSections.map(s => s.id === secId ? { ...s, enabled: !s.enabled } : s)
     setHomepageSections(updated)
     saveHomepageSectionsConfig(updated)
+
+    // Update active variant sections config if editing active
+    const activeVar = homepageVariants.find(v => v.isDefault)
+    if (activeVar) {
+      activeVar.sectionsConfig = updated
+      saveHomepageVariants(homepageVariants)
+    }
+
     window.dispatchEvent(new Event('smbHomepageConfigChange'))
   }
 
@@ -202,6 +245,13 @@ export default function AdminPagesPage() {
     copy.sort((a, b) => a.order - b.order)
     setHomepageSections(copy)
     saveHomepageSectionsConfig(copy)
+
+    const activeVar = homepageVariants.find(v => v.isDefault)
+    if (activeVar) {
+      activeVar.sectionsConfig = copy
+      saveHomepageVariants(homepageVariants)
+    }
+
     window.dispatchEvent(new Event('smbHomepageConfigChange'))
   }
 
@@ -214,6 +264,13 @@ export default function AdminPagesPage() {
     copy.sort((a, b) => a.order - b.order)
     setHomepageSections(copy)
     saveHomepageSectionsConfig(copy)
+
+    const activeVar = homepageVariants.find(v => v.isDefault)
+    if (activeVar) {
+      activeVar.sectionsConfig = copy
+      saveHomepageVariants(homepageVariants)
+    }
+
     window.dispatchEvent(new Event('smbHomepageConfigChange'))
   }
 
@@ -726,6 +783,13 @@ export default function AdminPagesPage() {
   return (
     <div className="space-y-6 w-full text-[#1D1D1B] animate-fade-in pb-12">
       
+      {/* Save Success Toast Banner */}
+      {savedSuccess && (
+        <div className="p-3 bg-emerald-700 text-white font-extrabold text-xs flex items-center gap-2 rounded-2xs shadow-md animate-fade-in">
+          <CheckCircle2 size={16} /> Đã kích hoạt bản Trang Chủ Mặc Định thành công tại route live `/`!
+        </div>
+      )}
+
       {/* Navigation Mode Tabs */}
       <div className="flex border-b border-neutral-200 bg-white rounded-2xs shadow-2xs overflow-hidden">
         <button
@@ -737,7 +801,7 @@ export default function AdminPagesPage() {
           }`}
         >
           <Settings2 size={16} />
-          ⚙️ Cấu Hình Section Builder Trang Chủ (Homepage Builder)
+          ⚙️ Cấu Hình Section Builder Trang Chủ (Homepage Manager)
         </button>
         <button
           onClick={() => setActiveTabMode('PAGES_TABLE')}
@@ -762,7 +826,7 @@ export default function AdminPagesPage() {
               <div>
                 <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">QUẢN LÝ DYNAMIC HOMEPAGE VARIANTS</span>
                 <h3 className="text-base font-display font-extrabold text-maple-black">
-                  Các Biến Thể Trang Chủ & Lựa Chọn Trang Chủ Mặc Định (`/`)
+                  Danh Sách Các Bản Trang Chủ & Lựa Chọn Trang Chủ Live (`/`)
                 </h3>
               </div>
               
@@ -775,7 +839,7 @@ export default function AdminPagesPage() {
             </div>
 
             {/* Homepage Variants Clean Table */}
-            <div className="bg-white border border-neutral-200 overflow-hidden rounded-2xs">
+            <div className="bg-white border border-neutral-200 overflow-hidden rounded-2xs shadow-2xs">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="bg-[#151513] text-white text-[11px] font-extrabold uppercase tracking-wider border-b border-neutral-800">
@@ -783,7 +847,7 @@ export default function AdminPagesPage() {
                     <th className="py-3 px-4">Tên Bản Trang Chủ</th>
                     <th className="py-3 px-4">Mô Tả Mục Tiêu Chiến Dịch</th>
                     <th className="py-3 px-4 text-center">Trạng Thái Live</th>
-                    <th className="py-3 px-4 text-center">Thao Tác</th>
+                    <th className="py-3 px-4 text-center">Thao Tác Biên Tập</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100 font-medium text-[#1D1D1B]">
@@ -801,10 +865,15 @@ export default function AdminPagesPage() {
                       </td>
 
                       <td className="py-3.5 px-4 font-bold text-maple-black">
-                        {variant.title}
+                        <div>{variant.title}</div>
+                        {variant.isDefault && (
+                          <span className="text-[10px] font-mono text-emerald-700 font-bold block mt-0.5">
+                            🟢 Đang được phục vụ trực tiếp tại route `/`
+                          </span>
+                        )}
                       </td>
 
-                      <td className="py-3.5 px-4 text-neutral-600 font-light max-w-xs">
+                      <td className="py-3.5 px-4 text-neutral-600 font-light max-w-xs leading-relaxed">
                         {variant.description}
                       </td>
 
@@ -824,7 +893,15 @@ export default function AdminPagesPage() {
                       </td>
 
                       <td className="py-3.5 px-4 text-center">
-                        <div className="flex items-center justify-center gap-2">
+                        <div className="flex items-center justify-center gap-1.5">
+                          <button
+                            onClick={() => handleDuplicateVariant(variant.id)}
+                            className="px-2.5 py-1 bg-white border border-neutral-300 hover:bg-neutral-100 text-neutral-700 text-[10px] font-extrabold rounded-2xs transition-all inline-flex items-center gap-1"
+                            title="Nhân bản làm bản sao demo"
+                          >
+                            <Copy size={12} /> Duplicate Demo
+                          </button>
+
                           {!variant.isDefault && (
                             <button
                               onClick={() => handleDeleteVariant(variant.id)}
@@ -843,13 +920,13 @@ export default function AdminPagesPage() {
             </div>
           </div>
 
-          {/* Homepage Section Order & Visibility Controls */}
+          {/* Active Homepage Live Section Order & Visibility Controls */}
           <div className="bg-white border border-neutral-200 p-6 rounded-2xs shadow-2xs space-y-5">
             <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
               <div>
-                <span className="text-[10px] font-bold text-maple-gold uppercase tracking-wider block">CẤU TRÚC 8 SECTION TRANG CHỦ</span>
+                <span className="text-[10px] font-bold text-maple-gold uppercase tracking-wider block">CẤU TRÚC SECTION BẢN TRANG CHỦ ĐANG LIVE</span>
                 <h3 className="text-base font-display font-extrabold text-maple-black">
-                  Quản Lý Thứ Tự & Ẩn / Hiện Section Trang Chủ
+                  Quản Lý Thứ Tự & Ẩn / Hiện Khối Section Trang Chủ
                 </h3>
               </div>
             </div>
