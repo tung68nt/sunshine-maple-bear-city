@@ -31,7 +31,9 @@ import {
   ChevronUp,
   FileSpreadsheet,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 import Link from 'next/link'
 import { MOCK_IP_SESSIONS, IPVisitorSession } from '@/lib/visitor-tracking'
@@ -100,11 +102,15 @@ export default function AdminAnalyticsPage() {
   const [toDate, setToDate] = useState('2026-08-09')
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
   
-  // Advanced IP Tracking Filters
+  // Advanced IP Tracking Filters & Pagination
   const [ipSearch, setIpSearch] = useState('')
   const [visitorTypeFilter, setVisitorTypeFilter] = useState<'ALL' | 'IDENTIFIED' | 'ANONYMOUS'>('ALL')
   const [campaignFilter, setCampaignFilter] = useState<string>('ALL')
   const [tempFilter, setTempFilter] = useState<'ALL' | 'HOT' | 'WARM' | 'COLD'>('ALL')
+
+  // Pagination state
+  const [ipCurrentPage, setIpCurrentPage] = useState<number>(1)
+  const [ipPageSize, setIpPageSize] = useState<number>(5)
 
   const [expandedIp, setExpandedIp] = useState<string | null>('113.190.242.88')
 
@@ -345,25 +351,25 @@ export default function AdminAnalyticsPage() {
 
   // Filter IP Visitor Sessions
   const filteredIpSessions = MOCK_IP_SESSIONS.filter(sess => {
-    // Search IP or Location or Parent Name
     const matchesSearch = ipSearch === '' ||
       sess.ip.toLowerCase().includes(ipSearch.toLowerCase()) ||
       sess.location.toLowerCase().includes(ipSearch.toLowerCase()) ||
       (sess.parentName && sess.parentName.toLowerCase().includes(ipSearch.toLowerCase()))
 
-    // Visitor Type Filter
     const matchesVisitorType = visitorTypeFilter === 'ALL' ||
       (visitorTypeFilter === 'IDENTIFIED' && sess.linkedLeadId) ||
       (visitorTypeFilter === 'ANONYMOUS' && !sess.linkedLeadId)
 
-    // Campaign Filter
     const matchesCampaign = campaignFilter === 'ALL' || sess.campaign.includes(campaignFilter)
-
-    // Temperature Filter
     const matchesTemp = tempFilter === 'ALL' || sess.temperature === tempFilter
 
     return matchesSearch && matchesVisitorType && matchesCampaign && matchesTemp
   })
+
+  // Pagination Math
+  const totalIpPages = Math.ceil(filteredIpSessions.length / ipPageSize) || 1
+  const startIndex = (ipCurrentPage - 1) * ipPageSize
+  const paginatedIpSessions = filteredIpSessions.slice(startIndex, startIndex + ipPageSize)
 
   const handleExportCSV = () => {
     alert(adminUiLang === 'vi' ? `Đang xuất file CSV Full Danh Sách IP Truy Cập (${filteredIpSessions.length} bản ghi)...` : `Exporting CSV IP Access Logs (${filteredIpSessions.length} records)...`)
@@ -396,37 +402,37 @@ export default function AdminAnalyticsPage() {
         <div className="flex flex-wrap items-center gap-2.5">
           <div className="flex bg-[#FDFBF7] p-1 border border-neutral-300 rounded-2xs text-xs font-semibold">
             <button
-              onClick={() => setTimeRange('today')}
+              onClick={() => { setTimeRange('today'); setIpCurrentPage(1) }}
               className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === 'today' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               Hôm nay
             </button>
             <button
-              onClick={() => setTimeRange('7d')}
+              onClick={() => { setTimeRange('7d'); setIpCurrentPage(1) }}
               className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === '7d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               7 ngày
             </button>
             <button
-              onClick={() => setTimeRange('30d')}
+              onClick={() => { setTimeRange('30d'); setIpCurrentPage(1) }}
               className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === '30d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               30 ngày
             </button>
             <button
-              onClick={() => setTimeRange('90d')}
+              onClick={() => { setTimeRange('90d'); setIpCurrentPage(1) }}
               className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === '90d' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               Quý 3
             </button>
             <button
-              onClick={() => setTimeRange('ytd')}
+              onClick={() => { setTimeRange('ytd'); setIpCurrentPage(1) }}
               className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === 'ytd' ? 'bg-[#151513] text-white shadow-xs' : 'text-neutral-600 hover:text-[#151513]'}`}
             >
               Năm 2026
             </button>
             <button
-              onClick={() => setTimeRange('custom')}
+              onClick={() => { setTimeRange('custom'); setIpCurrentPage(1) }}
               className={`px-2.5 py-1 rounded-2xs transition-all ${timeRange === 'custom' ? 'bg-maple-red text-white shadow-xs' : 'text-neutral-600 hover:text-maple-red'}`}
             >
               Tùy chọn
@@ -482,7 +488,7 @@ export default function AdminAnalyticsPage() {
 
         <div className="bg-white border border-neutral-200 p-4 space-y-2 rounded-2xs shadow-2xs">
           <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">Tỷ lệ Chuyển đổi Form</span>
-          <div className="text-2xl font-display font-extrabold text-[#1D1D1B]">{currentData.kpis.cvr}</div>
+          <div className="text-2xl font-display font-extrabold text-[#1D1D1B]">{currentData.cvr || currentData.kpis.cvr}</div>
           <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
             <TrendingUp size={12} /> {currentData.kpis.cvrGrowth}
           </span>
@@ -503,7 +509,7 @@ export default function AdminAnalyticsPage() {
         </div>
       </div>
 
-      {/* COMPREHENSIVE FULL IP VISITOR ACCESS LOG ENGINE WITH ADVANCED FILTERS */}
+      {/* COMPREHENSIVE FULL IP VISITOR ACCESS LOG ENGINE WITH ADVANCED FILTERS & PAGINATION */}
       <div className="bg-white border border-neutral-200 p-5 rounded-2xs shadow-2xs space-y-5">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 border-b border-neutral-200 pb-4">
           <div>
@@ -514,7 +520,7 @@ export default function AdminAnalyticsPage() {
               </h3>
             </div>
             <p className="text-xs text-neutral-500 font-normal">
-              Theo dõi chi tiết 100% tất cả các IP truy cập, thiết bị sử dụng, nguồn chiến dịch UTM, thời lượng tương tác và chuỗi lịch sử trang đã xem.
+              Hiển thị phân trang đầy đủ {filteredIpSessions.length} bản ghi IP truy cập real-time. Có bộ lọc kênh, thiết bị và xuất file đối chiếu.
             </p>
           </div>
           
@@ -537,7 +543,7 @@ export default function AdminAnalyticsPage() {
             <input
               type="text"
               value={ipSearch}
-              onChange={(e) => setIpSearch(e.target.value)}
+              onChange={(e) => { setIpSearch(e.target.value); setIpCurrentPage(1) }}
               placeholder="Tìm theo IP, Tên phụ huynh, Vị trí..."
               className="w-full pl-8 pr-3 py-1.5 bg-white border border-neutral-300 rounded-2xs text-xs focus:outline-none focus:border-maple-red font-mono"
             />
@@ -548,7 +554,7 @@ export default function AdminAnalyticsPage() {
             <label className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Loại Khách Truy Cập:</label>
             <select
               value={visitorTypeFilter}
-              onChange={(e: any) => setVisitorTypeFilter(e.target.value)}
+              onChange={(e: any) => { setVisitorTypeFilter(e.target.value); setIpCurrentPage(1) }}
               className="w-full bg-white border border-neutral-300 p-1.5 text-xs font-semibold rounded-2xs focus:outline-none"
             >
               <option value="ALL">Tất cả khách truy cập</option>
@@ -562,7 +568,7 @@ export default function AdminAnalyticsPage() {
             <label className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Nguồn UTM Campaign:</label>
             <select
               value={campaignFilter}
-              onChange={(e) => setCampaignFilter(e.target.value)}
+              onChange={(e) => { setCampaignFilter(e.target.value); setIpCurrentPage(1) }}
               className="w-full bg-white border border-neutral-300 p-1.5 text-xs font-semibold rounded-2xs focus:outline-none"
             >
               <option value="ALL">Tất cả Kênh Quảng Cáo</option>
@@ -578,7 +584,7 @@ export default function AdminAnalyticsPage() {
             <label className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Mức Độ Phân Loại (Lead Score):</label>
             <select
               value={tempFilter}
-              onChange={(e: any) => setTempFilter(e.target.value)}
+              onChange={(e: any) => { setTempFilter(e.target.value); setIpCurrentPage(1) }}
               className="w-full bg-white border border-neutral-300 p-1.5 text-xs font-semibold rounded-2xs focus:outline-none"
             >
               <option value="ALL">Tất cả mức độ Score</option>
@@ -605,7 +611,7 @@ export default function AdminAnalyticsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-100 font-medium text-neutral-700">
-              {filteredIpSessions.map((sess) => {
+              {paginatedIpSessions.map((sess) => {
                 const isExpanded = expandedIp === sess.ip
                 return (
                   <>
@@ -718,6 +724,57 @@ export default function AdminAnalyticsPage() {
             </tbody>
           </table>
         </div>
+
+        {/* PAGINATION CONTROLS */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-2 text-xs">
+          <div className="flex items-center gap-2 text-neutral-500 font-medium">
+            <span>Hiển thị</span>
+            <select
+              value={ipPageSize}
+              onChange={(e) => { setIpPageSize(Number(e.target.value)); setIpCurrentPage(1) }}
+              className="bg-white border border-neutral-300 rounded-2xs p-1 text-xs font-bold focus:outline-none"
+            >
+              <option value={5}>5 dòng / trang</option>
+              <option value={10}>10 dòng / trang</option>
+              <option value={20}>20 dòng / trang</option>
+              <option value={50}>50 dòng / trang</option>
+            </select>
+            <span>• {startIndex + 1} - {Math.min(startIndex + ipPageSize, filteredIpSessions.length)} trên tổng {filteredIpSessions.length} IP</span>
+          </div>
+
+          <div className="flex items-center gap-1.5 font-bold">
+            <button
+              onClick={() => setIpCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={ipCurrentPage === 1}
+              className="px-2.5 py-1 bg-white border border-neutral-300 rounded-2xs hover:bg-[#FDFBF7] disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1 transition-colors"
+            >
+              <ChevronLeft size={14} /> Trước
+            </button>
+
+            {Array.from({ length: totalIpPages }, (_, i) => i + 1).map(p => (
+              <button
+                key={p}
+                onClick={() => setIpCurrentPage(p)}
+                className={`px-3 py-1 rounded-2xs text-xs font-mono font-bold transition-colors ${
+                  p === ipCurrentPage
+                    ? 'bg-[#151513] text-white shadow-xs'
+                    : 'bg-white border border-neutral-300 text-neutral-700 hover:bg-[#FDFBF7]'
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setIpCurrentPage(prev => Math.min(prev + 1, totalIpPages))}
+              disabled={ipCurrentPage === totalIpPages}
+              className="px-2.5 py-1 bg-white border border-neutral-300 rounded-2xs hover:bg-[#FDFBF7] disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1 transition-colors"
+            >
+              Sau <ChevronRight size={14} />
+            </button>
+          </div>
+        </div>
+
       </div>
 
       {/* REAL DATA AUDIT LOG & SUBMISSION RECONCILIATION TABLE */}

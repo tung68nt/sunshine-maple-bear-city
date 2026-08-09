@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit, Inter, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ExitIntentPopup } from '@/components/ExitIntentPopup'
+import { VisitorTracker } from '@/components/VisitorTracker'
 import './globals.css'
 
 const displayFont = Outfit({
@@ -140,6 +141,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground" suppressHydrationWarning>
+        <VisitorTracker />
         {children}
         <ExitIntentPopup />
         {process.env.NODE_ENV === 'production' && <Analytics />}

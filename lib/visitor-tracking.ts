@@ -148,6 +148,94 @@ export const MOCK_IP_SESSIONS: IPVisitorSession[] = [
     phone: '0936***999',
     score: 95,
     temperature: 'HOT'
+  },
+  {
+    ip: '113.185.12.90',
+    location: 'Ngoại Giao Đoàn, Bắc Từ Liêm, Hà Nội',
+    device: 'Mobile (iPhone 14)',
+    campaign: 'facebook_ads / cpc',
+    firstSeen: '2026-08-02 11:14:00',
+    lastSeen: '2026-08-02 11:28:45',
+    totalVisits: 2,
+    totalDurationSeconds: 520,
+    visitedPages: [
+      { path: '/admissions/founding-families', title: 'Chính Sách Founding Families 2026', durationSeconds: 220, timestamp: '11:14:00' },
+      { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', durationSeconds: 300, timestamp: '11:28:45' }
+    ],
+    linkedLeadId: 'ADM-2026-072',
+    parentName: 'Đặng Ngọc Bích',
+    phone: '0988***112',
+    score: 90,
+    temperature: 'HOT'
+  },
+  {
+    ip: '14.162.204.55',
+    location: 'Hoàn Kiếm, Hà Nội',
+    device: 'Desktop (Windows / Chrome)',
+    campaign: 'google_search / cpc',
+    firstSeen: '2026-08-01 14:05:00',
+    lastSeen: '2026-08-01 14:12:30',
+    totalVisits: 1,
+    totalDurationSeconds: 180,
+    visitedPages: [
+      { path: '/about/why-maple-bear', title: 'Tại sao chọn Sunshine Maple Bear', durationSeconds: 180, timestamp: '14:05:00' }
+    ],
+    score: 45,
+    temperature: 'COLD'
+  },
+  {
+    ip: '117.4.210.88',
+    location: 'Hai Bà Trưng, Hà Nội',
+    device: 'Mobile (Samsung Galaxy Flip 5)',
+    campaign: 'zalo_oa / organic',
+    firstSeen: '2026-07-28 09:30:00',
+    lastSeen: '2026-07-28 09:48:10',
+    totalVisits: 2,
+    totalDurationSeconds: 610,
+    visitedPages: [
+      { path: '/academics/extracurricular', title: 'Câu Lạc Bộ Ngoại Khóa & Năng Khiếu', durationSeconds: 210, timestamp: '09:30:00' },
+      { path: '/events/open-day-aug-2026', title: 'Landing Page: Open Day Mùa Thu 2026', durationSeconds: 400, timestamp: '09:48:10' }
+    ],
+    linkedLeadId: 'FORM-2026-098',
+    parentName: 'Bùi Thanh Hương',
+    phone: '0903***777',
+    score: 82,
+    temperature: 'HOT'
+  },
+  {
+    ip: '113.190.101.44',
+    location: 'Đống Đa, Hà Nội',
+    device: 'Desktop (macOS / Chrome)',
+    campaign: 'direct / qr_code',
+    firstSeen: '2026-07-25 16:20:00',
+    lastSeen: '2026-07-25 16:32:00',
+    totalVisits: 1,
+    totalDurationSeconds: 310,
+    visitedPages: [
+      { path: '/faq', title: 'Câu Hỏi Thường Gặp (FAQ)', durationSeconds: 110, timestamp: '16:20:00' },
+      { path: '/academics/daily-schedule', title: 'Thời Khóa Biểu Hàng Ngày Của Bé', durationSeconds: 200, timestamp: '16:32:00' }
+    ],
+    score: 55,
+    temperature: 'WARM'
+  },
+  {
+    ip: '42.115.88.33',
+    location: 'Ciputra, Tây Hồ, Hà Nội',
+    device: 'Mobile (iPhone 13)',
+    campaign: 'facebook_ads / cpc',
+    firstSeen: '2026-07-20 18:10:00',
+    lastSeen: '2026-07-20 18:25:00',
+    totalVisits: 3,
+    totalDurationSeconds: 650,
+    visitedPages: [
+      { path: '/admissions/tuition', title: 'Biểu Phí Học Phí & Ưu Đãi Founding Families', durationSeconds: 350, timestamp: '18:10:00' },
+      { path: '/tour-booking', title: 'Form Đặt Lịch Tham Quan Campus', durationSeconds: 300, timestamp: '18:25:00' }
+    ],
+    linkedLeadId: 'TOUR-2026-031',
+    parentName: 'Nguyễn Quốc Tuấn',
+    phone: '0972***444',
+    score: 94,
+    temperature: 'HOT'
   }
 ]
 
