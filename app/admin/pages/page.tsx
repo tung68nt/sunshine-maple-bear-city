@@ -27,7 +27,9 @@ import {
   Trash2,
   Settings2,
   Monitor,
-  Star
+  Star,
+  FolderPlus,
+  Tag
 } from 'lucide-react'
 import { SectionRenderer } from '@/components/sections/SectionRenderer'
 import { staticPagesRegistry } from '@/lib/static-pages-data'
@@ -45,7 +47,7 @@ type StaticPage = {
   id: string
   path: string
   title: string
-  category: 'ABOUT US' | 'ACADEMICS' | 'ADMISSIONS' | 'COMMUNITY'
+  category: string
   status: 'Published' | 'Draft'
   pageType?: 'SECTION_BUILDER' | 'BLOG_CONVERTED'
   convertedFromArticleId?: string
@@ -86,19 +88,37 @@ export default function AdminPagesPage() {
   const [editingSectionIdx, setEditingSectionIdx] = useState<number>(0)
   const [searchTerm, setSearchTerm] = useState('')
   const [categoryFilter, setCategoryFilter] = useState<string>('ALL')
+  const [categoriesList, setCategoriesList] = useState<string[]>([
+    'ABOUT US',
+    'ACADEMICS',
+    'ADMISSIONS',
+    'COMMUNITY'
+  ])
   const [savedSuccess, setSavedSuccess] = useState(false)
   const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(true)
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
 
-  // Homepage Builder State
+  // Homepage Builder & Variant State
   const [homepageSections, setHomepageSections] = useState<HomepageSection[]>([])
   const [homepageVariants, setHomepageVariants] = useState<HomepageVariant[]>([])
 
-  // Create Static Page Modal State
-  const [showAddModal, setShowAddModal] = useState(false)
+  // Modal States
+  const [showAddPageModal, setShowAddPageModal] = useState(false)
+  const [showAddVariantModal, setShowAddVariantModal] = useState(false)
+  const [showAddCategoryModal, setShowAddCategoryModal] = useState(false)
+
+  // New Page State
   const [newPageTitle, setNewPageTitle] = useState('')
   const [newPagePath, setNewPagePath] = useState('')
-  const [newPageCategory, setNewPageCategory] = useState<'ABOUT US' | 'ACADEMICS' | 'ADMISSIONS' | 'COMMUNITY'>('ACADEMICS')
+  const [newPageCategory, setNewPageCategory] = useState<string>('ACADEMICS')
+
+  // New Variant State
+  const [newVariantTitle, setNewVariantTitle] = useState('')
+  const [newVariantSlug, setNewVariantSlug] = useState('')
+  const [newVariantDesc, setNewVariantDesc] = useState('')
+
+  // New Category State
+  const [newCategoryName, setNewCategoryName] = useState('')
 
   useEffect(() => {
     const saved = (localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en') || 'vi'
@@ -117,6 +137,9 @@ export default function AdminPagesPage() {
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
+  // -------------------------------------------------------------
+  // HOMEPAGE VARIANT HANDLERS
+  // -------------------------------------------------------------
   const handleSetDefaultVariant = (variantId: string) => {
     const updated = homepageVariants.map(v => ({
       ...v,
@@ -124,6 +147,40 @@ export default function AdminPagesPage() {
     }))
     setHomepageVariants(updated)
     saveHomepageVariants(updated)
+  }
+
+  const handleCreateVariant = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newVariantTitle || !newVariantSlug) return
+    const formattedSlug = newVariantSlug.startsWith('/') ? newVariantSlug : `/${newVariantSlug}`
+    const newVariant: HomepageVariant = {
+      id: `variant-${Date.now()}`,
+      title: newVariantTitle,
+      slug: formattedSlug,
+      isDefault: false,
+      updatedAt: new Date().toLocaleDateString('en-GB'),
+      description: newVariantDesc || 'Biến thể trang chủ mới tạo.'
+    }
+    const updated = [...homepageVariants, newVariant]
+    setHomepageVariants(updated)
+    saveHomepageVariants(updated)
+    setShowAddVariantModal(false)
+    setNewVariantTitle('')
+    setNewVariantSlug('')
+    setNewVariantDesc('')
+  }
+
+  const handleDeleteVariant = (variantId: string) => {
+    const target = homepageVariants.find(v => v.id === variantId)
+    if (target?.isDefault) {
+      alert('Không thể xóa biến thể đang là Trang Chủ Mặc Định!')
+      return
+    }
+    if (confirm('Bạn có chắc chắn muốn xóa biến thể trang chủ này?')) {
+      const updated = homepageVariants.filter(v => v.id !== variantId)
+      setHomepageVariants(updated)
+      saveHomepageVariants(updated)
+    }
   }
 
   const handleToggleSectionEnabled = (secId: string) => {
@@ -157,6 +214,23 @@ export default function AdminPagesPage() {
     window.dispatchEvent(new Event('smbHomepageConfigChange'))
   }
 
+  // -------------------------------------------------------------
+  // CATEGORY MANAGEMENT HANDLERS
+  // -------------------------------------------------------------
+  const handleAddCategory = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newCategoryName) return
+    const uppercaseCat = newCategoryName.trim().toUpperCase()
+    if (!categoriesList.includes(uppercaseCat)) {
+      setCategoriesList([...categoriesList, uppercaseCat])
+    }
+    setShowAddCategoryModal(false)
+    setNewCategoryName('')
+  }
+
+  // -------------------------------------------------------------
+  // STATIC PAGE HANDLERS
+  // -------------------------------------------------------------
   const handleTogglePageStatus = (pageId: string) => {
     setPages(pages.map(p => {
       if (p.id === pageId) {
@@ -210,7 +284,7 @@ export default function AdminPagesPage() {
     }
 
     setPages([newPage, ...pages])
-    setShowAddModal(false)
+    setShowAddPageModal(false)
     setNewPageTitle('')
     setNewPagePath('')
     setActivePageId(newPage.id)
@@ -652,45 +726,76 @@ export default function AdminPagesPage() {
         </button>
       </div>
 
-      {/* MODE 1: DEDICATED HOMEPAGE SECTION BUILDER TAB */}
+      {/* MODE 1: DEDICATED HOMEPAGE SECTION BUILDER & DYNAMIC VARIANTS TAB */}
       {activeTabMode === 'HOMEPAGE_BUILDER' && (
         <div className="space-y-6">
           
-          {/* Default Homepage Variant Selector */}
+          {/* Dynamic Homepage Variants List Panel */}
           <div className="bg-white border border-neutral-200 p-6 rounded-2xs shadow-2xs space-y-4">
-            <div className="flex justify-between items-center border-b border-neutral-100 pb-3">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-neutral-100 pb-4">
               <div>
-                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">CƠ CHẾ ĐẶT TRANG MẶC ĐỊNH (DEFAULT HOMEPAGE)</span>
+                <span className="text-[10px] font-bold text-maple-red uppercase tracking-wider block">QUẢN LÝ DYNMAIC HOMEPAGE VARIANTS</span>
                 <h3 className="text-base font-display font-extrabold text-maple-black">
-                  Thiết Lập Trang Nào Làm Homepage Mặc Định (`/`)
+                  Các Biến Thể Trang Chủ & Lựa Chọn Trang Chủ Mặc Định (`/`)
                 </h3>
               </div>
-              <span className="px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono font-bold text-xs rounded-2xs flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-emerald-700" /> Active Route: `/`
-              </span>
+              
+              <button
+                onClick={() => setShowAddVariantModal(true)}
+                className="px-4 py-2 bg-[#151513] text-white hover:bg-maple-red text-xs font-extrabold rounded-2xs transition-all flex items-center gap-1.5 shadow-2xs uppercase tracking-wider"
+              >
+                <Plus size={15} /> Thêm Biến Thể Trang Chủ Mới
+              </button>
             </div>
 
+            {/* Variants Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {homepageVariants.map((variant) => (
                 <div
                   key={variant.id}
-                  onClick={() => handleSetDefaultVariant(variant.id)}
-                  className={`p-4 border rounded-2xs cursor-pointer transition-all space-y-2 relative ${
+                  className={`p-4 border rounded-2xs transition-all space-y-3 relative flex flex-col justify-between ${
                     variant.isDefault
                       ? 'bg-red-50/40 border-maple-red ring-2 ring-maple-red/30 shadow-xs'
                       : 'bg-white border-neutral-200 hover:border-neutral-400'
                   }`}
                 >
-                  <div className="flex justify-between items-start">
-                    <span className="font-bold text-xs text-maple-black block">{variant.title}</span>
-                    {variant.isDefault && (
-                      <span className="px-2 py-0.5 bg-maple-red text-white text-[9px] font-extrabold uppercase rounded-2xs">
-                        Đang Chạy Live
-                      </span>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-start">
+                      <span className="font-bold text-xs text-maple-black block">{variant.title}</span>
+                      {variant.isDefault && (
+                        <span className="px-2 py-0.5 bg-emerald-700 text-white text-[9px] font-extrabold uppercase rounded-2xs flex items-center gap-1">
+                          <CheckCircle2 size={10} /> Live ở `/`
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-[10px] font-mono text-maple-red bg-neutral-100 px-2 py-0.5 rounded-2xs inline-block">
+                      {variant.slug}
+                    </div>
+                    <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{variant.description}</p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-3 border-t border-neutral-200 text-xs">
+                    {!variant.isDefault ? (
+                      <button
+                        onClick={() => handleSetDefaultVariant(variant.id)}
+                        className="px-2.5 py-1 bg-white hover:bg-maple-gold hover:text-[#151513] border border-neutral-300 text-neutral-700 font-extrabold text-[10px] rounded-2xs transition-all"
+                      >
+                        ★ Đặt Làm Trang Chủ Live (`/`)
+                      </button>
+                    ) : (
+                      <span className="text-[10px] font-bold text-emerald-800 font-mono">🟢 Đang Chạy Live</span>
+                    )}
+
+                    {!variant.isDefault && (
+                      <button
+                        onClick={() => handleDeleteVariant(variant.id)}
+                        className="p-1 text-neutral-400 hover:text-red-600 transition-colors"
+                        title="Xóa biến thể"
+                      >
+                        <Trash2 size={14} />
+                      </button>
                     )}
                   </div>
-                  <div className="text-[10px] font-mono text-neutral-500">{variant.slug}</div>
-                  <p className="text-[11px] text-neutral-600 leading-relaxed font-light">{variant.description}</p>
                 </div>
               ))}
             </div>
@@ -705,12 +810,6 @@ export default function AdminPagesPage() {
                   Quản Lý Thứ Tự & Ẩn / Hiện Section Trang Chủ
                 </h3>
               </div>
-              <button
-                onClick={() => setActivePageId('0')}
-                className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors rounded-2xs flex items-center gap-1.5 shadow-2xs"
-              >
-                <Edit3 size={14} /> Sửa Chi Tiết Nội Dung Trang Chủ ↗
-              </button>
             </div>
 
             <div className="space-y-3">
@@ -782,11 +881,11 @@ export default function AdminPagesPage() {
         </div>
       )}
 
-      {/* MODE 2: CLEAN STATIC PAGES TABLE WITH STATUS TOGGLE */}
+      {/* MODE 2: CLEAN STATIC PAGES TABLE WITH CATEGORY MANAGEMENT & STATUS TOGGLE */}
       {activeTabMode === 'PAGES_TABLE' && (
         <div className="space-y-6">
           
-          {/* Sleek Header */}
+          {/* Header */}
           <div className="bg-white border border-neutral-200 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-2xs rounded-2xs">
             <div>
               <div className="flex items-center gap-2 mb-1">
@@ -800,7 +899,14 @@ export default function AdminPagesPage() {
             
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setShowAddModal(true)}
+                onClick={() => setShowAddCategoryModal(true)}
+                className="px-3.5 py-2.5 bg-white text-neutral-800 border border-neutral-300 hover:bg-[#FDFBF7] text-xs font-extrabold transition-all flex items-center gap-1.5 rounded-2xs shadow-2xs"
+              >
+                <FolderPlus size={15} /> Thêm Chuyên Mục Mới
+              </button>
+
+              <button
+                onClick={() => setShowAddPageModal(true)}
                 className="px-4 py-2.5 bg-[#151513] text-white text-xs font-extrabold hover:bg-maple-red transition-all flex items-center gap-2 rounded-2xs shadow-2xs uppercase tracking-wider"
               >
                 <Plus size={16} />
@@ -820,38 +926,17 @@ export default function AdminPagesPage() {
               >
                 Tất cả ({pages.length})
               </button>
-              <button
-                onClick={() => setCategoryFilter('ABOUT US')}
-                className={`px-3 py-1.5 rounded-2xs transition-all ${
-                  categoryFilter === 'ABOUT US' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-                }`}
-              >
-                Giới Thiệu (About)
-              </button>
-              <button
-                onClick={() => setCategoryFilter('ACADEMICS')}
-                className={`px-3 py-1.5 rounded-2xs transition-all ${
-                  categoryFilter === 'ACADEMICS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-                }`}
-              >
-                Chương Trình Học
-              </button>
-              <button
-                onClick={() => setCategoryFilter('ADMISSIONS')}
-                className={`px-3 py-1.5 rounded-2xs transition-all ${
-                  categoryFilter === 'ADMISSIONS' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-                }`}
-              >
-                Tuyển Sinh & Tour
-              </button>
-              <button
-                onClick={() => setCategoryFilter('COMMUNITY')}
-                className={`px-3 py-1.5 rounded-2xs transition-all ${
-                  categoryFilter === 'COMMUNITY' ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
-                }`}
-              >
-                Cộng Đồng Phụ Huynh
-              </button>
+              {categoriesList.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setCategoryFilter(cat)}
+                  className={`px-3 py-1.5 rounded-2xs transition-all ${
+                    categoryFilter === cat ? 'bg-[#151513] text-white shadow-xs' : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
 
             <div className="relative w-full md:w-72">
@@ -866,7 +951,7 @@ export default function AdminPagesPage() {
             </div>
           </div>
 
-          {/* Clean Table with Status Column */}
+          {/* Clean Table */}
           <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
@@ -931,15 +1016,13 @@ export default function AdminPagesPage() {
                           <ExternalLink size={14} />
                         </a>
 
-                        {p.path !== '/' && (
-                          <button
-                            onClick={() => handleDeletePage(p.id)}
-                            className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-400 hover:text-red-600 hover:bg-neutral-100 transition-colors"
-                            title="Xóa trang"
-                          >
-                            <Trash2 size={14} />
-                          </button>
-                        )}
+                        <button
+                          onClick={() => handleDeletePage(p.id)}
+                          className="p-1.5 rounded-2xs border border-neutral-200 text-neutral-400 hover:text-red-600 hover:bg-neutral-100 transition-colors"
+                          title="Xóa trang"
+                        >
+                          <Trash2 size={14} />
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -951,8 +1034,131 @@ export default function AdminPagesPage() {
         </div>
       )}
 
-      {/* CREATE NEW PAGE MODAL */}
-      {showAddModal && (
+      {/* CREATE NEW HOMEPAGE VARIANT MODAL */}
+      {showAddVariantModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white border border-neutral-200 max-w-md w-full p-6 space-y-4 shadow-2xl rounded-2xs">
+            <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-maple-red rounded-full inline-block" />
+                <h3 className="text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
+                  Thêm Biến Thể Trang Chủ Mới
+                </h3>
+              </div>
+              <button onClick={() => setShowAddVariantModal(false)} className="text-neutral-400 hover:text-black">
+                <X size={18} />
+              </button>
+            </div>
+
+            <form onSubmit={handleCreateVariant} className="space-y-3.5 text-xs">
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Tên Biến Thể Trang Chủ *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ví dụ: Trang Chủ Chiến Dịch Mùa Hè 2026"
+                  value={newVariantTitle}
+                  onChange={(e) => setNewVariantTitle(e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Đường Dẫn Route Slug *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ví dụ: /events/summer-campaign-2026"
+                  value={newVariantSlug}
+                  onChange={(e) => setNewVariantSlug(e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-mono font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Mô Tả Mục Tiêu:</label>
+                <textarea
+                  rows={2}
+                  placeholder="Mô tả chiến dịch marketing của bản trang chủ này..."
+                  value={newVariantDesc}
+                  onChange={(e) => setNewVariantDesc(e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-medium text-maple-black focus:outline-none rounded-2xs"
+                />
+              </div>
+
+              <div className="flex justify-end gap-2.5 pt-3 border-t border-neutral-200">
+                <button
+                  type="button"
+                  onClick={() => setShowAddVariantModal(false)}
+                  className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
+                >
+                  Hủy bỏ
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors flex items-center gap-1.5 rounded-2xs shadow-2xs"
+                >
+                  <Plus size={15} />
+                  Khởi Tạo Biến Thể
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* CREATE NEW CATEGORY MODAL */}
+      {showAddCategoryModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white border border-neutral-200 max-w-sm w-full p-6 space-y-4 shadow-2xl rounded-2xs">
+            <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
+                <h3 className="text-base font-display font-extrabold text-[#1D1D1B] uppercase tracking-wide">
+                  Thêm Chuyên Mục Mới
+                </h3>
+              </div>
+              <button onClick={() => setShowAddCategoryModal(false)} className="text-neutral-400 hover:text-black">
+                <X size={18} />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddCategory} className="space-y-3.5 text-xs">
+              <div className="space-y-1">
+                <label className="font-bold text-neutral-700 block">Tên Chuyên Mục *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ví dụ: FACILITY & SERVICES"
+                  value={newCategoryName}
+                  onChange={(e) => setNewCategoryName(e.target.value)}
+                  className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold uppercase text-maple-black focus:outline-none focus:border-maple-red rounded-2xs"
+                />
+              </div>
+
+              <div className="flex justify-end gap-2.5 pt-3 border-t border-neutral-200">
+                <button
+                  type="button"
+                  onClick={() => setShowAddCategoryModal(false)}
+                  className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
+                >
+                  Hủy bỏ
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-[#151513] hover:bg-maple-red text-white font-extrabold text-xs transition-colors flex items-center gap-1.5 rounded-2xs shadow-2xs"
+                >
+                  <FolderPlus size={15} />
+                  Thêm Chuyên Mục
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* CREATE NEW STATIC PAGE MODAL */}
+      {showAddPageModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
           <div className="bg-white border border-neutral-200 max-w-md w-full p-6 space-y-4 shadow-2xl rounded-2xs">
             <div className="border-b border-neutral-100 pb-3 flex justify-between items-center">
@@ -962,7 +1168,7 @@ export default function AdminPagesPage() {
                   Tạo Trang Website Mới
                 </h3>
               </div>
-              <button onClick={() => setShowAddModal(false)} className="text-neutral-400 hover:text-black">
+              <button onClick={() => setShowAddPageModal(false)} className="text-neutral-400 hover:text-black">
                 <X size={18} />
               </button>
             </div>
@@ -999,17 +1205,16 @@ export default function AdminPagesPage() {
                   onChange={(e: any) => setNewPageCategory(e.target.value)}
                   className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none rounded-2xs"
                 >
-                  <option value="ABOUT US">About Us (Giới thiệu)</option>
-                  <option value="ACADEMICS">Academics (Chương trình học)</option>
-                  <option value="ADMISSIONS">Admissions (Tuyển sinh)</option>
-                  <option value="COMMUNITY">Community (Cộng đồng)</option>
+                  {categoriesList.map(cat => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
                 </select>
               </div>
 
               <div className="flex justify-end gap-2.5 pt-3 border-t border-neutral-200">
                 <button
                   type="button"
-                  onClick={() => setShowAddModal(false)}
+                  onClick={() => setShowAddPageModal(false)}
                   className="px-4 py-2 bg-neutral-100 text-[#1D1D1B] font-bold text-xs border border-neutral-300 rounded-2xs"
                 >
                   Hủy bỏ
