@@ -54,7 +54,18 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
         
         {/* Hero Header Section */}
         <section className="relative py-20 md:py-28 bg-[#151513] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#151513] via-[#151513]/90 to-transparent z-10" />
+          {post.featured_image && (
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={post.featured_image}
+                alt={post.title}
+                fill
+                className="object-cover scale-105 filter blur-[2px]"
+                priority
+              />
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#151513] via-[#151513]/85 to-black/75 z-10" />
           <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <div className="max-w-4xl mx-auto space-y-5 animate-fade-in-up">
               <div className="flex items-center justify-center gap-2.5 mb-2">
