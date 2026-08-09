@@ -353,7 +353,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {isSidebarOpen && <span>View Public Site</span>}
           </Link>
           <button
-            onClick={() => router.push('/login')}
+            onClick={() => {
+              document.cookie = 'smb_admin_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+              localStorage.removeItem('smb_admin_session')
+              window.location.href = '/login'
+            }}
             className={`flex items-center ${
               isSidebarOpen ? 'justify-start gap-2 px-3' : 'justify-center'
             } w-full py-2 bg-neutral-900 hover:bg-red-950 text-red-400 text-xs font-bold transition-colors border border-neutral-800 rounded-2xs`}

@@ -21,6 +21,9 @@ export default function LoginPage() {
 
     const userEmail = email.trim() || 'admin@sunshinemaplebear.edu.vn'
 
+    // Set cookie for Next.js Middleware check
+    document.cookie = 'smb_admin_session=true; path=/; max-age=86400; SameSite=Lax'
+
     // Store active admin session for instant CMS access
     localStorage.setItem('smb_admin_session', JSON.stringify({
       user: userEmail,
@@ -38,6 +41,9 @@ export default function LoginPage() {
     setEmail('admin@sunshinemaplebear.edu.vn')
     setPassword('SunshineMapleBear2026!')
     setLoading(true)
+
+    // Set cookie for Next.js Middleware check
+    document.cookie = 'smb_admin_session=true; path=/; max-age=86400; SameSite=Lax'
 
     localStorage.setItem('smb_admin_session', JSON.stringify({
       user: 'admin@sunshinemaplebear.edu.vn',

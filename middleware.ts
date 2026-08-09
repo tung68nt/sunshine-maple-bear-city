@@ -9,7 +9,9 @@ export async function middleware(request: NextRequest) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  // If Supabase env variables are configured, enforce authentication
+  // Check demo/local session cookie
+  const hasDemoSession = request.cookies.has('smb_admin_session')
+
   if (supabaseUrl && supabaseKey) {
     try {
       const supabase = createServerClient(
@@ -37,16 +39,23 @@ export async function middleware(request: NextRequest) {
         data: { user },
       } = await supabase.auth.getUser()
 
-      // Protect all routes starting with /admin
-      if (request.nextUrl.pathname.startsWith('/admin') && !user) {
-        // Allow access in dev mode if demo mode is active
-        if (process.env.NODE_ENV !== 'development') {
-          const redirectUrl = new URL('/login', request.url)
-          return NextResponse.redirect(redirectUrl)
-        }
+      // Protect /admin routes: allow if Supabase user OR demo session cookie exists
+      if (request.nextUrl.pathname.startsWith('/admin') && !user && !hasDemoSession) {
+        const redirectUrl = new URL('/login', request.url)
+        return NextResponse.redirect(redirectUrl)
       }
     } catch (error) {
       console.warn('Supabase auth check skipped in middleware:', error)
+      if (request.nextUrl.pathname.startsWith('/admin') && !hasDemoSession) {
+        const redirectUrl = new URL('/login', request.url)
+        return NextResponse.redirect(redirectUrl)
+      }
+    }
+  } else {
+    // If Supabase credentials are missing, check session cookie for /admin
+    if (request.nextUrl.pathname.startsWith('/admin') && !hasDemoSession) {
+      const redirectUrl = new URL('/login', request.url)
+      return NextResponse.redirect(redirectUrl)
     }
   }
 
