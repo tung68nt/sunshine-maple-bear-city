@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { MOCK_BLOG_POSTS } from '@/lib/blog-data'
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin, BookOpen, Clock, Tag, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
-import { notFound } from 'next/not-found'
 import type { Metadata } from 'next'
 
 export function generateStaticParams() {
@@ -30,7 +29,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
       description: post.excerpt,
       type: 'article',
       publishedTime: post.created_at,
-      authors: [post.author || 'Sunshine Maple Bear'],
+      authors: ['Sunshine Maple Bear'],
       images: [{ url: post.featured_image || '/logo.png', alt: post.title }]
     }
   }
@@ -85,7 +84,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <User size={14} className="text-maple-gold" />
-                  <span>{post.author || 'Sunshine Maple Bear'}</span>
+                  <span>Sunshine Maple Bear</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock size={14} className="text-maple-gold" />

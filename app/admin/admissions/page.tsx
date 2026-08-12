@@ -61,7 +61,7 @@ const initialSubmissions = [
 ]
 
 export default function AdminAdmissionsPage() {
-  const [submissions, setSubmissions] = useState(initialSubmissions)
+  const [submissions, setSubmissions] = useState<typeof initialSubmissions>([])
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [activeModal, setActiveModal] = useState<typeof initialSubmissions[0] | null>(null)
@@ -81,8 +81,23 @@ export default function AdminAdmissionsPage() {
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
-  const handleStatusChange = (id: string, newStatus: string) => {
-    setSubmissions(submissions.map(s => s.id === id ? { ...s, status: newStatus } : s))
+  const loadAdmissions = async () => {
+    const response = await fetch('/api/admin/admissions', { cache: 'no-store' })
+    const payload = await response.json().catch(() => ({}))
+    if (!response.ok) return
+    setSubmissions((payload.data || []).map((item: any) => ({
+      id: item.id,
+      name: item.parent_name || '', phone: item.parent_phone || '', email: item.parent_email || '',
+      childName: item.child_name || '', dob: item.child_dob || '', program: item.grade_level || '',
+      date: item.created_at || '', status: item.status || 'submitted', score: '', ipTracking: '', message: item.notes || ''
+    })))
+  }
+
+  useEffect(() => { void loadAdmissions() }, [])
+
+  const handleStatusChange = async (id: string, newStatus: string) => {
+    const response = await fetch('/api/admin/admissions', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, status: newStatus }) })
+    if (response.ok) await loadAdmissions()
   }
 
   const filtered = submissions.filter(s => {
@@ -92,6 +107,14 @@ export default function AdminAdmissionsPage() {
     const matchesStatus = statusFilter === 'ALL' || s.status === statusFilter
     return matchesSearch && matchesStatus
   })
+
+  const getStatusMeta = (status: string) => {
+    const normalized = status.toLowerCase()
+    if (['new', 'submitted'].includes(normalized)) return { label: adminUiLang === 'vi' ? 'Mới gửi' : 'New', tone: 'border-blue-200 bg-blue-50 text-blue-800', dot: 'bg-blue-500' }
+    if (['contacted', 'reviewing'].includes(normalized)) return { label: adminUiLang === 'vi' ? 'Đã liên hệ' : 'Contacted', tone: 'border-amber-200 bg-amber-50 text-amber-800', dot: 'bg-amber-500' }
+    if (normalized === 'enrolled') return { label: adminUiLang === 'vi' ? 'Đã nhập học' : 'Enrolled', tone: 'border-emerald-200 bg-emerald-50 text-emerald-800', dot: 'bg-emerald-500' }
+    return { label: status, tone: 'border-slate-200 bg-slate-50 text-slate-700', dot: 'bg-slate-400' }
+  }
 
   return (
     <div className="space-y-4 text-[#1D1D1B]">
@@ -132,89 +155,85 @@ export default function AdminAdmissionsPage() {
           className="bg-[#FDFBF7] border border-neutral-300 text-xs font-semibold p-1.5 focus:outline-none"
         >
           <option value="ALL">Tất cả trạng thái</option>
-          <option value="New">Mới tiếp nhận (New)</option>
-          <option value="Contacted">Đã liên hệ tư vấn</option>
-          <option value="Enrolled">Đã hoàn thành nhập học</option>
+          <option value="submitted">Mới tiếp nhận</option>
+          <option value="contacted">Đã liên hệ tư vấn</option>
+          <option value="enrolled">Đã hoàn thành nhập học</option>
         </select>
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
-        <table className="w-full text-left border-collapse">
+      <div className="bg-white border border-neutral-200 overflow-x-auto shadow-2xs rounded-2xs">
+        <table className="w-full min-w-[980px] table-fixed text-left border-collapse">
+          <colgroup>
+            <col className="w-[8%]" />
+            <col className="w-[12%]" />
+            <col className="w-[14%]" />
+            <col className="w-[13%]" />
+            <col className="w-[28%]" />
+            <col className="w-[10%]" />
+            <col className="w-[15%]" />
+          </colgroup>
           <thead>
             <tr className="bg-[#FDFBF7] border-b border-neutral-200 text-neutral-600 font-semibold text-[11px]">
-              <th className="py-2.5 px-3.5 whitespace-nowrap">Mã HS</th>
-              <th className="py-2.5 px-3.5 whitespace-nowrap">Họ tên phụ huynh</th>
-              <th className="py-2.5 px-3.5 whitespace-nowrap">Mức Độ (Lead Score)</th>
-              <th className="py-2.5 px-3.5 whitespace-nowrap">Số điện thoại & Email</th>
-              <th className="py-2.5 px-3.5 whitespace-nowrap">Họ tên bé & Lớp</th>
-              <th className="py-2.5 px-3.5">Nội dung Lời nhắn / Ghi chú</th>
-              <th className="py-2.5 px-3.5 whitespace-nowrap">Trạng thái</th>
-              <th className="py-2.5 px-3.5 text-right whitespace-nowrap">Thao tác</th>
+              <th className="py-3 px-4 whitespace-nowrap">Mã lead</th>
+              <th className="py-3 px-4 whitespace-nowrap">Phụ huynh</th>
+              <th className="py-3 px-4 whitespace-nowrap">Liên hệ</th>
+              <th className="py-3 px-4 whitespace-nowrap">Bé & nhu cầu</th>
+              <th className="py-3 px-4">Lời nhắn</th>
+              <th className="py-3 px-4 text-center whitespace-nowrap">Trạng thái</th>
+              <th className="border-l border-neutral-200 py-3 px-5 text-right whitespace-nowrap">Thao tác</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100 font-medium text-xs">
             {filtered.map((s) => (
               <tr key={s.id} className="hover:bg-neutral-50 transition-colors">
-                <td className="py-2.5 px-3.5 font-mono font-bold text-maple-red whitespace-nowrap">{s.id}</td>
-                <td className="py-2.5 px-3.5 font-bold text-[#1D1D1B] whitespace-nowrap">{s.name}</td>
-                <td className="py-2.5 px-3.5 whitespace-nowrap">
-                  <span className="px-2 py-0.5 bg-red-50 text-maple-red border border-red-200 font-extrabold text-[10px] rounded-2xs">
-                    {s.score || '🔥 HOT (92 điểm)'}
-                  </span>
-                  {s.ipTracking && (
-                    <div className="text-[9px] font-mono text-neutral-400 mt-0.5">{s.ipTracking}</div>
-                  )}
+                <td className="py-4 px-4 align-top">
+                  <span title={s.id} className="font-mono text-[11px] font-bold tabular-nums text-maple-red">HS-{s.id.slice(-6).toUpperCase()}</span>
                 </td>
-                <td className="py-2.5 px-3.5 font-mono text-neutral-600 whitespace-nowrap">
-                  <div>{s.phone}</div>
-                  <div className="text-[10px] text-neutral-400 font-sans">{s.email}</div>
+                <td className="py-4 px-4 align-top">
+                  <div className="font-bold text-[#1D1D1B] break-words">{s.name}</div>
+                  <div className="mt-1 text-[10px] text-neutral-400">{s.date ? new Intl.DateTimeFormat(adminUiLang === 'vi' ? 'vi-VN' : 'en-GB', { dateStyle: 'medium' }).format(new Date(s.date)) : '—'}</div>
                 </td>
-                <td className="py-2.5 px-3.5 whitespace-nowrap">
-                  <div className="font-bold text-[#1D1D1B]">{s.childName}</div>
-                  <div className="text-[10px] text-neutral-500 font-mono">{s.program}</div>
+                <td className="py-4 px-4 align-top">
+                  <a href={`tel:${s.phone}`} className="block font-mono font-semibold text-neutral-700 hover:text-maple-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-maple-red">{s.phone}</a>
+                  <a href={`mailto:${s.email}`} className="mt-1 block truncate text-[10px] text-neutral-500 hover:text-maple-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-maple-red">{s.email}</a>
                 </td>
-                <td className="py-2.5 px-3.5 max-w-xs">
-                  <div className="text-[11px] text-neutral-700 line-clamp-2 italic">
-                    &ldquo;{s.message}&rdquo;
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setActiveModal(s)}
-                    className="text-[10px] font-bold text-maple-red hover:underline mt-0.5 inline-flex items-center gap-1"
-                  >
-                    <Eye size={10} /> Xem chi tiết lời nhắn
-                  </button>
+                <td className="py-4 px-4 align-top">
+                  <div className="font-bold text-[#1D1D1B] break-words">{s.childName}</div>
+                  <div className="mt-1 text-[10px] leading-snug text-neutral-500 break-words">{s.program || '—'}</div>
                 </td>
-                <td className="py-3 px-4">
-                  <span className={`px-2 py-0.5 text-[10px] font-semibold rounded-2xs ${
-                    s.status === 'New'
-                      ? 'bg-blue-100 text-blue-800 border border-blue-300'
-                      : s.status === 'Contacted'
-                      ? 'bg-amber-100 text-amber-800 border border-amber-300'
-                      : 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                  }`}>
-                    {s.status === 'New' ? 'Mới gửi' : s.status === 'Contacted' ? 'Đã liên hệ' : 'Đã nhập học'}
-                  </span>
+                <td className="py-4 px-4 align-top">
+                  <p className={`${(s.message || '').length > 180 ? 'line-clamp-2' : ''} min-w-0 break-words whitespace-pre-line text-[11px] leading-relaxed text-neutral-700`}>{s.message || '—'}</p>
                 </td>
-                <td className="py-3 px-4 text-right space-x-1.5 whitespace-nowrap">
+                <td className="py-4 px-4 text-center align-middle">
+                  {(() => {
+                    const status = getStatusMeta(s.status)
+                    return <span className={`inline-flex min-w-[84px] items-center justify-center gap-1.5 border px-2 py-1 text-[10px] font-bold leading-none ${status.tone}`}><span className={`h-1.5 w-1.5 rounded-full ${status.dot}`} />{status.label}</span>
+                  })()}
+                </td>
+                <td className="border-l border-neutral-100 py-4 px-5 text-right align-middle whitespace-nowrap">
+                  <div className="flex items-center justify-end gap-2">
                   <button
                     onClick={() => setActiveModal(s)}
-                    className="px-2 py-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold text-xs rounded-2xs border border-neutral-300 inline-flex items-center gap-1"
+                    className="inline-flex items-center gap-1 border border-neutral-300 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-neutral-700 hover:border-neutral-400 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-maple-red"
                   >
-                    <Eye size={12} /> Xem Chi tiết
+                    <Eye size={12} /> Xem
                   </button>
-                  {s.status === 'New' && (
+                  {['new', 'submitted'].includes(s.status.toLowerCase()) && (
                     <button
-                      onClick={() => handleStatusChange(s.id, 'Contacted')}
-                      className="px-2 py-1 bg-[#1D1D1B] hover:bg-maple-red text-white text-xs font-semibold rounded-2xs shadow-2xs"
+                      onClick={() => handleStatusChange(s.id, 'contacted')}
+                      className="bg-[#1D1D1B] px-2.5 py-1.5 text-[11px] font-semibold text-white hover:bg-maple-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-maple-red focus-visible:ring-offset-2"
                     >
                       Đã liên hệ
                     </button>
                   )}
+                  </div>
                 </td>
               </tr>
             ))}
+            {filtered.length === 0 && (
+              <tr><td colSpan={7} className="px-4 py-12 text-center text-xs text-neutral-500">Chưa có lead phù hợp với bộ lọc.</td></tr>
+            )}
           </tbody>
         </table>
       </div>

@@ -4,56 +4,38 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { SCHOOL_INFO, SCHOOL_IMAGES } from '@/lib/constants'
-import { Lock, Mail, ArrowRight, Key, ShieldCheck } from 'lucide-react'
+import { Lock, Mail, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { createBrowserSupabaseClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('admin@sunshinemaplebear.edu.vn')
-  const [password, setPassword] = useState('SunshineMapleBear2026!')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
 
-    const userEmail = email.trim() || 'admin@sunshinemaplebear.edu.vn'
-
-    // Set cookie for Next.js Middleware check
-    document.cookie = 'smb_admin_session=true; path=/; max-age=86400; SameSite=Lax'
-
-    // Store active admin session for instant CMS access
-    localStorage.setItem('smb_admin_session', JSON.stringify({
-      user: userEmail,
-      role: 'admin',
-      loggedAt: new Date().toISOString()
-    }))
-
-    // Immediate client-side navigation
-    setTimeout(() => {
-      window.location.href = '/admin'
-    }, 100)
-  }
-
-  const fillDemoAccountAndLogin = () => {
-    setEmail('admin@sunshinemaplebear.edu.vn')
-    setPassword('SunshineMapleBear2026!')
-    setLoading(true)
-
-    // Set cookie for Next.js Middleware check
-    document.cookie = 'smb_admin_session=true; path=/; max-age=86400; SameSite=Lax'
-
-    localStorage.setItem('smb_admin_session', JSON.stringify({
-      user: 'admin@sunshinemaplebear.edu.vn',
-      role: 'admin',
-      loggedAt: new Date().toISOString()
-    }))
-
-    setTimeout(() => {
-      window.location.href = '/admin'
-    }, 100)
+    try {
+      const supabase = createBrowserSupabaseClient()
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: email.trim(), password,
+      })
+      if (signInError) {
+        setError('Email hoặc mật khẩu không đúng. Vui lòng thử lại.')
+        return
+      }
+      router.replace('/admin')
+      router.refresh()
+    } catch {
+      setError('Không thể kết nối dịch vụ đăng nhập. Vui lòng thử lại sau.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -68,7 +50,7 @@ export default function LoginPage() {
           {/* Header Banner */}
           <div className="p-8 text-center bg-[#151513] relative overflow-hidden">
             <div className="absolute inset-0 opacity-15">
-              <Image src={SCHOOL_IMAGES.render.thuVien6} alt="Background" fill className="object-cover" />
+              <Image src={SCHOOL_IMAGES.render.thuVien6} alt="" fill className="object-cover" />
             </div>
             <div className="relative z-10 space-y-3">
               <div className="relative w-12 h-12 mx-auto">
@@ -95,12 +77,13 @@ export default function LoginPage() {
 
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-neutral-700 mb-1 uppercase tracking-wider">
+                    <label htmlFor="admin-email" className="block text-xs font-bold text-neutral-700 mb-1 uppercase tracking-wider">
                   Email Quản Trị Viên *
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" size={16} />
-                  <input
+                      <input
+                        id="admin-email"
                     type="email"
                     required
                     value={email}
@@ -112,12 +95,13 @@ export default function LoginPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-neutral-700 mb-1 uppercase tracking-wider">
+                    <label htmlFor="admin-password" className="block text-xs font-bold text-neutral-700 mb-1 uppercase tracking-wider">
                   Mật Khẩu *
                 </label>
                 <div className="relative">
                   <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" size={16} />
-                  <input
+                      <input
+                        id="admin-password"
                     type="password"
                     required
                     value={password}
@@ -143,15 +127,7 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Quick Demo Fill Button */}
-            <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={fillDemoAccountAndLogin}
-                className="text-[11px] font-bold text-maple-gold hover:text-amber-700 flex items-center gap-1.5 cursor-pointer"
-              >
-                <Key size={13} /> Điền TK Thử Nghiệm & Đăng Nhập Ngay
-              </button>
+            <div className="pt-4 border-t border-neutral-100 flex items-center justify-end">
               <Link href="/" className="text-[11px] font-bold text-neutral-500 hover:text-maple-red">
                 Trang chủ
               </Link>

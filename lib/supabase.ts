@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
+import { getSupabasePublicEnv } from './supabase/env'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ddmdxidnovjesslxlbdy.supabase.co'
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_2vFjpi_lAWEStXxz_kq85g_rqy30inv'
+const { url: supabaseUrl, key: supabaseAnonKey } = getSupabasePublicEnv()
 
+// Legacy shared client. New browser/server callers must use lib/supabase/client or server.
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Helper function for server-side operations
@@ -163,7 +164,7 @@ export interface User {
 
 export interface PageSectionBlock {
   id: string
-  type: 'HERO' | 'STATISTICS' | 'FEATURES' | 'AGE_GROUPS' | 'DAILY_SCHEDULE' | 'NUTRITION' | 'FACILITIES' | 'CALENDAR' | 'ADMISSIONS_PROCESS' | 'TUITION_TABLE' | 'FOUNDING_FAMILIES' | 'TEACHERS' | 'HEALTH_SAFETY' | 'SAFEGUARDING' | 'TESTIMONIALS' | 'FAQ' | 'CTA'
+  type: 'HERO' | 'STATISTICS' | 'FEATURES' | 'AGE_GROUPS' | 'DAILY_SCHEDULE' | 'NUTRITION' | 'FACILITIES' | 'CALENDAR' | 'ADMISSIONS_PROCESS' | 'TUITION_TABLE' | 'FOUNDING_FAMILIES' | 'TEACHERS' | 'HEALTH_SAFETY' | 'SAFEGUARDING' | 'TESTIMONIALS' | 'FAQ' | 'CTA' | 'BODY'
   title?: string
   title_vi?: string
   title_en?: string
@@ -231,4 +232,3 @@ export async function saveSupabasePage(pageData: Partial<Page>) {
     return null
   }
 }
-

@@ -1,0 +1,639 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/6gixt9",
+    "id": "6gixt9",
+    "slide": 12,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "backgroundColor": "#1E2761",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/69kbehgb",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        67.2,
+        1152,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Khoảng trống dữ liệu",
+      "textPreview": "Khoảng trống dữ liệu",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Khoảng trống dữ liệu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Khoảng trống dữ liệu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Khoảng trống dữ liệu",
+              "fontSize": 45.33,
+              "typeface": "Cambria",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7atcnmhw",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        144,
+        1152,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP",
+      "textPreview": "Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP",
+              "fontSize": 20,
+              "typeface": "Calibri",
+              "color": "#CADCFC",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gfmtkbyd",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        86.4,
+        216,
+        528,
+        326.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#2C3B7A"
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hgvutgfy",
+      "id": "5",
+      "name": "Text 3",
+      "bbox": [
+        120,
+        230.4,
+        460.8,
+        48
+      ],
+      "geometry": "rect",
+      "text": "ĐANG CÓ",
+      "textPreview": "ĐANG CÓ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ĐANG CÓ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ĐANG CÓ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ĐANG CÓ",
+              "fontSize": 26.67,
+              "typeface": "Cambria",
+              "color": "#CADCFC",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ud4bi1g7",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        124.8,
+        288,
+        451.2,
+        240
+      ],
+      "geometry": "rect",
+      "text": "1 bảng kết quả GRDP theo quý\n9 trường dữ liệu\n2 loại giá, 1 phương pháp\nTần suất: quý, sau công bố",
+      "textPreview": "1 bảng kết quả GRDP theo quý | 9 trường dữ liệu | 2 loại giá, 1 phương pháp | Tần suất: quý, sau công bố",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• 1 bảng kết quả GRDP theo quý"
+          },
+          {
+            "index": 2,
+            "text": "• 9 trường dữ liệu"
+          },
+          {
+            "index": 3,
+            "text": "• 2 loại giá, 1 phương pháp"
+          },
+          {
+            "index": 4,
+            "text": "• Tần suất: quý, sau công bố"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1 bảng kết quả GRDP theo quý",
+          "runs": [
+            {
+              "index": 1,
+              "text": "1 bảng kết quả GRDP theo quý",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "9 trường dữ liệu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "9 trường dữ liệu",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "2 loại giá, 1 phương pháp",
+          "runs": [
+            {
+              "index": 1,
+              "text": "2 loại giá, 1 phương pháp",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Tần suất: quý, sau công bố",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tần suất: quý, sau công bố",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vedcr6hs",
+      "id": "7",
+      "name": "Shape 5",
+      "bbox": [
+        662.4,
+        216,
+        528,
+        326.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#C9A227"
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjit87y9",
+      "id": "8",
+      "name": "Text 6",
+      "bbox": [
+        696,
+        230.4,
+        460.8,
+        48
+      ],
+      "geometry": "rect",
+      "text": "CẦN CÓ",
+      "textPreview": "CẦN CÓ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CẦN CÓ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CẦN CÓ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "CẦN CÓ",
+              "fontSize": 26.67,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xkrahcze",
+      "id": "9",
+      "name": "Text 7",
+      "bbox": [
+        700.8,
+        288,
+        451.2,
+        240
+      ],
+      "geometry": "rect",
+      "text": "Khoảng 12–15 bảng dữ liệu nguồn\nTrên 60 trường dữ liệu\n3 phương pháp để đối chiếu chéo\nTần suất: tháng/quý, cập nhật liên tục",
+      "textPreview": "Khoảng 12–15 bảng dữ liệu nguồn | Trên 60 trường dữ liệu | 3 phương pháp để đối chiếu chéo | Tần suất: tháng/quý, cập nhật liên tục",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Khoảng 12–15 bảng dữ liệu nguồn"
+          },
+          {
+            "index": 2,
+            "text": "• Trên 60 trường dữ liệu"
+          },
+          {
+            "index": 3,
+            "text": "• 3 phương pháp để đối chiếu chéo"
+          },
+          {
+            "index": 4,
+            "text": "• Tần suất: tháng/quý, cập nhật liên tục"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Khoảng 12–15 bảng dữ liệu nguồn",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Khoảng 12–15 bảng dữ liệu nguồn",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Trên 60 trường dữ liệu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trên 60 trường dữ liệu",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "3 phương pháp để đối chiếu chéo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "3 phương pháp để đối chiếu chéo",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Tần suất: tháng/quý, cập nhật liên tục",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tần suất: tháng/quý, cập nhật liên tục",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcratof2",
+      "id": "10",
+      "name": "Shape 8",
+      "bbox": [
+        624,
+        345.6,
+        81.6,
+        57.6
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#FFFFFF"
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbi9kjyh",
+      "id": "11",
+      "name": "Text 9",
+      "bbox": [
+        86.4,
+        571.2,
+        1113.6,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân tăng/giảm được.",
+      "textPreview": "Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân t...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân tăng/giảm"
+          },
+          {
+            "index": 2,
+            "text": "được."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân tăng/giảm được.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân tăng/giảm được.",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#CADCFC",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { isAuthFailure, requireRole } from '@/lib/auth/require-role'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 export async function GET() {
   try {
+    const auth = await requireRole(['admin', 'editor', 'viewer']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const { data, error } = await supabase
       .from('custom_forms')
       .select('*')
@@ -20,13 +23,15 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const body = await request.json()
     if (!body.title) {
       return NextResponse.json({ error: 'Form title is required' }, { status: 400 })
     }
 
     const newForm = {
-      id: body.id || `form-${Date.now()}`,
+      id: body.id || crypto.randomUUID(),
       title: body.title,
       description: body.description || '',
       category: body.category || 'General Survey',

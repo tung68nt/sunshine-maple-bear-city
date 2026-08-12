@@ -463,16 +463,23 @@ export default function AdminPagesPage() {
     setTimeout(() => setSavedSuccess(false), 3000)
   }
 
-  const filteredPages = pages.filter(p => {
-    const matchesSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) || p.path.includes(searchTerm)
-    const matchesCat = categoryFilter === 'ALL' || p.category.toLowerCase().includes(categoryFilter.toLowerCase())
-    return matchesSearch && matchesCat
-  })
+  // Store category IDs, not localized strings. The fallback keeps legacy pages
+  // readable while the user edits them into the normalized format.
+  const getCategoryByValue = (value: string) => categories.find((category) =>
+    category.id === value || category.name_vi === value || category.name_en === value
+  )
 
   // Helper function for category localized name
   const getCategoryDisplayName = (cat: CategoryItem) => {
     return adminUiLang === 'en' ? cat.name_en : cat.name_vi
   }
+
+  const filteredPages = pages.filter(p => {
+    const search = searchTerm.toLowerCase()
+    const matchesSearch = [p.title, p.title_vi, p.title_en, p.path].filter(Boolean).some((value) => value!.toLowerCase().includes(search))
+    const matchesCat = categoryFilter === 'ALL' || getCategoryByValue(p.category)?.id === categoryFilter
+    return matchesSearch && matchesCat
+  })
 
   // -------------------------------------------------------------
   // VIEW 1: VISUAL BUILDER WORKSPACE
@@ -1081,9 +1088,9 @@ export default function AdminPagesPage() {
               {categories.map(cat => (
                 <button
                   key={cat.id}
-                  onClick={() => setCategoryFilter(cat.name_vi)}
+                  onClick={() => setCategoryFilter(cat.id)}
                   className={`px-4 py-2 rounded-2xs transition-all flex items-center gap-1.5 ${
-                    categoryFilter === cat.name_vi
+                    categoryFilter === cat.id
                       ? 'bg-[#151513] text-white shadow-xs'
                       : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black hover:border-neutral-300'
                   }`}
@@ -1135,12 +1142,12 @@ export default function AdminPagesPage() {
 
                     <td className="py-3.5 px-4">
                       <select
-                        value={p.category}
+                        value={getCategoryByValue(p.category)?.id || p.category}
                         onChange={(e) => handleUpdatePageCategory(p.id, e.target.value)}
                         className="bg-[#FDFBF7] border border-neutral-300 text-[10px] font-extrabold uppercase tracking-wider p-1.5 rounded-2xs focus:outline-none focus:border-maple-red cursor-pointer"
                       >
                         {categories.map(c => (
-                          <option key={c.id} value={c.name_vi}>{getCategoryDisplayName(c)}</option>
+                          <option key={c.id} value={c.id}>{getCategoryDisplayName(c)}</option>
                         ))}
                       </select>
                     </td>

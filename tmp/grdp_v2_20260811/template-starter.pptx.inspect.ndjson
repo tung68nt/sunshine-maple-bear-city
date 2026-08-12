@@ -1,0 +1,529 @@
+{"kind":"deck","id":"pr/aulb3t","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"DEFAULT"}
+{"kind":"slide","id":"sl/tidy0a","slide":1,"title":"GRDP","textShapes":4}
+{"kind":"shape","id":"sh/47ixczal","slide":1,"name":"Shape 0","bbox":[86.4,105.6,86.4,86.4]}
+{"kind":"textbox","id":"sh/p8re54r6","slide":1,"name":"Text 1","text":"GRDP","textPreview":"GRDP","textChars":4,"textLines":1,"bbox":[86.4,105.6,86.4,86.4]}
+{"kind":"textbox","id":"sh/uhgf6psj","slide":1,"name":"Text 2","text":"Dữ liệu đầu vào để tính GDP/GRDP","textPreview":"Dữ liệu đầu vào để tính GDP/GRDP","textChars":32,"textLines":1,"bbox":[86.4,225.6,1104,96]}
+{"kind":"textbox","id":"sh/fipwzu94","slide":1,"name":"Text 3","text":"Yêu cầu chỉ tiêu – trường dữ liệu – nguồn cấp cho Kho dữ liệu & Nền tảng phân tích IOC tỉnh Quảng Trị","textPreview":"Yêu cầu chỉ tiêu – trường dữ liệu – nguồn cấp cho Kho dữ liệu & Nền tảng phân tích IOC tỉnh Quảng Trị","textChars":101,"textLines":1,"bbox":[86.4,331.2,1056,76.8]}
+{"kind":"shape","id":"sh/g3yx8zap","slide":1,"name":"Shape 4","bbox":[86.4,432,307.2,0]}
+{"kind":"textbox","id":"sh/h47e14ru","slide":1,"name":"Text 5","text":"Tài liệu bổ sung cho bộ slide \"IOC – Kho dữ liệu\"\nDữ liệu minh hoạ: Tài khoản quốc gia – GRDP theo quý, Chi cục Thống kê tỉnh (2025 – Q2/2026)","textPreview":"Tài liệu bổ sung cho bộ slide \"IOC – Kho dữ liệu\" | Dữ liệu minh hoạ: Tài khoản quốc gia – GRDP theo quý, Chi cục Thống kê tỉnh (2025 – Q...","textChars":142,"textLines":2,"bbox":[86.4,456,1056,86.4]}
+{"kind":"notes","id":"nt/tidy0a","slide":1,"text":"Slide này bổ sung phần còn thiếu của bộ slide IOC-KHODL: dữ liệu đầu vào cụ thể để tính GRDP."}
+{"kind":"slide","id":"sl/ce4zyj","slide":2,"title":"Vấn đề cần làm rõ","textShapes":15}
+{"kind":"textbox","id":"sh/qt4v2tcj","slide":2,"name":"Text 0","text":"Vấn đề cần làm rõ","textPreview":"Vấn đề cần làm rõ","textChars":17,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/rudwbyt4","slide":2,"name":"Text 1","text":"Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào","textPreview":"Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào","textChars":73,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/0zmx83u1","slide":2,"name":"Shape 2","bbox":[67.2,177.6,1152,134.4]}
+{"kind":"shape","id":"sh/10veh8b6","slide":2,"name":"Shape 3","bbox":[96,201.6,40.32,40.32]}
+{"kind":"textbox","id":"sh/ex4f6dcv","slide":2,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[96,201.6,40.32,40.32]}
+{"kind":"textbox","id":"sh/zydwfitg","slide":2,"name":"Text 5","text":"Slide IOC hiện có","textPreview":"Slide IOC hiện có","textChars":17,"textLines":1,"bbox":[153.6,192.96,326.4,38.4]}
+{"kind":"textbox","id":"sh/g32dwjuh","slide":2,"name":"Text 6","text":"Trả lời câu hỏi \"hệ thống làm được gì\"","textPreview":"Trả lời câu hỏi \"hệ thống làm được gì\"","textChars":38,"textLines":1,"bbox":[153.6,237.12,326.4,57.6]}
+{"kind":"textbox","id":"sh/h4be5ov2","slide":2,"name":"Text 7","text":"Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg), lưu trữ, chia sẻ dữ liệu.","textPreview":"Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg), lưu trữ, chia sẻ dữ liệu.","textChars":121,"textLines":1,"bbox":[508.8,196.8,681.6,96]}
+{"kind":"shape","id":"sh/t47q9cje","slide":2,"name":"Shape 8","bbox":[67.2,331.2,1152,134.4]}
+{"kind":"shape","id":"sh/83y90r2t","slide":2,"name":"Shape 9","bbox":[96,355.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/72587m18","slide":2,"name":"Text 10","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[96,355.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/61wryhkn","slide":2,"name":"Text 11","text":"File Excel hiện có","textPreview":"File Excel hiện có","textChars":18,"textLines":1,"bbox":[153.6,346.56,326.4,38.4]}
+{"kind":"textbox","id":"sh/hs7adwja","slide":2,"name":"Text 12","text":"Trả lời câu hỏi \"kết quả ra sao\"","textPreview":"Trả lời câu hỏi \"kết quả ra sao\"","textChars":32,"textLines":1,"bbox":[153.6,390.72,326.4,57.6]}
+{"kind":"textbox","id":"sh/g7y94r25","slide":2,"name":"Text 13","text":"Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do Thống kê công bố.","textPreview":"Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do Thống kê công bố.","textChars":107,"textLines":1,"bbox":[508.8,350.4,681.6,96]}
+{"kind":"shape","id":"sh/v6psbm1k","slide":2,"name":"Shape 14","bbox":[67.2,484.8,1152,134.4]}
+{"kind":"shape","id":"sh/u5gr2hkz","slide":2,"name":"Shape 15","bbox":[96,508.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/pwrahwjm","slide":2,"name":"Text 16","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[96,508.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/4vi98b21","slide":2,"name":"Text 17","text":"Phần còn thiếu","textPreview":"Phần còn thiếu","textChars":14,"textLines":1,"bbox":[153.6,500.16,326.4,38.4]}
+{"kind":"textbox","id":"sh/obql0ze9","slide":2,"name":"Text 18","text":"Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\"","textPreview":"Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\"","textChars":44,"textLines":1,"bbox":[153.6,544.32,326.4,57.6]}
+{"kind":"textbox","id":"sh/9cj2t4vu","slide":2,"name":"Text 19","text":"Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được GRDP.","textPreview":"Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được GRDP.","textChars":97,"textLines":1,"bbox":[508.8,504,681.6,96]}
+{"kind":"textbox","id":"sh/mp83y9wj","slide":2,"name":"Text 20","text":"Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx","textPreview":"Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx","textChars":94,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"notes","id":"nt/ce4zyj","slide":2,"text":""}
+{"kind":"slide","id":"sl/fdzac0","slide":3,"title":"GRDP – định nghĩa và hệ ký hiệu chuẩn","textShapes":27}
+{"kind":"textbox","id":"sh/9ojqpsf2","slide":3,"name":"Text 0","text":"GRDP – định nghĩa và hệ ký hiệu chuẩn","textPreview":"GRDP – định nghĩa và hệ ký hiệu chuẩn","textChars":37,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/onapwnyh","slide":3,"name":"Text 1","text":"Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ","textPreview":"Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ","textChars":96,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/bq18r2x8","slide":3,"name":"Shape 2","bbox":[67.2,168,1171.2,120]}
+{"kind":"shape","id":"sh/xsjqtsfy","slide":3,"name":"Shape 3","bbox":[67.2,312,283.2,96]}
+{"kind":"textbox","id":"sh/ju18v2x4","slide":3,"name":"Text 4","text":"Tổng sản phẩm trên địa bàn","textPreview":"Tổng sản phẩm trên địa bàn","textChars":26,"textLines":1,"bbox":[84.48,350.4,249.6,33.6]}
+{"kind":"textbox","id":"sh/ytsr2xgj","slide":3,"name":"Text 5","text":"Tỷ đồng","textPreview":"Tỷ đồng","textChars":7,"textLines":1,"bbox":[84.48,383.04,249.6,21.12]}
+{"kind":"shape","id":"sh/0nmp43eh","slide":3,"name":"Shape 6","bbox":[364.8,312,283.2,96]}
+{"kind":"textbox","id":"sh/el472twr","slide":3,"name":"Text 7","text":"Giá trị tăng thêm của ngành i","textPreview":"Giá trị tăng thêm của ngành i","textChars":29,"textLines":1,"bbox":[382.08,350.4,249.6,33.6]}
+{"kind":"textbox","id":"sh/fmdobydw","slide":3,"name":"Text 8","text":"Tỷ đồng","textPreview":"Tỷ đồng","textChars":7,"textLines":1,"bbox":[382.08,383.04,249.6,21.12]}
+{"kind":"shape","id":"sh/or6p8nut","slide":3,"name":"Shape 9","bbox":[662.4,312,283.2,96]}
+{"kind":"textbox","id":"sh/2po76dwn","slide":3,"name":"Text 10","text":"Giá trị sản xuất của ngành i","textPreview":"Giá trị sản xuất của ngành i","textChars":28,"textLines":1,"bbox":[679.68,350.4,249.6,33.6]}
+{"kind":"textbox","id":"sh/nqxofid8","slide":3,"name":"Text 11","text":"Tỷ đồng","textPreview":"Tỷ đồng","textChars":7,"textLines":1,"bbox":[679.68,383.04,249.6,21.12]}
+{"kind":"shape","id":"sh/cf6pcnup","slide":3,"name":"Shape 12","bbox":[960,312,283.2,96]}
+{"kind":"textbox","id":"sh/lcv65sne","slide":3,"name":"Text 13","text":"Chi phí trung gian của ngành i","textPreview":"Chi phí trung gian của ngành i","textChars":30,"textLines":1,"bbox":[977.28,350.4,249.6,33.6]}
+{"kind":"textbox","id":"sh/kbmpwnmt","slide":3,"name":"Text 14","text":"Tỷ đồng","textPreview":"Tỷ đồng","textChars":7,"textLines":1,"bbox":[977.28,383.04,249.6,21.12]}
+{"kind":"shape","id":"sh/jato3i58","slide":3,"name":"Shape 15","bbox":[67.2,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/t0v69snq","slide":3,"name":"Text 16","text":"Hệ số chi phí trung gian ngành i","textPreview":"Hệ số chi phí trung gian ngành i","textChars":32,"textLines":1,"bbox":[84.48,460.8,249.6,33.6]}
+{"kind":"textbox","id":"sh/8zmp0nm5","slide":3,"name":"Text 17","text":"Lần (0–1)","textPreview":"Lần (0–1)","textChars":9,"textLines":1,"bbox":[84.48,493.44,249.6,21.12]}
+{"kind":"shape","id":"sh/7edo725k","slide":3,"name":"Shape 18","bbox":[364.8,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/94b6x8n6","slide":3,"name":"Text 19","text":"Thuế sản phẩm","textPreview":"Thuế sản phẩm","textChars":13,"textLines":1,"bbox":[382.08,460.8,249.6,33.6]}
+{"kind":"textbox","id":"sh/oj25o3ml","slide":3,"name":"Text 20","text":"Tỷ đồng","textPreview":"Tỷ đồng","textChars":7,"textLines":1,"bbox":[382.08,493.44,249.6,21.12]}
+{"kind":"shape","id":"sh/epg3y9kj","slide":3,"name":"Shape 21","bbox":[662.4,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/0byl0j2p","slide":3,"name":"Text 22","text":"Trợ cấp sản phẩm","textPreview":"Trợ cấp sản phẩm","textChars":16,"textLines":1,"bbox":[679.68,460.8,249.6,33.6]}
+{"kind":"textbox","id":"sh/1crm943a","slide":3,"name":"Text 23","text":"Tỷ đồng","textPreview":"Tỷ đồng","textChars":7,"textLines":1,"bbox":[679.68,493.44,249.6,21.12]}
+{"kind":"shape","id":"sh/md0329kv","slide":3,"name":"Shape 24","bbox":[960,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/ofil4j2l","slide":3,"name":"Text 25","text":"Số ngành kinh tế được biên soạn","textPreview":"Số ngành kinh tế được biên soạn","textChars":31,"textLines":1,"bbox":[977.28,460.8,249.6,33.6]}
+{"kind":"textbox","id":"sh/9grmdo36","slide":3,"name":"Text 26","text":"Ngành","textPreview":"Ngành","textChars":5,"textLines":1,"bbox":[977.28,493.44,249.6,21.12]}
+{"kind":"shape","id":"sh/ihw3qp4b","slide":3,"name":"Shape 27","bbox":[67.2,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/j2ds7m9o","slide":3,"name":"Text 28","text":"Kỳ báo cáo (quý/năm)","textPreview":"Kỳ báo cáo (quý/năm)","textChars":20,"textLines":1,"bbox":[84.48,571.2,249.6,33.6]}
+{"kind":"textbox","id":"sh/y14rehs3","slide":3,"name":"Text 29","text":"—","textPreview":"—","textChars":1,"textLines":1,"bbox":[84.48,603.84,249.6,21.12]}
+{"kind":"shape","id":"sh/l4fa9wre","slide":3,"name":"Shape 30","bbox":[364.8,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/76xsbm9k","slide":3,"name":"Text 31","text":"Chỉ số trên: giá hiện hành / giá so sánh","textPreview":"Chỉ số trên: giá hiện hành / giá so sánh","textChars":40,"textLines":1,"bbox":[382.08,571.2,249.6,33.6]}
+{"kind":"textbox","id":"sh/65obihsz","slide":3,"name":"Text 32","text":"—","textPreview":"—","textChars":1,"textLines":1,"bbox":[382.08,603.84,249.6,21.12]}
+{"kind":"shape","id":"sh/tsfadwrq","slide":3,"name":"Shape 33","bbox":[662.4,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/vuhsf69w","slide":3,"name":"Text 34","text":"Chỉ số giá của kỳ t so với năm gốc","textPreview":"Chỉ số giá của kỳ t so với năm gốc","textChars":34,"textLines":1,"bbox":[679.68,571.2,249.6,33.6]}
+{"kind":"textbox","id":"sh/utobm1sb","slide":3,"name":"Text 35","text":"%","textPreview":"%","textChars":1,"textLines":1,"bbox":[679.68,603.84,249.6,21.12]}
+{"kind":"shape","id":"sh/szq9wb69","slide":3,"name":"Shape 36","bbox":[960,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/qx8ru1o3","slide":3,"name":"Text 37","text":"Tỷ trọng ngành i trong GRDP","textPreview":"Tỷ trọng ngành i trong GRDP","textChars":27,"textLines":1,"bbox":[977.28,571.2,249.6,33.6]}
+{"kind":"textbox","id":"sh/ryhs36po","slide":3,"name":"Text 38","text":"%","textPreview":"%","textChars":1,"textLines":1,"bbox":[977.28,603.84,249.6,21.12]}
+{"kind":"textbox","id":"sh/4vq9sr6d","slide":3,"name":"Text 39","text":"Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này.","textPreview":"Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này.","textChars":69,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"image","id":"im/md0j61wr","slide":3,"name":"Image 0","bbox":[292.8,187.2,720,118.23]}
+{"kind":"image","id":"im/90r21wv2","slide":3,"name":"Image 1","bbox":[84.48,321.6,65.82,24.96]}
+{"kind":"image","id":"im/8zi18beh","slide":3,"name":"Image 2","bbox":[382.08,321.6,37.84,24.96]}
+{"kind":"image","id":"im/v2tk36d8","slide":3,"name":"Image 3","bbox":[679.68,321.6,42.06,24.96]}
+{"kind":"image","id":"im/a10ja1wn","slide":3,"name":"Image 4","bbox":[977.28,321.6,29.8,24.96]}
+{"kind":"image","id":"im/69ovi9k7","slide":3,"name":"Image 5","bbox":[84.48,432,20.12,24.96]}
+{"kind":"image","id":"im/raxcre1s","slide":3,"name":"Image 6","bbox":[382.08,432,31.42,24.96]}
+{"kind":"image","id":"im/sb6dkj2d","slide":3,"name":"Image 7","bbox":[679.68,432,31.32,24.96]}
+{"kind":"image","id":"im/tcfut4ji","slide":3,"name":"Image 8","bbox":[977.28,432,16.3,24.96]}
+{"kind":"image","id":"im/i54vepkv","slide":3,"name":"Image 9","bbox":[84.48,542.4,13.08,24.96]}
+{"kind":"image","id":"im/j6dcnu1g","slide":3,"name":"Image 10","bbox":[382.08,542.4,68.24,24.96]}
+{"kind":"image","id":"im/476dgz21","slide":3,"name":"Image 11","bbox":[679.68,542.4,17.55,24.96]}
+{"kind":"image","id":"im/58fup4jm","slide":3,"name":"Image 12","bbox":[977.28,542.4,25.96,24.96]}
+{"kind":"notes","id":"nt/fdzac0","slide":3,"text":""}
+{"kind":"slide","id":"sl/10d3y0","slide":4,"title":"Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng","textShapes":20}
+{"kind":"textbox","id":"sh/2donyxcz","slide":4,"name":"Text 0","text":"Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng","textPreview":"Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng","textChars":41,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/3exor2t4","slide":4,"name":"Text 1","text":"Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành","textPreview":"Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành","textChars":78,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/cj654ru1","slide":4,"name":"Shape 2","bbox":[67.2,172.8,566.4,148.8]}
+{"kind":"textbox","id":"sh/dkz6xwbm","slide":4,"name":"Text 3","text":"Nghị định 94/2022/NĐ-CP","textPreview":"Nghị định 94/2022/NĐ-CP","textChars":23,"textLines":1,"bbox":[94.08,184.32,513.6,33.6]}
+{"kind":"textbox","id":"sh/qhon2hcv","slide":4,"name":"Text 4","text":"Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP.","textPreview":"Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP.","textChars":129,"textLines":1,"bbox":[94.08,220.8,513.6,57.6]}
+{"kind":"textbox","id":"sh/rixovmtg","slide":4,"name":"Text 5","text":"Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều 12 (lịch công bố)","textPreview":"Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều 12 (lịch công bố)","textChars":117,"textLines":1,"bbox":[94.08,280.32,513.6,33.6]}
+{"kind":"shape","id":"sh/07q58rux","slide":4,"name":"Shape 6","bbox":[662.4,172.8,566.4,148.8]}
+{"kind":"textbox","id":"sh/18z61wbi","slide":4,"name":"Text 7","text":"Quyết định 715/QĐ-TTg (22/5/2015)","textPreview":"Quyết định 715/QĐ-TTg (22/5/2015)","textChars":33,"textLines":1,"bbox":[689.28,184.32,513.6,33.6]}
+{"kind":"textbox","id":"sh/54jeh4fu","slide":4,"name":"Text 8","text":"Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ quan thống kê trung ương.","textPreview":"Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ quan thống kê trung ương.","textChars":113,"textLines":1,"bbox":[689.28,220.8,513.6,57.6]}
+{"kind":"textbox","id":"sh/4jad8zy9","slide":4,"name":"Text 9","text":"Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\"","textPreview":"Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\"","textChars":75,"textLines":1,"bbox":[689.28,280.32,513.6,33.6]}
+{"kind":"shape","id":"sh/ji1wfuxo","slide":4,"name":"Shape 10","bbox":[67.2,337.92,566.4,148.8]}
+{"kind":"textbox","id":"sh/ihsv6pg3","slide":4,"name":"Text 11","text":"Nghị định 62/2024/NĐ-CP","textPreview":"Nghị định 62/2024/NĐ-CP","textChars":23,"textLines":1,"bbox":[94.08,349.44,513.6,33.6]}
+{"kind":"textbox","id":"sh/t83el4fq","slide":4,"name":"Text 12","text":"Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP.","textPreview":"Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP.","textChars":71,"textLines":1,"bbox":[94.08,385.92,513.6,57.6]}
+{"kind":"textbox","id":"sh/s7udczy5","slide":4,"name":"Text 13","text":"Áp dụng cho lịch phổ biến số liệu quý/năm","textPreview":"Áp dụng cho lịch phổ biến số liệu quý/năm","textChars":41,"textLines":1,"bbox":[94.08,445.44,513.6,33.6]}
+{"kind":"shape","id":"sh/r61wjuxk","slide":4,"name":"Shape 14","bbox":[662.4,337.92,566.4,148.8]}
+{"kind":"textbox","id":"sh/65svapgf","slide":4,"name":"Text 15","text":"Năm gốc so sánh 2020","textPreview":"Năm gốc so sánh 2020","textChars":20,"textLines":1,"bbox":[689.28,349.44,513.6,33.6]}
+{"kind":"textbox","id":"sh/9czu9kfm","slide":4,"name":"Text 16","text":"Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh.","textPreview":"Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh.","textChars":83,"textLines":1,"bbox":[689.28,385.92,513.6,57.6]}
+{"kind":"textbox","id":"sh/8bqd0fy1","slide":4,"name":"Text 17","text":"Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có","textPreview":"Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có","textChars":62,"textLines":1,"bbox":[689.28,445.44,513.6,33.6]}
+{"kind":"shape","id":"sh/0vudwf6x","slide":4,"name":"Shape 18","bbox":[67.2,503.04,566.4,148.8]}
+{"kind":"textbox","id":"sh/lw3epkni","slide":4,"name":"Text 19","text":"Nghị định 29/2025/NĐ-CP","textPreview":"Nghị định 29/2025/NĐ-CP","textChars":23,"textLines":1,"bbox":[94.08,514.56,513.6,33.6]}
+{"kind":"textbox","id":"sh/ytcvu5or","slide":4,"name":"Text 20","text":"Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là Chi cục Thống kê.","textPreview":"Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là Chi cục Thống kê.","textChars":104,"textLines":1,"bbox":[94.08,551.04,513.6,57.6]}
+{"kind":"textbox","id":"sh/zulwna5c","slide":4,"name":"Text 21","text":"Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh","textPreview":"Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh","textChars":61,"textLines":1,"bbox":[94.08,610.56,513.6,33.6]}
+{"kind":"shape","id":"sh/8jud0f6t","slide":4,"name":"Shape 22","bbox":[662.4,503.04,566.4,148.8]}
+{"kind":"textbox","id":"sh/9k3etkne","slide":4,"name":"Text 23","text":"Nghị quyết 60-NQ/TW & sắp xếp ĐVHC","textPreview":"Nghị quyết 60-NQ/TW & sắp xếp ĐVHC","textChars":34,"textLines":1,"bbox":[689.28,514.56,513.6,33.6]}
+{"kind":"textbox","id":"sh/mxcvypo3","slide":4,"name":"Text 24","text":"Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới.","textPreview":"Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới.","textChars":70,"textLines":1,"bbox":[689.28,551.04,513.6,57.6]}
+{"kind":"textbox","id":"sh/nylwru58","slide":4,"name":"Text 25","text":"Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính","textPreview":"Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính","textChars":55,"textLines":1,"bbox":[689.28,610.56,513.6,33.6]}
+{"kind":"notes","id":"nt/10d3y0","slide":4,"text":""}
+{"kind":"slide","id":"sl/s6nkkn","slide":5,"title":"Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?","textShapes":12}
+{"kind":"textbox","id":"sh/gn65g3i1","slide":5,"name":"Text 0","text":"Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?","textPreview":"Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?","textChars":57,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/hoz6p8jm","slide":5,"name":"Text 1","text":"Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước","textPreview":"Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước","textChars":117,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/mxona90j","slide":5,"name":"Shape 2","bbox":[67.2,172.8,1171.2,148.8]}
+{"kind":"shape","id":"sh/7yx4je14","slide":5,"name":"Shape 3","bbox":[96,192,40.32,40.32]}
+{"kind":"textbox","id":"sh/8j65cjip","slide":5,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[96,192,40.32,40.32]}
+{"kind":"textbox","id":"sh/9kfmloja","slide":5,"name":"Text 5","text":"Phương pháp SẢN XUẤT","textPreview":"Phương pháp SẢN XUẤT","textChars":20,"textLines":1,"bbox":[153.6,186.24,499.2,38.4]}
+{"kind":"textbox","id":"sh/zud4fe18","slide":5,"name":"Text 6","text":"BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định 94/2022/NĐ-CP","textPreview":"BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định 94/2022/NĐ-CP","textChars":69,"textLines":1,"bbox":[825.6,192,393.6,110.4]}
+{"kind":"shape","id":"sh/fa5s3ad0","slide":5,"name":"Shape 7","bbox":[67.2,337.92,1171.2,148.8]}
+{"kind":"shape","id":"sh/e9cba5wf","slide":5,"name":"Shape 8","bbox":[96,357.12,40.32,40.32]}
+{"kind":"textbox","id":"sh/1wna50v6","slide":5,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[96,357.12,40.32,40.32]}
+{"kind":"textbox","id":"sh/gbetcvel","slide":5,"name":"Text 10","text":"Phương pháp THU NHẬP","textPreview":"Phương pháp THU NHẬP","textChars":20,"textLines":1,"bbox":[153.6,351.36,499.2,38.4]}
+{"kind":"textbox","id":"sh/2xwbe5wr","slide":5,"name":"Text 11","text":"Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và phân tích cơ cấu thu nhập","textPreview":"Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và phân tích cơ cấu thu nhập","textChars":84,"textLines":1,"bbox":[825.6,357.12,393.6,110.4]}
+{"kind":"shape","id":"sh/p0na9kv2","slide":5,"name":"Shape 12","bbox":[67.2,503.04,1171.2,148.8]}
+{"kind":"shape","id":"sh/ozetgfex","slide":5,"name":"Shape 13","bbox":[96,522.24,40.32,40.32]}
+{"kind":"textbox","id":"sh/j2lsv6ds","slide":5,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[96,522.24,40.32,40.32]}
+{"kind":"textbox","id":"sh/i1sr2lw7","slide":5,"name":"Text 15","text":"Phương pháp SỬ DỤNG CUỐI CÙNG","textPreview":"Phương pháp SỬ DỤNG CUỐI CÙNG","textChars":29,"textLines":1,"bbox":[153.6,516.48,499.2,38.4]}
+{"kind":"textbox","id":"sh/ny9wjexg","slide":5,"name":"Text 16","text":"Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính phạm vi cả nước — Điều 9 khoản 2","textPreview":"Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính phạm vi cả nước — Điều 9 khoản 2","textChars":95,"textLines":1,"bbox":[825.6,522.24,393.6,110.4]}
+{"kind":"textbox","id":"sh/8zidcjy1","slide":5,"name":"Text 17","text":"Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA).","textPreview":"Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA).","textChars":138,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"image","id":"im/69w32503","slide":5,"name":"Image 0","bbox":[155.52,232.32,326.4,66.34]}
+{"kind":"image","id":"im/h0721kjq","slide":5,"name":"Image 1","bbox":[155.52,397.44,537.6,38.18]}
+{"kind":"image","id":"im/gzyl8fil","slide":5,"name":"Image 2","bbox":[155.52,562.56,633.6,40.62]}
+{"kind":"notes","id":"nt/s6nkkn","slide":5,"text":""}
+{"kind":"slide","id":"sl/p89wa0","slide":6,"title":"Phương pháp 1 – Sản xuất: cần trường dữ liệu gì","textShapes":15}
+{"kind":"textbox","id":"sh/2lcvi1wb","slide":6,"name":"Text 0","text":"Phương pháp 1 – Sản xuất: cần trường dữ liệu gì","textPreview":"Phương pháp 1 – Sản xuất: cần trường dữ liệu gì","textChars":47,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/nmlwb6dw","slide":6,"name":"Text 1","text":"Giá trị tăng thêm từng ngành là gốc của mọi tính toán","textPreview":"Giá trị tăng thêm từng ngành là gốc của mọi tính toán","textChars":53,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/cbexobed","slide":6,"name":"Shape 2","bbox":[67.2,168,1171.2,72]}
+{"kind":"textbox","id":"sh/a9cvmlwn","slide":6,"name":"Text 3","text":"Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số giá, thuế sản phẩm, trợ cấp sản phẩm.","textPreview":"Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số gi...","textChars":172,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"shape","id":"sh/balwfqds","slide":6,"name":"Shape 4","bbox":[67.2,264,1171.2,57.6]}
+{"kind":"textbox","id":"sh/sfadcre9","slide":6,"name":"Text 5","text":"GO – Giá trị sản xuất","textPreview":"GO – Giá trị sản xuất","textChars":21,"textLines":1,"bbox":[91.2,264,278.4,57.6]}
+{"kind":"textbox","id":"sh/dgje5wvu","slide":6,"name":"Text 6","text":"Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho khu vực nhà nước.","textPreview":"Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho khu vực ...","textChars":146,"textLines":1,"bbox":[384,264,835.2,57.6]}
+{"kind":"shape","id":"sh/lsvehgvi","slide":6,"name":"Shape 7","bbox":[67.2,329.28,1171.2,57.6]}
+{"kind":"textbox","id":"sh/krmdobux","slide":6,"name":"Text 8","text":"IC – Chi phí trung gian","textPreview":"IC – Chi phí trung gian","textChars":23,"textLines":1,"bbox":[91.2,329.28,278.4,57.6]}
+{"kind":"textbox","id":"sh/jqdwf6dc","slide":6,"name":"Text 9","text":"Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành.","textPreview":"Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành.","textChars":100,"textLines":1,"bbox":[384,329.28,835.2,57.6]}
+{"kind":"shape","id":"sh/yp4vmlc7","slide":6,"name":"Shape 10","bbox":[67.2,394.56,1171.2,57.6]}
+{"kind":"textbox","id":"sh/twfel0vu","slide":6,"name":"Text 11","text":"Cơ cấu ngành","textPreview":"Cơ cấu ngành","textChars":12,"textLines":1,"bbox":[91.2,394.56,278.4,57.6]}
+{"kind":"textbox","id":"sh/8v6xsvu9","slide":6,"name":"Text 12","text":"Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi.","textPreview":"Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi.","textChars":82,"textLines":1,"bbox":[384,394.56,835.2,57.6]}
+{"kind":"shape","id":"sh/7uxwjqdo","slide":6,"name":"Shape 13","bbox":[67.2,459.84,1171.2,57.6]}
+{"kind":"textbox","id":"sh/6t4vqlc3","slide":6,"name":"Text 14","text":"Thuế sản phẩm","textPreview":"Thuế sản phẩm","textChars":13,"textLines":1,"bbox":[91.2,459.84,278.4,57.6]}
+{"kind":"textbox","id":"sh/hkfep0bq","slide":6,"name":"Text 15","text":"Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải quan).","textPreview":"Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải quan).","textChars":136,"textLines":1,"bbox":[384,459.84,835.2,57.6]}
+{"kind":"shape","id":"sh/gj6xwvu5","slide":6,"name":"Shape 16","bbox":[67.2,525.12,1171.2,57.6]}
+{"kind":"textbox","id":"sh/0fyp836t","slide":6,"name":"Text 17","text":"Trợ cấp sản phẩm","textPreview":"Trợ cấp sản phẩm","textChars":16,"textLines":1,"bbox":[91.2,525.12,278.4,57.6]}
+{"kind":"textbox","id":"sh/107qh8ne","slide":6,"name":"Text 18","text":"Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách.","textPreview":"Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách.","textChars":54,"textLines":1,"bbox":[384,525.12,835.2,57.6]}
+{"kind":"shape","id":"sh/edg76ton","slide":6,"name":"Shape 19","bbox":[67.2,590.4,1171.2,57.6]}
+{"kind":"textbox","id":"sh/zep8fy58","slide":6,"name":"Text 20","text":"Chỉ số giá","textPreview":"Chỉ số giá","textChars":10,"textLines":1,"bbox":[91.2,590.4,278.4,57.6]}
+{"kind":"textbox","id":"sh/o3ipcn6p","slide":6,"name":"Text 21","text":"CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh.","textPreview":"CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh.","textChars":87,"textLines":1,"bbox":[384,590.4,835.2,57.6]}
+{"kind":"image","id":"im/axcfehob","slide":6,"name":"Image 0","bbox":[273.6,185.28,748.8,51.08]}
+{"kind":"notes","id":"nt/p89wa0","slide":6,"text":""}
+{"kind":"slide","id":"sl/vjtz75","slide":7,"title":"Phương pháp 2 – Thu nhập: cần trường dữ liệu gì","textShapes":15}
+{"kind":"textbox","id":"sh/jil4vad0","slide":7,"name":"Text 0","text":"Phương pháp 2 – Thu nhập: cần trường dữ liệu gì","textPreview":"Phương pháp 2 – Thu nhập: cần trường dữ liệu gì","textChars":47,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/ihsn25cf","slide":7,"name":"Text 1","text":"Tiếp cận từ phía phân phối thu nhập — dùng để đối chiếu, không dùng công bố GRDP tỉnh","textPreview":"Tiếp cận từ phía phân phối thu nhập — dùng để đối chiếu, không dùng công bố GRDP tỉnh","textChars":85,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/to3m1kv2","slide":7,"name":"Shape 2","bbox":[67.2,168,1171.2,81.6]}
+{"kind":"shape","id":"sh/rml4zudw","slide":7,"name":"Shape 3","bbox":[67.2,268.8,566.4,177.6]}
+{"kind":"shape","id":"sh/6lcn6pcb","slide":7,"name":"Shape 4","bbox":[67.2,268.8,566.4,59.52]}
+{"kind":"textbox","id":"sh/9sjmp0vi","slide":7,"name":"Text 5","text":"Thu nhập của người lao động","textPreview":"Thu nhập của người lao động","textChars":27,"textLines":1,"bbox":[91.2,268.8,384,59.52]}
+{"kind":"textbox","id":"sh/ut8v6tsv","slide":7,"name":"Text 6","text":"Tiền lương, tiền công, phụ cấp; đóng góp BHXH của chủ sử dụng; thu nhập bằng hiện vật.","textPreview":"Tiền lương, tiền công, phụ cấp; đóng góp BHXH của chủ sử dụng; thu nhập bằng hiện vật.","textChars":86,"textLines":1,"bbox":[96,334.08,508.8,67.2]}
+{"kind":"textbox","id":"sh/vuhwzytg","slide":7,"name":"Text 7","text":"Nguồn: điều tra doanh nghiệp, quỹ lương, BHXH, quyết toán ngân sách","textPreview":"Nguồn: điều tra doanh nghiệp, quỹ lương, BHXH, quyết toán ngân sách","textChars":67,"textLines":1,"bbox":[96,405.12,508.8,33.6]}
+{"kind":"shape","id":"sh/wvqd8ja1","slide":7,"name":"Shape 8","bbox":[662.4,268.8,566.4,177.6]}
+{"kind":"shape","id":"sh/hwje1or6","slide":7,"name":"Shape 9","bbox":[662.4,268.8,566.4,59.52]}
+{"kind":"textbox","id":"sh/ixsvatsr","slide":7,"name":"Text 10","text":"Thuế sản xuất trừ trợ cấp","textPreview":"Thuế sản xuất trừ trợ cấp","textChars":25,"textLines":1,"bbox":[686.4,268.8,384,59.52]}
+{"kind":"textbox","id":"sh/4zadc3ax","slide":7,"name":"Text 11","text":"Thuế môn bài, thuế tài nguyên, tiền thuê đất, phí – lệ phí; trừ trợ cấp sản xuất.","textPreview":"Thuế môn bài, thuế tài nguyên, tiền thuê đất, phí – lệ phí; trừ trợ cấp sản xuất.","textChars":81,"textLines":1,"bbox":[691.2,334.08,508.8,67.2]}
+{"kind":"textbox","id":"sh/50je58ri","slide":7,"name":"Text 12","text":"Nguồn: Thuế, Tài chính, Kho bạc","textPreview":"Nguồn: Thuế, Tài chính, Kho bạc","textChars":31,"textLines":1,"bbox":[691.2,405.12,508.8,33.6]}
+{"kind":"shape","id":"sh/61svyds3","slide":7,"name":"Shape 13","bbox":[67.2,465.6,566.4,177.6]}
+{"kind":"shape","id":"sh/rm1w7i9o","slide":7,"name":"Shape 14","bbox":[67.2,465.6,566.4,59.52]}
+{"kind":"textbox","id":"sh/nqlcvipg","slide":7,"name":"Text 15","text":"Khấu hao tài sản cố định","textPreview":"Khấu hao tài sản cố định","textChars":24,"textLines":1,"bbox":[91.2,465.6,384,59.52]}
+{"kind":"textbox","id":"sh/ps3uxs7m","slide":7,"name":"Text 16","text":"Mức khấu hao trích trong kỳ theo ngành; nguyên giá và giá trị còn lại của TSCĐ.","textPreview":"Mức khấu hao trích trong kỳ theo ngành; nguyên giá và giá trị còn lại của TSCĐ.","textChars":79,"textLines":1,"bbox":[96,530.88,508.8,67.2]}
+{"kind":"textbox","id":"sh/orudonq1","slide":7,"name":"Text 17","text":"Nguồn: báo cáo tài chính doanh nghiệp, đơn vị HCSN","textPreview":"Nguồn: báo cáo tài chính doanh nghiệp, đơn vị HCSN","textChars":50,"textLines":1,"bbox":[96,601.92,508.8,33.6]}
+{"kind":"shape","id":"sh/f21crypk","slide":7,"name":"Shape 18","bbox":[662.4,465.6,566.4,177.6]}
+{"kind":"shape","id":"sh/e1svit8z","slide":7,"name":"Shape 19","bbox":[662.4,465.6,566.4,59.52]}
+{"kind":"textbox","id":"sh/1o3ut87q","slide":7,"name":"Text 20","text":"Thặng dư & thu nhập hỗn hợp","textPreview":"Thặng dư & thu nhập hỗn hợp","textChars":27,"textLines":1,"bbox":[686.4,465.6,384,59.52]}
+{"kind":"textbox","id":"sh/ry1cnypo","slide":7,"name":"Text 21","text":"Lợi nhuận trước thuế của doanh nghiệp; thu nhập hỗn hợp của hộ sản xuất kinh doanh cá thể.","textPreview":"Lợi nhuận trước thuế của doanh nghiệp; thu nhập hỗn hợp của hộ sản xuất kinh doanh cá thể.","textChars":90,"textLines":1,"bbox":[691.2,530.88,508.8,67.2]}
+{"kind":"textbox","id":"sh/6xsbet83","slide":7,"name":"Text 22","text":"Nguồn: điều tra doanh nghiệp, điều tra hộ SXKD cá thể","textPreview":"Nguồn: điều tra doanh nghiệp, điều tra hộ SXKD cá thể","textChars":53,"textLines":1,"bbox":[691.2,601.92,508.8,33.6]}
+{"kind":"textbox","id":"sh/w369oz6l","slide":7,"name":"Text 23","text":"Phương pháp thu nhập chủ yếu dùng để đối chiếu chéo và phân tích cơ cấu phân phối thu nhập trên địa bàn.","textPreview":"Phương pháp thu nhập chủ yếu dùng để đối chiếu chéo và phân tích cơ cấu phân phối thu nhập trên địa bàn.","textChars":104,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"image","id":"im/il87q5s7","slide":7,"name":"Image 0","bbox":[316.8,187.2,662.4,47.05]}
+{"kind":"image","id":"im/58jq1kry","slide":7,"name":"Image 1","bbox":[580.56,287.04,26.16,24.96]}
+{"kind":"image","id":"im/47apsfad","slide":7,"name":"Image 2","bbox":[1109.32,287.04,92.6,24.96]}
+{"kind":"image","id":"im/ra183a9o","slide":7,"name":"Image 3","bbox":[587,483.84,19.72,24.96]}
+{"kind":"image","id":"im/q9s7upsj","slide":7,"name":"Image 4","bbox":[1179.78,483.84,22.14,24.96]}
+{"kind":"notes","id":"nt/vjtz75","slide":7,"text":""}
+{"kind":"slide","id":"sl/19jnn8","slide":8,"title":"Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì","textShapes":11}
+{"kind":"textbox","id":"sh/dcnq9oz2","slide":8,"name":"Text 0","text":"Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì","textPreview":"Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì","textChars":56,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/sbep03yh","slide":8,"name":"Text 1","text":"Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích","textPreview":"Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích","textChars":98,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/zep8byh8","slide":8,"name":"Shape 2","bbox":[67.2,168,1171.2,76.8]}
+{"kind":"shape","id":"sh/1g7qd8zy","slide":8,"name":"Shape 3","bbox":[67.2,264,1171.2,88.32]}
+{"kind":"shape","id":"sh/0fyp43yd","slide":8,"name":"Shape 4","bbox":[91.2,278.4,110.4,57.6]}
+{"kind":"textbox","id":"sh/uhc7q9g3","slide":8,"name":"Text 5","text":"Tiêu dùng cuối cùng của hộ dân cư","textPreview":"Tiêu dùng cuối cùng của hộ dân cư","textChars":33,"textLines":1,"bbox":[225.6,275.52,326.4,38.4]}
+{"kind":"textbox","id":"sh/kjipgz2l","slide":8,"name":"Text 6","text":"Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung bình.","textPreview":"Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung bình.","textChars":112,"textLines":1,"bbox":[561.6,273.6,657.6,69.12]}
+{"kind":"shape","id":"sh/lkr69436","slide":8,"name":"Shape 7","bbox":[67.2,364.8,1171.2,88.32]}
+{"kind":"shape","id":"sh/yh0ne9kf","slide":8,"name":"Shape 8","bbox":[91.2,379.2,110.4,57.6]}
+{"kind":"textbox","id":"sh/8nipkj2h","slide":8,"name":"Text 9","text":"Tiêu dùng cuối cùng của Nhà nước","textPreview":"Tiêu dùng cuối cùng của Nhà nước","textChars":32,"textLines":1,"bbox":[225.6,376.32,326.4,38.4]}
+{"kind":"textbox","id":"sh/tor6do32","slide":8,"name":"Text 10","text":"Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch.","textPreview":"Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch.","textChars":92,"textLines":1,"bbox":[561.6,374.4,657.6,69.12]}
+{"kind":"shape","id":"sh/6l07i9kb","slide":8,"name":"Shape 11","bbox":[67.2,465.6,1171.2,88.32]}
+{"kind":"shape","id":"sh/7m9obelw","slide":8,"name":"Shape 12","bbox":[91.2,480,110.4,57.6]}
+{"kind":"textbox","id":"sh/ps761k3y","slide":8,"name":"Text 13","text":"Tích luỹ tài sản","textPreview":"Tích luỹ tài sản","textChars":16,"textLines":1,"bbox":[225.6,477.12,326.4,38.4]}
+{"kind":"textbox","id":"sh/p8zm5gvm","slide":8,"name":"Text 14","text":"Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho.","textPreview":"Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho.","textChars":106,"textLines":1,"bbox":[561.6,475.2,657.6,69.12]}
+{"kind":"shape","id":"sh/47qlcbe1","slide":8,"name":"Shape 15","bbox":[67.2,566.4,1171.2,88.32]}
+{"kind":"shape","id":"sh/36h436dg","slide":8,"name":"Shape 16","bbox":[91.2,580.8,110.4,57.6]}
+{"kind":"textbox","id":"sh/dczm90vy","slide":8,"name":"Text 17","text":"Chênh lệch xuất – nhập","textPreview":"Chênh lệch xuất – nhập","textChars":22,"textLines":1,"bbox":[225.6,577.92,326.4,38.4]}
+{"kind":"textbox","id":"sh/cbqlgved","slide":8,"name":"Text 18","text":"Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất).","textPreview":"Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất).","textChars":109,"textLines":1,"bbox":[561.6,576,657.6,69.12]}
+{"kind":"shape","id":"sh/rah47qds","slide":8,"name":"Shape 19","bbox":[67.2,648,1171.2,0]}
+{"kind":"textbox","id":"sh/q983elw7","slide":8,"name":"Text 20","text":"Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp sử dụng cuối cùng.","textPreview":"Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp ...","textChars":155,"textLines":1,"bbox":[67.2,648,1171.2,43.2]}
+{"kind":"image","id":"im/2twrq1w7","slide":8,"name":"Image 0","bbox":[278.4,187.2,729.6,46.77]}
+{"kind":"image","id":"im/nu5sj6ds","slide":8,"name":"Image 1","bbox":[132.51,293.76,27.78,24.96]}
+{"kind":"image","id":"im/58ve54fa","slide":8,"name":"Image 2","bbox":[133.65,394.56,25.51,24.96]}
+{"kind":"image","id":"im/47mdwzyp","slide":8,"name":"Image 3","bbox":[110.77,495.36,71.26,24.96]}
+{"kind":"image","id":"im/j6dw3ux4","slide":8,"name":"Image 4","bbox":[113.99,596.16,64.82,24.96]}
+{"kind":"notes","id":"nt/19jnn8","slide":8,"text":""}
+{"kind":"slide","id":"sl/dsfc3x","slide":9,"title":"Hai loại giá bắt buộc phải có song song","textShapes":12}
+{"kind":"textbox","id":"sh/2xsbutkf","slide":9,"name":"Text 0","text":"Hai loại giá bắt buộc phải có song song","textPreview":"Hai loại giá bắt buộc phải có song song","textChars":39,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/ny1s3y1k","slide":9,"name":"Text 1","text":"Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng","textPreview":"Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng","textChars":78,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/wnut0n2h","slide":9,"name":"Shape 2","bbox":[67.2,172.8,566.4,264]}
+{"kind":"shape","id":"sh/xo3u98j2","slide":9,"name":"Shape 3","bbox":[67.2,177.6,566.4,67.2]}
+{"kind":"textbox","id":"sh/alsbydkb","slide":9,"name":"Text 4","text":"Giá hiện hành","textPreview":"Giá hiện hành","textChars":13,"textLines":1,"bbox":[96,177.6,508.8,67.2]}
+{"kind":"textbox","id":"sh/bm1c7i1w","slide":9,"name":"Text 5","text":"Giá của chính kỳ báo cáo","textPreview":"Giá của chính kỳ báo cáo","textChars":24,"textLines":1,"bbox":[96,259.2,508.8,33.6]}
+{"kind":"textbox","id":"sh/krut4n2d","slide":9,"name":"Text 6","text":"Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%)\nKhông dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát","textPreview":"Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%) | Không dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát","textChars":112,"textLines":2,"bbox":[100.8,297.6,499.2,134.4]}
+{"kind":"shape","id":"sh/ls3udsjy","slide":9,"name":"Shape 7","bbox":[662.4,172.8,566.4,264]}
+{"kind":"shape","id":"sh/507mp032","slide":9,"name":"Shape 8","bbox":[662.4,177.6,566.4,67.2]}
+{"kind":"textbox","id":"sh/4zylgv2h","slide":9,"name":"Text 9","text":"Giá so sánh","textPreview":"Giá so sánh","textChars":11,"textLines":1,"bbox":[691.2,177.6,508.8,67.2]}
+{"kind":"textbox","id":"sh/jy54nqlw","slide":9,"name":"Text 10","text":"Quy về giá của năm gốc","textPreview":"Quy về giá của năm gốc","textChars":22,"textLines":1,"bbox":[691.2,259.2,508.8,33.6]}
+{"kind":"textbox","id":"sh/ixw3elkb","slide":9,"name":"Text 11","text":"Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực\nPhải có chỉ số giá tương ứng từng ngành để giảm phát","textPreview":"Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực | Phải có chỉ số giá tương ứng từng ngành để giảm phát","textChars":89,"textLines":2,"bbox":[696,297.6,499.2,134.4]}
+{"kind":"shape","id":"sh/t47mt03y","slide":9,"name":"Shape 12","bbox":[67.2,456,566.4,91.2]}
+{"kind":"textbox","id":"sh/r2p4rqls","slide":9,"name":"Text 13","text":"Giảm phát về giá so sánh","textPreview":"Giảm phát về giá so sánh","textChars":24,"textLines":1,"bbox":[355.2,470.4,259.2,67.2]}
+{"kind":"shape","id":"sh/61g3ilkn","slide":9,"name":"Shape 14","bbox":[662.4,456,576,91.2]}
+{"kind":"textbox","id":"sh/87ul8b29","slide":9,"name":"Text 15","text":"Tốc độ tăng so cùng kỳ","textPreview":"Tốc độ tăng so cùng kỳ","textChars":22,"textLines":1,"bbox":[1008,470.4,211.2,67.2]}
+{"kind":"shape","id":"sh/0ryl4bu5","slide":9,"name":"Shape 16","bbox":[67.2,561.6,1171.2,96]}
+{"kind":"textbox","id":"sh/1c7mxgbq","slide":9,"name":"Text 17","text":"Cảnh báo từ chính dữ liệu đang có","textPreview":"Cảnh báo từ chính dữ liệu đang có","textChars":33,"textLines":1,"bbox":[96,571.2,576,33.6]}
+{"kind":"textbox","id":"sh/epg321cz","slide":9,"name":"Text 18","text":"Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu chưa hồi quy chuỗi về cùng năm gốc.\nCác dòng Quý III và Quý IV/2026 trong file vẫn ghi nhãn \"Giá so sánh 2010\" trong khi Quý I–II/2026 là 2020 → lỗi metadata cần chuẩn hoá trước khi nạp kho dữ liệu.","textPreview":"Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu c...","textChars":334,"textLines":2,"bbox":[96,602.88,1113.6,48]}
+{"kind":"image","id":"im/4z6t07a9","slide":9,"name":"Image 0","bbox":[148.8,467.52,182.4,57]}
+{"kind":"image","id":"im/r2hcvm9k","slide":9,"name":"Image 1","bbox":[705.6,478.08,288,52.17]}
+{"kind":"notes","id":"nt/dsfc3x","slide":9,"text":""}
+{"kind":"slide","id":"sl/09egfk","slide":10,"title":"Cấu trúc file dữ liệu hiện có: 9 trường, 128 dòng","textShapes":31}
+{"kind":"textbox","id":"sh/h03y90va","slide":10,"name":"Text 0","text":"Cấu trúc file dữ liệu hiện có: 9 trường, 128 dòng","textPreview":"Cấu trúc file dữ liệu hiện có: 9 trường, 128 dòng","textChars":49,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/wzux0vep","slide":10,"name":"Text 1","text":"Đây là bảng KẾT QUẢ — đủ để hiển thị dashboard, chưa đủ để tính toán và kiểm chứng","textPreview":"Đây là bảng KẾT QUẢ — đủ để hiển thị dashboard, chưa đủ để tính toán và kiểm chứng","textChars":82,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/jmlgbadg","slide":10,"name":"Shape 2","bbox":[67.2,177.6,379.2,86.4]}
+{"kind":"textbox","id":"sh/ilcf25wv","slide":10,"name":"Text 3","text":"STT","textPreview":"STT","textChars":3,"textLines":1,"bbox":[86.4,183.36,345.6,30.72]}
+{"kind":"textbox","id":"sh/5o3ydkvm","slide":10,"name":"Text 4","text":"Mã phân cấp chỉ tiêu (I, 1.0, 1.1 …)","textPreview":"Mã phân cấp chỉ tiêu (I, 1.0, 1.1 …)","textChars":36,"textLines":1,"bbox":[86.4,214.08,345.6,30.72]}
+{"kind":"textbox","id":"sh/4nux4fe1","slide":10,"name":"Text 5","text":"Khoá phân cấp","textPreview":"Khoá phân cấp","textChars":13,"textLines":1,"bbox":[86.4,238.08,345.6,24]}
+{"kind":"shape","id":"sh/zqhwzqdc","slide":10,"name":"Shape 6","bbox":[465.6,177.6,379.2,86.4]}
+{"kind":"textbox","id":"sh/yp8fqlwr","slide":10,"name":"Text 7","text":"Chỉ tiêu","textPreview":"Chỉ tiêu","textChars":8,"textLines":1,"bbox":[484.8,183.36,345.6,30.72]}
+{"kind":"textbox","id":"sh/gzy5cnm5","slide":10,"name":"Text 8","text":"Tên ngành/khoản mục","textPreview":"Tên ngành/khoản mục","textChars":19,"textLines":1,"bbox":[484.8,214.08,345.6,30.72]}
+{"kind":"textbox","id":"sh/10765snq","slide":10,"name":"Text 9","text":"Chiều ngành","textPreview":"Chiều ngành","textChars":11,"textLines":1,"bbox":[484.8,238.08,345.6,24]}
+{"kind":"shape","id":"sh/edwnad4f","slide":10,"name":"Shape 10","bbox":[864,177.6,379.2,86.4]}
+{"kind":"textbox","id":"sh/fy543i50","slide":10,"name":"Text 11","text":"Năm","textPreview":"Năm","textChars":3,"textLines":1,"bbox":[883.2,183.36,345.6,30.72]}
+{"kind":"textbox","id":"sh/o3y5g7mh","slide":10,"name":"Text 12","text":"Năm 2025 / Năm 2026","textPreview":"Năm 2025 / Năm 2026","textChars":19,"textLines":1,"bbox":[883.2,214.08,345.6,30.72]}
+{"kind":"textbox","id":"sh/p4769sn2","slide":10,"name":"Text 13","text":"Chiều thời gian","textPreview":"Chiều thời gian","textChars":15,"textLines":1,"bbox":[883.2,238.08,345.6,24]}
+{"kind":"shape","id":"sh/21gnex4b","slide":10,"name":"Shape 14","bbox":[67.2,278.4,379.2,86.4]}
+{"kind":"textbox","id":"sh/32po725w","slide":10,"name":"Text 15","text":"Kỳ báo cáo","textPreview":"Kỳ báo cáo","textChars":10,"textLines":1,"bbox":[86.4,284.16,345.6,30.72]}
+{"kind":"textbox","id":"sh/47u543md","slide":10,"name":"Text 16","text":"Quý I → Quý IV","textPreview":"Quý I → Quý IV","textChars":14,"textLines":1,"bbox":[86.4,314.88,345.6,30.72]}
+{"kind":"textbox","id":"sh/58nmx8ni","slide":10,"name":"Text 17","text":"Chiều thời gian","textPreview":"Chiều thời gian","textChars":15,"textLines":1,"bbox":[86.4,338.88,345.6,24]}
+{"kind":"shape","id":"sh/lsvul0ba","slide":10,"name":"Shape 18","bbox":[465.6,278.4,379.2,86.4]}
+{"kind":"textbox","id":"sh/0rmtcvup","slide":10,"name":"Text 19","text":"Phân loại","textPreview":"Phân loại","textChars":9,"textLines":1,"bbox":[484.8,284.16,345.6,30.72]}
+{"kind":"textbox","id":"sh/zqdcjqt4","slide":10,"name":"Text 20","text":"Giá hiện hành / Giá so sánh","textPreview":"Giá hiện hành / Giá so sánh","textChars":27,"textLines":1,"bbox":[484.8,314.88,345.6,30.72]}
+{"kind":"textbox","id":"sh/ypkbalcj","slide":10,"name":"Text 21","text":"Chiều loại giá","textPreview":"Chiều loại giá","textChars":14,"textLines":1,"bbox":[484.8,338.88,345.6,24]}
+{"kind":"shape","id":"sh/9gvupkb6","slide":10,"name":"Shape 22","bbox":[864,278.4,379.2,86.4]}
+{"kind":"textbox","id":"sh/8vmtgfa1","slide":10,"name":"Text 23","text":"Giá trị (tỷ đồng)","textPreview":"Giá trị (tỷ đồng)","textChars":17,"textLines":1,"bbox":[883.2,284.16,345.6,30.72]}
+{"kind":"textbox","id":"sh/nudcnatg","slide":10,"name":"Text 24","text":"Giá trị kỳ báo cáo","textPreview":"Giá trị kỳ báo cáo","textChars":18,"textLines":1,"bbox":[883.2,314.88,345.6,30.72]}
+{"kind":"textbox","id":"sh/mt4be5cv","slide":10,"name":"Text 25","text":"Đo lường","textPreview":"Đo lường","textChars":8,"textLines":1,"bbox":[883.2,338.88,345.6,24]}
+{"kind":"shape","id":"sh/xkfutkbi","slide":10,"name":"Shape 26","bbox":[67.2,379.2,379.2,86.4]}
+{"kind":"textbox","id":"sh/wj6dkfax","slide":10,"name":"Text 27","text":"Giá trị cùng kỳ (tỷ đồng)","textPreview":"Giá trị cùng kỳ (tỷ đồng)","textChars":25,"textLines":1,"bbox":[86.4,384.96,345.6,30.72]}
+{"kind":"textbox","id":"sh/e5grehsf","slide":10,"name":"Text 28","text":"Giá trị cùng kỳ năm trước","textPreview":"Giá trị cùng kỳ năm trước","textChars":25,"textLines":1,"bbox":[86.4,415.68,345.6,30.72]}
+{"kind":"textbox","id":"sh/fqp8nm90","slide":10,"name":"Text 29","text":"Đo lường","textPreview":"Đo lường","textChars":8,"textLines":1,"bbox":[86.4,439.68,345.6,24]}
+{"kind":"shape","id":"sh/gri9gral","slide":10,"name":"Shape 30","bbox":[465.6,379.2,379.2,86.4]}
+{"kind":"textbox","id":"sh/1srqpwrq","slide":10,"name":"Text 31","text":"Tốc độ tăng (%)","textPreview":"Tốc độ tăng (%)","textChars":15,"textLines":1,"bbox":[484.8,384.96,345.6,30.72]}
+{"kind":"textbox","id":"sh/2t0ri1sb","slide":10,"name":"Text 32","text":"Chỉ có ở dòng giá so sánh","textPreview":"Chỉ có ở dòng giá so sánh","textChars":25,"textLines":1,"bbox":[484.8,415.68,345.6,30.72]}
+{"kind":"textbox","id":"sh/3u9srm9w","slide":10,"name":"Text 33","text":"Đo lường dẫn xuất","textPreview":"Đo lường dẫn xuất","textChars":17,"textLines":1,"bbox":[484.8,439.68,345.6,24]}
+{"kind":"shape","id":"sh/ovi9krah","slide":10,"name":"Shape 34","bbox":[864,379.2,379.2,86.4]}
+{"kind":"textbox","id":"sh/pwratwr2","slide":10,"name":"Text 35","text":"Cơ cấu (%)","textPreview":"Cơ cấu (%)","textChars":10,"textLines":1,"bbox":[883.2,384.96,345.6,30.72]}
+{"kind":"textbox","id":"sh/qx0rm18n","slide":10,"name":"Text 36","text":"Chỉ có ở dòng giá hiện hành","textPreview":"Chỉ có ở dòng giá hiện hành","textChars":27,"textLines":1,"bbox":[883.2,415.68,345.6,30.72]}
+{"kind":"textbox","id":"sh/by9sv698","slide":10,"name":"Text 37","text":"Đo lường dẫn xuất","textPreview":"Đo lường dẫn xuất","textChars":17,"textLines":1,"bbox":[883.2,439.68,345.6,24]}
+{"kind":"shape","id":"sh/zep8f61c","slide":10,"name":"Shape 38","bbox":[67.2,494.4,1171.2,153.6]}
+{"kind":"textbox","id":"sh/ydwr610r","slide":10,"name":"Text 39","text":"Ba lỗi cấu trúc phát hiện khi kiểm tra","textPreview":"Ba lỗi cấu trúc phát hiện khi kiểm tra","textChars":38,"textLines":1,"bbox":[96,506.88,768,33.6]}
+{"kind":"textbox","id":"sh/lg7qhwj2","slide":10,"name":"Text 40","text":"\"Dịch vụ\" đang đánh mã 1.2.3 (nằm trong Công nghiệp và xây dựng) nhưng thực chất là ngành ngang cấp với 1.2 — kiểm tra cộng dồn xác nhận 1.1 + 1.2 + 1.2.3 = 1.0. Mã đúng phải là 1.3, và Thuế sản phẩm là 1.4.\nToàn bộ giá trị đang lưu dạng chuỗi ký tự (text), không phải số — phải ép kiểu trước khi tính toán.\nQuý III–IV/2026 để trống toàn bộ và sai nhãn năm gốc.","textPreview":"\"Dịch vụ\" đang đánh mã 1.2.3 (nằm trong Công nghiệp và xây dựng) nhưng thực chất là ngành ngang cấp với 1.2 — kiểm tra cộng dồn xác nhận ...","textChars":361,"textLines":3,"bbox":[96,539.52,1113.6,100.8]}
+{"kind":"notes","id":"nt/09egfk","slide":10,"text":""}
+{"kind":"slide","id":"sl/6f4mmt","slide":11,"title":"Kiểm chứng: cùng một kỳ, file cho hai giá trị khác nhau","textShapes":32}
+{"kind":"textbox","id":"sh/7ets7ip4","slide":11,"name":"Text 0","text":"Kiểm chứng: cùng một kỳ, file cho hai giá trị khác nhau","textPreview":"Kiểm chứng: cùng một kỳ, file cho hai giá trị khác nhau","textChars":55,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/6dkrydoj","slide":11,"name":"Text 1","text":"Đối chiếu cột \"Giá trị kỳ báo cáo\" của năm 2025 với cột \"Giá trị cùng kỳ\" của năm 2026 (giá hiện hành, tỷ đồng)","textPreview":"Đối chiếu cột \"Giá trị kỳ báo cáo\" của năm 2025 với cột \"Giá trị cùng kỳ\" của năm 2026 (giá hiện hành, tỷ đồng)","textChars":111,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/h4vadc76","slide":11,"name":"Shape 2","bbox":[67.2,172.8,1171.2,48]}
+{"kind":"textbox","id":"sh/g3m9476l","slide":11,"name":"Text 3","text":"Chỉ tiêu","textPreview":"Chỉ tiêu","textChars":8,"textLines":1,"bbox":[86.4,172.8,355.2,48]}
+{"kind":"textbox","id":"sh/v2dsb2p0","slide":11,"name":"Text 4","text":"Số công bố cho 2025","textPreview":"Số công bố cho 2025","textChars":19,"textLines":1,"bbox":[451.2,172.8,259.2,48]}
+{"kind":"textbox","id":"sh/u1kr2xov","slide":11,"name":"Text 5","text":"Số \"cùng kỳ\" ghi ở dòng 2026","textPreview":"Số \"cùng kỳ\" ghi ở dòng 2026","textChars":28,"textLines":1,"bbox":[729.6,172.8,297.6,48]}
+{"kind":"textbox","id":"sh/x8ra1872","slide":11,"name":"Text 6","text":"Chênh lệch","textPreview":"Chênh lệch","textChars":10,"textLines":1,"bbox":[1036.8,172.8,201.6,48]}
+{"kind":"shape","id":"sh/c7i9836h","slide":11,"name":"Shape 7","bbox":[67.2,225.6,1171.2,48]}
+{"kind":"textbox","id":"sh/ih0bixkb","slide":11,"name":"Text 8","text":"GRDP Quý I","textPreview":"GRDP Quý I","textChars":10,"textLines":1,"bbox":[86.4,225.6,355.2,48]}
+{"kind":"textbox","id":"sh/3i9cb21w","slide":11,"name":"Text 9","text":"46.568,22","textPreview":"46.568,22","textChars":9,"textLines":1,"bbox":[451.2,225.6,259.2,48]}
+{"kind":"textbox","id":"sh/4jitk72h","slide":11,"name":"Text 10","text":"44.668,34","textPreview":"44.668,34","textChars":9,"textLines":1,"bbox":[729.6,225.6,297.6,48]}
+{"kind":"textbox","id":"sh/5krudcjm","slide":11,"name":"Text 11","text":"−1.899,88","textPreview":"−1.899,88","textChars":9,"textLines":1,"bbox":[1036.8,225.6,201.6,48]}
+{"kind":"shape","id":"sh/q5kvmhk7","slide":11,"name":"Shape 12","bbox":[67.2,275.52,1171.2,48]}
+{"kind":"textbox","id":"sh/r6tcfm1s","slide":11,"name":"Text 13","text":"Nông, lâm, thuỷ sản Quý I","textPreview":"Nông, lâm, thuỷ sản Quý I","textChars":25,"textLines":1,"bbox":[86.4,275.52,355.2,48]}
+{"kind":"textbox","id":"sh/s72dorid","slide":11,"name":"Text 14","text":"5.652,25","textPreview":"5.652,25","textChars":8,"textLines":1,"bbox":[451.2,275.52,259.2,48]}
+{"kind":"textbox","id":"sh/d8buhwjy","slide":11,"name":"Text 15","text":"4.114,76","textPreview":"4.114,76","textChars":8,"textLines":1,"bbox":[729.6,275.52,297.6,48]}
+{"kind":"textbox","id":"sh/e9kvq10j","slide":11,"name":"Text 16","text":"−1.537,49","textPreview":"−1.537,49","textChars":9,"textLines":1,"bbox":[1036.8,275.52,201.6,48]}
+{"kind":"shape","id":"sh/fatcjm14","slide":11,"name":"Shape 17","bbox":[67.2,325.44,1171.2,48]}
+{"kind":"textbox","id":"sh/bedc76hw","slide":11,"name":"Text 18","text":"Công nghiệp – xây dựng Quý I","textPreview":"Công nghiệp – xây dựng Quý I","textChars":28,"textLines":1,"bbox":[86.4,325.44,355.2,48]}
+{"kind":"textbox","id":"sh/ad4be1gb","slide":11,"name":"Text 19","text":"18.572,85","textPreview":"18.572,85","textChars":9,"textLines":1,"bbox":[451.2,325.44,259.2,48]}
+{"kind":"textbox","id":"sh/xgvu9wz2","slide":11,"name":"Text 20","text":"18.220,12","textPreview":"18.220,12","textChars":9,"textLines":1,"bbox":[729.6,325.44,297.6,48]}
+{"kind":"textbox","id":"sh/wfmtgryh","slide":11,"name":"Text 21","text":"−352,74","textPreview":"−352,74","textChars":7,"textLines":1,"bbox":[1036.8,325.44,201.6,48]}
+{"kind":"shape","id":"sh/nats3mh0","slide":11,"name":"Shape 22","bbox":[67.2,375.36,1171.2,48]}
+{"kind":"textbox","id":"sh/29kbahgf","slide":11,"name":"Text 23","text":"GRDP Quý II","textPreview":"GRDP Quý II","textChars":11,"textLines":1,"bbox":[86.4,375.36,355.2,48]}
+{"kind":"textbox","id":"sh/pcva5wz6","slide":11,"name":"Text 24","text":"52.335,08","textPreview":"52.335,08","textChars":9,"textLines":1,"bbox":[451.2,375.36,259.2,48]}
+{"kind":"textbox","id":"sh/ob2tcryl","slide":11,"name":"Text 25","text":"49.437,35","textPreview":"49.437,35","textChars":9,"textLines":1,"bbox":[729.6,375.36,297.6,48]}
+{"kind":"textbox","id":"sh/fmtszmho","slide":11,"name":"Text 26","text":"−2.897,73","textPreview":"−2.897,73","textChars":9,"textLines":1,"bbox":[1036.8,375.36,201.6,48]}
+{"kind":"shape","id":"sh/elkb6hgj","slide":11,"name":"Shape 27","bbox":[67.2,425.28,1171.2,48]}
+{"kind":"textbox","id":"sh/4ry9g3e1","slide":11,"name":"Text 28","text":"Nông, lâm, thuỷ sản Quý II","textPreview":"Nông, lâm, thuỷ sản Quý II","textChars":26,"textLines":1,"bbox":[86.4,425.28,355.2,48]}
+{"kind":"textbox","id":"sh/5s7q98fm","slide":11,"name":"Text 29","text":"8.949,52","textPreview":"8.949,52","textChars":8,"textLines":1,"bbox":[451.2,425.28,259.2,48]}
+{"kind":"textbox","id":"sh/ipg7edwb","slide":11,"name":"Text 30","text":"6.944,17","textPreview":"6.944,17","textChars":8,"textLines":1,"bbox":[729.6,425.28,297.6,48]}
+{"kind":"textbox","id":"sh/3qp87ixg","slide":11,"name":"Text 31","text":"−2.005,36","textPreview":"−2.005,36","textChars":9,"textLines":1,"bbox":[1036.8,425.28,201.6,48]}
+{"kind":"shape","id":"sh/sfi9kned","slide":11,"name":"Shape 32","bbox":[67.2,475.2,1171.2,48]}
+{"kind":"textbox","id":"sh/dgrqdsfy","slide":11,"name":"Text 33","text":"Thuế sản phẩm Quý I và Quý II","textPreview":"Thuế sản phẩm Quý I và Quý II","textChars":29,"textLines":1,"bbox":[86.4,475.2,355.2,48]}
+{"kind":"textbox","id":"sh/qd0ridw7","slide":11,"name":"Text 34","text":"3.620,30 / 3.679,81","textPreview":"3.620,30 / 3.679,81","textChars":19,"textLines":1,"bbox":[451.2,475.2,259.2,48]}
+{"kind":"textbox","id":"sh/re98bixs","slide":11,"name":"Text 35","text":"3.620,30 / 3.679,81","textPreview":"3.620,30 / 3.679,81","textChars":19,"textLines":1,"bbox":[729.6,475.2,297.6,48]}
+{"kind":"textbox","id":"sh/8jep8jet","slide":11,"name":"Text 36","text":"0,00","textPreview":"0,00","textChars":4,"textLines":1,"bbox":[1036.8,475.2,201.6,48]}
+{"kind":"shape","id":"sh/tknq1ofe","slide":11,"name":"Shape 37","bbox":[67.2,532.8,1171.2,124.8]}
+{"kind":"textbox","id":"sh/lsjqxsju","slide":11,"name":"Text 38","text":"Ý nghĩa đối với kho dữ liệu IOC","textPreview":"Ý nghĩa đối với kho dữ liệu IOC","textChars":31,"textLines":1,"bbox":[96,543.36,768,30.72]}
+{"kind":"textbox","id":"sh/0ra9onip","slide":11,"name":"Text 39","text":"Số liệu GRDP có 3 phiên bản (ước tính – sơ bộ – chính thức, Điều 5 NĐ 94) và đã thay đổi sau khi hợp nhất địa giới từ 01/7/2025; riêng thuế sản phẩm giữ nguyên nên chênh lệch nằm ở phần giá trị tăng thêm.\nKho dữ liệu bắt buộc phải có trường phiên bản số liệu và trường địa giới hành chính, nếu không dashboard sẽ hiển thị hai con số mâu thuẫn cho cùng một quý.","textPreview":"Số liệu GRDP có 3 phiên bản (ước tính – sơ bộ – chính thức, Điều 5 NĐ 94) và đã thay đổi sau khi hợp nhất địa giới từ 01/7/2025; riêng th...","textChars":360,"textLines":2,"bbox":[96,576,1113.6,81.6]}
+{"kind":"notes","id":"nt/6f4mmt","slide":11,"text":""}
+{"kind":"slide","id":"sl/6gixt9","slide":12,"title":"Khoảng trống dữ liệu","textShapes":7}
+{"kind":"textbox","id":"sh/69kbehgb","slide":12,"name":"Text 0","text":"Khoảng trống dữ liệu","textPreview":"Khoảng trống dữ liệu","textChars":20,"textLines":1,"bbox":[67.2,67.2,1152,76.8]}
+{"kind":"textbox","id":"sh/7atcnmhw","slide":12,"name":"Text 1","text":"Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP","textPreview":"Từ 1 bảng kết quả 9 trường → tới bộ dữ liệu đầu vào đủ để tự tính GRDP","textChars":70,"textLines":1,"bbox":[67.2,144,1152,43.2]}
+{"kind":"shape","id":"sh/gfmtkbyd","slide":12,"name":"Shape 2","bbox":[86.4,216,528,326.4]}
+{"kind":"textbox","id":"sh/hgvutgfy","slide":12,"name":"Text 3","text":"ĐANG CÓ","textPreview":"ĐANG CÓ","textChars":7,"textLines":1,"bbox":[120,230.4,460.8,48]}
+{"kind":"textbox","id":"sh/ud4bi1g7","slide":12,"name":"Text 4","text":"1 bảng kết quả GRDP theo quý\n9 trường dữ liệu\n2 loại giá, 1 phương pháp\nTần suất: quý, sau công bố","textPreview":"1 bảng kết quả GRDP theo quý | 9 trường dữ liệu | 2 loại giá, 1 phương pháp | Tần suất: quý, sau công bố","textChars":98,"textLines":4,"bbox":[124.8,288,451.2,240]}
+{"kind":"shape","id":"sh/vedcr6hs","slide":12,"name":"Shape 5","bbox":[662.4,216,528,326.4]}
+{"kind":"textbox","id":"sh/wjit87y9","slide":12,"name":"Text 6","text":"CẦN CÓ","textPreview":"CẦN CÓ","textChars":6,"textLines":1,"bbox":[696,230.4,460.8,48]}
+{"kind":"textbox","id":"sh/xkrahcze","slide":12,"name":"Text 7","text":"Khoảng 12–15 bảng dữ liệu nguồn\nTrên 60 trường dữ liệu\n3 phương pháp để đối chiếu chéo\nTần suất: tháng/quý, cập nhật liên tục","textPreview":"Khoảng 12–15 bảng dữ liệu nguồn | Trên 60 trường dữ liệu | 3 phương pháp để đối chiếu chéo | Tần suất: tháng/quý, cập nhật liên tục","textChars":125,"textLines":4,"bbox":[700.8,288,451.2,240]}
+{"kind":"shape","id":"sh/hcratof2","slide":12,"name":"Shape 8","bbox":[624,345.6,81.6,57.6]}
+{"kind":"textbox","id":"sh/gbi9kjyh","slide":12,"name":"Text 9","text":"Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân tăng/giảm được.","textPreview":"Không có bộ dữ liệu đầu vào này, IOC chỉ hiển thị lại con số của Thống kê — không kiểm chứng, không dự báo, không phân tích nguyên nhân t...","textChars":151,"textLines":1,"bbox":[86.4,571.2,1113.6,67.2]}
+{"kind":"notes","id":"nt/6gixt9","slide":12,"text":""}
+{"kind":"slide","id":"sl/06asn1","slide":13,"title":"Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC","textShapes":29}
+{"kind":"textbox","id":"sh/03e5cfql","slide":13,"name":"Text 0","text":"Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC","textPreview":"Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC","textChars":58,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/14n65kr6","slide":13,"name":"Text 1","text":"Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể","textPreview":"Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể","textChars":65,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/qxcn65sj","slide":13,"name":"Shape 2","bbox":[67.2,177.6,379.2,134.4]}
+{"kind":"shape","id":"sh/ryl4za94","slide":13,"name":"Shape 3","bbox":[88.32,196.8,32.64,32.64]}
+{"kind":"textbox","id":"sh/szu58vap","slide":13,"name":"Text 4","text":"Chi cục Thống kê tỉnh","textPreview":"Chi cục Thống kê tỉnh","textChars":21,"textLines":1,"bbox":[132.48,192.96,297.6,43.2]}
+{"kind":"textbox","id":"sh/d0nm10ra","slide":13,"name":"Text 5","text":"GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá","textPreview":"GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá","textChars":61,"textLines":1,"bbox":[91.2,240,336,48]}
+{"kind":"textbox","id":"sh/i9cn2lsn","slide":13,"name":"Text 6","text":"Tháng / Quý","textPreview":"Tháng / Quý","textChars":11,"textLines":1,"bbox":[91.2,285.12,336,24]}
+{"kind":"shape","id":"sh/3al4vq98","slide":13,"name":"Shape 7","bbox":[465.6,177.6,379.2,134.4]}
+{"kind":"shape","id":"sh/j2t4bm1w","slide":13,"name":"Shape 8","bbox":[486.72,196.8,32.64,32.64]}
+{"kind":"textbox","id":"sh/yh0n2hkb","slide":13,"name":"Text 9","text":"Thuế – Hải quan","textPreview":"Thuế – Hải quan","textChars":15,"textLines":1,"bbox":[530.88,192.96,297.6,43.2]}
+{"kind":"textbox","id":"sh/l4bmdwjm","slide":13,"name":"Text 10","text":"Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu","textPreview":"Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu","textChars":54,"textLines":1,"bbox":[489.6,240,336,48]}
+{"kind":"textbox","id":"sh/k3254r2h","slide":13,"name":"Text 11","text":"Tháng","textPreview":"Tháng","textChars":5,"textLines":1,"bbox":[489.6,285.12,336,24]}
+{"kind":"shape","id":"sh/76t4fm1s","slide":13,"name":"Shape 12","bbox":[864,177.6,379.2,134.4]}
+{"kind":"shape","id":"sh/65kn61k7","slide":13,"name":"Shape 13","bbox":[885.12,196.8,32.64,32.64]}
+{"kind":"textbox","id":"sh/t8bmhwjy","slide":13,"name":"Text 14","text":"Tài chính – Kho bạc","textPreview":"Tài chính – Kho bạc","textChars":19,"textLines":1,"bbox":[929.28,192.96,297.6,43.2]}
+{"kind":"textbox","id":"sh/87258r2d","slide":13,"name":"Text 15","text":"Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên","textPreview":"Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên","textChars":49,"textLines":1,"bbox":[888,240,336,48]}
+{"kind":"textbox","id":"sh/nap432lo","slide":13,"name":"Text 16","text":"Tháng","textPreview":"Tháng","textChars":5,"textLines":1,"bbox":[888,285.12,336,24]}
+{"kind":"shape","id":"sh/29g3uxk3","slide":13,"name":"Shape 17","bbox":[67.2,326.4,379.2,134.4]}
+{"kind":"shape","id":"sh/q5o7254r","slide":13,"name":"Shape 18","bbox":[88.32,345.6,32.64,32.64]}
+{"kind":"textbox","id":"sh/r6x8balc","slide":13,"name":"Text 19","text":"Kế hoạch – Đầu tư","textPreview":"Kế hoạch – Đầu tư","textChars":17,"textLines":1,"bbox":[132.48,341.76,297.6,43.2]}
+{"kind":"textbox","id":"sh/s76p4fmh","slide":13,"name":"Text 20","text":"Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI","textPreview":"Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI","textChars":53,"textLines":1,"bbox":[91.2,388.8,336,48]}
+{"kind":"textbox","id":"sh/dsfqdk32","slide":13,"name":"Text 21","text":"Tháng / Quý","textPreview":"Tháng / Quý","textChars":11,"textLines":1,"bbox":[91.2,433.92,336,24]}
+{"kind":"shape","id":"sh/i1o7yl4f","slide":13,"name":"Shape 22","bbox":[465.6,326.4,379.2,134.4]}
+{"kind":"shape","id":"sh/32x87ql0","slide":13,"name":"Shape 23","bbox":[486.72,345.6,32.64,32.64]}
+{"kind":"textbox","id":"sh/436p0vml","slide":13,"name":"Text 24","text":"Công Thương","textPreview":"Công Thương","textChars":11,"textLines":1,"bbox":[530.88,341.76,297.6,43.2]}
+{"kind":"textbox","id":"sh/54fq9036","slide":13,"name":"Text 25","text":"Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu thụ","textPreview":"Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu thụ","textChars":58,"textLines":1,"bbox":[489.6,388.8,336,48]}
+{"kind":"textbox","id":"sh/ux47ul4j","slide":13,"name":"Text 26","text":"Tháng","textPreview":"Tháng","textChars":5,"textLines":1,"bbox":[489.6,433.92,336,24]}
+{"kind":"shape","id":"sh/vydo3ql4","slide":13,"name":"Shape 27","bbox":[864,326.4,379.2,134.4]}
+{"kind":"shape","id":"sh/x432psry","slide":13,"name":"Shape 28","bbox":[885.12,345.6,32.64,32.64]}
+{"kind":"textbox","id":"sh/w3u1wnad","slide":13,"name":"Text 29","text":"Nông nghiệp & Môi trường","textPreview":"Nông nghiệp & Môi trường","textChars":24,"textLines":1,"bbox":[929.28,341.76,297.6,43.2]}
+{"kind":"textbox","id":"sh/v2lkni9s","slide":13,"name":"Text 30","text":"Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản","textPreview":"Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản","textChars":53,"textLines":1,"bbox":[888,388.8,336,48]}
+{"kind":"textbox","id":"sh/a1cjuds7","slide":13,"name":"Text 31","text":"Vụ / Quý","textPreview":"Vụ / Quý","textChars":8,"textLines":1,"bbox":[888,433.92,336,24]}
+{"kind":"shape","id":"sh/9032l8rm","slide":13,"name":"Shape 32","bbox":[67.2,475.2,379.2,134.4]}
+{"kind":"shape","id":"sh/ozu1s3a1","slide":13,"name":"Shape 33","bbox":[88.32,494.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/nyl0jy9g","slide":13,"name":"Text 34","text":"Xây dựng","textPreview":"Xây dựng","textChars":8,"textLines":1,"bbox":[132.48,490.56,297.6,43.2]}
+{"kind":"textbox","id":"sh/mxsjqtsv","slide":13,"name":"Text 35","text":"Giá trị sản xuất xây dựng, chỉ số giá xây dựng","textPreview":"Giá trị sản xuất xây dựng, chỉ số giá xây dựng","textChars":46,"textLines":1,"bbox":[91.2,537.6,336,48]}
+{"kind":"textbox","id":"sh/1cjih8rq","slide":13,"name":"Text 36","text":"Quý","textPreview":"Quý","textChars":3,"textLines":1,"bbox":[91.2,582.72,336,24]}
+{"kind":"shape","id":"sh/0ba1o3a5","slide":13,"name":"Shape 37","bbox":[465.6,475.2,379.2,134.4]}
+{"kind":"shape","id":"sh/g3i1836p","slide":13,"name":"Shape 38","bbox":[486.72,494.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/14bi18na","slide":13,"name":"Text 39","text":"VH-TT-DL","textPreview":"VH-TT-DL","textChars":8,"textLines":1,"bbox":[530.88,490.56,297.6,43.2]}
+{"kind":"textbox","id":"sh/e10j6toz","slide":13,"name":"Text 40","text":"Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch","textPreview":"Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch","textChars":57,"textLines":1,"bbox":[489.6,537.6,336,48]}
+{"kind":"textbox","id":"sh/f290zy54","slide":13,"name":"Text 41","text":"Tháng","textPreview":"Tháng","textChars":5,"textLines":1,"bbox":[489.6,582.72,336,24]}
+{"kind":"shape","id":"sh/or21cn61","slide":13,"name":"Shape 42","bbox":[864,475.2,379.2,134.4]}
+{"kind":"shape","id":"sh/psb25snm","slide":13,"name":"Shape 43","bbox":[885.12,494.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/2pkjadov","slide":13,"name":"Text 44","text":"BHXH – Lao động","textPreview":"BHXH – Lao động","textChars":15,"textLines":1,"bbox":[929.28,490.56,297.6,43.2]}
+{"kind":"textbox","id":"sh/3qt03i5g","slide":13,"name":"Text 45","text":"Quỹ lương, số lao động tham gia BHXH theo ngành","textPreview":"Quỹ lương, số lao động tham gia BHXH theo ngành","textChars":47,"textLines":1,"bbox":[888,537.6,336,48]}
+{"kind":"textbox","id":"sh/4vy10j6h","slide":13,"name":"Text 46","text":"Tháng","textPreview":"Tháng","textChars":5,"textLines":1,"bbox":[888,582.72,336,24]}
+{"kind":"notes","id":"nt/06asn1","slide":13,"text":""}
+{"kind":"slide","id":"sl/tuza1a","slide":14,"title":"Mô hình dữ liệu đề xuất cho Kho dữ liệu IOC","textShapes":17}
+{"kind":"textbox","id":"sh/d0ji9wb2","slide":14,"name":"Text 0","text":"Mô hình dữ liệu đề xuất cho Kho dữ liệu IOC","textPreview":"Mô hình dữ liệu đề xuất cho Kho dữ liệu IOC","textChars":43,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/szah0ruh","slide":14,"name":"Text 1","text":"Một bảng dữ kiện trung tâm + các bảng chiều dùng chung toàn tỉnh","textPreview":"Một bảng dữ kiện trung tâm + các bảng chiều dùng chung toàn tỉnh","textChars":64,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/jah032t0","slide":14,"name":"Shape 2","bbox":[441.6,225.6,403.2,288]}
+{"kind":"textbox","id":"sh/i98zuxcf","slide":14,"name":"Text 3","text":"FACT_GRDP","textPreview":"FACT_GRDP","textChars":9,"textLines":1,"bbox":[441.6,235.2,403.2,38.4]}
+{"kind":"textbox","id":"sh/5wzi5cb6","slide":14,"name":"Text 4","text":"ma_chi_tieu\nma_nganh_vsic\nky_thoi_gian (nam, quy)\nloai_gia (HH / SS-2020)\nphuong_phap (SX / TN / SD)\ngo, ic, va, thue_sp, tro_cap\ngia_tri, gia_tri_cung_ky\nphien_ban (ước tính / sơ bộ / chính thức)\ndia_gioi (trước / sau 01-7-2025)\nnguon_cap, ngay_cap_nhat","textPreview":"ma_chi_tieu | ma_nganh_vsic | ky_thoi_gian (nam, quy) | loai_gia (HH / SS-2020) | phuong_phap (SX / TN / SD) | go, ic, va, thue_sp, tro_c...","textChars":254,"textLines":10,"bbox":[465.6,280.32,355.2,220.8]}
+{"kind":"shape","id":"sh/4bqhw7ul","slide":14,"name":"Shape 5","bbox":[67.2,187.2,345.6,105.6]}
+{"kind":"textbox","id":"sh/v6xgz2t4","slide":14,"name":"Text 6","text":"DIM_NGANH","textPreview":"DIM_NGANH","textChars":9,"textLines":1,"bbox":[91.2,202.56,297.6,33.6]}
+{"kind":"textbox","id":"sh/u5ozqxcj","slide":14,"name":"Text 7","text":"VSIC cấp 1–3","textPreview":"VSIC cấp 1–3","textChars":12,"textLines":1,"bbox":[91.2,240,297.6,33.6]}
+{"kind":"shape","id":"sh/ofapc361","slide":14,"name":"Shape 8","bbox":[67.2,321.6,345.6,105.6]}
+{"kind":"textbox","id":"sh/pgjq58nm","slide":14,"name":"Text 9","text":"DIM_THOI_GIAN","textPreview":"DIM_THOI_GIAN","textChars":13,"textLines":1,"bbox":[91.2,336.96,297.6,33.6]}
+{"kind":"textbox","id":"sh/2d87atov","slide":14,"name":"Text 10","text":"Năm – Quý – Tháng","textPreview":"Năm – Quý – Tháng","textChars":17,"textLines":1,"bbox":[91.2,374.4,297.6,33.6]}
+{"kind":"shape","id":"sh/neh83y5g","slide":14,"name":"Shape 11","bbox":[67.2,456,345.6,105.6]}
+{"kind":"textbox","id":"sh/0bqp8365","slide":14,"name":"Text 12","text":"DIM_LOAI_GIA","textPreview":"DIM_LOAI_GIA","textChars":12,"textLines":1,"bbox":[91.2,471.36,297.6,33.6]}
+{"kind":"textbox","id":"sh/1cz618nq","slide":14,"name":"Text 13","text":"HH / SS theo năm gốc","textPreview":"HH / SS theo năm gốc","textChars":20,"textLines":1,"bbox":[91.2,508.8,297.6,33.6]}
+{"kind":"shape","id":"sh/e9876toz","slide":14,"name":"Shape 14","bbox":[864,187.2,345.6,105.6]}
+{"kind":"textbox","id":"sh/fahozy5k","slide":14,"name":"Text 15","text":"DIM_DON_VI","textPreview":"DIM_DON_VI","textChars":10,"textLines":1,"bbox":[888,202.56,297.6,33.6]}
+{"kind":"textbox","id":"sh/k7upkn69","slide":14,"name":"Text 16","text":"Đầu mối cung cấp","textPreview":"Đầu mối cung cấp","textChars":16,"textLines":1,"bbox":[888,240,297.6,33.6]}
+{"kind":"shape","id":"sh/l83qdsnu","slide":14,"name":"Shape 17","bbox":[864,321.6,345.6,105.6]}
+{"kind":"textbox","id":"sh/tozqxsfy","slide":14,"name":"Text 18","text":"DIM_CHI_SO_GIA","textPreview":"DIM_CHI_SO_GIA","textChars":14,"textLines":1,"bbox":[888,336.96,297.6,33.6]}
+{"kind":"textbox","id":"sh/8nqp4nyd","slide":14,"name":"Text 19","text":"CPI, PPI, giá XD","textPreview":"CPI, PPI, giá XD","textChars":16,"textLines":1,"bbox":[888,374.4,297.6,33.6]}
+{"kind":"shape","id":"sh/72hovixs","slide":14,"name":"Shape 20","bbox":[864,456,345.6,105.6]}
+{"kind":"textbox","id":"sh/61872dgn","slide":14,"name":"Text 21","text":"DIM_DIA_BAN","textPreview":"DIM_DIA_BAN","textChars":11,"textLines":1,"bbox":[888,471.36,297.6,33.6]}
+{"kind":"textbox","id":"sh/l0f6t8f2","slide":14,"name":"Text 22","text":"Tỉnh – xã/phường","textPreview":"Tỉnh – xã/phường","textChars":16,"textLines":1,"bbox":[888,508.8,297.6,33.6]}
+{"kind":"shape","id":"sh/kz6p0nyh","slide":14,"name":"Shape 23","bbox":[412.8,240,28.8,0]}
+{"kind":"shape","id":"sh/jyxorixw","slide":14,"name":"Shape 24","bbox":[412.8,374.4,28.8,0]}
+{"kind":"shape","id":"sh/yxo7ydgb","slide":14,"name":"Shape 25","bbox":[412.8,508.8,28.8,0]}
+{"kind":"textbox","id":"sh/xwf6p8fq","slide":14,"name":"Text 26","text":"Mọi bản ghi phải mang đủ 5 chiều bắt buộc: ngành – thời gian – loại giá – phiên bản số liệu – địa giới hành chính; thiếu một chiều là không tổng hợp và không đối chiếu được.","textPreview":"Mọi bản ghi phải mang đủ 5 chiều bắt buộc: ngành – thời gian – loại giá – phiên bản số liệu – địa giới hành chính; thiếu một chiều là khô...","textChars":173,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"notes","id":"nt/tuza1a","slide":14,"text":""}
+{"kind":"slide","id":"sl/9g9g9p","slide":15,"title":"Ánh xạ vào các dịch vụ nền tảng đã có trong đề án IOC","textShapes":18}
+{"kind":"textbox","id":"sh/etgnut0v","slide":15,"name":"Text 0","text":"Ánh xạ vào các dịch vụ nền tảng đã có trong đề án IOC","textPreview":"Ánh xạ vào các dịch vụ nền tảng đã có trong đề án IOC","textChars":53,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/fup4ny1g","slide":15,"name":"Text 1","text":"Không phát sinh cấu phần mới — chỉ cấu hình đúng luồng dữ liệu cho bài toán GRDP","textPreview":"Không phát sinh cấu phần mới — chỉ cấu hình đúng luồng dữ liệu cho bài toán GRDP","textChars":80,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/sre5sjip","slide":15,"name":"Shape 2","bbox":[67.2,211.2,220.8,278.4]}
+{"kind":"shape","id":"sh/ts7mloja","slide":15,"name":"Shape 3","bbox":[148.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/6pwnq9kj","slide":15,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[148.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/rq54je14","slide":15,"name":"Text 5","text":"Kết nối & thu thập","textPreview":"Kết nối & thu thập","textChars":18,"textLines":1,"bbox":[84.48,302.4,187.2,57.6]}
+{"kind":"textbox","id":"sh/cni54nit","slide":15,"name":"Text 6","text":"Kết nối API/CSDL các sở ngành, nạp dữ liệu GO, IC, thuế, đầu tư, chỉ số giá","textPreview":"Kết nối API/CSDL các sở ngành, nạp dữ liệu GO, IC, thuế, đầu tư, chỉ số giá","textChars":75,"textLines":1,"bbox":[84.48,360,187.2,120]}
+{"kind":"shape","id":"sh/dor6xsje","slide":15,"name":"Shape 7","bbox":[290.88,336,13.44,26.88]}
+{"kind":"shape","id":"sh/90jahore","slide":15,"name":"Shape 8","bbox":[307.2,211.2,220.8,278.4]}
+{"kind":"shape","id":"sh/ozat8jqt","slide":15,"name":"Shape 9","bbox":[388.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/ny1sfe98","slide":15,"name":"Text 10","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[388.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/2x8b698n","slide":15,"name":"Text 11","text":"Chuẩn hoá","textPreview":"Chuẩn hoá","textChars":9,"textLines":1,"bbox":[324.48,302.4,187.2,57.6]}
+{"kind":"textbox","id":"sh/1wzador2","slide":15,"name":"Text 12","text":"Ép kiểu số, chuẩn mã ngành VSIC, thống nhất đơn vị tỷ đồng, gắn nhãn năm gốc","textPreview":"Ép kiểu số, chuẩn mã ngành VSIC, thống nhất đơn vị tỷ đồng, gắn nhãn năm gốc","textChars":76,"textLines":1,"bbox":[324.48,360,187.2,120]}
+{"kind":"shape","id":"sh/0vq94jqx","slide":15,"name":"Shape 13","bbox":[530.88,336,13.44,26.88]}
+{"kind":"shape","id":"sh/fuhsbe9c","slide":15,"name":"Shape 14","bbox":[547.2,211.2,220.8,278.4]}
+{"kind":"shape","id":"sh/et8r298r","slide":15,"name":"Shape 15","bbox":[628.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/ls3ap8rm","slide":15,"name":"Text 16","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[628.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/krutg3q1","slide":15,"name":"Text 17","text":"Kết hợp & tính toán","textPreview":"Kết hợp & tính toán","textChars":19,"textLines":1,"bbox":[564.48,302.4,187.2,57.6]}
+{"kind":"textbox","id":"sh/47ml8b29","slide":15,"name":"Text 18","text":"Join/Union nhiều nguồn; tính VA = GO − IC; giảm phát về giá so sánh 2020","textPreview":"Join/Union nhiều nguồn; tính VA = GO − IC; giảm phát về giá so sánh 2020","textChars":72,"textLines":1,"bbox":[564.48,360,187.2,120]}
+{"kind":"shape","id":"sh/58vm1gju","slide":15,"name":"Shape 19","bbox":[770.88,336,13.44,26.88]}
+{"kind":"shape","id":"sh/i5k361kj","slide":15,"name":"Shape 20","bbox":[787.2,211.2,220.8,278.4]}
+{"kind":"shape","id":"sh/36t4z614","slide":15,"name":"Shape 21","bbox":[868.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/g32l4b2d","slide":15,"name":"Text 22","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[868.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/h4bmxwjy","slide":15,"name":"Text 23","text":"Tổng hợp","textPreview":"Tổng hợp","textChars":8,"textLines":1,"bbox":[804.48,302.4,187.2,57.6]}
+{"kind":"textbox","id":"sh/uhk321k7","slide":15,"name":"Text 24","text":"Aggregation theo ngành, theo quý; tính tốc độ tăng và cơ cấu","textPreview":"Aggregation theo ngành, theo quý; tính tốc độ tăng và cơ cấu","textChars":60,"textLines":1,"bbox":[804.48,360,187.2,120]}
+{"kind":"shape","id":"sh/vit4v61s","slide":15,"name":"Shape 25","bbox":[1010.88,336,13.44,26.88]}
+{"kind":"shape","id":"sh/8f2l0r2h","slide":15,"name":"Shape 26","bbox":[1027.2,211.2,220.8,278.4]}
+{"kind":"shape","id":"sh/tgbmtw3m","slide":15,"name":"Shape 27","bbox":[1108.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/ba943m5o","slide":15,"name":"Text 28","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1108.8,230.4,57.6,57.6]}
+{"kind":"textbox","id":"sh/a90nah43","slide":15,"name":"Text 29","text":"Đối soát & công bố","textPreview":"Đối soát & công bố","textChars":18,"textLines":1,"bbox":[1044.48,302.4,187.2,57.6]}
+{"kind":"textbox","id":"sh/xcrm5wnu","slide":15,"name":"Text 30","text":"So sánh 3 phương pháp; đối chiếu số Thống kê công bố; chia sẻ qua dịch vụ dữ liệu","textPreview":"So sánh 3 phương pháp; đối chiếu số Thống kê công bố; chia sẻ qua dịch vụ dữ liệu","textChars":81,"textLines":1,"bbox":[1044.48,360,187.2,120]}
+{"kind":"textbox","id":"sh/wbi5crm9","slide":15,"name":"Text 31","text":"Tương ứng các nhóm dịch vụ trong slide \"Nền tảng tổng hợp và phân tích dữ liệu\": xử lý dữ liệu (01), khai phá (02), lưu trữ đã xử lý (03), chia sẻ (04), quản trị (05).","textPreview":"Tương ứng các nhóm dịch vụ trong slide \"Nền tảng tổng hợp và phân tích dữ liệu\": xử lý dữ liệu (01), khai phá (02), lưu trữ đã xử lý (03)...","textChars":167,"textLines":1,"bbox":[67.2,523.2,1171.2,48]}
+{"kind":"notes","id":"nt/9g9g9p","slide":15,"text":""}
+{"kind":"slide","id":"sl/igmyb8","slide":16,"title":"Minh hoạ: kết quả tính được khi có đủ dữ liệu","textShapes":7}
+{"kind":"textbox","id":"sh/9w7mxcza","slide":16,"name":"Text 0","text":"Minh hoạ: kết quả tính được khi có đủ dữ liệu","textPreview":"Minh hoạ: kết quả tính được khi có đủ dữ liệu","textChars":45,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/8byl47ip","slide":16,"name":"Text 1","text":"Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh","textPreview":"Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh","textChars":78,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/y5w3yx0n","slide":16,"name":"Shape 2","bbox":[806.4,177.6,432,206.4]}
+{"kind":"textbox","id":"sh/l8nmtsjy","slide":16,"name":"Text 3","text":"209.342","textPreview":"209.342","textChars":7,"textLines":1,"bbox":[835.2,196.8,374.4,72]}
+{"kind":"textbox","id":"sh/07el0nit","slide":16,"name":"Text 4","text":"tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành (cộng 4 quý)","textPreview":"tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành (cộng 4 quý)","textChars":62,"textLines":1,"bbox":[835.2,273.6,374.4,86.4]}
+{"kind":"shape","id":"sh/b25kni1w","slide":16,"name":"Shape 5","bbox":[806.4,412.8,432,206.4]}
+{"kind":"textbox","id":"sh/q1c3ud0b","slide":16,"name":"Text 6","text":"Cơ cấu Q2/2026 (giá hiện hành)","textPreview":"Cơ cấu Q2/2026 (giá hiện hành)","textChars":30,"textLines":1,"bbox":[835.2,427.2,374.4,33.6]}
+{"kind":"textbox","id":"sh/ofm5wre5","slide":16,"name":"Text 7","text":"Dịch vụ: 41,13%\nCông nghiệp – xây dựng: 38,49%\nNông, lâm, thuỷ sản: 13,03%\nThuế sản phẩm trừ trợ cấp: 7,35%","textPreview":"Dịch vụ: 41,13% | Công nghiệp – xây dựng: 38,49% | Nông, lâm, thuỷ sản: 13,03% | Thuế sản phẩm trừ trợ cấp: 7,35%","textChars":107,"textLines":4,"bbox":[840,465.6,369.6,144]}
+{"kind":"textbox","id":"sh/pgv6pwvq","slide":16,"name":"Text 8","text":"Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh.","textPreview":"Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh.","textChars":124,"textLines":1,"bbox":[67.2,667.2,1152,28.8]}
+{"kind":"chart","id":"ch/ah8f6ls7","slide":16,"name":"Chart 0","chartType":"bar","bbox":[67.2,177.6,710.4,441.6]}
+{"kind":"notes","id":"nt/igmyb8","slide":16,"text":""}
+{"kind":"slide","id":"sl/l7y6rx","slide":17,"title":"Quy tắc kiểm soát chất lượng dữ liệu bắt buộc","textShapes":20}
+{"kind":"textbox","id":"sh/l0jq1s7i","slide":17,"name":"Text 0","text":"Quy tắc kiểm soát chất lượng dữ liệu bắt buộc","textPreview":"Quy tắc kiểm soát chất lượng dữ liệu bắt buộc","textChars":45,"textLines":1,"bbox":[67.2,40.32,1180.8,76.8]}
+{"kind":"textbox","id":"sh/kzapsn6x","slide":17,"name":"Text 1","text":"Cấu hình thành luật kiểm tra tự động ngay trên nền tảng, chặn dữ liệu lỗi từ đầu vào","textPreview":"Cấu hình thành luật kiểm tra tự động ngay trên nền tảng, chặn dữ liệu lỗi từ đầu vào","textChars":84,"textLines":1,"bbox":[67.2,119.04,1180.8,40.32]}
+{"kind":"shape","id":"sh/72183ipo","slide":17,"name":"Shape 2","bbox":[67.2,168,1171.2,96]}
+{"kind":"shape","id":"sh/8na9wn69","slide":17,"name":"Shape 3","bbox":[67.2,283.2,566.4,115.2]}
+{"kind":"shape","id":"sh/n6x8ryp4","slide":17,"name":"Shape 4","bbox":[91.2,302.4,38.4,38.4]}
+{"kind":"textbox","id":"sh/m5o7itoz","slide":17,"name":"Text 5","text":"✓","textPreview":"✓","textChars":1,"textLines":1,"bbox":[91.2,302.4,38.4,38.4]}
+{"kind":"textbox","id":"sh/wj6dcju5","slide":17,"name":"Text 6","text":"Kiểm tra cộng dồn","textPreview":"Kiểm tra cộng dồn","textChars":17,"textLines":1,"bbox":[144,298.56,470.4,38.4]}
+{"kind":"textbox","id":"sh/hkfe5obq","slide":17,"name":"Text 7","text":"Tổng VA các ngành cộng thuế trừ trợ cấp phải khớp GRDP tổng, sai số < 0,01%","textPreview":"Tổng VA các ngành cộng thuế trừ trợ cấp phải khớp GRDP tổng, sai số < 0,01%","textChars":75,"textLines":1,"bbox":[144,338.88,470.4,57.6]}
+{"kind":"shape","id":"sh/uhovatcz","slide":17,"name":"Shape 8","bbox":[662.4,283.2,566.4,115.2]}
+{"kind":"shape","id":"sh/vixc3ytk","slide":17,"name":"Shape 9","bbox":[686.4,302.4,38.4,38.4]}
+{"kind":"textbox","id":"sh/4nqdg3u1","slide":17,"name":"Text 10","text":"✓","textPreview":"✓","textChars":1,"textLines":1,"bbox":[686.4,302.4,38.4,38.4]}
+{"kind":"textbox","id":"sh/5oze98bm","slide":17,"name":"Text 11","text":"Kiểm tra phân cấp","textPreview":"Kiểm tra phân cấp","textChars":17,"textLines":1,"bbox":[739.2,298.56,470.4,38.4]}
+{"kind":"textbox","id":"sh/il8vetcv","slide":17,"name":"Text 12","text":"Ngành cấp 2 phải cộng đúng bằng ngành cấp 1; mã ngành không được trùng cấp","textPreview":"Ngành cấp 2 phải cộng đúng bằng ngành cấp 1; mã ngành không được trùng cấp","textChars":74,"textLines":1,"bbox":[739.2,338.88,470.4,57.6]}
+{"kind":"shape","id":"sh/jmhw7ytg","slide":17,"name":"Shape 13","bbox":[67.2,412.8,566.4,115.2]}
+{"kind":"shape","id":"sh/krmd4zux","slide":17,"name":"Shape 14","bbox":[91.2,432,38.4,38.4]}
+{"kind":"textbox","id":"sh/lsvux4bi","slide":17,"name":"Text 15","text":"✓","textPreview":"✓","textChars":1,"textLines":1,"bbox":[91.2,432,38.4,38.4]}
+{"kind":"textbox","id":"sh/18na1036","slide":17,"name":"Text 16","text":"Kiểm tra nhất quán giá","textPreview":"Kiểm tra nhất quán giá","textChars":22,"textLines":1,"bbox":[144,428.16,470.4,38.4]}
+{"kind":"textbox","id":"sh/07et8vml","slide":17,"name":"Text 17","text":"Mỗi bản ghi phải có đủ cặp giá hiện hành – giá so sánh cùng năm gốc","textPreview":"Mỗi bản ghi phải có đủ cặp giá hiện hành – giá so sánh cùng năm gốc","textChars":67,"textLines":1,"bbox":[144,468.48,470.4,57.6]}
+{"kind":"shape","id":"sh/z65szql0","slide":17,"name":"Shape 18","bbox":[662.4,412.8,566.4,115.2]}
+{"kind":"shape","id":"sh/elwb6l4f","slide":17,"name":"Shape 19","bbox":[686.4,432,38.4,38.4]}
+{"kind":"textbox","id":"sh/9c7a5k3i","slide":17,"name":"Text 20","text":"✓","textPreview":"✓","textChars":1,"textLines":1,"bbox":[686.4,432,38.4,38.4]}
+{"kind":"textbox","id":"sh/obytcfmx","slide":17,"name":"Text 21","text":"Kiểm tra tính liên tục","textPreview":"Kiểm tra tính liên tục","textChars":22,"textLines":1,"bbox":[739.2,428.16,470.4,38.4]}
+{"kind":"textbox","id":"sh/naps3alc","slide":17,"name":"Text 22","text":"Không được để trống kỳ; kỳ trống phải ghi rõ trạng thái \"chưa có số\"","textPreview":"Không được để trống kỳ; kỳ trống phải ghi rõ trạng thái \"chưa có số\"","textChars":68,"textLines":1,"bbox":[739.2,468.48,470.4,57.6]}
+{"kind":"shape","id":"sh/m9gba54r","slide":17,"name":"Shape 23","bbox":[67.2,542.4,566.4,115.2]}
+{"kind":"shape","id":"sh/xg7u9k3e","slide":17,"name":"Shape 24","bbox":[91.2,561.6,38.4,38.4]}
+{"kind":"textbox","id":"sh/wfytgfmt","slide":17,"name":"Text 25","text":"✓","textPreview":"✓","textChars":1,"textLines":1,"bbox":[91.2,561.6,38.4,38.4]}
+{"kind":"textbox","id":"sh/u98zedgz","slide":17,"name":"Text 26","text":"Kiểm tra kiểu dữ liệu","textPreview":"Kiểm tra kiểu dữ liệu","textChars":21,"textLines":1,"bbox":[144,557.76,470.4,38.4]}
+{"kind":"textbox","id":"sh/vahgnixk","slide":17,"name":"Text 27","text":"Toàn bộ trường giá trị phải là kiểu số, không phải chuỗi ký tự","textPreview":"Toàn bộ trường giá trị phải là kiểu số, không phải chuỗi ký tự","textChars":62,"textLines":1,"bbox":[144,598.08,470.4,57.6]}
+{"kind":"shape","id":"sh/wbqhgny5","slide":17,"name":"Shape 28","bbox":[662.4,542.4,566.4,115.2]}
+{"kind":"shape","id":"sh/hczypsfq","slide":17,"name":"Shape 29","bbox":[686.4,561.6,38.4,38.4]}
+{"kind":"textbox","id":"sh/idszixgb","slide":17,"name":"Text 30","text":"✓","textPreview":"✓","textChars":1,"textLines":1,"bbox":[686.4,561.6,38.4,38.4]}
+{"kind":"textbox","id":"sh/je10r2xw","slide":17,"name":"Text 31","text":"Đối chiếu chéo 3 phương pháp","textPreview":"Đối chiếu chéo 3 phương pháp","textChars":28,"textLines":1,"bbox":[739.2,557.76,470.4,38.4]}
+{"kind":"textbox","id":"sh/4fahk7y1","slide":17,"name":"Text 32","text":"Chênh lệch giữa phương pháp sản xuất và sử dụng cuối cùng phải nằm trong ngưỡng cho phép","textPreview":"Chênh lệch giữa phương pháp sản xuất và sử dụng cuối cùng phải nằm trong ngưỡng cho phép","textChars":88,"textLines":1,"bbox":[739.2,598.08,470.4,57.6]}
+{"kind":"image","id":"im/qt4rux8v","slide":17,"name":"Image 0","bbox":[129.6,182.4,499.2,65.43]}
+{"kind":"image","id":"im/t0bqd872","slide":17,"name":"Image 1","bbox":[729.6,196.8,412.8,33.67]}
+{"kind":"notes","id":"nt/l7y6rx","slide":17,"text":""}
+{"kind":"slide","id":"sl/iw0vcu","slide":18,"title":"Kiến nghị","textShapes":14}
+{"kind":"textbox","id":"sh/ju98byx4","slide":18,"name":"Text 0","text":"Kiến nghị","textPreview":"Kiến nghị","textChars":9,"textLines":1,"bbox":[76.8,62.4,1056,76.8]}
+{"kind":"textbox","id":"sh/itg72dwj","slide":18,"name":"Text 1","text":"Để IOC tính được GRDP chính xác, cần quyết định 4 nội dung","textPreview":"Để IOC tính được GRDP chính xác, cần quyết định 4 nội dung","textChars":58,"textLines":1,"bbox":[76.8,139.2,1056,43.2]}
+{"kind":"shape","id":"sh/tkrqhsf6","slide":18,"name":"Shape 2","bbox":[76.8,201.6,1128,105.6]}
+{"kind":"shape","id":"sh/sjip8nel","slide":18,"name":"Shape 3","bbox":[100.8,232.32,43.2,43.2]}
+{"kind":"textbox","id":"sh/7i98fix0","slide":18,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[100.8,232.32,43.2,43.2]}
+{"kind":"textbox","id":"sh/6h076dwf","slide":18,"name":"Text 5","text":"Ban hành danh mục dữ liệu dùng chung phục vụ tài khoản quốc gia","textPreview":"Ban hành danh mục dữ liệu dùng chung phục vụ tài khoản quốc gia","textChars":63,"textLines":1,"bbox":[163.2,215.04,1017.6,40.32]}
+{"kind":"textbox","id":"sh/hobqlsf2","slide":18,"name":"Text 6","text":"Xác định rõ trường dữ liệu, đầu mối, tần suất, định dạng cho từng sở ngành","textPreview":"Xác định rõ trường dữ liệu, đầu mối, tần suất, định dạng cho từng sở ngành","textChars":74,"textLines":1,"bbox":[163.2,257.28,1017.6,40.32]}
+{"kind":"shape","id":"sh/gn2pcnex","slide":18,"name":"Shape 7","bbox":[76.8,324.48,1128,105.6]}
+{"kind":"shape","id":"sh/uxwba54r","slide":18,"name":"Shape 8","bbox":[100.8,355.2,43.2,43.2]}
+{"kind":"textbox","id":"sh/vy5cja5w","slide":18,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[100.8,355.2,43.2,43.2]}
+{"kind":"textbox","id":"sh/gzetcfmh","slide":18,"name":"Text 10","text":"Giao Chi cục Thống kê là đầu mối chuyên môn","textPreview":"Giao Chi cục Thống kê là đầu mối chuyên môn","textChars":43,"textLines":1,"bbox":[163.2,337.92,1017.6,40.32]}
+{"kind":"textbox","id":"sh/h0nulkn2","slide":18,"name":"Text 11","text":"Chuẩn hoá phương pháp luận, hệ số chi phí trung gian và bảng giá so sánh 2020","textPreview":"Chuẩn hoá phương pháp luận, hệ số chi phí trung gian và bảng giá so sánh 2020","textChars":77,"textLines":1,"bbox":[163.2,380.16,1017.6,40.32]}
+{"kind":"shape","id":"sh/i1wbe54n","slide":18,"name":"Shape 12","bbox":[76.8,447.36,1128,105.6]}
+{"kind":"shape","id":"sh/32pcna58","slide":18,"name":"Shape 13","bbox":[100.8,478.08,43.2,43.2]}
+{"kind":"textbox","id":"sh/43ytgfmt","slide":18,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[100.8,478.08,43.2,43.2]}
+{"kind":"textbox","id":"sh/547upkne","slide":18,"name":"Text 15","text":"Kết nối tự động thay cho gửi file thủ công","textPreview":"Kết nối tự động thay cho gửi file thủ công","textChars":42,"textLines":1,"bbox":[163.2,460.8,1017.6,40.32]}
+{"kind":"textbox","id":"sh/y5cb2l4j","slide":18,"name":"Text 16","text":"Ưu tiên API/kết nối CSDL với Thuế, Hải quan, Kho bạc, Kế hoạch – Đầu tư","textPreview":"Ưu tiên API/kết nối CSDL với Thuế, Hải quan, Kho bạc, Kế hoạch – Đầu tư","textChars":71,"textLines":1,"bbox":[163.2,503.04,1017.6,40.32]}
+{"kind":"shape","id":"sh/j6lsbq54","slide":18,"name":"Shape 17","bbox":[76.8,570.24,1128,105.6]}
+{"kind":"shape","id":"sh/nah83mlw","slide":18,"name":"Shape 18","bbox":[100.8,600.96,43.2,43.2]}
+{"kind":"textbox","id":"sh/m98rahkb","slide":18,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[100.8,600.96,43.2,43.2]}
+{"kind":"textbox","id":"sh/9cjq5w3m","slide":18,"name":"Text 20","text":"Chuẩn hoá lại dữ liệu hiện có trước khi nạp kho","textPreview":"Chuẩn hoá lại dữ liệu hiện có trước khi nạp kho","textChars":47,"textLines":1,"bbox":[163.2,583.68,1017.6,40.32]}
+{"kind":"textbox","id":"sh/obq9cr21","slide":18,"name":"Text 21","text":"Sửa mã phân cấp ngành Dịch vụ, ép kiểu số, thống nhất nhãn năm gốc, bổ sung kỳ còn trống","textPreview":"Sửa mã phân cấp ngành Dịch vụ, ép kiểu số, thống nhất nhãn năm gốc, bổ sung kỳ còn trống","textChars":88,"textLines":1,"bbox":[163.2,625.92,1017.6,40.32]}
+{"kind":"notes","id":"nt/iw0vcu","slide":18,"text":""}

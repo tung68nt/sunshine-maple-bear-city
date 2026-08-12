@@ -78,6 +78,9 @@ export const SCHOOL_IMAGES = {
     thuVien7: '/images/render/THU_VIEN_7_.jpg',
     thuVien8: '/images/render/THU_VIEN_8_.jpg',
     vanPhong: '/images/render/VAN_PHONG.jpg',
+    sanChoi2: '/images/render/HANH_LANG_2_.jpg',
+    beBoi1: '/images/render/PHONG_CHUC_NANG_2_.jpg',
+    canTeen: '/images/render/VAN_PHONG.jpg',
   },
   logo: '/logo.png',
 }

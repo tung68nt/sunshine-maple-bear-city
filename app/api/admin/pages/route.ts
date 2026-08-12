@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { isAuthFailure, requireRole } from '@/lib/auth/require-role'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 export async function GET(request: Request) {
   try {
+    const auth = await requireRole(['admin', 'editor', 'viewer']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const { searchParams } = new URL(request.url)
     const slug = searchParams.get('slug')
 
@@ -36,6 +39,8 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const body = await request.json()
     const { slug, title, content, meta_title, meta_description, is_published } = body
 

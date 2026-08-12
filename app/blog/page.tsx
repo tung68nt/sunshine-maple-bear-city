@@ -27,11 +27,11 @@ export default function BlogPage() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const res = await fetch('/api/admin/blog')
+        const res = await fetch('/api/blog')
         if (res.ok) {
-          const data = await res.json()
-          if (Array.isArray(data) && data.length > 0) {
-            setPosts(data)
+          const payload = await res.json()
+          if (Array.isArray(payload.data) && payload.data.length > 0) {
+            setPosts(payload.data.map((post: any) => ({ ...post, featured_image: post.cover_image_url || post.featured_image || post.image_url, excerpt: post.excerpt || post.summary_vi || post.summary_en || '' })))
           } else {
             setFallbackPosts()
           }

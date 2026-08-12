@@ -1,16 +1,11 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-  )
-}
+import { isAuthFailure, requireRole } from '@/lib/auth/require-role'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = getSupabase()
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const { data, error } = await supabase
       .from('announcements')
       .select('*')
@@ -27,7 +22,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = getSupabase()
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const body = await request.json()
 
     const { data, error } = await supabase

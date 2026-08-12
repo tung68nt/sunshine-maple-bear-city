@@ -1,0 +1,1013 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/fu1gfa1s",
+    "id": "fu1gfa1s",
+    "slide": 8,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18byd4zy",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì",
+      "textPreview": "Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phương pháp 3 – Sử dụng cuối cùng: cần trường dữ liệu gì",
+              "fontSize": 34.67,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g72x4zyd",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích",
+      "textPreview": "Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tiếp cận từ phía cầu cuối cùng — theo NĐ 94 chỉ tính ở phạm vi cả nước, cấp tỉnh dùng để phân tích",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ri9g7uhw",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        168,
+        1171.2,
+        76.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/uhsbqhkf",
+      "id": "28",
+      "name": "Image 0",
+      "bbox": [
+        278.4,
+        187.2,
+        729.6,
+        46.77
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-8-1.png",
+        "contentType": "image/png",
+        "byteLength": 27567
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-8-1.png",
+        "contentType": "image/png",
+        "byteLength": 27567
+      }
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tkby9kzm",
+      "id": "6",
+      "name": "Shape 3",
+      "bbox": [
+        67.2,
+        264,
+        1171.2,
+        88.32
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sjix0zy1",
+      "id": "7",
+      "name": "Shape 4",
+      "bbox": [
+        91.2,
+        278.4,
+        110.4,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#C9A227"
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/fi1sjmlk",
+      "id": "29",
+      "name": "Image 1",
+      "bbox": [
+        132.51,
+        293.76,
+        27.78,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-8-2.png",
+        "contentType": "image/png",
+        "byteLength": 3189
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-8-2.png",
+        "contentType": "image/png",
+        "byteLength": 3189
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/id0fu50z",
+      "id": "9",
+      "name": "Text 5",
+      "bbox": [
+        225.6,
+        275.52,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Tiêu dùng cuối cùng của hộ dân cư",
+      "textPreview": "Tiêu dùng cuối cùng của hộ dân cư",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tiêu dùng cuối cùng của hộ dân cư"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tiêu dùng cuối cùng của hộ dân cư",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tiêu dùng cuối cùng của hộ dân cư",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o7ydoret",
+      "id": "10",
+      "name": "Text 6",
+      "bbox": [
+        561.6,
+        273.6,
+        657.6,
+        69.12
+      ],
+      "geometry": "rect",
+      "text": "Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung bình.",
+      "textPreview": "Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung bình.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung"
+          },
+          {
+            "index": 2,
+            "text": "bình."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung bình.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tổng mức bán lẻ hàng hoá và doanh thu dịch vụ tiêu dùng; chi tiêu bình quân đầu người (KSMS); dân số trung bình.",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/98rehwve",
+      "id": "11",
+      "name": "Shape 7",
+      "bbox": [
+        67.2,
+        364.8,
+        1171.2,
+        88.32
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m5gvmhwn",
+      "id": "12",
+      "name": "Shape 8",
+      "bbox": [
+        91.2,
+        379.2,
+        110.4,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#C9A227"
+    },
+    {
+      "order": 12,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/pc3upgn2",
+      "id": "30",
+      "name": "Image 2",
+      "bbox": [
+        133.65,
+        394.56,
+        25.51,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-8-3.png",
+        "contentType": "image/png",
+        "byteLength": 3707
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-8-3.png",
+        "contentType": "image/png",
+        "byteLength": 3707
+      }
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0jydkreh",
+      "id": "14",
+      "name": "Text 9",
+      "bbox": [
+        225.6,
+        376.32,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Tiêu dùng cuối cùng của Nhà nước",
+      "textPreview": "Tiêu dùng cuối cùng của Nhà nước",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tiêu dùng cuối cùng của Nhà nước"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tiêu dùng cuối cùng của Nhà nước",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tiêu dùng cuối cùng của Nhà nước",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1k7edwv2",
+      "id": "15",
+      "name": "Text 10",
+      "bbox": [
+        561.6,
+        374.4,
+        657.6,
+        69.12
+      ],
+      "geometry": "rect",
+      "text": "Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch.",
+      "textPreview": "Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chi thường xuyên ngân sách cho quản lý nhà nước, giáo dục, y tế, văn hoá, thể thao, du lịch.",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ehgvihwr",
+      "id": "16",
+      "name": "Shape 11",
+      "bbox": [
+        67.2,
+        465.6,
+        1171.2,
+        88.32
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zipwbmdc",
+      "id": "17",
+      "name": "Shape 12",
+      "bbox": [
+        91.2,
+        480,
+        110.4,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#C9A227"
+    },
+    {
+      "order": 17,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/4budgbmh",
+      "id": "31",
+      "name": "Image 3",
+      "bbox": [
+        110.77,
+        495.36,
+        71.26,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-8-4.png",
+        "contentType": "image/png",
+        "byteLength": 5369
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-8-4.png",
+        "contentType": "image/png",
+        "byteLength": 5369
+      }
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lgbepgvm",
+      "id": "19",
+      "name": "Text 13",
+      "bbox": [
+        225.6,
+        477.12,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Tích luỹ tài sản",
+      "textPreview": "Tích luỹ tài sản",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tích luỹ tài sản"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tích luỹ tài sản",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tích luỹ tài sản",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tw7e9gnq",
+      "id": "20",
+      "name": "Text 14",
+      "bbox": [
+        561.6,
+        475.2,
+        657.6,
+        69.12
+      ],
+      "geometry": "rect",
+      "text": "Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho.",
+      "textPreview": "Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vốn đầu tư thực hiện toàn xã hội theo nguồn và theo ngành; giá trị TSCĐ tăng trong kỳ; chênh lệch tồn kho.",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/svydgb65",
+      "id": "21",
+      "name": "Shape 15",
+      "bbox": [
+        67.2,
+        566.4,
+        1171.2,
+        88.32
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7u5w765k",
+      "id": "22",
+      "name": "Shape 16",
+      "bbox": [
+        91.2,
+        580.8,
+        110.4,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#C9A227"
+    },
+    {
+      "order": 22,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/3alcn65w",
+      "id": "32",
+      "name": "Image 4",
+      "bbox": [
+        113.99,
+        596.16,
+        64.82,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-8-5.png",
+        "contentType": "image/png",
+        "byteLength": 4698
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-8-5.png",
+        "contentType": "image/png",
+        "byteLength": 4698
+      }
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sne5wne",
+      "id": "24",
+      "name": "Text 17",
+      "bbox": [
+        225.6,
+        577.92,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Chênh lệch xuất – nhập",
+      "textPreview": "Chênh lệch xuất – nhập",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chênh lệch xuất – nhập"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chênh lệch xuất – nhập",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chênh lệch xuất – nhập",
+              "fontSize": 18,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kredcr6t",
+      "id": "25",
+      "name": "Text 18",
+      "bbox": [
+        561.6,
+        576,
+        657.6,
+        69.12
+      ],
+      "geometry": "rect",
+      "text": "Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất).",
+      "textPreview": "Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất).",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất)."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất).",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Kim ngạch xuất nhập khẩu (Hải quan); luồng hàng hoá – dịch vụ trao đổi với các tỉnh khác (khó thu thập nhất).",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jq5w365o",
+      "id": "26",
+      "name": "Shape 19",
+      "bbox": [
+        67.2,
+        648,
+        1171.2,
+        0
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i5wva1o3",
+      "id": "27",
+      "name": "Text 20",
+      "bbox": [
+        67.2,
+        648,
+        1171.2,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp sử dụng cuối cùng.",
+      "textPreview": "Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp ...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp sử dụng cuối cùng."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp sử dụng cuối cùng.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lưu ý: ở cấp tỉnh, luồng hàng hoá liên tỉnh không có chứng từ hải quan nên phải ước lượng — đây là nguồn sai số lớn nhất của phương pháp sử dụng cuối cùng.",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

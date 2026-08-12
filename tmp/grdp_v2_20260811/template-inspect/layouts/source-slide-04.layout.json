@@ -1,0 +1,1365 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/jyx0ra1s",
+    "id": "jyx0ra1s",
+    "slide": 4,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1cj2d8b6",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng",
+      "textPreview": "Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng",
+              "fontSize": 41.33,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0ba143al",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành",
+      "textPreview": "Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Toàn bộ yêu cầu dữ liệu trong tài liệu này bám theo văn bản pháp quy hiện hành",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rm1k7yt4",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        172.8,
+        566.4,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ql8jytsj",
+      "id": "5",
+      "name": "Text 3",
+      "bbox": [
+        94.08,
+        184.32,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Nghị định 94/2022/NĐ-CP",
+      "textPreview": "Nghị định 94/2022/NĐ-CP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nghị định 94/2022/NĐ-CP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nghị định 94/2022/NĐ-CP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nghị định 94/2022/NĐ-CP",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/doj29oba",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        94.08,
+        220.8,
+        513.6,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP.",
+      "textPreview": "Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực"
+          },
+          {
+            "index": 2,
+            "text": "01/01/2023, thay Nghị định 97/2016/NĐ-CP."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Quy định nội dung chỉ tiêu thống kê quốc gia và quy trình biên soạn GDP, GRDP. Hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sna103ap",
+      "id": "7",
+      "name": "Text 5",
+      "bbox": [
+        94.08,
+        280.32,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều 12 (lịch công bố)",
+      "textPreview": "Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều 12 (lịch công bố)",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều"
+          },
+          {
+            "index": 2,
+            "text": "12 (lịch công bố)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều 12 (lịch công bố)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Điều 3 (6 bước), Điều 8 (thông tin đầu vào), Điều 9 (chỉ tiêu phải tính), Điều 10 (biên soạn), Điều 12 (lịch công bố)",
+              "fontSize": 12.67,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ihk3et8",
+      "id": "8",
+      "name": "Shape 6",
+      "bbox": [
+        662.4,
+        172.8,
+        566.4,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ih8ju9sn",
+      "id": "9",
+      "name": "Text 7",
+      "bbox": [
+        689.28,
+        184.32,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Quyết định 715/QĐ-TTg (22/5/2015)",
+      "textPreview": "Quyết định 715/QĐ-TTg (22/5/2015)",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Quyết định 715/QĐ-TTg (22/5/2015)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Quyết định 715/QĐ-TTg (22/5/2015)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Quyết định 715/QĐ-TTg (22/5/2015)",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kbm987y5",
+      "id": "10",
+      "name": "Text 8",
+      "bbox": [
+        689.28,
+        220.8,
+        513.6,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ quan thống kê trung ương.",
+      "textPreview": "Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ quan thống kê trung ương.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ"
+          },
+          {
+            "index": 2,
+            "text": "quan thống kê trung ương."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ quan thống kê trung ương.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Đề án đổi mới quy trình biên soạn số liệu GRDP — chuyển sang biên soạn tập trung tại cơ quan thống kê trung ương.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5cva1cfq",
+      "id": "11",
+      "name": "Text 9",
+      "bbox": [
+        689.28,
+        280.32,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\"",
+      "textPreview": "Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\"",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\""
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\"",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nền tảng của nguyên tắc \"tỉnh cung cấp dữ liệu nguồn, trung ương biên soạn\"",
+              "fontSize": 12.67,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i94r6xgz",
+      "id": "12",
+      "name": "Shape 10",
+      "bbox": [
+        67.2,
+        337.92,
+        566.4,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jadsz2xk",
+      "id": "13",
+      "name": "Text 11",
+      "bbox": [
+        94.08,
+        349.44,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Nghị định 62/2024/NĐ-CP",
+      "textPreview": "Nghị định 62/2024/NĐ-CP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nghị định 62/2024/NĐ-CP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nghị định 62/2024/NĐ-CP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nghị định 62/2024/NĐ-CP",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w72947yt",
+      "id": "14",
+      "name": "Text 12",
+      "bbox": [
+        94.08,
+        385.92,
+        513.6,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP.",
+      "textPreview": "Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sửa đổi, bổ sung quy định liên quan đến lịch công bố số liệu GDP, GRDP.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x8vaxsfe",
+      "id": "15",
+      "name": "Text 13",
+      "bbox": [
+        94.08,
+        445.44,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Áp dụng cho lịch phổ biến số liệu quý/năm",
+      "textPreview": "Áp dụng cho lịch phổ biến số liệu quý/năm",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Áp dụng cho lịch phổ biến số liệu quý/năm"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Áp dụng cho lịch phổ biến số liệu quý/năm",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Áp dụng cho lịch phổ biến số liệu quý/năm",
+              "fontSize": 12.67,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5kr2xg3",
+      "id": "16",
+      "name": "Shape 14",
+      "bbox": [
+        662.4,
+        337.92,
+        566.4,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6tsv2xo",
+      "id": "17",
+      "name": "Text 15",
+      "bbox": [
+        689.28,
+        349.44,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Năm gốc so sánh 2020",
+      "textPreview": "Năm gốc so sánh 2020",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Năm gốc so sánh 2020"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Năm gốc so sánh 2020",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Năm gốc so sánh 2020",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g36tgryd",
+      "id": "18",
+      "name": "Text 16",
+      "bbox": [
+        689.28,
+        385.92,
+        513.6,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh.",
+      "textPreview": "Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ngành Thống kê chuyển năm gốc từ 2010 sang 2020 khi tính chỉ tiêu theo giá so sánh.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4fa9wfy",
+      "id": "19",
+      "name": "Text 17",
+      "bbox": [
+        689.28,
+        445.44,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có",
+      "textPreview": "Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giải thích trực tiếp điểm gãy chuỗi trong file dữ liệu hiện có",
+              "fontSize": 12.67,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p0batw72",
+      "id": "20",
+      "name": "Shape 18",
+      "bbox": [
+        67.2,
+        503.04,
+        566.4,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oz29krqh",
+      "id": "21",
+      "name": "Text 19",
+      "bbox": [
+        94.08,
+        514.56,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Nghị định 29/2025/NĐ-CP",
+      "textPreview": "Nghị định 29/2025/NĐ-CP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nghị định 29/2025/NĐ-CP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nghị định 29/2025/NĐ-CP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nghị định 29/2025/NĐ-CP",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ytsrmpw",
+      "id": "22",
+      "name": "Text 20",
+      "bbox": [
+        94.08,
+        551.04,
+        513.6,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là Chi cục Thống kê.",
+      "textPreview": "Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là Chi cục Thống kê.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là"
+          },
+          {
+            "index": 2,
+            "text": "Chi cục Thống kê."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là Chi cục Thống kê.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Từ 01/3/2025, Tổng cục Thống kê trở thành Cục Thống kê thuộc Bộ Tài chính; cấp tỉnh là Chi cục Thống kê.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2xkrih8b",
+      "id": "23",
+      "name": "Text 21",
+      "bbox": [
+        94.08,
+        610.56,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh",
+      "textPreview": "Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Đầu mối chuyên môn của tỉnh hiện nay là Chi cục Thống kê tỉnh",
+              "fontSize": 12.67,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1wbapc7q",
+      "id": "24",
+      "name": "Shape 22",
+      "bbox": [
+        662.4,
+        503.04,
+        566.4,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gv29g7q5",
+      "id": "25",
+      "name": "Text 23",
+      "bbox": [
+        689.28,
+        514.56,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Nghị quyết 60-NQ/TW & sắp xếp ĐVHC",
+      "textPreview": "Nghị quyết 60-NQ/TW & sắp xếp ĐVHC",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nghị quyết 60-NQ/TW & sắp xếp ĐVHC"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nghị quyết 60-NQ/TW & sắp xếp ĐVHC",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nghị quyết 60-NQ/TW & sắp xếp ĐVHC",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fu9sn2p0",
+      "id": "26",
+      "name": "Text 24",
+      "bbox": [
+        689.28,
+        551.04,
+        513.6,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới.",
+      "textPreview": "Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Từ 01/7/2025 hợp nhất Quảng Bình – Quảng Trị thành tỉnh Quảng Trị mới.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/et0reh8f",
+      "id": "27",
+      "name": "Text 25",
+      "bbox": [
+        689.28,
+        610.56,
+        513.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính",
+      "textPreview": "Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Toàn bộ chuỗi số liệu phải gắn nhãn địa giới hành chính",
+              "fontSize": 12.67,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

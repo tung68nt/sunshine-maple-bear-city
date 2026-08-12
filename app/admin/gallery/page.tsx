@@ -542,9 +542,12 @@ export default function AdminGalleryPage() {
 
             {/* Photo View Box */}
             <div className="relative flex-1 min-h-[380px] max-h-[580px] bg-neutral-950 flex items-center justify-center overflow-hidden border border-neutral-800 rounded-2xs">
-              <img
+              <Image
                 src={currentLightboxItem.src}
                 alt={currentLightboxItem.title}
+                width={1200}
+                height={900}
+                unoptimized
                 className="max-h-full max-w-full object-contain"
               />
             </div>

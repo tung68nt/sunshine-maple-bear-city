@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Link2, Copy, Check, QrCode, ExternalLink, Users, Share2, Plus, Trash2, Eye, FileSpreadsheet, Search, Download } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export interface SavedUtmLink {
   id: string
@@ -323,9 +324,12 @@ export default function AdminUtmBuilderPage() {
             <p className="text-[11px] text-neutral-500 font-light">Quét mã QR bằng camera điện thoại để mở trực tiếp URL chiến dịch đính kèm UTM Parameters.</p>
 
             <div className="p-3 bg-white border border-neutral-300 rounded-2xs inline-block mx-auto shadow-2xs">
-              <img
+              <Image
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(generatedUrl || 'https://www.sunshinemaplebear.edu.vn')}`}
                 alt="Scannable UTM QR Code"
+                width={192}
+                height={192}
+                unoptimized
                 className="w-48 h-48 mx-auto object-contain"
               />
             </div>

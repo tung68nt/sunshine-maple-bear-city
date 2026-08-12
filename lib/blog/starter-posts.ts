@@ -1,0 +1,32 @@
+export const starterBlogPosts = [
+  {
+    id: '6a1b4f4e-3d0c-4d82-9149-31e6b2c58501', slug: 'why-english-immersion-matters', category: 'sub-bilingual', status: 'published',
+    title: 'Why English Immersion in Early Childhood Matters',
+    title_vi: 'Tại sao Môi trường Song ngữ 100% Tiếng Anh lại Quan trọng ở Lứa tuổi Mầm non?',
+    title_en: 'Why English Immersion in Early Childhood Matters',
+    content: '<h2>Early English immersion</h2><p>Children learn language naturally through meaningful daily experiences.</p>',
+    content_vi: '<h2>Sức mạnh của việc thẩm thấu ngôn ngữ mầm non</h2><p>Trong giai đoạn 0–6 tuổi, trẻ tiếp thu ngôn ngữ tự nhiên qua các trải nghiệm hằng ngày.</p>',
+    content_en: '<h2>The power of early language immersion</h2><p>During ages 0–6, children acquire language naturally through daily experiences.</p>',
+    published_at: '2026-08-04T00:00:00.000Z',
+  },
+  {
+    id: '6a1b4f4e-3d0c-4d82-9149-31e6b2c58502', slug: '5-principles-maple-bear-canada', category: 'cat-academics', status: 'published',
+    title: '5 Principles of Maple Bear Canadian Early Childhood Program',
+    title_vi: '5 Nguyên Tắc Giáo Dục Mầm Non Chuẩn Canada Tại Maple Bear',
+    title_en: '5 Principles of Maple Bear Canadian Early Childhood Program',
+    content: '<h2>Canadian early childhood education</h2><p>Learning is child-centred, inquiry-led, and play-based.</p>',
+    content_vi: '<h2>Triết lý giáo dục Canada trong thực tế</h2><p>Trẻ được học tập chủ động, khám phá bằng câu hỏi và thông qua vui chơi.</p>',
+    content_en: '<h2>Canadian educational philosophy in action</h2><p>Learning is child-centred, inquiry-led, and play-based.</p>',
+    published_at: '2026-08-01T00:00:00.000Z',
+  },
+  {
+    id: '6a1b4f4e-3d0c-4d82-9149-31e6b2c58503', slug: 'nutrition-meal-planning-kindergarten', category: 'sub-nutrition', status: 'draft',
+    title: 'Nutrition & Meal Planning for Kindergarten Children',
+    title_vi: 'Chế Độ Dinh Dưỡng Hữu Cơ & Thực Đơn Cho Bé Mầm Non',
+    title_en: 'Nutrition & Meal Planning for Kindergarten Children',
+    content: '<h2>Nutrition for growing children</h2><p>Balanced meals support healthy development.</p>',
+    content_vi: '<h2>Dinh dưỡng cho sự phát triển của bé</h2><p>Thực đơn cân bằng là nền tảng cho sự phát triển khỏe mạnh.</p>',
+    content_en: '<h2>Nutrition for growing children</h2><p>Balanced meals support healthy development.</p>',
+    published_at: null,
+  },
+]

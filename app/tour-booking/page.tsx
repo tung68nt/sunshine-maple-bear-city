@@ -7,6 +7,7 @@ import { CalendarCheck, Clock, MapPin, CheckCircle2, User, Phone, Mail, Building
 import { SCHOOL_INFO, SCHOOL_IMAGES } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Turnstile } from '@/components/turnstile'
 
 export default function TourBookingPage() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ export default function TourBookingPage() {
     preferredTime: '09:30 AM',
     childAge: '12-24m',
     notes: '',
+    consent: false,
+    turnstileToken: '',
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -204,6 +207,12 @@ export default function TourBookingPage() {
                         <label className="block text-xs font-bold text-neutral-700 mb-1">Ghi chú & Yêu cầu riêng</label>
                         <textarea id="notes" name="notes" value={formData.notes} onChange={handleChange} rows={3} className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black resize-none" placeholder="Nhập thắc mắc hoặc thông tin cần nhà trường hỗ trợ..."></textarea>
                       </div>
+
+                      <label className="flex items-start gap-2 text-xs text-neutral-600">
+                        <input type="checkbox" required checked={formData.consent} onChange={(e) => setFormData({ ...formData, consent: e.target.checked })} className="mt-0.5" />
+                        <span>Tôi đồng ý để nhà trường liên hệ và xử lý thông tin theo Chính sách quyền riêng tư.</span>
+                      </label>
+                      <Turnstile onTokenChange={(turnstileToken) => setFormData((current) => ({ ...current, turnstileToken }))} />
 
                       <button
                         type="submit"

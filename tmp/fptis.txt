@@ -1,0 +1,350 @@
+NỀN TẢNG KHO DỮ LIỆU VÀ TRUNG TÂM GIÁM SÁT,
+      ĐIỀU HÀNH THÔNG MINH CẤP TỈNH
+
+       Chuyên đề quản lý thông tin GRDP và các chỉ số kinh tế - xã hội liên quan
+
+
+
+
+                                 Công ty TNHH FPT IS
+                                    Tháng 8 năm 2026
+       01
+NỀN TẢNG KHO DỮ LIỆU
+
+
+
+
+                       2
+                             Nền tảng tổng hợp và phân tích dữ liệu
+
+
+ 01    Xử lý dữ liệu từ các nguồn dữ liệu            02    Khai phá dữ liệu                                03    Lưu trữ dữ liệu đã xử lý
+
+
+
+Dịch vụ xử lý dữ liệu realtime; dịch vụ tích        Dịch vụ cung cấp thông tin có thể tùy biến            Cung cấp dịch vụ lưu trữ dữ liệu đã xử lý,
+hợp; dịch vụ trích xuất thông tin; dịch vụ          theo các nhu cầu sử dụng và khai thác                 dịch vụ tạo mới model, dịch vụ sao chép
+sắp xếp dữ liệu                                     khác nhau nhờ vào đặc tính động của                   model, dịch vụ xóa model, dịch vụ nhập
+                                                    nền tảng khai phá                                     dữ liệu model, dịch vụ sao lưu, backup
+                                                                                                          model
+
+
+
+ 04    Dịch vụ chia sẻ dữ liệu                                                 05     Quản trị hệ thống
+
+
+
+Quản lý phân loại hệ thống danh mục các dịch vụ chia sẻ trong toàn            Quản lý các kết nối; quản lý người dùng; xác thực và định danh
+hệ thống; các dịch vụ dữ liệu được cấu hình động; cung cấp hệ                 phân quyền hệ thống; quản lý cá nhân hóa; quản lý danh mục dùng
+thống phân quyền dịch vụ và dữ liệu cho các hệ thống bên ngoài                chung; quản lý hệ thống các báo cáo thống kê tổng quan toàn hệ
+hoặc NSD                                                                      thống
+
+
+
+
+                                                                                                                                                       3
+                              Xử lý, khai phá tự động dữ liệu lớn
+
+
+
+
+TỰ ĐỘNG ĐỀ XUẤT CÁC MỐI QUAN HỆ DỮ LIỆU PHÁT HIỆN
+
+
+- Khai phá tìm kiếm thông minh các mối quan hệ dữ liệu
+- Đề xuất, khử trùng, làm giàu dữ liệu tự động
+
+
+
+
+KHAI PHÁ THEO THỜI GIAN THỰC
+
+
+- Hỗ trợ khai phá trên dữ liệu realtime, phát sinh mới
+
+
+
+
+                                                                    4
+Quản lý kết nối dữ liệu
+
+
+
+
+                          5
+Quản lý kết nối dữ liệu
+
+
+
+
+                          6
+Khai phá dữ liệu
+
+
+
+
+                   7
+                                                           Khai phá dữ liệu
+Hệ thống khai phá dữ liệu cung cấp công vụ mạnh vẽ với nhiều dịch vụ xử lý và biến đổi dữ liệu, cho phép kết hợp, chuẩn hóa và phân tích dữ liệu
+từ nhiều nguồn khác nhau nhằm phục vụ công tác khai thác, quản lý thông tin theo nhu cầu
+
+
+  Kết hợp dữ liệu
+
+    ❖ Join dữ liệu từ nhiều bảng / nhiều nguồn
+                                                  Xử lý và tính toán dữ liệu
+      dữ liệu khác nhau
+    ❖ Union dữ liệu để hợp nhất các tập dữ liệu
+      có cấu trúc tương tự                         ❖ Khử trùng dữ liệu
+                                                   ❖ Tổng hợp dữ liệu (Aggregation): Sum,
+                                                     Count, Average, Max, Min
+                                                   ❖ Tính toán trên nhiều cột: Cộng, Trừ,
+                                                     Nhân, Chia, Tính tỷ lệ
+
+  Lọc và trích xuất dữ liệu
+
+    ❖ Lọc dữ liệu (Filter) theo điều kiện
+
+
+
+
+                                                  Lưu trữ kết quả khai phá
+  Cập nhật và đồng bộ dữ liệu
+                                                   ❖ Lưu trữ kết quả của quá trình khai phá
+    ❖ Cập nhật dữ liệu (Update Data)
+    ❖ Cập nhật cấu trúc dữ liệu
+
+
+
+
+                                                                                                                                                   8
+Lưu trữ dữ liệu đã xử lý
+
+
+
+
+                           9
+Lưu trữ dữ liệu đã xử lý
+
+
+
+
+                           10
+Cấu hình động dịch vụ chia sẻ dữ liệu
+
+
+
+
+                                        11
+                 02
+TRUNG TÂM GIÁM SÁT, ĐIỀU HÀNH THÔNG MINH
+
+
+
+
+                                           12
+13
+14
+         03
+CHUYÊN ĐỀ CHỈ TIÊU GRDP
+
+
+
+
+                          15
+                 Chỉ tiêu GRDP trong Kế hoạch nâng cấp IOC của tỉnh
+GRDP thuộc Kịch bản điều hành kinh tế - xã hội — kịch bản chủ đạo được nhiều nhiệm vụ, dự án của Kế hoạch cùng phục vụ.
+
+YÊU CẦU TẠI KẾ HOẠCH 3380/KH-UBND                                                                      NHIỆM VỤ, DỰ ÁN CẤU THÀNH
+
+   Mục tiêu đến năm 2030                                                                                 II.4          Mở rộng kho cơ sở dữ liệu dùng chung
+   100% báo cáo phục vụ họp giao ban định kỳ, họp chuyên đề và đột xuất của UBND tỉnh được kết
+   xuất trực tiếp, tự động từ Trung tâm IOC.
+                                                                                                         II.5          CSDL Danh mục dùng chung
+
+
+   Chuẩn hóa chỉ tiêu
+                                                                                                         II.8          Nền tảng phân tích dữ liệu lớn (Big Data)
+   Số hóa và chuẩn hóa 100% hệ thống chỉ tiêu báo cáo kinh tế - xã hội các cấp, tuân thủ Từ điển dữ
+   liệu dùng chung.
+                                                                                                         II.9          Nền tảng Báo cáo số
+   Dòng dữ liệu sống
+   Thông suốt, tự động từ 78 đơn vị cấp xã, phường, đặc khu lên thẳng cấp tỉnh thông qua nền tảng        II.10         Nền tảng Thu thập dữ liệu
+   LGSP.
+
+                                                                                                         II.11         Nâng cấp kết nối, chia sẻ dữ liệu giữa các cơ quan
+   Nguyên tắc dữ liệu
+   Đúng - Đủ - Sạch - Sống - Thống nhất - Dùng chung; kết nối, chia sẻ bắt buộc qua nền tảng NDOP.
+                                                                                                         III.1         Hệ thống Giám sát quản lý nhiệm vụ chỉ tiêu
+
+
+   Kiến trúc và an toàn                                                                                  III.3         Nền tảng điều hành và giám sát đô thị thông minh
+   Cấu trúc theo 04 lớp kiến trúc dùng chung; hệ thống đạt an toàn thông tin cấp độ 3; nguyên tắc AI
+   First.
+                                                                                                       Mã nhiệm vụ theo Phụ lục Kế hoạch 3380/KH-UBND. Bốn nhiệm vụ II.8, II.9, II.11 và
+                                                                                                       III.1 gắn trực tiếp với chỉ tiêu kinh tế - xã hội; các nhiệm vụ còn lại là nền tảng dùng
+                                                                                                       chung cho mọi kịch bản điều hành.
+
+
+
+                                                                                                                                                                                                  16
+                         Luồng dữ liệu GRDP trên nền tảng kho dữ liệu
+Chỉ tiêu GRDP được hình thành qua sáu bước trên các dịch vụ sẵn có của nền tảng kho dữ liệu tỉnh.
+
+
+    01    Nguồn số liệu                               02     Quản lý kết nối dữ liệu                   03    Khai phá dữ liệu
+
+
+    ▪ Thống kê tỉnh — biểu Tài khoản quốc gia          ▪ Tiếp nhận qua API, Database, Excel, CSV       ▪ Chuẩn hóa theo Từ điển dữ liệu dùng
+    ▪ Cục Thuế tỉnh, Sở Tài chính, NHNN chi            ▪ Giới hạn thời gian lấy dữ liệu theo kỳ báo      chung
+      nhánh tỉnh                                         cáo                                           ▪ Join, Union, Filter, Aggregation theo khu
+    ▪ Biểu số liệu theo kỳ quý đã được công bố         ▪ Kiểm tra kết nối và trạng thái cập nhật         vực
+                                                                                                       ▪ Tính các chỉ số đầu ra theo công thức
+                                                                                                         chuẩn
+
+
+
+
+    04    Lưu trữ dữ liệu đã xử lý                    05     Dịch vụ chia sẻ dữ liệu                   06    Dashboard điều hành
+
+
+    ▪ Phân vùng Dữ liệu kinh tế - xã hội 2 cấp         ▪ Cấu hình động dịch vụ theo lĩnh vực kinh tế   ▪ Trang tổng quan kinh tế - xã hội của tỉnh
+      (KTXH)                                           ▪ Chia sẻ qua LGSP và nền tảng NDOP             ▪ Chuyên đề quản lý thông tin GRDP
+    ▪ Bảng đề xuất:                                    ▪ Định dạng đầu ra JSON, XML, CSV, XLSX         ▪ Chỉ tiêu thống kê liên quan trực tiếp đến
+      IOC_TaiKhoanQuocGia_GRDP_Quy                                                                       GRDP
+    ▪ Lưu vết số liệu sơ bộ và số liệu chính thức
+
+
+
+
+                                                                                                                                                     17
+                                         Bộ chỉ số GRDP hiển thị trên dashboard
+Chi tiết bước 01 — danh mục chỉ tiêu và các chiều phân tổ hình thành bộ chỉ số GRDP trên dashboard.
+
+DANH MỤC CHỈ TIÊU THEO TÀI KHOẢN QUỐC GIA
+
+  I              Tổng sản phẩm trên địa bàn (GRDP)                                                             Chỉ tiêu tổng hợp      Chiều phân tổ khi hiển thị
+
+                                                                                                                                       ▪ Chỉ tiêu: theo cây danh mục bên trái
+      1             GRDP theo ngành kinh tế                                                                    Khu vực I + II + III
+                                                                                                                                       ▪ Kỳ báo cáo: theo quý
+                                                                                                                                       ▪ Loại giá: giá so sánh và giá hiện hành
+          1.1           Nông, lâm nghiệp, thủy sản                                                                      Khu vực I
+                                                                                                                                       ▪ Năm báo cáo và kỳ cùng kỳ năm trước
+
+
+          1.2           Công nghiệp và xây dựng                                                                        Khu vực II
+                                                                                                                                      Chỉ số đầu ra trên dashboard
+
+                1.2.1       Công nghiệp                                                              Ngành thuộc Khu vực II
+                                                                                                                                       ▪ Quy mô GRDP theo giá hiện hành
+                                                                                                                                       ▪ Tốc độ tăng theo giá so sánh
+                1.2.2       Xây dựng                                                                 Ngành thuộc Khu vực II            ▪ Cơ cấu theo khu vực kinh tế
+                                                                                                                                       ▪ Đóng góp vào tăng trưởng (điểm %)
+          1.3           Dịch vụ                                                                                       Khu vực III
+
+                                                                                                                                      Quy mô dữ liệu một năm
+      2             Thuế nhập khẩu, sản phẩm trừ trợ cấp sản phẩm                                     Cấu phần ngoài ngành
+                                                                                                                                       ▪ 08 chỉ tiêu × 04 quý × 02 loại giá
+Ràng buộc cân đối bắt buộc khi nạp dữ liệu: GRDP = Khu vực I + Khu vực II + Khu vực III + Thuế nhập                                    ▪ Tổng 64 bản ghi, mỗi bản ghi 09 trường
+khẩu, sản phẩm trừ trợ cấp sản phẩm
+                                                                                                                                       ▪ Tần suất cập nhật: theo quý
+Mã chỉ tiêu đã chuẩn hóa theo quan hệ cân đối của số liệu: Dịch vụ là Khu vực III, ngang cấp với 1.1 và 1.2.
+
+
+
+                                                                                                                                                                                  18
+                                    Cấu trúc dữ liệu và phương pháp tính GRDP
+Chi tiết bước 03 — cấu trúc bản ghi trong kho dữ liệu và công thức tính các chỉ số đầu ra.
+
+CẤU TRÚC BẢN GHI CHUẨN HÓA TRONG KHO DỮ LIỆU                                                                               CÔNG THỨC TÍNH ÁP DỤNG
+
+ TT     Trường dữ liệu                                                 Kiểu           Ràng buộc / Ghi chú
+                                                                                                                              1    Chỉ số phát triển — giá so sánh
+
+  1     STT                                                            Text           Mã phân cấp chỉ tiêu
+                                                                                                                              Chỉ số phát triển (%) = (Giá trị kỳ BC ÷ Giá trị cùng kỳ) × 100
+  2     Chỉ tiêu                                                       Text           Theo danh mục chuẩn
+                                                                                                                              Tốc độ tăng hiển thị trên dashboard = chỉ số phát triển − 100.
+                                                                                                                              Chỉ áp dụng cho dãy giá so sánh.
+  3     Năm                                                            Số nguyên      Năm báo cáo
+
+
+  4     Kỳ báo cáo                                                     Text           Quý I → Quý IV
+                                                                                                                              2    Cơ cấu — giá hiện hành
+  5     Phân loại                                                      Text           Giá so sánh / giá hiện hành
+
+                                                                                                                              Cơ cấu (%) = (Giá trị khu vực ÷ GRDP) × 100
+  6     Giá trị (tỷ đồng)                                              Số thực        Thực hiện kỳ báo cáo
+                                                                                                                              Chỉ áp dụng cho dãy giá hiện hành.
+  7     Giá trị thực hiện cùng kỳ (tỷ đồng)                            Số thực        Kỳ tương ứng năm trước                  Tổng cơ cấu bốn khu vực bằng 100%.
+
+
+  8     Tốc độ tăng tổng sản phẩm trên địa bàn (%)                     Số thực        Lưu chỉ số phát triển
+                                                                                                                              3    Đóng góp tăng trưởng (điểm %)
+  9     Cơ cấu tổng sản phẩm trên địa bàn (%)                          Số thực        Chỉ tính trên giá hiện hành
+
+                                                                                                                              Đóng góp = (Giá trị kỳ BC − Giá trị cùng kỳ) ÷ GRDP cùng kỳ × 100
+Lưu ý áp dụng: (1) Trường Tốc độ tăng ở dữ liệu nguồn lưu chỉ số phát triển; dashboard hiển thị tốc độ tăng bằng chỉ
+số trừ 100. (2) Tốc độ tăng chỉ tính trên dãy giá so sánh, cơ cấu chỉ tính trên dãy giá hiện hành. (3) Khi cơ quan Thống
+kê đổi năm gốc của dãy giá so sánh, phải tách dãy theo trường Phân loại, không so sánh trực tiếp hai dãy khác năm             Cho biết mỗi khu vực đóng góp bao nhiêu điểm phần trăm.
+gốc.                                                                                                                          Tổng đóng góp bốn khu vực bằng tốc độ tăng GRDP.
+
+
+
+                                                                                                                                                                                                  19
+20
+                                        Các cấp độ điều hành chỉ tiêu GRDP
+Áp dụng mô hình điều hành 03 cấp độ của Kế hoạch cho chỉ tiêu GRDP, từ giám sát trực quan đến phân tích dự báo.
+
+
+
+                      Cấp độ 1                                                      Cấp độ 2                                                      Cấp độ 3
+
+
+    Giám sát trực quan                                            Điều hành liên ngành tự động                                  Phân tích dự báo, hỗ trợ quyết định
+
+
+
+     ▪ Hiển thị quy mô, tốc độ tăng và cơ cấu                      ▪ Đối chiếu thực hiện với chỉ tiêu kế hoạch                   ▪ Dự báo GRDP kỳ tới trên chuỗi số liệu
+       theo quý                                                      giao                                                          quý
+     ▪ So sánh theo chuỗi quý và theo khu vực                      ▪ Cảnh báo tự động khi khu vực kinh tế                        ▪ Mô phỏng kịch bản tăng trưởng theo khu
+       kinh tế                                                       lệch mục tiêu                                                 vực
+     ▪ Kèm các chỉ tiêu thống kê liên quan trực                    ▪ Chuyển cảnh báo thành nhiệm vụ giao                         ▪ Gắn với dự báo thu ngân sách và cảnh
+       tiếp                                                          sở, ngành, cấp xã                                             báo giải ngân
+
+
+
+                         Đã có                                                      Bắt buộc có                                                     Nên có
+
+
+
+
+Ba cấp độ dùng chung một bộ chỉ số và một nguồn dữ liệu. Kế hoạch xác định cấp độ 2 cho 05 lĩnh vực ưu tiên và cấp độ 3 gồm dự báo thu ngân sách, cảnh báo giải ngân; chỉ tiêu
+GRDP kế thừa mô hình này theo nguyên tắc AI First.
+
+
+
+
+                                                                                                                                                                                 21
+           04
+BẢNG ĐIỀU KHIỂN CHUYÊN NGÀNH
+
+
+
+
+                               22
+23
+24
+25
+26
+27
+28
+Trân trọng cảm ơn!
+     Công ty TNHH FPT IS
+
+
+
+
+                           29
+

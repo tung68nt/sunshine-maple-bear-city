@@ -1,0 +1,2079 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/06asn1",
+    "id": "06asn1",
+    "slide": 13,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/03e5cfql",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC",
+      "textPreview": "Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Danh mục nguồn cấp dữ liệu cần kết nối vào Kho dữ liệu IOC",
+              "fontSize": 34.67,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/14n65kr6",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể",
+      "textPreview": "Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mỗi nguồn gắn với đầu mối, tần suất và phương thức kết nối cụ thể",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qxcn65sj",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        177.6,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ryl4za94",
+      "id": "5",
+      "name": "Shape 3",
+      "bbox": [
+        88.32,
+        196.8,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/szu58vap",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        132.48,
+        192.96,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Chi cục Thống kê tỉnh",
+      "textPreview": "Chi cục Thống kê tỉnh",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chi cục Thống kê tỉnh"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chi cục Thống kê tỉnh",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chi cục Thống kê tỉnh",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0nm10ra",
+      "id": "7",
+      "name": "Text 5",
+      "bbox": [
+        91.2,
+        240,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá",
+      "textPreview": "GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GO, IC, hệ số IC, kết quả điều tra DN & hộ cá thể, chỉ số giá",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i9cn2lsn",
+      "id": "8",
+      "name": "Text 6",
+      "bbox": [
+        91.2,
+        285.12,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng / Quý",
+      "textPreview": "Tháng / Quý",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng / Quý"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng / Quý",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng / Quý",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3al4vq98",
+      "id": "9",
+      "name": "Shape 7",
+      "bbox": [
+        465.6,
+        177.6,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2t4bm1w",
+      "id": "10",
+      "name": "Shape 8",
+      "bbox": [
+        486.72,
+        196.8,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yh0n2hkb",
+      "id": "11",
+      "name": "Text 9",
+      "bbox": [
+        530.88,
+        192.96,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Thuế – Hải quan",
+      "textPreview": "Thuế – Hải quan",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thuế – Hải quan"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thuế – Hải quan",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thuế – Hải quan",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l4bmdwjm",
+      "id": "12",
+      "name": "Text 10",
+      "bbox": [
+        489.6,
+        240,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu",
+      "textPreview": "Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thuế sản phẩm, thuế sản xuất, kim ngạch xuất nhập khẩu",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3254r2h",
+      "id": "13",
+      "name": "Text 11",
+      "bbox": [
+        489.6,
+        285.12,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng",
+      "textPreview": "Tháng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/76t4fm1s",
+      "id": "14",
+      "name": "Shape 12",
+      "bbox": [
+        864,
+        177.6,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65kn61k7",
+      "id": "15",
+      "name": "Shape 13",
+      "bbox": [
+        885.12,
+        196.8,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t8bmhwjy",
+      "id": "16",
+      "name": "Text 14",
+      "bbox": [
+        929.28,
+        192.96,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Tài chính – Kho bạc",
+      "textPreview": "Tài chính – Kho bạc",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tài chính – Kho bạc"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tài chính – Kho bạc",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tài chính – Kho bạc",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87258r2d",
+      "id": "17",
+      "name": "Text 15",
+      "bbox": [
+        888,
+        240,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên",
+      "textPreview": "Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chi ngân sách, trợ cấp sản phẩm, chi thường xuyên",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nap432lo",
+      "id": "18",
+      "name": "Text 16",
+      "bbox": [
+        888,
+        285.12,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng",
+      "textPreview": "Tháng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/29g3uxk3",
+      "id": "19",
+      "name": "Shape 17",
+      "bbox": [
+        67.2,
+        326.4,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5o7254r",
+      "id": "20",
+      "name": "Shape 18",
+      "bbox": [
+        88.32,
+        345.6,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r6x8balc",
+      "id": "21",
+      "name": "Text 19",
+      "bbox": [
+        132.48,
+        341.76,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Kế hoạch – Đầu tư",
+      "textPreview": "Kế hoạch – Đầu tư",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Kế hoạch – Đầu tư"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Kế hoạch – Đầu tư",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Kế hoạch – Đầu tư",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s76p4fmh",
+      "id": "22",
+      "name": "Text 20",
+      "bbox": [
+        91.2,
+        388.8,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI",
+      "textPreview": "Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vốn đầu tư thực hiện, đăng ký doanh nghiệp, dự án FDI",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsfqdk32",
+      "id": "23",
+      "name": "Text 21",
+      "bbox": [
+        91.2,
+        433.92,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng / Quý",
+      "textPreview": "Tháng / Quý",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng / Quý"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng / Quý",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng / Quý",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i1o7yl4f",
+      "id": "24",
+      "name": "Shape 22",
+      "bbox": [
+        465.6,
+        326.4,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/32x87ql0",
+      "id": "25",
+      "name": "Shape 23",
+      "bbox": [
+        486.72,
+        345.6,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/436p0vml",
+      "id": "26",
+      "name": "Text 24",
+      "bbox": [
+        530.88,
+        341.76,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Công Thương",
+      "textPreview": "Công Thương",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Công Thương"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Công Thương",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Công Thương",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/54fq9036",
+      "id": "27",
+      "name": "Text 25",
+      "bbox": [
+        489.6,
+        388.8,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu thụ",
+      "textPreview": "Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu thụ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu"
+          },
+          {
+            "index": 2,
+            "text": "thụ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu thụ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sản lượng công nghiệp, tổng mức bán lẻ, điện năng tiêu thụ",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ux47ul4j",
+      "id": "28",
+      "name": "Text 26",
+      "bbox": [
+        489.6,
+        433.92,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng",
+      "textPreview": "Tháng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vydo3ql4",
+      "id": "29",
+      "name": "Shape 27",
+      "bbox": [
+        864,
+        326.4,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x432psry",
+      "id": "30",
+      "name": "Shape 28",
+      "bbox": [
+        885.12,
+        345.6,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3u1wnad",
+      "id": "31",
+      "name": "Text 29",
+      "bbox": [
+        929.28,
+        341.76,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Nông nghiệp & Môi trường",
+      "textPreview": "Nông nghiệp & Môi trường",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nông nghiệp & Môi trường"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nông nghiệp & Môi trường",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nông nghiệp & Môi trường",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v2lkni9s",
+      "id": "32",
+      "name": "Text 30",
+      "bbox": [
+        888,
+        388.8,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản",
+      "textPreview": "Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sản lượng trồng trọt, chăn nuôi, lâm nghiệp, thuỷ sản",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a1cjuds7",
+      "id": "33",
+      "name": "Text 31",
+      "bbox": [
+        888,
+        433.92,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Vụ / Quý",
+      "textPreview": "Vụ / Quý",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vụ / Quý"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vụ / Quý",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vụ / Quý",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9032l8rm",
+      "id": "34",
+      "name": "Shape 32",
+      "bbox": [
+        67.2,
+        475.2,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ozu1s3a1",
+      "id": "35",
+      "name": "Shape 33",
+      "bbox": [
+        88.32,
+        494.4,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nyl0jy9g",
+      "id": "36",
+      "name": "Text 34",
+      "bbox": [
+        132.48,
+        490.56,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "Xây dựng",
+      "textPreview": "Xây dựng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Xây dựng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Xây dựng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Xây dựng",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mxsjqtsv",
+      "id": "37",
+      "name": "Text 35",
+      "bbox": [
+        91.2,
+        537.6,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Giá trị sản xuất xây dựng, chỉ số giá xây dựng",
+      "textPreview": "Giá trị sản xuất xây dựng, chỉ số giá xây dựng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá trị sản xuất xây dựng, chỉ số giá xây dựng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá trị sản xuất xây dựng, chỉ số giá xây dựng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá trị sản xuất xây dựng, chỉ số giá xây dựng",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1cjih8rq",
+      "id": "38",
+      "name": "Text 36",
+      "bbox": [
+        91.2,
+        582.72,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Quý",
+      "textPreview": "Quý",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Quý"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Quý",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Quý",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0ba1o3a5",
+      "id": "39",
+      "name": "Shape 37",
+      "bbox": [
+        465.6,
+        475.2,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g3i1836p",
+      "id": "40",
+      "name": "Shape 38",
+      "bbox": [
+        486.72,
+        494.4,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/14bi18na",
+      "id": "41",
+      "name": "Text 39",
+      "bbox": [
+        530.88,
+        490.56,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "VH-TT-DL",
+      "textPreview": "VH-TT-DL",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "VH-TT-DL"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "VH-TT-DL",
+          "runs": [
+            {
+              "index": 1,
+              "text": "VH-TT-DL",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e10j6toz",
+      "id": "42",
+      "name": "Text 40",
+      "bbox": [
+        489.6,
+        537.6,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch",
+      "textPreview": "Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lượt khách, doanh thu lưu trú – lữ hành – dịch vụ du lịch",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/f290zy54",
+      "id": "43",
+      "name": "Text 41",
+      "bbox": [
+        489.6,
+        582.72,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng",
+      "textPreview": "Tháng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/or21cn61",
+      "id": "44",
+      "name": "Shape 42",
+      "bbox": [
+        864,
+        475.2,
+        379.2,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/psb25snm",
+      "id": "45",
+      "name": "Shape 43",
+      "bbox": [
+        885.12,
+        494.4,
+        32.64,
+        32.64
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2pkjadov",
+      "id": "46",
+      "name": "Text 44",
+      "bbox": [
+        929.28,
+        490.56,
+        297.6,
+        43.2
+      ],
+      "geometry": "rect",
+      "text": "BHXH – Lao động",
+      "textPreview": "BHXH – Lao động",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "BHXH – Lao động"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "BHXH – Lao động",
+          "runs": [
+            {
+              "index": 1,
+              "text": "BHXH – Lao động",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 46,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qt03i5g",
+      "id": "47",
+      "name": "Text 45",
+      "bbox": [
+        888,
+        537.6,
+        336,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Quỹ lương, số lao động tham gia BHXH theo ngành",
+      "textPreview": "Quỹ lương, số lao động tham gia BHXH theo ngành",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Quỹ lương, số lao động tham gia BHXH theo ngành"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Quỹ lương, số lao động tham gia BHXH theo ngành",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Quỹ lương, số lao động tham gia BHXH theo ngành",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4vy10j6h",
+      "id": "48",
+      "name": "Text 46",
+      "bbox": [
+        888,
+        582.72,
+        336,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Tháng",
+      "textPreview": "Tháng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tháng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tháng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tháng",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

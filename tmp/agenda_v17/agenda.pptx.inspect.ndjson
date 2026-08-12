@@ -1,0 +1,27 @@
+{"kind":"deck","id":"pr/ifbbjc","name":"Deck"}
+{"kind":"layout","layoutId":"65e55459-f548-499d-a9b3-e45c23ba2618","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"7c317deb-c75e-423d-9134-797d410f55ac","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/4g3ej8","slide":1,"title":"Mạch nội dung: từ nền tảng IOC đến chỉ tiêu điều hành","textShapes":11}
+{"kind":"shape","id":"sh/7eh4r2pk","slide":1,"bbox":[0,0,1440,112]}
+{"kind":"shape","id":"sh/sfqlk765","slide":1,"bbox":[0,112,1440,7]}
+{"kind":"textbox","id":"sh/tgzmtc7q","slide":1,"text":"Mạch nội dung: từ nền tảng IOC đến chỉ tiêu điều hành","textPreview":"Mạch nội dung: từ nền tảng IOC đến chỉ tiêu điều hành","textChars":53,"textLines":1,"bbox":[90,55,1230,46]}
+{"kind":"textbox","id":"sh/ipo3exo3","slide":1,"text":"Ba phần tạo thành một chuỗi giá trị: nền tảng dữ liệu → GRDP có thể kiểm chứng → dashboard hỗ trợ điều hành.","textPreview":"Ba phần tạo thành một chuỗi giá trị: nền tảng dữ liệu → GRDP có thể kiểm chứng → dashboard hỗ trợ điều hành.","textChars":108,"textLines":1,"bbox":[90,148,1220,36]}
+{"kind":"shape","id":"sh/jax4nipo","slide":1,"bbox":[84,225,1272,126]}
+{"kind":"shape","id":"sh/kb6lgn69","slide":1,"bbox":[84,225,8,126]}
+{"kind":"shape","id":"sh/5cfmps7u","slide":1,"bbox":[112,255,52,52]}
+{"kind":"textbox","id":"sh/2lsnqho7","slide":1,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[112,267,52,20]}
+{"kind":"textbox","id":"sh/3614zmps","slide":1,"text":"Nền tảng IOC","textPreview":"Nền tảng IOC","textChars":12,"textLines":1,"bbox":[194,250,1050,30]}
+{"kind":"textbox","id":"sh/3ytkjaxo","slide":1,"text":"Kết nối, khai phá, lưu trữ, chia sẻ và quản trị dữ liệu.","textPreview":"Kết nối, khai phá, lưu trữ, chia sẻ và quản trị dữ liệu.","textChars":56,"textLines":1,"bbox":[194,295,1050,25]}
+{"kind":"shape","id":"sh/ixkja5g3","slide":1,"bbox":[84,380,1272,126]}
+{"kind":"shape","id":"sh/50b2l0fu","slide":1,"bbox":[84,380,8,126]}
+{"kind":"shape","id":"sh/4z2lcfy9","slide":1,"bbox":[112,410,52,52]}
+{"kind":"textbox","id":"sh/rmdknax0","slide":1,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[112,422,52,20]}
+{"kind":"textbox","id":"sh/qlk3e5gf","slide":1,"text":"Use case GRDP","textPreview":"Use case GRDP","textChars":13,"textLines":1,"bbox":[194,405,1050,30]}
+{"kind":"textbox","id":"sh/dov2pkf6","slide":1,"text":"Dữ liệu đầu vào, công thức, nguồn cấp và quy tắc kiểm chứng.","textPreview":"Dữ liệu đầu vào, công thức, nguồn cấp và quy tắc kiểm chứng.","textChars":60,"textLines":1,"bbox":[194,450,1050,25]}
+{"kind":"shape","id":"sh/snmlgfyl","slide":1,"bbox":[84,535,1272,126]}
+{"kind":"shape","id":"sh/fqdkruxw","slide":1,"bbox":[84,535,8,126]}
+{"kind":"shape","id":"sh/ep43ipgb","slide":1,"bbox":[112,565,52,52]}
+{"kind":"textbox","id":"sh/al8nat0j","slide":1,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[112,577,52,20]}
+{"kind":"textbox","id":"sh/bmhojyh4","slide":1,"text":"Dashboard và điều hành","textPreview":"Dashboard và điều hành","textChars":22,"textLines":1,"bbox":[194,560,1050,30]}
+{"kind":"textbox","id":"sh/cnq5cjip","slide":1,"text":"Theo dõi biến động, cảnh báo dữ liệu và hỗ trợ chỉ đạo.","textPreview":"Theo dõi biến động, cảnh báo dữ liệu và hỗ trợ chỉ đạo.","textChars":55,"textLines":1,"bbox":[194,605,1050,25]}
+{"kind":"notes","id":"nt/4g3ej8","slide":1,"text":""}

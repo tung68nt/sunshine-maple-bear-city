@@ -9,20 +9,21 @@
    ═══════════════════════════════════════ */
 
 :root {
-  /* ── Primary Brand Colors (Excel Spec) ── */
-  --color-primary:      #CC1316; /* REGULAR RED */
-  --color-primary-dark:  #990E10;
-  --color-primary-light: #E03538;
-  --color-gold:          #CA9E00; /* HONEY-BROWN */
-  --color-gold-light:    #E5B81A;
-  --color-gold-dark:     #A37F00;
+  /* ── Primary Brand Colors (Picture1.png Spec) ── */
+  --color-primary:      #9E1B1E; /* CRIMSON RED */
+  --color-primary-dark:  #801316;
+  --color-primary-light: #B82528;
+  --color-gold:          #C5A059; /* BRONZE GOLD */
+  --color-gold-light:    #D4AF37;
+  --color-gold-dark:     #A6833D;
   --color-cream:         #FDFBF7; /* Soft luxury background */
+  --color-cream-tint:    #FAF4EB; /* Soft section card tint */
   --color-white:         #FFFFFF;
-  --color-dark:          #1D1D1B; /* BLACK */
-  --color-dark-light:    #2B2B28;
-  --color-gray:          #4A4A46;
-  --color-gray-light:    #F9F7F2;
-  --color-gray-medium:   #E2DFD7;
+  --color-dark:          #332C2B; /* WARM DARK */
+  --color-dark-light:    #554D4B;
+  --color-gray:          #665E5C;
+  --color-gray-light:    #FAF8F5;
+  --color-gray-medium:   #E8E4DF;
   --color-success:       #10B981;
 
   /* ── Semantic Tokens ── */

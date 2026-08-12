@@ -1,0 +1,4 @@
+Source deck: 18 slides, 16:9, Calibri/Cambria, navy #1E2761, teal #0E8199, gold #C69E15.
+Reusable patterns: title, formula band, two-column comparison, source cards, data model, quality controls.
+No inherited master placeholders detected in inspected slides. Brand/palette are slide-local.
+The V2 preserves all 18 slide patterns. It replaces equations with typeset LaTeX-derived assets and corrects methodology wording where the official definition is more precise.

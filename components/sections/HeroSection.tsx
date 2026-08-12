@@ -2,156 +2,154 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, Award, Sparkles, ShieldCheck, Play } from 'lucide-react'
 import { SCHOOL_IMAGES } from '@/lib/constants'
-import { Award, Building2, Languages, ArrowRight, ChevronDown } from 'lucide-react'
-
-const heroSlides = [
-  SCHOOL_IMAGES.render.thuVien1,
-  SCHOOL_IMAGES.render.lopHoc4,
-  SCHOOL_IMAGES.render.hanhLang1,
-]
 
 export function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [activeLang, setActiveLang] = useState<'en' | 'vi'>('en')
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 6000)
-    return () => clearInterval(timer)
+    const saved = (localStorage.getItem('smb_site_lang') as 'en' | 'vi') || 'en'
+    setActiveLang(saved)
+
+    const handleLangChange = (e: CustomEvent) => {
+      if (e.detail === 'en' || e.detail === 'vi') {
+        setActiveLang(e.detail)
+      }
+    }
+
+    window.addEventListener('smbLanguageChange', handleLangChange as EventListener)
+    return () => window.removeEventListener('smbLanguageChange', handleLangChange as EventListener)
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-36 pb-8 overflow-hidden bg-[#151513] text-white" aria-label="Welcome to Sunshine Maple Bear">
+    <section className="relative bg-[#FDFBF7] pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-neutral-200/60 overflow-hidden">
       
-      {/* Background Slideshow */}
-      {heroSlides.map((slide, idx) => (
-        <div
-          key={idx}
-          className="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
-          style={{ opacity: currentSlide === idx ? 1 : 0 }}
-          aria-hidden={currentSlide !== idx}
-        >
-          <Image
-            src={slide}
-            alt={`Sunshine Maple Bear Campus — Image ${idx + 1}`}
-            fill
-            className="object-cover scale-105 filter brightness-[0.7] contrast-[1.05]"
-            style={{ animation: currentSlide === idx ? 'subtle-zoom 20s ease-in-out infinite alternate' : 'none' }}
-            priority={idx === 0}
-            sizes="100vw"
-            quality={85}
-          />
-        </div>
-      ))}
+      {/* Background Decorative Accent */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-red-50/40 to-transparent pointer-events-none" />
 
-      {/* Editorial Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#151513] via-black/50 to-black/30 z-[1]" />
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto py-8">
-        <div className="max-w-4xl space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+        
+        {/* 2-Column Grid: Left Content + Right Hero Image Collage */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Editorial Tagline */}
-          <div className="inline-flex items-center gap-3">
-            <span className="w-8 h-[2px] bg-maple-red" />
-            <span className="text-xs sm:text-sm font-display font-extrabold uppercase tracking-[0.25em] text-maple-gold">
-              Welcome to Sunshine Maple Bear International Kindergarten
-            </span>
-          </div>
+          {/* Left Column (7 cols): Hero Typography & CTAs */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            {/* Tagline Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-red-50 border border-red-100 text-[#9E1B1E] text-xs font-sans font-extrabold uppercase tracking-[0.2em]">
+              <span className="w-2 h-2 rounded-full bg-[#9E1B1E] animate-ping" />
+              <span>{activeLang === 'vi' ? 'TRƯỜNG MẦM NON CHUẨN CANADA' : 'CANADIAN INTERNATIONAL KINDERGARTEN'}</span>
+            </div>
 
-          {/* Headline */}
-          <div className="space-y-2">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-[1.1] tracking-tight">
-              Where Your Child Thrives, <br />
-              <span className="font-serif italic font-normal text-amber-200">Every Single Day.</span>
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#332C2B] leading-[1.15]">
+              {activeLang === 'vi' ? (
+                <>
+                  Giáo Dục Canada <br />
+                  <span className="italic font-normal text-[#9E1B1E]">Khơi Nguồn Tương Lai</span>
+                </>
+              ) : (
+                <>
+                  A Canadian Education <br />
+                  <span className="italic font-normal text-[#9E1B1E]">for Lifelong Success</span>
+                </>
+              )}
             </h1>
-            <p className="text-base sm:text-xl font-display font-semibold text-maple-gold/90 tracking-wide">
-              A Canadian Education for Life-Long Success
+
+            {/* Intro Paragraph */}
+            <p className="text-base sm:text-lg text-[#554D4B] font-light leading-relaxed max-w-2xl">
+              {activeLang === 'vi'
+                ? 'Sunshine Maple Bear mang tới môi trường đắm mình Tiếng Anh 100% chuẩn Canada, giúp trẻ phát triển tự nhiên tư duy sáng tạo, lòng nhân ái và sự tự tin toàn cầu tại Sunshine City, Hà Nội.'
+                : 'Sunshine Maple Bear Hanoi offers an authentic 100% Canadian English immersion environment designed to cultivate creativity, compassion, and global confidence inside Sunshine City.'}
             </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#contact-us"
+                className="px-7 py-3.5 bg-[#9E1B1E] hover:bg-[#801316] text-white text-xs font-sans font-semibold rounded-full shadow-md transition-all inline-flex items-center gap-2.5 group"
+              >
+                <span>{activeLang === 'vi' ? 'Đăng ký Tham quan Trường' : 'Book a Campus Tour'}</span>
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 bg-white border border-neutral-300 hover:border-[#9E1B1E] text-[#332C2B] hover:text-[#9E1B1E] text-xs font-sans font-semibold rounded-full shadow-xs transition-all inline-flex items-center gap-2 group"
+              >
+                <div className="w-5 h-5 rounded-full bg-red-100 text-[#9E1B1E] flex items-center justify-center">
+                  <Play size={10} className="fill-current ml-0.5" />
+                </div>
+                <span>{activeLang === 'vi' ? 'Xem Video Giới thiệu' : 'Watch Campus Video'}</span>
+              </a>
+            </div>
+
           </div>
 
-          {/* Description Paragraph */}
-          <p className="text-sm sm:text-base md:text-lg text-neutral-300 leading-relaxed max-w-2xl font-light">
-            At Sunshine Maple Bear International Kindergarten, children learn through exploration, play and meaningful experiences inspired by the internationally recognised Canadian curriculum. Every day is thoughtfully designed to help children thrive academically, socially and emotionally.
-          </p>
-
-          {/* Modern Sharp Rectangular Buttons */}
-          <div className="flex flex-wrap gap-4 pt-4">
-            <a
-              href="#contact-us"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-maple-red text-white font-display font-bold text-xs uppercase tracking-widest hover:bg-red-700 transition-all border border-maple-red shadow-lg active:scale-95"
-            >
-              <span>Book a School Tour</span>
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href="#contact-us"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-display font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all active:scale-95"
-            >
-              <span>Apply Now</span>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Editorial Bottom Bar with Professional Vector Icons */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-6 border-t border-white/20 text-white/90">
-          
-          <div className="flex items-center gap-3 md:border-r md:border-white/15 md:pr-4">
-            <div className="w-9 h-9 border border-maple-gold/40 flex items-center justify-center text-maple-gold flex-shrink-0">
-              <Award size={18} />
-            </div>
-            <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-maple-gold block">Official Standard</span>
-              <span className="text-xs text-neutral-300 font-medium">Canadian Curriculum</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 md:border-r md:border-white/15 md:pr-4">
-            <div className="w-9 h-9 border border-maple-gold/40 flex items-center justify-center text-maple-gold flex-shrink-0">
-              <Building2 size={18} />
-            </div>
-            <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-maple-gold block">Sunshine City</span>
-              <span className="text-xs text-neutral-300 font-medium">5-Star Campus Facility</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 md:border-r md:border-white/15 md:pr-4">
-            <div className="w-9 h-9 border border-maple-gold/40 flex items-center justify-center text-maple-gold flex-shrink-0">
-              <Languages size={18} />
-            </div>
-            <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-maple-gold block">100% English</span>
-              <span className="text-xs text-neutral-300 font-medium">Immersion Program</span>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between md:justify-end gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-neutral-200">Scroll</span>
-              <div className="w-4 h-7 border border-white/40 rounded-none p-1 flex justify-center">
-                <div className="w-1 h-1 bg-white rounded-none animate-bounce-scroll" />
+          {/* Right Column (5 cols): Campus Image Card */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-neutral-200/80 shadow-2xl group">
+              <Image
+                src={SCHOOL_IMAGES.render.thuVien1}
+                alt="Sunshine Maple Bear Campus"
+                fill
+                priority
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#332C2B]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <span className="text-xs font-sans font-extrabold uppercase tracking-wider text-[#C5A059]">
+                  SUNSHINE CITY HANOI
+                </span>
+                <h3 className="text-xl font-serif font-bold">
+                  5-Star International Campus
+                </h3>
               </div>
             </div>
-            <div className="flex gap-1.5">
-              {heroSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  aria-label={`Slide ${idx + 1}`}
-                  className={`h-1 transition-all ${currentSlide === idx ? 'w-6 bg-maple-gold' : 'w-2 bg-white/40'}`}
-                />
-              ))}
+          </div>
+
+        </div>
+
+        {/* 3 Pillar Cards below Hero (Standardized Font Size System) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-neutral-200/60">
+          
+          <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200/80 shadow-xs hover:border-[#9E1B1E] transition-colors">
+            <div className="w-11 h-11 rounded-full bg-red-50 text-[#9E1B1E] flex items-center justify-center flex-shrink-0">
+              <Award size={22} />
+            </div>
+            <div>
+              <h3 className="text-sm font-serif font-bold text-[#332C2B]">Official Canadian Curriculum</h3>
+              <p className="text-xs text-[#554D4B] font-light mt-0.5">Global top-ranked education standard</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200/80 shadow-xs hover:border-[#9E1B1E] transition-colors">
+            <div className="w-11 h-11 rounded-full bg-amber-50 text-[#C5A059] flex items-center justify-center flex-shrink-0">
+              <Sparkles size={22} />
+            </div>
+            <div>
+              <h3 className="text-sm font-serif font-bold text-[#332C2B]">Bilingual Immersion</h3>
+              <p className="text-xs text-[#554D4B] font-light mt-0.5">Native English & Vietnamese educators</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200/80 shadow-xs hover:border-[#9E1B1E] transition-colors">
+            <div className="w-11 h-11 rounded-full bg-red-50 text-[#9E1B1E] flex items-center justify-center flex-shrink-0">
+              <ShieldCheck size={22} />
+            </div>
+            <div>
+              <h3 className="text-sm font-serif font-bold text-[#332C2B]">5-Star Modern Campus</h3>
+              <p className="text-xs text-[#554D4B] font-light mt-0.5">Located at Sunshine City, Hanoi</p>
             </div>
           </div>
 
         </div>
-      </div>
 
+      </div>
     </section>
   )
 }

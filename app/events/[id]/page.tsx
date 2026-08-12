@@ -22,6 +22,7 @@ interface EventDetail {
   description: string
   agenda?: { time: string; activity: string }[]
   highlights?: string[]
+  galleryImages?: string[]
 }
 
 const event1: EventDetail = {

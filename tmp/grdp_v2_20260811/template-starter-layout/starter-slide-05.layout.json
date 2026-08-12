@@ -1,0 +1,982 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/s6nkkn",
+    "id": "s6nkkn",
+    "slide": 5,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gn65g3i1",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?",
+      "textPreview": "Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?",
+              "fontSize": 34.67,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hoz6p8jm",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước",
+      "textPreview": "Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nghị định 94/2022/NĐ-CP: GRDP biên soạn theo phương pháp sản xuất; hai phương pháp còn lại chỉ tính ở phạm vi cả nước",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mxona90j",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        172.8,
+        1171.2,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7yx4je14",
+      "id": "5",
+      "name": "Shape 3",
+      "bbox": [
+        96,
+        192,
+        40.32,
+        40.32
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8j65cjip",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        96,
+        192,
+        40.32,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "1",
+      "textPreview": "1",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "1",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9kfmloja",
+      "id": "7",
+      "name": "Text 5",
+      "bbox": [
+        153.6,
+        186.24,
+        499.2,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Phương pháp SẢN XUẤT",
+      "textPreview": "Phương pháp SẢN XUẤT",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phương pháp SẢN XUẤT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phương pháp SẢN XUẤT",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phương pháp SẢN XUẤT",
+              "fontSize": 21.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/69w32503",
+      "id": "23",
+      "name": "Image 0",
+      "bbox": [
+        155.52,
+        232.32,
+        326.4,
+        66.34
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-5-1.png",
+        "contentType": "image/png",
+        "byteLength": 23253
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-5-1.png",
+        "contentType": "image/png",
+        "byteLength": 23253
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zud4fe18",
+      "id": "9",
+      "name": "Text 6",
+      "bbox": [
+        825.6,
+        192,
+        393.6,
+        110.4
+      ],
+      "geometry": "rect",
+      "text": "BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định 94/2022/NĐ-CP",
+      "textPreview": "BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định 94/2022/NĐ-CP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định"
+          },
+          {
+            "index": 2,
+            "text": "94/2022/NĐ-CP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định 94/2022/NĐ-CP",
+          "resolvedTextStyle": {
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "BẮT BUỘC dùng cho GRDP tỉnh — Điều 10 khoản 2 Nghị định 94/2022/NĐ-CP",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa5s3ad0",
+      "id": "10",
+      "name": "Shape 7",
+      "bbox": [
+        67.2,
+        337.92,
+        1171.2,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e9cba5wf",
+      "id": "11",
+      "name": "Shape 8",
+      "bbox": [
+        96,
+        357.12,
+        40.32,
+        40.32
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1wna50v6",
+      "id": "12",
+      "name": "Text 9",
+      "bbox": [
+        96,
+        357.12,
+        40.32,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "2",
+      "textPreview": "2",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbetcvel",
+      "id": "13",
+      "name": "Text 10",
+      "bbox": [
+        153.6,
+        351.36,
+        499.2,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Phương pháp THU NHẬP",
+      "textPreview": "Phương pháp THU NHẬP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phương pháp THU NHẬP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phương pháp THU NHẬP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phương pháp THU NHẬP",
+              "fontSize": 21.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/h0721kjq",
+      "id": "24",
+      "name": "Image 1",
+      "bbox": [
+        155.52,
+        397.44,
+        537.6,
+        38.18
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-5-2.png",
+        "contentType": "image/png",
+        "byteLength": 21001
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-5-2.png",
+        "contentType": "image/png",
+        "byteLength": 21001
+      }
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2xwbe5wr",
+      "id": "15",
+      "name": "Text 11",
+      "bbox": [
+        825.6,
+        357.12,
+        393.6,
+        110.4
+      ],
+      "geometry": "rect",
+      "text": "Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và phân tích cơ cấu thu nhập",
+      "textPreview": "Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và phân tích cơ cấu thu nhập",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và"
+          },
+          {
+            "index": 2,
+            "text": "phân tích cơ cấu thu nhập"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và phân tích cơ cấu thu nhập",
+          "resolvedTextStyle": {
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Không dùng để công bố GRDP tỉnh — chỉ để đối chiếu chéo và phân tích cơ cấu thu nhập",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p0na9kv2",
+      "id": "16",
+      "name": "Shape 12",
+      "bbox": [
+        67.2,
+        503.04,
+        1171.2,
+        148.8
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ozetgfex",
+      "id": "17",
+      "name": "Shape 13",
+      "bbox": [
+        96,
+        522.24,
+        40.32,
+        40.32
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2lsv6ds",
+      "id": "18",
+      "name": "Text 14",
+      "bbox": [
+        96,
+        522.24,
+        40.32,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "3",
+      "textPreview": "3",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "3"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i1sr2lw7",
+      "id": "19",
+      "name": "Text 15",
+      "bbox": [
+        153.6,
+        516.48,
+        499.2,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Phương pháp SỬ DỤNG CUỐI CÙNG",
+      "textPreview": "Phương pháp SỬ DỤNG CUỐI CÙNG",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phương pháp SỬ DỤNG CUỐI CÙNG"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phương pháp SỬ DỤNG CUỐI CÙNG",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phương pháp SỬ DỤNG CUỐI CÙNG",
+              "fontSize": 21.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/gzyl8fil",
+      "id": "25",
+      "name": "Image 2",
+      "bbox": [
+        155.52,
+        562.56,
+        633.6,
+        40.62
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-5-3.png",
+        "contentType": "image/png",
+        "byteLength": 27567
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-5-3.png",
+        "contentType": "image/png",
+        "byteLength": 27567
+      }
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ny9wjexg",
+      "id": "21",
+      "name": "Text 16",
+      "bbox": [
+        825.6,
+        522.24,
+        393.6,
+        110.4
+      ],
+      "geometry": "rect",
+      "text": "Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính phạm vi cả nước — Điều 9 khoản 2",
+      "textPreview": "Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính phạm vi cả nước — Điều 9 khoản 2",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính"
+          },
+          {
+            "index": 2,
+            "text": "phạm vi cả nước — Điều 9 khoản 2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính phạm vi cả nước — Điều 9 khoản 2",
+          "resolvedTextStyle": {
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tích luỹ tài sản, tiêu dùng cuối cùng, xuất nhập khẩu chỉ tính phạm vi cả nước — Điều 9 khoản 2",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8zidcjy1",
+      "id": "22",
+      "name": "Text 17",
+      "bbox": [
+        67.2,
+        667.2,
+        1152,
+        28.8
+      ],
+      "geometry": "rect",
+      "text": "Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA).",
+      "textPreview": "Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA).",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA)."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA).",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Căn cứ: Nghị định 94/2022/NĐ-CP (hiệu lực 01/01/2023, thay Nghị định 97/2016/NĐ-CP), Điều 9 và Điều 10; Hệ thống tài khoản quốc gia (SNA).",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

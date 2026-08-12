@@ -520,7 +520,7 @@ export default function AdminAnalyticsPage() {
 
         <div className="bg-white border border-neutral-200 p-4 space-y-2 rounded-2xs shadow-2xs">
           <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">Tỷ lệ Chuyển đổi Form</span>
-          <div className="text-2xl font-display font-extrabold text-[#1D1D1B]">{currentData.cvr || currentData.kpis.cvr}</div>
+          <div className="text-2xl font-display font-extrabold text-[#1D1D1B]">{currentData.kpis.cvr}</div>
           <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
             <TrendingUp size={12} /> {currentData.kpis.cvrGrowth}
           </span>

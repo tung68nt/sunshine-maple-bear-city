@@ -25,6 +25,12 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+!.env.example
+Thumbs.db
+ANH REN/
+playwright-report/
+test-results/
+playwright/.cache/
 
 # vercel
 .vercel

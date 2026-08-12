@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { RichTextEditor } from '@/components/admin/rich-text-editor'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   FileText,
   Plus,
@@ -58,7 +59,8 @@ type Article = {
   id: string
   title: string
   slug: string
-  category: string
+  /** Stable taxonomy key; never use a localized display string as data. */
+  categoryId: string
   author: string
   status: 'Published' | 'Draft' | 'Scheduled'
   date: string
@@ -122,7 +124,7 @@ const initialArticles: Article[] = [
     title_vi: 'Tại sao Môi trường Song ngữ 100% Tiếng Anh lại Quan trọng ở Lứa tuổi Mầm non?',
     title_en: 'Why English Immersion in Early Childhood Matters',
     slug: 'why-english-immersion-matters',
-    category: 'Song Ngữ Anh-Việt',
+    categoryId: 'sub-bilingual',
     author: 'Sarah Johnson',
     status: 'Published',
     date: '04/08/2026',
@@ -146,7 +148,7 @@ const initialArticles: Article[] = [
     title_vi: '5 Nguyên Tắc Giáo Dục Mầm Non Chuẩn Canada Tại Maple Bear',
     title_en: '5 Principles of Maple Bear Canadian Early Childhood Program',
     slug: '5-principles-maple-bear-canada',
-    category: 'Chương Trình Học',
+    categoryId: 'cat-academics',
     author: 'Admin Team',
     status: 'Published',
     date: '01/08/2026',
@@ -170,7 +172,7 @@ const initialArticles: Article[] = [
     title_vi: 'Chế Độ Dinh Dưỡng Hữu Cơ & Thực Đơn Cho Bé Mầm Non',
     title_en: 'Nutrition & Meal Planning for Kindergarten Children',
     slug: 'nutrition-meal-planning-kindergarten',
-    category: 'Thực Đơn & Dinh Dưỡng Hữu Cơ',
+    categoryId: 'sub-nutrition',
     author: 'Dr. Minh Anh',
     status: 'Draft',
     date: '28/07/2026',
@@ -225,9 +227,74 @@ export default function AdminBlogPage() {
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
+  const toArticle = (item: any): Article => ({
+    id: item.id, title: item.title || item.title_vi || item.title_en || '', title_vi: item.title_vi || item.title || '', title_en: item.title_en || item.title || '',
+    slug: item.slug || '', categoryId: item.category || 'cat-academics', author: item.author || 'Sunshine Maple Bear',
+    status: item.status === 'published' ? 'Published' : 'Draft', date: item.published_at || item.created_at || '', views: item.view_count || 0,
+    coverImage: item.cover_image_url || '/images/render/LOP_HOC_DIEN_HINH_1_.jpg', excerpt: item.excerpt || item.summary_vi || item.summary_en || '',
+    excerpt_vi: item.summary_vi || item.excerpt || '', excerpt_en: item.summary_en || item.excerpt || '', content: item.content || item.content_vi || item.content_en || '',
+    content_vi: item.content_vi || item.content || '', content_en: item.content_en || item.content || '', focusKeyword: '', seoTitle: '', seoDescription: '', canonicalUrl: '', ogImage: item.cover_image_url || ''
+  })
+
+  const loadArticles = async () => {
+    try {
+      const response = await fetch('/api/admin/blog', { cache: 'no-store' })
+      const payload = await response.json().catch(() => null)
+      // Do not replace the usable starter view with an empty/error response.
+      // A first-time CMS database has no posts until its seed migration is applied.
+      if (response.ok && Array.isArray(payload) && payload.length > 0) {
+        setArticles(payload.map(toArticle))
+      } else if (response.ok && Array.isArray(payload) && payload.length === 0) {
+        const seedResponse = await fetch('/api/admin/blog/seed', { method: 'POST' })
+        if (seedResponse.ok) {
+          const refreshed = await fetch('/api/admin/blog', { cache: 'no-store' })
+          const seededPosts = await refreshed.json().catch(() => [])
+          if (refreshed.ok && Array.isArray(seededPosts) && seededPosts.length > 0) {
+            setArticles(seededPosts.map(toArticle))
+          }
+        }
+      }
+    } catch {
+      // Keep the starter content visible while an admin-facing request is unavailable.
+    }
+  }
+
+  useEffect(() => { void loadArticles() }, [])
+
   // Helper for category localized display
   const getCatName = (cat: BlogCategoryNode) => {
     return adminUiLang === 'en' ? cat.name_en : cat.name_vi
+  }
+
+  // Legacy drafts stored a Vietnamese/English label. New edits store the stable
+  // ID and every display is resolved from the active interface language.
+  const getCategoryById = (categoryId: string) => blogCategories.find((category) =>
+    category.id === categoryId || category.name_vi === categoryId || category.name_en === categoryId
+  )
+
+  const getArticleCategoryPath = (article: Article) => {
+    const category = getCategoryById(article.categoryId)
+    if (!category) return adminUiLang === 'vi' ? 'Chưa phân loại' : 'Uncategorized'
+    const parent = category.parentId ? blogCategories.find((item) => item.id === category.parentId) : null
+    return parent ? `${getCatName(parent)} / ${getCatName(category)}` : getCatName(category)
+  }
+
+  const getArticleCategoryParts = (article: Article) => {
+    const category = getCategoryById(article.categoryId)
+    if (!category) return { parent: adminUiLang === 'vi' ? 'Chưa phân loại' : 'Uncategorized', child: null }
+    const parent = category.parentId ? blogCategories.find((item) => item.id === category.parentId) : null
+    return parent
+      ? { parent: getCatName(parent), child: getCatName(category) }
+      : { parent: getCatName(category), child: null }
+  }
+
+  const isInCategoryTree = (categoryId: string, rootId: string) => {
+    let category = getCategoryById(categoryId)
+    while (category) {
+      if (category.id === rootId) return true
+      category = category.parentId ? blogCategories.find((item) => item.id === category!.parentId) : undefined
+    }
+    return false
   }
 
   // -------------------------------------------------------------
@@ -304,7 +371,7 @@ export default function AdminBlogPage() {
       if (a.id === activeArticleId) {
         const updated = { ...a, [specificKey]: val }
         if (editContentLang === 'vi') {
-          updated[fieldBase as keyof Article] = val as any
+          Object.assign(updated, { [fieldBase]: val })
         }
         return updated
       }
@@ -319,7 +386,7 @@ export default function AdminBlogPage() {
       title_vi: 'Bài viết tin tức mới tạo',
       title_en: 'New blog article post',
       slug: `bai-viet-moi-${Date.now()}`,
-      category: 'Song Ngữ Anh-Việt',
+      categoryId: 'sub-bilingual',
       author: 'Sunshine Maple Bear Editorial Board',
       status: 'Draft',
       date: new Date().toLocaleDateString('en-GB'),
@@ -350,7 +417,20 @@ export default function AdminBlogPage() {
     }
   }
 
-  const handleSaveArticle = () => {
+  const handleSaveArticle = async () => {
+    if (!activeArticle) return
+    const payload = {
+      id: activeArticle.id, title: activeArticle.title, title_vi: activeArticle.title_vi || activeArticle.title, title_en: activeArticle.title_en || activeArticle.title,
+      slug: activeArticle.slug, excerpt: activeArticle.excerpt, excerpt_vi: activeArticle.excerpt_vi || activeArticle.excerpt, excerpt_en: activeArticle.excerpt_en || activeArticle.excerpt,
+      content: activeArticle.content, content_vi: activeArticle.content_vi || activeArticle.content, content_en: activeArticle.content_en || activeArticle.content,
+      categoryId: activeArticle.categoryId, author: activeArticle.author, status: activeArticle.status === 'Published' ? 'published' : 'draft', cover_image_url: activeArticle.coverImage
+    }
+    const existing = articles.some((article) => article.id === activeArticle.id && !article.id.startsWith('art-'))
+    const response = await fetch(existing ? `/api/admin/blog/${activeArticle.id}` : '/api/admin/blog', { method: existing ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+    if (!response.ok) return
+    const saved = await response.json()
+    setArticles((items) => items.map((article) => article.id === activeArticle.id ? toArticle(saved) : article))
+    setActiveArticleId(saved.id)
     setSavedSuccess(true)
     setTimeout(() => setSavedSuccess(false), 3000)
   }
@@ -394,21 +474,35 @@ export default function AdminBlogPage() {
   // SEO Score Calculator
   const calcSeoScore = () => {
     if (!activeArticle) return 0
-    let score = 50
-    if (activeArticle.seoTitle.length >= 40 && activeArticle.seoTitle.length <= 65) score += 15
-    if (activeArticle.seoDescription.length >= 100 && activeArticle.seoDescription.length <= 160) score += 15
+    // Start at zero. A score must only represent signals that the editor has
+    // actually supplied; a blank article must never look SEO-ready.
+    let score = 0
+    const keywordDensity = Number(kwDensityPct)
+    const hasCoverImage = Boolean(activeArticle.coverImage && !activeArticle.coverImage.includes('LOP_HOC_DIEN_HINH_1_.jpg'))
+
+    if (activeArticle.seoTitle.length >= 50 && activeArticle.seoTitle.length <= 60) score += 15
+    if (activeArticle.seoDescription.length >= 120 && activeArticle.seoDescription.length <= 160) score += 15
+    if (focusKw) score += 5
     if (focusKw && activeArticle.seoTitle.toLowerCase().includes(focusKw)) score += 10
     if (focusKw && activeArticle.seoDescription.toLowerCase().includes(focusKw)) score += 10
+    if (wordCount >= 300) score += 10
+    if (focusKw && keywordDensity >= 0.5 && keywordDensity <= 2.5) score += 10
     if (internalLinkMatches > 0) score += 5
+    if (externalLinkMatches > 0) score += 5
     if (tocHeadings.length >= 2) score += 5
+    if (hasCoverImage) score += 5
+    if (activeArticle.canonicalUrl.trim()) score += 5
     return Math.min(100, score)
   }
 
   const overallSeoScore = calcSeoScore()
 
   const filteredArticles = articles.filter(a => {
-    const matchesSearch = a.title.toLowerCase().includes(searchTerm.toLowerCase()) || a.slug.includes(searchTerm)
-    const matchesCat = categoryFilter === 'ALL' || a.category.toLowerCase().includes(categoryFilter.toLowerCase())
+    const normalizedSearch = searchTerm.toLowerCase()
+    const matchesSearch = [a.title, a.title_vi, a.title_en, a.slug]
+      .filter(Boolean)
+      .some((value) => value!.toLowerCase().includes(normalizedSearch))
+    const matchesCat = categoryFilter === 'ALL' || isInCategoryTree(a.categoryId, categoryFilter)
     return matchesSearch && matchesCat
   })
 
@@ -434,7 +528,7 @@ export default function AdminBlogPage() {
 
             <div>
               <span className="text-[10px] text-maple-gold font-mono uppercase tracking-wider block">
-                {activeArticle.category} — ID: {activeArticle.id}
+                {getArticleCategoryPath(activeArticle)} — ID: {activeArticle.id}
               </span>
               <h2 className="text-base font-display font-extrabold text-white line-clamp-1">
                 {adminUiLang === 'en' && activeArticle.title_en ? activeArticle.title_en : (activeArticle.title_vi || activeArticle.title)}
@@ -576,7 +670,7 @@ export default function AdminBlogPage() {
                   {adminUiLang === 'vi' ? 'Ảnh Đại Diện Cover' : 'Cover Image'}
                 </h4>
                 <div className="aspect-video bg-neutral-100 relative rounded-2xs overflow-hidden border border-neutral-300">
-                  <img src={activeArticle.coverImage} alt="Cover" className="w-full h-full object-cover" />
+                  <Image src={activeArticle.coverImage} alt="Cover" fill unoptimized className="object-cover" />
                 </div>
                 <input
                   type="text"
@@ -841,17 +935,17 @@ export default function AdminBlogPage() {
                   {adminUiLang === 'vi' ? 'Chuyên mục bài viết *' : 'Article Category *'}
                 </label>
                 <select
-                  value={activeArticle.category}
-                  onChange={(e) => handleUpdateArticleField('category', e.target.value)}
+                  value={getCategoryById(activeArticle.categoryId)?.id || activeArticle.categoryId}
+                  onChange={(e) => handleUpdateArticleField('categoryId', e.target.value)}
                   className="w-full p-2.5 bg-[#FDFBF7] border border-neutral-300 text-xs font-bold text-maple-black focus:outline-none focus:border-maple-red rounded-2xs cursor-pointer"
                 >
                   {rootCategories.map(parent => {
                     const children = blogCategories.filter(c => c.parentId === parent.id)
                     return (
                       <optgroup key={parent.id} label={`📁 ${getCatName(parent)}`}>
-                        <option value={getCatName(parent)}>📁 Tất cả {getCatName(parent)} (Chuyên Mục Gốc)</option>
+                        <option value={parent.id}>📁 {adminUiLang === 'vi' ? 'Tất cả' : 'All'} {getCatName(parent)}</option>
                         {children.map(child => (
-                          <option key={child.id} value={getCatName(child)}>
+                          <option key={child.id} value={child.id}>
                             └─ 📄 {getCatName(child)}
                           </option>
                         ))}
@@ -950,9 +1044,9 @@ export default function AdminBlogPage() {
           {rootCategories.map(root => (
             <button
               key={root.id}
-              onClick={() => setCategoryFilter(getCatName(root))}
+              onClick={() => setCategoryFilter(root.id)}
               className={`px-4 py-2 rounded-2xs transition-all flex items-center gap-1.5 ${
-                categoryFilter === getCatName(root)
+                categoryFilter === root.id
                   ? 'bg-[#151513] text-white shadow-xs'
                   : 'bg-[#FDFBF7] border border-neutral-200 text-neutral-600 hover:text-maple-black hover:border-neutral-300'
               }`}
@@ -977,7 +1071,14 @@ export default function AdminBlogPage() {
 
       {/* Articles Table */}
       <div className="bg-white border border-neutral-200 overflow-hidden shadow-2xs rounded-2xs">
-        <table className="w-full text-left text-xs border-collapse">
+        <table className="w-full table-fixed text-left text-xs border-collapse">
+          <colgroup>
+            <col className="w-[40%]" />
+            <col className="w-[28%]" />
+            <col className="w-[13%]" />
+            <col className="w-[10%]" />
+            <col className="w-[9%]" />
+          </colgroup>
           <thead>
             <tr className="bg-[#151513] text-white text-[11px] font-extrabold uppercase tracking-wider border-b border-neutral-800">
               <th className="py-3.5 px-4">{adminUiLang === 'vi' ? 'Bài Viết' : 'Article Title'}</th>
@@ -992,7 +1093,7 @@ export default function AdminBlogPage() {
               <tr key={art.id} className="hover:bg-[#FDFBF7] transition-colors">
                 <td className="py-3.5 px-4">
                   <div className="flex items-center gap-3">
-                    <img src={art.coverImage} alt="Thumb" className="w-12 h-9 object-cover rounded-2xs border border-neutral-200" />
+                    <Image src={art.coverImage} alt="Thumb" width={48} height={36} unoptimized className="w-12 h-9 object-cover rounded-2xs border border-neutral-200" />
                     <div>
                       <span className="font-bold text-sm text-maple-black block">
                         {adminUiLang === 'en' && art.title_en ? art.title_en : (art.title_vi || art.title)}
@@ -1003,22 +1104,40 @@ export default function AdminBlogPage() {
                 </td>
 
                 <td className="py-3.5 px-4">
-                  <span className="px-2.5 py-1 bg-red-50 text-maple-red border border-red-200 font-extrabold rounded-2xs text-[10px] inline-block uppercase tracking-wider">
-                    {art.category}
-                  </span>
+                  {(() => {
+                    const category = getArticleCategoryParts(art)
+                    return (
+                      <div className="max-w-[220px] space-y-1">
+                        <span className="inline-block border border-red-200 bg-red-50 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider text-maple-red">
+                          {category.parent}
+                        </span>
+                        {category.child && (
+                          <div className="flex items-start gap-1 text-[10px] font-semibold leading-snug text-neutral-600">
+                            <CornerDownRight size={12} className="mt-0.5 shrink-0 text-maple-gold" />
+                            <span>{category.child}</span>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })()}
                 </td>
 
                 <td className="py-3.5 px-4 font-bold text-neutral-700">
                   {art.author}
                 </td>
 
-                <td className="py-3.5 px-4 text-center">
-                  <span className={`px-2.5 py-1 font-extrabold rounded-2xs text-[10px] border ${
-                    art.status === 'Published' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-neutral-100 text-neutral-600 border-neutral-300'
-                  }`}>
+                <td className="py-3.5 px-4 text-center align-middle">
+                  <span
+                    className={`inline-flex min-w-[92px] items-center justify-center gap-1.5 border px-2.5 py-1 text-[10px] font-bold leading-none ${
+                      art.status === 'Published'
+                        ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                        : 'border-slate-200 bg-slate-50 text-slate-600'
+                    }`}
+                  >
+                    <span className={`h-1.5 w-1.5 rounded-full ${art.status === 'Published' ? 'bg-emerald-500' : 'bg-slate-400'}`} />
                     {art.status === 'Published'
-                      ? (adminUiLang === 'vi' ? '🟢 Xuất bản' : '🟢 Published')
-                      : (adminUiLang === 'vi' ? '⚪ Bản nháp' : '⚪ Draft')}
+                      ? (adminUiLang === 'vi' ? 'Xuất bản' : 'Published')
+                      : (adminUiLang === 'vi' ? 'Bản nháp' : 'Draft')}
                   </span>
                 </td>
 

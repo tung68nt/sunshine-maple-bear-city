@@ -1,0 +1,2207 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/fdzac0",
+    "id": "fdzac0",
+    "slide": 3,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9ojqpsf2",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "GRDP – định nghĩa và hệ ký hiệu chuẩn",
+      "textPreview": "GRDP – định nghĩa và hệ ký hiệu chuẩn",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GRDP – định nghĩa và hệ ký hiệu chuẩn"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GRDP – định nghĩa và hệ ký hiệu chuẩn",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GRDP – định nghĩa và hệ ký hiệu chuẩn",
+              "fontSize": 41.33,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/onapwnyh",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ",
+      "textPreview": "Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tổng sản phẩm trên địa bàn: toàn bộ giá trị tăng thêm được tạo ra trên địa bàn tỉnh trong một kỳ",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq18r2x8",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        168,
+        1171.2,
+        120
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/md0j61wr",
+      "id": "55",
+      "name": "Image 0",
+      "bbox": [
+        292.8,
+        187.2,
+        720,
+        118.23
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-1.png",
+        "contentType": "image/png",
+        "byteLength": 28039
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-1.png",
+        "contentType": "image/png",
+        "byteLength": 28039
+      }
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xsjqtsfy",
+      "id": "6",
+      "name": "Shape 3",
+      "bbox": [
+        67.2,
+        312,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/90r21wv2",
+      "id": "56",
+      "name": "Image 1",
+      "bbox": [
+        84.48,
+        321.6,
+        65.82,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-2.png",
+        "contentType": "image/png",
+        "byteLength": 6674
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-2.png",
+        "contentType": "image/png",
+        "byteLength": 6674
+      }
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ju18v2x4",
+      "id": "8",
+      "name": "Text 4",
+      "bbox": [
+        84.48,
+        350.4,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Tổng sản phẩm trên địa bàn",
+      "textPreview": "Tổng sản phẩm trên địa bàn",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tổng sản phẩm trên địa bàn"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tổng sản phẩm trên địa bàn",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tổng sản phẩm trên địa bàn",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytsr2xgj",
+      "id": "9",
+      "name": "Text 5",
+      "bbox": [
+        84.48,
+        383.04,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Tỷ đồng",
+      "textPreview": "Tỷ đồng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ đồng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ đồng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ đồng",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0nmp43eh",
+      "id": "10",
+      "name": "Shape 6",
+      "bbox": [
+        364.8,
+        312,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/8zi18beh",
+      "id": "57",
+      "name": "Image 2",
+      "bbox": [
+        382.08,
+        321.6,
+        37.84,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-3.png",
+        "contentType": "image/png",
+        "byteLength": 3847
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-3.png",
+        "contentType": "image/png",
+        "byteLength": 3847
+      }
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/el472twr",
+      "id": "12",
+      "name": "Text 7",
+      "bbox": [
+        382.08,
+        350.4,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Giá trị tăng thêm của ngành i",
+      "textPreview": "Giá trị tăng thêm của ngành i",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá trị tăng thêm của ngành i"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá trị tăng thêm của ngành i",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá trị tăng thêm của ngành i",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmdobydw",
+      "id": "13",
+      "name": "Text 8",
+      "bbox": [
+        382.08,
+        383.04,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Tỷ đồng",
+      "textPreview": "Tỷ đồng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ đồng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ đồng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ đồng",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/or6p8nut",
+      "id": "14",
+      "name": "Shape 9",
+      "bbox": [
+        662.4,
+        312,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/v2tk36d8",
+      "id": "58",
+      "name": "Image 3",
+      "bbox": [
+        679.68,
+        321.6,
+        42.06,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-4.png",
+        "contentType": "image/png",
+        "byteLength": 4875
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-4.png",
+        "contentType": "image/png",
+        "byteLength": 4875
+      }
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2po76dwn",
+      "id": "16",
+      "name": "Text 10",
+      "bbox": [
+        679.68,
+        350.4,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Giá trị sản xuất của ngành i",
+      "textPreview": "Giá trị sản xuất của ngành i",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá trị sản xuất của ngành i"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá trị sản xuất của ngành i",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá trị sản xuất của ngành i",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nqxofid8",
+      "id": "17",
+      "name": "Text 11",
+      "bbox": [
+        679.68,
+        383.04,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Tỷ đồng",
+      "textPreview": "Tỷ đồng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ đồng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ đồng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ đồng",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cf6pcnup",
+      "id": "18",
+      "name": "Shape 12",
+      "bbox": [
+        960,
+        312,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/a10ja1wn",
+      "id": "59",
+      "name": "Image 4",
+      "bbox": [
+        977.28,
+        321.6,
+        29.8,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-5.png",
+        "contentType": "image/png",
+        "byteLength": 3230
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-5.png",
+        "contentType": "image/png",
+        "byteLength": 3230
+      }
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lcv65sne",
+      "id": "20",
+      "name": "Text 13",
+      "bbox": [
+        977.28,
+        350.4,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Chi phí trung gian của ngành i",
+      "textPreview": "Chi phí trung gian của ngành i",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chi phí trung gian của ngành i"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chi phí trung gian của ngành i",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chi phí trung gian của ngành i",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kbmpwnmt",
+      "id": "21",
+      "name": "Text 14",
+      "bbox": [
+        977.28,
+        383.04,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Tỷ đồng",
+      "textPreview": "Tỷ đồng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ đồng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ đồng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ đồng",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jato3i58",
+      "id": "22",
+      "name": "Shape 15",
+      "bbox": [
+        67.2,
+        422.4,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/69ovi9k7",
+      "id": "60",
+      "name": "Image 5",
+      "bbox": [
+        84.48,
+        432,
+        20.12,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-6.png",
+        "contentType": "image/png",
+        "byteLength": 2152
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-6.png",
+        "contentType": "image/png",
+        "byteLength": 2152
+      }
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t0v69snq",
+      "id": "24",
+      "name": "Text 16",
+      "bbox": [
+        84.48,
+        460.8,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Hệ số chi phí trung gian ngành i",
+      "textPreview": "Hệ số chi phí trung gian ngành i",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Hệ số chi phí trung gian ngành i"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Hệ số chi phí trung gian ngành i",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Hệ số chi phí trung gian ngành i",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8zmp0nm5",
+      "id": "25",
+      "name": "Text 17",
+      "bbox": [
+        84.48,
+        493.44,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Lần (0–1)",
+      "textPreview": "Lần (0–1)",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lần (0–1)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lần (0–1)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lần (0–1)",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7edo725k",
+      "id": "26",
+      "name": "Shape 18",
+      "bbox": [
+        364.8,
+        422.4,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 26,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/raxcre1s",
+      "id": "61",
+      "name": "Image 6",
+      "bbox": [
+        382.08,
+        432,
+        31.42,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-7.png",
+        "contentType": "image/png",
+        "byteLength": 3455
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-7.png",
+        "contentType": "image/png",
+        "byteLength": 3455
+      }
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/94b6x8n6",
+      "id": "28",
+      "name": "Text 19",
+      "bbox": [
+        382.08,
+        460.8,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Thuế sản phẩm",
+      "textPreview": "Thuế sản phẩm",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thuế sản phẩm"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thuế sản phẩm",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thuế sản phẩm",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oj25o3ml",
+      "id": "29",
+      "name": "Text 20",
+      "bbox": [
+        382.08,
+        493.44,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Tỷ đồng",
+      "textPreview": "Tỷ đồng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ đồng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ đồng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ đồng",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/epg3y9kj",
+      "id": "30",
+      "name": "Shape 21",
+      "bbox": [
+        662.4,
+        422.4,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 30,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/sb6dkj2d",
+      "id": "62",
+      "name": "Image 7",
+      "bbox": [
+        679.68,
+        432,
+        31.32,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-8.png",
+        "contentType": "image/png",
+        "byteLength": 4566
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-8.png",
+        "contentType": "image/png",
+        "byteLength": 4566
+      }
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0byl0j2p",
+      "id": "32",
+      "name": "Text 22",
+      "bbox": [
+        679.68,
+        460.8,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Trợ cấp sản phẩm",
+      "textPreview": "Trợ cấp sản phẩm",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trợ cấp sản phẩm"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trợ cấp sản phẩm",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trợ cấp sản phẩm",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1crm943a",
+      "id": "33",
+      "name": "Text 23",
+      "bbox": [
+        679.68,
+        493.44,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Tỷ đồng",
+      "textPreview": "Tỷ đồng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ đồng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ đồng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ đồng",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/md0329kv",
+      "id": "34",
+      "name": "Shape 24",
+      "bbox": [
+        960,
+        422.4,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 34,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/tcfut4ji",
+      "id": "63",
+      "name": "Image 8",
+      "bbox": [
+        977.28,
+        432,
+        16.3,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-9.png",
+        "contentType": "image/png",
+        "byteLength": 1656
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-9.png",
+        "contentType": "image/png",
+        "byteLength": 1656
+      }
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ofil4j2l",
+      "id": "36",
+      "name": "Text 25",
+      "bbox": [
+        977.28,
+        460.8,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Số ngành kinh tế được biên soạn",
+      "textPreview": "Số ngành kinh tế được biên soạn",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Số ngành kinh tế được biên soạn"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Số ngành kinh tế được biên soạn",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Số ngành kinh tế được biên soạn",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9grmdo36",
+      "id": "37",
+      "name": "Text 26",
+      "bbox": [
+        977.28,
+        493.44,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "Ngành",
+      "textPreview": "Ngành",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ngành"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ngành",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ngành",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ihw3qp4b",
+      "id": "38",
+      "name": "Shape 27",
+      "bbox": [
+        67.2,
+        532.8,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 38,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/i54vepkv",
+      "id": "64",
+      "name": "Image 9",
+      "bbox": [
+        84.48,
+        542.4,
+        13.08,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-10.png",
+        "contentType": "image/png",
+        "byteLength": 1197
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-10.png",
+        "contentType": "image/png",
+        "byteLength": 1197
+      }
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2ds7m9o",
+      "id": "40",
+      "name": "Text 28",
+      "bbox": [
+        84.48,
+        571.2,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Kỳ báo cáo (quý/năm)",
+      "textPreview": "Kỳ báo cáo (quý/năm)",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Kỳ báo cáo (quý/năm)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Kỳ báo cáo (quý/năm)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Kỳ báo cáo (quý/năm)",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y14rehs3",
+      "id": "41",
+      "name": "Text 29",
+      "bbox": [
+        84.48,
+        603.84,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "—",
+      "textPreview": "—",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "—"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "—",
+          "runs": [
+            {
+              "index": 1,
+              "text": "—",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l4fa9wre",
+      "id": "42",
+      "name": "Shape 30",
+      "bbox": [
+        364.8,
+        532.8,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 42,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/j6dcnu1g",
+      "id": "65",
+      "name": "Image 10",
+      "bbox": [
+        382.08,
+        542.4,
+        68.24,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-11.png",
+        "contentType": "image/png",
+        "byteLength": 4787
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-11.png",
+        "contentType": "image/png",
+        "byteLength": 4787
+      }
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/76xsbm9k",
+      "id": "44",
+      "name": "Text 31",
+      "bbox": [
+        382.08,
+        571.2,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Chỉ số trên: giá hiện hành / giá so sánh",
+      "textPreview": "Chỉ số trên: giá hiện hành / giá so sánh",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chỉ số trên: giá hiện hành / giá so sánh"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chỉ số trên: giá hiện hành / giá so sánh",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chỉ số trên: giá hiện hành / giá so sánh",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65obihsz",
+      "id": "45",
+      "name": "Text 32",
+      "bbox": [
+        382.08,
+        603.84,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "—",
+      "textPreview": "—",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "—"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "—",
+          "runs": [
+            {
+              "index": 1,
+              "text": "—",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tsfadwrq",
+      "id": "46",
+      "name": "Shape 33",
+      "bbox": [
+        662.4,
+        532.8,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 46,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/476dgz21",
+      "id": "66",
+      "name": "Image 11",
+      "bbox": [
+        679.68,
+        542.4,
+        17.55,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-12.png",
+        "contentType": "image/png",
+        "byteLength": 2841
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-12.png",
+        "contentType": "image/png",
+        "byteLength": 2841
+      }
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vuhsf69w",
+      "id": "48",
+      "name": "Text 34",
+      "bbox": [
+        679.68,
+        571.2,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Chỉ số giá của kỳ t so với năm gốc",
+      "textPreview": "Chỉ số giá của kỳ t so với năm gốc",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chỉ số giá của kỳ t so với năm gốc"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chỉ số giá của kỳ t so với năm gốc",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chỉ số giá của kỳ t so với năm gốc",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 48,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/utobm1sb",
+      "id": "49",
+      "name": "Text 35",
+      "bbox": [
+        679.68,
+        603.84,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "%",
+      "textPreview": "%",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "%",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 49,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/szq9wb69",
+      "id": "50",
+      "name": "Shape 36",
+      "bbox": [
+        960,
+        532.8,
+        283.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 50,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/58fup4jm",
+      "id": "67",
+      "name": "Image 12",
+      "bbox": [
+        977.28,
+        542.4,
+        25.96,
+        24.96
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-3-13.png",
+        "contentType": "image/png",
+        "byteLength": 2540
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-3-13.png",
+        "contentType": "image/png",
+        "byteLength": 2540
+      }
+    },
+    {
+      "order": 51,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qx8ru1o3",
+      "id": "52",
+      "name": "Text 37",
+      "bbox": [
+        977.28,
+        571.2,
+        249.6,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Tỷ trọng ngành i trong GRDP",
+      "textPreview": "Tỷ trọng ngành i trong GRDP",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tỷ trọng ngành i trong GRDP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tỷ trọng ngành i trong GRDP",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tỷ trọng ngành i trong GRDP",
+              "fontSize": 13.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 52,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ryhs36po",
+      "id": "53",
+      "name": "Text 38",
+      "bbox": [
+        977.28,
+        603.84,
+        249.6,
+        21.12
+      ],
+      "geometry": "rect",
+      "text": "%",
+      "textPreview": "%",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "%",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#C9A227",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 53,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4vq9sr6d",
+      "id": "54",
+      "name": "Text 39",
+      "bbox": [
+        67.2,
+        667.2,
+        1152,
+        28.8
+      ],
+      "geometry": "rect",
+      "text": "Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này.",
+      "textPreview": "Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ký hiệu dùng thống nhất cho toàn bộ các công thức trong tài liệu này.",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

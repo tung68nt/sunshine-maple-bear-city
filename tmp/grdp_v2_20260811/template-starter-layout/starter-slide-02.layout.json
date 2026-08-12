@@ -1,0 +1,1072 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ce4zyj",
+    "id": "ce4zyj",
+    "slide": 2,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qt4v2tcj",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Vấn đề cần làm rõ",
+      "textPreview": "Vấn đề cần làm rõ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vấn đề cần làm rõ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vấn đề cần làm rõ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vấn đề cần làm rõ",
+              "fontSize": 41.33,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rudwbyt4",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào",
+      "textPreview": "Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bộ slide IOC hiện tại mô tả năng lực nền tảng, chưa mô tả dữ liệu đầu vào",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0zmx83u1",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        177.6,
+        1152,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/10veh8b6",
+      "id": "5",
+      "name": "Shape 3",
+      "bbox": [
+        96,
+        201.6,
+        40.32,
+        40.32
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ex4f6dcv",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        96,
+        201.6,
+        40.32,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "1",
+      "textPreview": "1",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "1",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zydwfitg",
+      "id": "7",
+      "name": "Text 5",
+      "bbox": [
+        153.6,
+        192.96,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Slide IOC hiện có",
+      "textPreview": "Slide IOC hiện có",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Slide IOC hiện có"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Slide IOC hiện có",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Slide IOC hiện có",
+              "fontSize": 21.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g32dwjuh",
+      "id": "8",
+      "name": "Text 6",
+      "bbox": [
+        153.6,
+        237.12,
+        326.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Trả lời câu hỏi \"hệ thống làm được gì\"",
+      "textPreview": "Trả lời câu hỏi \"hệ thống làm được gì\"",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trả lời câu hỏi \"hệ thống làm được gì\""
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trả lời câu hỏi \"hệ thống làm được gì\"",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trả lời câu hỏi \"hệ thống làm được gì\"",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4be5ov2",
+      "id": "9",
+      "name": "Text 7",
+      "bbox": [
+        508.8,
+        196.8,
+        681.6,
+        96
+      ],
+      "geometry": "rect",
+      "text": "Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg), lưu trữ, chia sẻ dữ liệu.",
+      "textPreview": "Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg), lưu trữ, chia sẻ dữ liệu.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg),"
+          },
+          {
+            "index": 2,
+            "text": "lưu trữ, chia sẻ dữ liệu."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg), lưu trữ, chia sẻ dữ liệu.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mô tả dịch vụ nền tảng: kết nối, khai phá, kết hợp (join/union), lọc, tổng hợp (Sum/Count/Avg), lưu trữ, chia sẻ dữ liệu.",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47q9cje",
+      "id": "10",
+      "name": "Shape 8",
+      "bbox": [
+        67.2,
+        331.2,
+        1152,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83y90r2t",
+      "id": "11",
+      "name": "Shape 9",
+      "bbox": [
+        96,
+        355.2,
+        40.32,
+        40.32
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/72587m18",
+      "id": "12",
+      "name": "Text 10",
+      "bbox": [
+        96,
+        355.2,
+        40.32,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "2",
+      "textPreview": "2",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/61wryhkn",
+      "id": "13",
+      "name": "Text 11",
+      "bbox": [
+        153.6,
+        346.56,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "File Excel hiện có",
+      "textPreview": "File Excel hiện có",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "File Excel hiện có"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "File Excel hiện có",
+          "runs": [
+            {
+              "index": 1,
+              "text": "File Excel hiện có",
+              "fontSize": 21.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hs7adwja",
+      "id": "14",
+      "name": "Text 12",
+      "bbox": [
+        153.6,
+        390.72,
+        326.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Trả lời câu hỏi \"kết quả ra sao\"",
+      "textPreview": "Trả lời câu hỏi \"kết quả ra sao\"",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trả lời câu hỏi \"kết quả ra sao\""
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trả lời câu hỏi \"kết quả ra sao\"",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trả lời câu hỏi \"kết quả ra sao\"",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7y94r25",
+      "id": "15",
+      "name": "Text 13",
+      "bbox": [
+        508.8,
+        350.4,
+        681.6,
+        96
+      ],
+      "geometry": "rect",
+      "text": "Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do Thống kê công bố.",
+      "textPreview": "Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do Thống kê công bố.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do"
+          },
+          {
+            "index": 2,
+            "text": "Thống kê công bố."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do Thống kê công bố.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bảng GRDP theo quý, theo ngành, giá hiện hành và giá so sánh — đã là KẾT QUẢ tính toán do Thống kê công bố.",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6psbm1k",
+      "id": "16",
+      "name": "Shape 14",
+      "bbox": [
+        67.2,
+        484.8,
+        1152,
+        134.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFF6DC",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u5gr2hkz",
+      "id": "17",
+      "name": "Shape 15",
+      "bbox": [
+        96,
+        508.8,
+        40.32,
+        40.32
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pwrahwjm",
+      "id": "18",
+      "name": "Text 16",
+      "bbox": [
+        96,
+        508.8,
+        40.32,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "3",
+      "textPreview": "3",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "3"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3",
+          "resolvedTextStyle": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4vi98b21",
+      "id": "19",
+      "name": "Text 17",
+      "bbox": [
+        153.6,
+        500.16,
+        326.4,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "Phần còn thiếu",
+      "textPreview": "Phần còn thiếu",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phần còn thiếu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phần còn thiếu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phần còn thiếu",
+              "fontSize": 21.33,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obql0ze9",
+      "id": "20",
+      "name": "Text 18",
+      "bbox": [
+        153.6,
+        544.32,
+        326.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\"",
+      "textPreview": "Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\"",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\""
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\"",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trả lời câu hỏi \"cần nạp gì vào kho dữ liệu\"",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9cj2t4vu",
+      "id": "21",
+      "name": "Text 19",
+      "bbox": [
+        508.8,
+        504,
+        681.6,
+        96
+      ],
+      "geometry": "rect",
+      "text": "Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được GRDP.",
+      "textPreview": "Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được GRDP.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được"
+          },
+          {
+            "index": 2,
+            "text": "GRDP."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được GRDP.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Danh mục chỉ tiêu – trường dữ liệu – nguồn cấp – tần suất để IOC tự tính và kiểm chứng được GRDP.",
+              "fontSize": 17.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mp83y9wj",
+      "id": "22",
+      "name": "Text 20",
+      "bbox": [
+        67.2,
+        667.2,
+        1152,
+        28.8
+      ],
+      "geometry": "rect",
+      "text": "Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx",
+      "textPreview": "Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nguồn tham chiếu: IOC-KHODL_F1.pdf (17 trang) và IOC_TaiKhoanQuocGia_GRDP_Quy_ThongKeTinh.xlsx",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

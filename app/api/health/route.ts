@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 export async function GET() {
   const startTime = Date.now()
@@ -7,6 +7,7 @@ export async function GET() {
   let dbLatencyMs = -1
 
   try {
+    const supabase = await createServerSupabaseClient()
     const { error } = await supabase.from('pages').select('id').limit(1)
     dbLatencyMs = Date.now() - startTime
     if (!error) {
@@ -18,23 +19,16 @@ export async function GET() {
     dbStatus = 'error'
   }
 
-  const memory = process.memoryUsage()
-  const memoryRssMb = Math.round((memory.rss / (1024 * 1024)) * 100) / 100
-
   const isHealthy = dbStatus === 'connected' || process.env.NODE_ENV === 'development'
 
   return NextResponse.json(
     {
       status: isHealthy ? 'healthy' : 'degraded',
       timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV || 'production',
       database: {
         status: dbStatus,
-        latencyMs: dbLatencyMs,
-      },
-      system: {
-        uptimeSeconds: Math.round(process.uptime()),
-        memoryRssMb: memoryRssMb,
+        // Avoid exposing fine-grained infrastructure telemetry from a public endpoint.
+        latencyMs: dbLatencyMs >= 0 ? dbLatencyMs : null,
       },
     },
     {

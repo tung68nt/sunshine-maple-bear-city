@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 import {
   Bold,
   Italic,
@@ -30,6 +31,7 @@ import {
   Minus,
   RemoveFormatting,
   Type
+  , X
 } from 'lucide-react'
 
 interface RichTextEditorProps {
@@ -52,7 +54,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
         editorRef.current.innerHTML = value || '<p>Nhập nội dung bài viết tại đây...</p>'
       }
     }
-  }, [mode])
+  }, [mode, value])
 
   // Execute browser formatting commands on active contentEditable selection
   const execCommand = (command: string, valueArg: string = '') => {
@@ -725,10 +727,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
             <span className="text-xs font-semibold text-maple-red block border-b border-neutral-200 pb-2">
               Xem trước bài viết thực tế (Live Article Preview)
             </span>
-            <div
-              dangerouslySetInnerHTML={{ __html: value }}
-              className="prose prose-neutral max-w-none text-sm leading-relaxed"
-            />
+            <pre className="whitespace-pre-wrap break-words text-sm leading-relaxed text-neutral-700 font-sans">{value}</pre>
           </div>
         </div>
       )}
@@ -798,7 +797,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
                         selectedImageUrl === item.url ? 'border-maple-red ring-2 ring-maple-red/30 scale-[1.02]' : 'border-neutral-200 hover:border-neutral-400'
                       }`}
                     >
-                      <img src={item.url} alt={item.title} className="w-full h-full object-cover" />
+                      <Image src={item.url} alt={item.title} fill unoptimized className="object-cover" />
                       <div className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] font-bold p-1 truncate text-center">
                         {item.title}
                       </div>

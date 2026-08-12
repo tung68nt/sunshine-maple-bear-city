@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
+import { createBrowserSupabaseClient } from '@/lib/supabase/client'
 import {
   LayoutDashboard,
   FileText,
@@ -28,7 +29,7 @@ import {
   Lock
 } from 'lucide-react'
 
-export type AdminRole = 'admin' | 'principal' | 'admissions' | 'marketing' | 'teacher'
+export type AdminRole = 'admin' | 'editor' | 'viewer'
 
 const ROLE_PERMISSIONS: Record<AdminRole, string[]> = {
   admin: [
@@ -47,26 +48,7 @@ const ROLE_PERMISSIONS: Record<AdminRole, string[]> = {
     '/admin/users',
     '/admin/settings'
   ],
-  principal: [
-    '/admin',
-    '/admin/blog',
-    '/admin/staff',
-    '/admin/events',
-    '/admin/admissions',
-    '/admin/tour-bookings',
-    '/admin/analytics',
-    '/admin/users'
-  ],
-  admissions: [
-    '/admin',
-    '/admin/admissions',
-    '/admin/tour-bookings',
-    '/admin/events',
-    '/admin/forms',
-    '/admin/utm-builder',
-    '/admin/analytics'
-  ],
-  marketing: [
+  editor: [
     '/admin',
     '/admin/blog',
     '/admin/gallery',
@@ -79,17 +61,12 @@ const ROLE_PERMISSIONS: Record<AdminRole, string[]> = {
     '/admin/announcements',
     '/admin/analytics'
   ],
-  teacher: [
-    '/admin',
-    '/admin/blog',
-    '/admin/gallery',
-    '/admin/events'
-  ]
+  viewer: ['/admin', '/admin/analytics']
 }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const [currentRole, setCurrentRole] = useState<AdminRole>('admin')
+  const [currentRole, setCurrentRole] = useState<AdminRole>('viewer')
   const [adminLang, setAdminLang] = useState<'vi' | 'en'>('vi')
   const [isNotiOpen, setIsNotiOpen] = useState(false)
   const [unreadCount, setUnreadCount] = useState(3)
@@ -98,16 +75,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const savedLang = localStorage.getItem('smb_admin_ui_lang') as 'vi' | 'en'
     if (savedLang === 'en' || savedLang === 'vi') setAdminLang(savedLang)
 
-    const savedRole = localStorage.getItem('smb_admin_active_role') as AdminRole
-    if (savedRole && ROLE_PERMISSIONS[savedRole]) {
-      setCurrentRole(savedRole)
-    }
+    void fetch('/api/admin/session').then(async (response) => {
+      if (!response.ok) return
+      const session = await response.json() as { role?: AdminRole }
+      if (session.role && ROLE_PERMISSIONS[session.role]) setCurrentRole(session.role)
+    })
   }, [])
-
-  const handleSetRole = (role: AdminRole) => {
-    setCurrentRole(role)
-    localStorage.setItem('smb_admin_active_role', role)
-  }
 
   const handleSetLang = (lang: 'vi' | 'en') => {
     setAdminLang(lang)
@@ -213,10 +186,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const roleBadges: Record<AdminRole, { label: string; color: string }> = {
     admin: { label: adminLang === 'vi' ? 'Super Admin' : 'Super Admin', color: 'bg-maple-red text-white' },
-    principal: { label: adminLang === 'vi' ? 'Ban Giám Hiệu' : 'Academic Principal', color: 'bg-amber-600 text-white' },
-    admissions: { label: adminLang === 'vi' ? 'Phòng Tuyển Sinh' : 'Admissions Team', color: 'bg-blue-600 text-white' },
-    marketing: { label: adminLang === 'vi' ? 'Phòng Marketing' : 'Marketing Team', color: 'bg-purple-600 text-white' },
-    teacher: { label: adminLang === 'vi' ? 'Tổ Giáo Viên' : 'Educators Team', color: 'bg-emerald-600 text-white' },
+    editor: { label: adminLang === 'vi' ? 'Biên tập viên' : 'Editor', color: 'bg-purple-600 text-white' },
+    viewer: { label: adminLang === 'vi' ? 'Chỉ xem' : 'Viewer', color: 'bg-emerald-600 text-white' },
   }
 
   // Check if current route is allowed for the active role
@@ -276,7 +247,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           )}
         </div>
 
-        {/* Role Selector Badge (RBAC Dynamic Role Switcher) */}
+        {/* Role comes from the server-side Supabase profile, never localStorage. */}
         {isSidebarOpen && (
           <div className="p-3 bg-neutral-900/80 border-b border-neutral-800 space-y-1.5">
             <div className="flex items-center justify-between">
@@ -288,17 +259,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 {roleBadges[currentRole].label}
               </span>
             </div>
-            <select
-              value={currentRole}
-              onChange={(e) => handleSetRole(e.target.value as AdminRole)}
-              className="w-full bg-[#151513] border border-neutral-700 text-xs text-white p-1.5 focus:outline-none focus:border-maple-red font-bold rounded-2xs cursor-pointer"
-            >
-              <option value="admin">Super Admin (Chủ Đầu Tư / Full Access)</option>
-              <option value="principal">Ban Giám Hiệu (BGH / Academic Principal)</option>
-              <option value="admissions">Phòng Tuyển Sinh (Admissions & Enrollment)</option>
-              <option value="marketing">Phòng Marketing & Truyền Thông (MarCom)</option>
-              <option value="teacher">Tổ Giáo Viên & Chuyên Gia (Educators)</option>
-            </select>
           </div>
         )}
 
@@ -353,10 +313,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {isSidebarOpen && <span>View Public Site</span>}
           </Link>
           <button
-            onClick={() => {
-              document.cookie = 'smb_admin_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
-              localStorage.removeItem('smb_admin_session')
-              window.location.href = '/login'
+            onClick={async () => {
+              await createBrowserSupabaseClient().auth.signOut()
+              router.replace('/login')
+              router.refresh()
             }}
             className={`flex items-center ${
               isSidebarOpen ? 'justify-start gap-2 px-3' : 'justify-center'
@@ -511,19 +471,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   </h3>
                   <p className="text-xs text-neutral-600 leading-relaxed max-w-md mx-auto">
                     {adminLang === 'vi'
-                      ? `Vai trò hiện tại của bạn là (${roleBadges[currentRole].label}) không có quyền thao tác trên tính năng này. Hãy chuyển sang vai trò Super Admin để truy cập đầy đủ.`
-                      : `Your current active role (${roleBadges[currentRole].label}) is not authorized to access this section.`}
+                      ? `Vai trò máy chủ của bạn là (${roleBadges[currentRole].label}) không có quyền thao tác trên tính năng này. Hãy liên hệ quản trị viên.`
+                      : `Your server-side role (${roleBadges[currentRole].label}) is not authorized to access this section.`}
                   </p>
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
-                  <button
-                    onClick={() => handleSetRole('admin')}
-                    className="px-5 py-2.5 bg-maple-red hover:bg-red-700 text-white text-xs font-semibold rounded-2xs shadow-2xs transition-all"
-                  >
-                    Chuyển sang vai trò Super Admin
-                  </button>
-
                   <Link
                     href="/admin"
                     className="px-5 py-2.5 bg-[#1D1D1B] hover:bg-neutral-800 text-white text-xs font-semibold rounded-2xs shadow-2xs transition-all"

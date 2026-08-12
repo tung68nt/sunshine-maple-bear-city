@@ -1,0 +1,998 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/dsfc3x",
+    "id": "dsfc3x",
+    "slide": 9,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2xsbutkf",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Hai loại giá bắt buộc phải có song song",
+      "textPreview": "Hai loại giá bắt buộc phải có song song",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Hai loại giá bắt buộc phải có song song"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Hai loại giá bắt buộc phải có song song",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Hai loại giá bắt buộc phải có song song",
+              "fontSize": 41.33,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ny1s3y1k",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng",
+      "textPreview": "Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thiếu một trong hai thì không thể vừa tính quy mô, vừa tính tốc độ tăng trưởng",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wnut0n2h",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        172.8,
+        566.4,
+        264
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xo3u98j2",
+      "id": "5",
+      "name": "Shape 3",
+      "bbox": [
+        67.2,
+        177.6,
+        566.4,
+        67.2
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#1E2761"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/alsbydkb",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        96,
+        177.6,
+        508.8,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "Giá hiện hành",
+      "textPreview": "Giá hiện hành",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá hiện hành"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá hiện hành",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá hiện hành",
+              "fontSize": 25.33,
+              "typeface": "Cambria",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bm1c7i1w",
+      "id": "7",
+      "name": "Text 5",
+      "bbox": [
+        96,
+        259.2,
+        508.8,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Giá của chính kỳ báo cáo",
+      "textPreview": "Giá của chính kỳ báo cáo",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá của chính kỳ báo cáo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá của chính kỳ báo cáo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá của chính kỳ báo cáo",
+              "fontSize": 16,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/krut4n2d",
+      "id": "8",
+      "name": "Text 6",
+      "bbox": [
+        100.8,
+        297.6,
+        499.2,
+        134.4
+      ],
+      "geometry": "rect",
+      "text": "Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%)\nKhông dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát",
+      "textPreview": "Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%) | Không dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%)"
+          },
+          {
+            "index": 2,
+            "text": "• Không dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dùng để tính QUY MÔ nền kinh tế và CƠ CẤU ngành (%)",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Không dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Không dùng để tính tốc độ tăng trưởng vì lẫn yếu tố lạm phát",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ls3udsjy",
+      "id": "9",
+      "name": "Shape 7",
+      "bbox": [
+        662.4,
+        172.8,
+        566.4,
+        264
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/507mp032",
+      "id": "10",
+      "name": "Shape 8",
+      "bbox": [
+        662.4,
+        177.6,
+        566.4,
+        67.2
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#1C7293"
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4zylgv2h",
+      "id": "11",
+      "name": "Text 9",
+      "bbox": [
+        691.2,
+        177.6,
+        508.8,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "Giá so sánh",
+      "textPreview": "Giá so sánh",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá so sánh"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá so sánh",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá so sánh",
+              "fontSize": 25.33,
+              "typeface": "Cambria",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jy54nqlw",
+      "id": "12",
+      "name": "Text 10",
+      "bbox": [
+        691.2,
+        259.2,
+        508.8,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Quy về giá của năm gốc",
+      "textPreview": "Quy về giá của năm gốc",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Quy về giá của năm gốc"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Quy về giá của năm gốc",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Quy về giá của năm gốc",
+              "fontSize": 16,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ixw3elkb",
+      "id": "13",
+      "name": "Text 11",
+      "bbox": [
+        696,
+        297.6,
+        499.2,
+        134.4
+      ],
+      "geometry": "rect",
+      "text": "Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực\nPhải có chỉ số giá tương ứng từng ngành để giảm phát",
+      "textPreview": "Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực | Phải có chỉ số giá tương ứng từng ngành để giảm phát",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực"
+          },
+          {
+            "index": 2,
+            "text": "• Phải có chỉ số giá tương ứng từng ngành để giảm phát"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dùng để tính TỐC ĐỘ TĂNG TRƯỞNG thực",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Phải có chỉ số giá tương ứng từng ngành để giảm phát",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phải có chỉ số giá tương ứng từng ngành để giảm phát",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47mt03y",
+      "id": "14",
+      "name": "Shape 12",
+      "bbox": [
+        67.2,
+        456,
+        566.4,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/4z6t07a9",
+      "id": "23",
+      "name": "Image 0",
+      "bbox": [
+        148.8,
+        467.52,
+        182.4,
+        57
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-9-1.png",
+        "contentType": "image/png",
+        "byteLength": 25222
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-9-1.png",
+        "contentType": "image/png",
+        "byteLength": 25222
+      }
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2p4rqls",
+      "id": "16",
+      "name": "Text 13",
+      "bbox": [
+        355.2,
+        470.4,
+        259.2,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "Giảm phát về giá so sánh",
+      "textPreview": "Giảm phát về giá so sánh",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giảm phát về giá so sánh"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giảm phát về giá so sánh",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giảm phát về giá so sánh",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/61g3ilkn",
+      "id": "17",
+      "name": "Shape 14",
+      "bbox": [
+        662.4,
+        456,
+        576,
+        91.2
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/r2hcvm9k",
+      "id": "24",
+      "name": "Image 1",
+      "bbox": [
+        705.6,
+        478.08,
+        288,
+        52.17
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-9-2.png",
+        "contentType": "image/png",
+        "byteLength": 37275
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-9-2.png",
+        "contentType": "image/png",
+        "byteLength": 37275
+      }
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ul8b29",
+      "id": "19",
+      "name": "Text 15",
+      "bbox": [
+        1008,
+        470.4,
+        211.2,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "Tốc độ tăng so cùng kỳ",
+      "textPreview": "Tốc độ tăng so cùng kỳ",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tốc độ tăng so cùng kỳ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tốc độ tăng so cùng kỳ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tốc độ tăng so cùng kỳ",
+              "fontSize": 14.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0ryl4bu5",
+      "id": "20",
+      "name": "Shape 16",
+      "bbox": [
+        67.2,
+        561.6,
+        1171.2,
+        96
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFF6DC",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1c7mxgbq",
+      "id": "21",
+      "name": "Text 17",
+      "bbox": [
+        96,
+        571.2,
+        576,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Cảnh báo từ chính dữ liệu đang có",
+      "textPreview": "Cảnh báo từ chính dữ liệu đang có",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cảnh báo từ chính dữ liệu đang có"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cảnh báo từ chính dữ liệu đang có",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cảnh báo từ chính dữ liệu đang có",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#8A6D00",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/epg321cz",
+      "id": "22",
+      "name": "Text 18",
+      "bbox": [
+        96,
+        602.88,
+        1113.6,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu chưa hồi quy chuỗi về cùng năm gốc.\nCác dòng Quý III và Quý IV/2026 trong file vẫn ghi nhãn \"Giá so sánh 2010\" trong khi Quý I–II/2026 là 2020 → lỗi metadata cần chuẩn hoá trước khi nạp kho dữ liệu.",
+      "textPreview": "Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu c...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu chưa hồi quy chuỗi về cùng năm gốc."
+          },
+          {
+            "index": 2,
+            "text": "• Các dòng Quý III và Quý IV/2026 trong file vẫn ghi nhãn \"Giá so sánh 2010\" trong khi Quý I–II/2026 là 2020 → lỗi metadata cần chuẩn hoá trước khi nạp kho dữ liệu."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu chưa hồi quy chuỗi về cùng năm gốc.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Năm 2025 dùng \"Giá so sánh 2010\"; từ Quý I/2026 chuyển sang \"Giá so sánh 2020\" → chuỗi số liệu bị gãy, không so sánh trực tiếp được nếu chưa hồi quy chuỗi về cùng năm gốc.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Các dòng Quý III và Quý IV/2026 trong file vẫn ghi nhãn \"Giá so sánh 2010\" trong khi Quý I–II/2026 là 2020 → lỗi metadata cần chuẩn hoá trước khi nạp kho dữ liệu.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Các dòng Quý III và Quý IV/2026 trong file vẫn ghi nhãn \"Giá so sánh 2010\" trong khi Quý I–II/2026 là 2020 → lỗi metadata cần chuẩn hoá trước khi nạp kho dữ liệu.",
+              "fontSize": 14,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

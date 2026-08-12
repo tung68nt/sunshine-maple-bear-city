@@ -1,0 +1,8 @@
+title = "Sunshine Maple Bear secret scanning"
+
+[allowlist]
+  description = "Documentation placeholders only"
+  paths = [
+    '''^\.env\.example$''',
+    '''^audit/''',
+  ]

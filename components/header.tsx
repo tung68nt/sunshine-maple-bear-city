@@ -2,9 +2,8 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { ChevronDown, ChevronRight, Menu, X, ArrowRight } from 'lucide-react'
+import { Calendar, Edit3, Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
 import { LanguageSwitcher } from './language-switcher'
 
 const DEFAULT_VI_MAP: Record<string, string> = {
@@ -33,20 +32,9 @@ const DEFAULT_VI_MAP: Record<string, string> = {
 }
 
 export function Header() {
-  const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null)
-  const [currentLang, setCurrentLang] = useState<'vi' | 'en'>('vi')
-
-  // Header style mode
-  const isLight = pathname !== '/' || isScrolled || isMenuOpen
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const [currentLang, setCurrentLang] = useState<'vi' | 'en'>('en')
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null)
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -58,7 +46,7 @@ export function Header() {
   }, [isMenuOpen])
 
   useEffect(() => {
-    const saved = (localStorage.getItem('smb_site_lang') as 'vi' | 'en') || 'vi'
+    const saved = (localStorage.getItem('smb_site_lang') as 'vi' | 'en') || 'en'
     setCurrentLang(saved)
 
     const handleLangChange = (e: CustomEvent) => {
@@ -72,11 +60,7 @@ export function Header() {
   }, [])
 
   const initialNavItems = [
-    {
-      labelVi: 'Trang chủ',
-      labelEn: 'Home',
-      href: '/'
-    },
+    { labelVi: 'Trang chủ', labelEn: 'Home', href: '/' },
     {
       labelVi: 'Về chúng tôi',
       labelEn: 'About Us',
@@ -111,21 +95,7 @@ export function Header() {
         { labelVi: 'Đặt lịch Tham quan Trường', labelEn: 'Book a Campus Visit', href: '/tour-booking' },
       ]
     },
-    {
-      labelVi: 'Cộng đồng',
-      labelEn: 'Community',
-      href: '/community/parent-portal',
-      children: [
-        { labelVi: 'Cổng thông tin Phụ huynh (Parent Portal)', labelEn: 'Parent Portal & App', href: '/community/parent-portal' },
-        { labelVi: 'Bảo vệ an toàn & Y tế học đường', labelEn: 'Health & Safeguarding', href: '/community/health' },
-        { labelVi: 'Chính sách An toàn Trẻ em', labelEn: 'Safeguarding Policy', href: '/community/safeguarding' },
-      ]
-    },
-    {
-      labelVi: 'Tin tức & Blog',
-      labelEn: 'News & Blog',
-      href: '/blog'
-    },
+    { labelVi: 'Tin tức & Blog', labelEn: 'News & Blog', href: '/blog' },
   ]
 
   const [navItems, setNavItems] = useState(initialNavItems)
@@ -171,192 +141,60 @@ export function Header() {
   }
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isLight
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-2 border-b border-neutral-200/80'
-          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-3.5'
-      }`}
-    >
-      <div className="container mx-auto px-3 sm:px-6 lg:px-8 max-w-[1440px]">
-        <div className="flex items-center justify-between gap-2 xl:gap-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-neutral-200/50 py-3 transition-all duration-300">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
+        <div className="flex items-center justify-between gap-3 xl:gap-6">
           
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2 group relative z-10 flex-shrink-0">
-            <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+          {/* Brand Logo (Picture1.png spec: Logo Bear + Maple Bear International Kindergarten) */}
+          <Link href="/" className="flex items-center gap-3 group relative z-10 flex-shrink-0">
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/logo.png"
-                alt="Sunshine Maple Bear Logo"
+                alt="Maple Bear Logo"
                 fill
                 className="object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-display font-extrabold text-xs sm:text-sm tracking-tight leading-none uppercase transition-colors whitespace-nowrap ${
-                isLight ? 'text-[#1D1D1B]' : 'text-white'
-              }`}>
-                SUNSHINE MAPLE BEAR
+              <span className="font-serif font-bold text-base sm:text-lg tracking-tight leading-none text-[#9E1B1E] whitespace-nowrap">
+                Maple Bear
               </span>
-              <span className={`text-[8px] sm:text-[9px] font-semibold tracking-wider uppercase transition-colors whitespace-nowrap mt-0.5 ${
-                isLight ? 'text-maple-red' : 'text-maple-gold'
-              }`}>
-                INTERNATIONAL KINDERGARTEN
+              <span className="text-[9px] sm:text-[10px] font-sans font-medium tracking-wider text-[#332C2B] whitespace-nowrap mt-0.5">
+                International Kindergarten
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 2xl:gap-2 flex-1 justify-center min-w-0">
+          {/* Desktop Inline Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0" aria-label="Desktop Main Navigation">
             {navItems.map((item, idx) => {
               const label = getItemLabel(item)
               const hasChildren = item.children && item.children.length > 0
-              const isActive = pathname === item.href || (hasChildren && item.children.some((c: any) => pathname === c.href))
-
-              if (!hasChildren) {
-                return (
-                  <Link
-                    key={idx}
-                    href={item.href}
-                    className={`px-2 py-1 text-[12px] 2xl:text-xs font-semibold transition-all rounded-2xs whitespace-nowrap flex-shrink-0 ${
-                      isActive
-                        ? 'text-maple-red font-bold'
-                        : isLight
-                        ? 'text-[#1D1D1B] hover:text-maple-red hover:bg-neutral-100/60'
-                        : 'text-white hover:text-maple-gold hover:bg-white/10'
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                )
-              }
 
               return (
-                <div key={idx} className="relative group/dropdown flex-shrink-0">
+                <div
+                  key={idx}
+                  className="relative group/nav flex-shrink-0"
+                  onMouseEnter={() => setActiveDropdown(idx)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
                   <Link
                     href={item.href}
-                    className={`px-2 py-1 text-[12px] 2xl:text-xs font-semibold transition-all rounded-2xs whitespace-nowrap flex items-center gap-0.5 ${
-                      isActive
-                        ? 'text-maple-red font-bold'
-                        : isLight
-                        ? 'text-[#1D1D1B] hover:text-maple-red hover:bg-neutral-100/60'
-                        : 'text-white hover:text-maple-gold hover:bg-white/10'
-                    }`}
+                    className="text-xs xl:text-sm font-sans font-semibold text-[#332C2B] hover:text-[#9E1B1E] py-2 transition-colors flex items-center gap-1 whitespace-nowrap"
                   >
-                    <span>{label}</span>
-                    <ChevronDown size={12} className="transition-transform duration-200 group-hover/dropdown:rotate-180 opacity-70 flex-shrink-0" />
+                    <span className="whitespace-nowrap">{label}</span>
+                    {hasChildren && <ChevronDown size={14} className="text-neutral-400 group-hover/nav:text-[#9E1B1E] transition-transform group-hover/nav:rotate-180 flex-shrink-0" />}
                   </Link>
 
-                  {/* Dropdown Menu with Hover Bridge */}
-                  <div className="absolute top-full left-0 pt-1.5 w-64 opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-200 z-50">
-                    <div className="bg-white border border-neutral-200 shadow-xl rounded-2xs p-2 space-y-0.5">
-                      {item.children.map((child: any, cIdx: number) => {
-                        const childLabel = getItemLabel(child)
-                        const isChildActive = pathname === child.href
-
-                        return (
-                          <Link
-                            key={cIdx}
-                            href={child.href}
-                            className={`flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-2xs transition-colors ${
-                              isChildActive
-                                ? 'bg-neutral-100 text-maple-red font-bold'
-                                : 'text-neutral-700 hover:bg-[#FDFBF7] hover:text-maple-red'
-                            }`}
-                          >
-                            <span>{childLabel}</span>
-                            <ChevronRight size={13} className="text-neutral-400 flex-shrink-0" />
-                          </Link>
-                        )
-                      })}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </nav>
-
-          {/* Desktop Right Actions: Language Switcher, Contact & Book Tour Buttons */}
-          <div className="hidden xl:flex items-center gap-2 flex-shrink-0">
-            <LanguageSwitcher isLight={isLight} />
-
-            <Link
-              href="/contact"
-              className={`px-2.5 py-1 text-[11px] 2xl:text-xs font-bold uppercase tracking-wider rounded-2xs transition-all border whitespace-nowrap flex-shrink-0 ${
-                isLight
-                  ? 'border-neutral-300 text-[#1D1D1B] hover:border-maple-red hover:text-maple-red'
-                  : 'border-white/30 text-white hover:border-white hover:bg-white/10'
-              }`}
-            >
-              {currentLang === 'vi' ? 'LIÊN HỆ' : 'CONTACT US'}
-            </Link>
-
-            <Link
-              href="/tour-booking"
-              className="px-3 py-1 bg-maple-red hover:bg-red-700 text-white text-[11px] 2xl:text-xs font-bold uppercase tracking-wider rounded-2xs shadow-2xs transition-all transform hover:-translate-y-0.5 whitespace-nowrap flex-shrink-0"
-            >
-              {currentLang === 'vi' ? 'ĐẶT LỊCH THAM QUAN' : 'BOOK A TOUR'}
-            </Link>
-          </div>
-
-          {/* Mobile & Tablet Menu Hamburger Button */}
-          <div className="flex items-center gap-2 xl:hidden flex-shrink-0">
-            <LanguageSwitcher isLight={isLight} />
-            
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2 rounded-2xs transition-colors ${
-                isLight ? 'text-[#1D1D1B] hover:bg-neutral-100' : 'text-white hover:bg-white/10'
-              }`}
-              aria-label="Toggle Navigation Menu"
-            >
-              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Mobile & Tablet Drawer Menu */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 top-[62px] bg-white z-40 xl:hidden overflow-y-auto flex flex-col justify-between p-6 animate-fade-in border-t border-neutral-200">
-          <div className="space-y-4">
-            {navItems.map((item, idx) => {
-              const label = getItemLabel(item)
-              const hasChildren = item.children && item.children.length > 0
-              const isOpen = openMobileMenu === item.href
-
-              if (!hasChildren) {
-                return (
-                  <Link
-                    key={idx}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block py-2.5 text-base font-bold text-[#1D1D1B] border-b border-neutral-100"
-                  >
-                    {label}
-                  </Link>
-                )
-              }
-
-              return (
-                <div key={idx} className="border-b border-neutral-100 pb-2">
-                  <button
-                    onClick={() => setOpenMobileMenu(isOpen ? null : item.href)}
-                    className="w-full flex items-center justify-between py-2.5 text-base font-bold text-[#1D1D1B]"
-                  >
-                    <span>{label}</span>
-                    <ChevronDown size={18} className={`transition-transform ${isOpen ? 'rotate-180 text-maple-red' : ''}`} />
-                  </button>
-
-                  {isOpen && (
-                    <div className="pl-4 space-y-2 pt-1 pb-2">
+                  {/* Dropdown Menu for Desktop */}
+                  {hasChildren && activeDropdown === idx && (
+                    <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-xl border border-neutral-200/80 p-3 space-y-1 z-50 animate-fade-in">
                       {item.children.map((child: any, cIdx: number) => (
                         <Link
                           key={cIdx}
                           href={child.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block py-2 text-sm font-semibold text-neutral-600 hover:text-maple-red"
+                          className="block px-3 py-2 text-xs font-sans text-[#332C2B] hover:text-[#9E1B1E] hover:bg-red-50/50 rounded-xl transition-colors font-medium"
                         >
                           {getItemLabel(child)}
                         </Link>
@@ -366,25 +204,103 @@ export function Header() {
                 </div>
               )
             })}
+          </nav>
+
+          {/* Desktop Action Pill Buttons + Language Switcher at the VERY END */}
+          <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
+            {/* 1. Book a Tour (Red Pill) */}
+            <a
+              href="#contact-us"
+              className="px-4 py-2 bg-[#9E1B1E] hover:bg-[#801316] text-white text-xs font-sans font-semibold rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap"
+            >
+              <Calendar size={13} />
+              <span>{currentLang === 'vi' ? 'ĐẶT LỊCH THAM QUAN' : 'Book a Tour'}</span>
+            </a>
+
+            {/* 2. Apply Now (Gold Pill) */}
+            <a
+              href="#contact-us"
+              className="px-4 py-2 bg-[#C5A059] hover:bg-[#b08d48] text-white text-xs font-sans font-semibold rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap"
+            >
+              <Edit3 size={13} />
+              <span>{currentLang === 'vi' ? 'ĐĂNG KÝ HỌC' : 'Apply Now'}</span>
+            </a>
+
+            {/* 3. Compact Language Switcher at the END of the row */}
+            <LanguageSwitcher isLight={true} />
           </div>
 
-          <div className="pt-6 space-y-3 border-t border-neutral-200">
-            <Link
-              href="/tour-booking"
-              onClick={() => setIsMenuOpen(false)}
-              className="w-full py-3 bg-maple-red text-white text-xs font-bold uppercase tracking-wider rounded-2xs flex items-center justify-center gap-2 shadow-2xs"
+          {/* Mobile & Tablet Header Controls */}
+          <div className="flex items-center gap-2 lg:hidden flex-shrink-0">
+            <LanguageSwitcher isLight={true} />
+            
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="w-10 h-10 bg-[#9E1B1E] text-white rounded-full flex items-center justify-center shadow-xs"
+              aria-label="Toggle Navigation Menu"
             >
-              <span>{currentLang === 'vi' ? 'ĐẶT LỊCH THAM QUAN' : 'BOOK A TOUR'}</span>
-              <ArrowRight size={14} />
-            </Link>
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
 
-            <Link
-              href="/contact"
+        </div>
+      </div>
+
+      {/* Dynamic CMS Navigation Drawer Modal for Mobile / Tablet */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 top-[68px] bg-[#FDFBF7] z-50 overflow-y-auto flex flex-col justify-between p-6 sm:p-10 border-t border-neutral-200 animate-fade-in lg:hidden">
+          <div className="max-w-4xl mx-auto w-full space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {navItems.map((item, idx) => {
+                const label = getItemLabel(item)
+                return (
+                  <div key={idx} className="bg-white rounded-2xl p-5 border border-neutral-200/80 shadow-xs space-y-3">
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-lg font-serif font-bold text-[#9E1B1E] hover:underline flex items-center justify-between"
+                    >
+                      <span>{label}</span>
+                      <ChevronRight size={18} />
+                    </Link>
+
+                    {item.children && (
+                      <div className="space-y-2 pt-2 border-t border-neutral-100">
+                        {item.children.map((child: any, cIdx: number) => (
+                          <Link
+                            key={cIdx}
+                            href={child.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block text-xs font-sans text-neutral-600 hover:text-[#9E1B1E] transition-colors"
+                          >
+                            {getItemLabel(child)}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto w-full pt-8 flex flex-wrap gap-4 justify-center border-t border-neutral-200">
+            <a
+              href="#contact-us"
               onClick={() => setIsMenuOpen(false)}
-              className="w-full py-3 bg-[#1D1D1B] text-white text-xs font-bold uppercase tracking-wider rounded-2xs flex items-center justify-center gap-2"
+              className="px-6 py-3 bg-[#9E1B1E] text-white font-sans text-xs font-semibold rounded-full flex items-center gap-2 shadow-md"
             >
-              <span>{currentLang === 'vi' ? 'LIÊN HỆ' : 'CONTACT US'}</span>
-            </Link>
+              <Calendar size={16} />
+              <span>{currentLang === 'vi' ? 'ĐẶT LỊCH THAM QUAN' : 'Book a Tour'}</span>
+            </a>
+            <a
+              href="#contact-us"
+              onClick={() => setIsMenuOpen(false)}
+              className="px-6 py-3 bg-[#C5A059] text-white font-sans text-xs font-semibold rounded-full flex items-center gap-2 shadow-md"
+            >
+              <Edit3 size={16} />
+              <span>{currentLang === 'vi' ? 'ĐĂNG KÝ HỌC' : 'Apply Now'}</span>
+            </a>
           </div>
         </div>
       )}

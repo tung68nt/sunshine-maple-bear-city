@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { isAuthFailure, requireRole } from '@/lib/auth/require-role'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 export async function GET() {
   try {
+    const auth = await requireRole(['admin', 'editor', 'viewer']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const { data, error } = await supabase
       .from('events')
       .select('*')
@@ -20,13 +23,15 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const body = await request.json()
     if (!body.title) {
       return NextResponse.json({ error: 'Event title is required' }, { status: 400 })
     }
 
     const newEvent = {
-      id: body.id || `evt-${Date.now()}`,
+      id: body.id || crypto.randomUUID(),
       title: body.title,
       slug: body.slug || body.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
       category: body.category || 'Open Day',
@@ -61,6 +66,8 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const body = await request.json()
     if (!body.id || !body.title) {
       return NextResponse.json({ error: 'Event ID and title are required' }, { status: 400 })

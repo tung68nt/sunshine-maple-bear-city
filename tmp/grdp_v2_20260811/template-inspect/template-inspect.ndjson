@@ -1,0 +1,141 @@
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"GRDP","textShapes":4}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Shape 0","bbox":[86.4,105.6,86.4,86.4]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"textChars":32,"textLines":1}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"textChars":101,"textLines":1}
+{"kind":"shape","id":"sh/ts7md4r2","slide":1,"name":"Shape 4","bbox":[86.4,432,307.2,0]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"textChars":142,"textLines":2}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"Vấn đề cần làm rõ","textShapes":15}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"textChars":73,"textLines":1}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"name":"Shape 2","bbox":[67.2,177.6,1152,134.4]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"name":"Shape 3","bbox":[96,201.6,40.32,40.32]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"textChars":38,"textLines":1}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"textChars":121,"textLines":1}
+{"kind":"shape","id":"sh/ove9o7yd","slide":2,"name":"Shape 8","bbox":[67.2,331.2,1152,134.4]}
+{"kind":"shape","id":"sh/9wnqhczy","slide":2,"name":"Shape 9","bbox":[96,355.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"textChars":32,"textLines":1}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"textChars":107,"textLines":1}
+{"kind":"shape","id":"sh/ahwrqhgj","slide":2,"name":"Shape 14","bbox":[67.2,484.8,1152,134.4]}
+{"kind":"shape","id":"sh/bip8jmho","slide":2,"name":"Shape 15","bbox":[96,508.8,40.32,40.32]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/do3q9szq","slide":2,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"textChars":44,"textLines":1}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"textChars":97,"textLines":1}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"textChars":94,"textLines":1}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"GRDP – định nghĩa và hệ ký hiệu chuẩn","textShapes":27}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"textChars":37,"textLines":1}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"textChars":96,"textLines":1}
+{"kind":"shape","id":"sh/298ryl4v","slide":3,"name":"Shape 2","bbox":[67.2,168,1171.2,120]}
+{"kind":"shape","id":"sh/obq90bml","slide":3,"name":"Shape 3","bbox":[67.2,312,283.2,96]}
+{"kind":"textbox","id":"sh/m5cra54z","slide":3,"textChars":26,"textLines":1}
+{"kind":"textbox","id":"sh/n6ls3alk","slide":3,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/n2l4fq98","slide":3,"name":"Shape 6","bbox":[364.8,312,283.2,96]}
+{"kind":"textbox","id":"sh/943mhgre","slide":3,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/83ulovat","slide":3,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/v6l4jq94","slide":3,"name":"Shape 9","bbox":[662.4,312,283.2,96]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"textChars":28,"textLines":1}
+{"kind":"textbox","id":"sh/w7ulsvqp","slide":3,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/ja54na9g","slide":3,"name":"Shape 12","bbox":[960,312,283.2,96]}
+{"kind":"textbox","id":"sh/e10f2twf","slide":3,"textChars":30,"textLines":1}
+{"kind":"textbox","id":"sh/f29gbyx0","slide":3,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/03ix43e5","slide":3,"name":"Shape 15","bbox":[67.2,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/6d0fytg3","slide":3,"textChars":32,"textLines":1}
+{"kind":"textbox","id":"sh/re9g7yxo","slide":3,"textChars":9,"textLines":1}
+{"kind":"shape","id":"sh/sfix03y9","slide":3,"name":"Shape 18","bbox":[364.8,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/a9kfadwn","slide":3,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/batgjixs","slide":3,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/l4fi9cza","slide":3,"name":"Shape 21","bbox":[662.4,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/z2d07mh4","slide":3,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/y14jehgj","slide":3,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/x0vi5czy","slide":3,"name":"Shape 24","bbox":[960,422.4,283.2,96]}
+{"kind":"textbox","id":"sh/byd032h8","slide":3,"textChars":31,"textLines":1}
+{"kind":"textbox","id":"sh/ax4zax0n","slide":3,"textChars":5,"textLines":1}
+{"kind":"shape","id":"sh/hwzihwzi","slide":3,"name":"Shape 27","bbox":[67.2,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/4nuhs7uh","slide":3,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/po3ilcvm","slide":3,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/21szqxcb","slide":3,"name":"Shape 30","bbox":[364.8,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/cruhwrud","slide":3,"textChars":40,"textLines":1}
+{"kind":"textbox","id":"sh/ds3ipcvy","slide":3,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/qpczuhc7","slide":3,"name":"Shape 33","bbox":[662.4,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/0ve10ru9","slide":3,"textChars":34,"textLines":1}
+{"kind":"textbox","id":"sh/1wnitwvu","slide":3,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/v29cfu18","slide":3,"name":"Shape 36","bbox":[960,532.8,283.2,96]}
+{"kind":"textbox","id":"sh/xoruhkje","slide":3,"textChars":27,"textLines":1}
+{"kind":"textbox","id":"sh/w3it8zit","slide":3,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/nypcba1c","slide":3,"textChars":69,"textLines":1}
+{"kind":"image","id":"im/143m1cjm","slide":3,"name":"Image 0","bbox":[292.8,187.2,720,118.23]}
+{"kind":"image","id":"im/ehc36xkv","slide":3,"name":"Image 1","bbox":[84.48,321.6,65.82,24.96]}
+{"kind":"image","id":"im/f2l4z21g","slide":3,"name":"Image 2","bbox":[382.08,321.6,37.84,24.96]}
+{"kind":"image","id":"im/o7ulw72d","slide":3,"name":"Image 3","bbox":[679.68,321.6,42.06,24.96]}
+{"kind":"image","id":"im/p83m5cji","slide":3,"name":"Image 4","bbox":[977.28,321.6,29.8,24.96]}
+{"kind":"image","id":"im/xojmpcb2","slide":3,"name":"Image 5","bbox":[84.48,432,20.12,24.96]}
+{"kind":"image","id":"im/wnalg7uh","slide":3,"name":"Image 6","bbox":[382.08,432,31.42,24.96]}
+{"kind":"image","id":"im/bmh4n2tw","slide":3,"name":"Image 7","bbox":[679.68,432,31.32,24.96]}
+{"kind":"image","id":"im/a183excb","slide":3,"name":"Image 8","bbox":[977.28,432,16.3,24.96]}
+{"kind":"image","id":"im/lsjmtwby","slide":3,"name":"Image 9","bbox":[84.48,542.4,13.08,24.96]}
+{"kind":"image","id":"im/kralkrud","slide":3,"name":"Image 10","bbox":[382.08,542.4,68.24,24.96]}
+{"kind":"image","id":"im/jq14rmts","slide":3,"name":"Image 11","bbox":[679.68,542.4,17.55,24.96]}
+{"kind":"image","id":"im/yps3ihc7","slide":3,"name":"Image 12","bbox":[977.28,542.4,25.96,24.96]}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"Căn cứ pháp lý và chuẩn nghiệp vụ áp dụng","textShapes":20}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"textChars":41,"textLines":1}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"textChars":78,"textLines":1}
+{"kind":"shape","id":"sh/rm1k7yt4","slide":4,"name":"Shape 2","bbox":[67.2,172.8,566.4,148.8]}
+{"kind":"textbox","id":"sh/ql8jytsj","slide":4,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/doj29oba","slide":4,"textChars":129,"textLines":1}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"textChars":117,"textLines":1}
+{"kind":"shape","id":"sh/3ihk3et8","slide":4,"name":"Shape 6","bbox":[662.4,172.8,566.4,148.8]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"textChars":33,"textLines":1}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"textChars":113,"textLines":1}
+{"kind":"textbox","id":"sh/5cva1cfq","slide":4,"textChars":75,"textLines":1}
+{"kind":"shape","id":"sh/i94r6xgz","slide":4,"name":"Shape 10","bbox":[67.2,337.92,566.4,148.8]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"textChars":71,"textLines":1}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"textChars":41,"textLines":1}
+{"kind":"shape","id":"sh/a5kr2xg3","slide":4,"name":"Shape 14","bbox":[662.4,337.92,566.4,148.8]}
+{"kind":"textbox","id":"sh/v6tsv2xo","slide":4,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/g36tgryd","slide":4,"textChars":83,"textLines":1}
+{"kind":"textbox","id":"sh/h4fa9wfy","slide":4,"textChars":62,"textLines":1}
+{"kind":"shape","id":"sh/p0batw72","slide":4,"name":"Shape 18","bbox":[67.2,503.04,566.4,148.8]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"textChars":104,"textLines":1}
+{"kind":"textbox","id":"sh/2xkrih8b","slide":4,"textChars":61,"textLines":1}
+{"kind":"shape","id":"sh/1wbapc7q","slide":4,"name":"Shape 22","bbox":[662.4,503.04,566.4,148.8]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"textChars":34,"textLines":1}
+{"kind":"textbox","id":"sh/fu9sn2p0","slide":4,"textChars":70,"textLines":1}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"textChars":55,"textLines":1}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"Ba phương pháp tính GRDP – cấp tỉnh dùng phương pháp nào?","textShapes":12}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"textChars":57,"textLines":1}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"textChars":117,"textLines":1}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"name":"Shape 2","bbox":[67.2,172.8,1171.2,148.8]}
+{"kind":"shape","id":"sh/yhkbe1o7","slide":5,"name":"Shape 3","bbox":[96,192,40.32,40.32]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"textChars":69,"textLines":1}
+{"kind":"shape","id":"sh/w32dkbuh","slide":5,"name":"Shape 7","bbox":[67.2,337.92,1171.2,148.8]}
+{"kind":"shape","id":"sh/x4vedgvm","slide":5,"name":"Shape 8","bbox":[96,357.12,40.32,40.32]}
+{"kind":"textbox","id":"sh/ahkvi1cb","slide":5,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/58vehgvy","slide":5,"textChars":84,"textLines":1}
+{"kind":"shape","id":"sh/i54fmlc7","slide":5,"name":"Shape 12","bbox":[67.2,503.04,1171.2,148.8]}
+{"kind":"shape","id":"sh/j6dwfqds","slide":5,"name":"Shape 13","bbox":[96,522.24,40.32,40.32]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/tcfel0vu","slide":5,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"textChars":95,"textLines":1}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"textChars":138,"textLines":1}
+{"kind":"image","id":"im/lgbydg7i","slide":5,"name":"Image 0","bbox":[155.52,232.32,326.4,66.34]}
+{"kind":"image","id":"im/mhkf61o3","slide":5,"name":"Image 1","bbox":[155.52,397.44,537.6,38.18]}
+{"kind":"image","id":"im/7itgf6p8","slide":5,"name":"Image 2","bbox":[155.52,562.56,633.6,40.62]}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"Phương pháp 1 – Sản xuất: cần trường dữ liệu gì","textShapes":15}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"textChars":47,"textLines":1}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"textChars":53,"textLines":1}
+{"kind":"shape","id":"sh/87ipkzal","slide":6,"name":"Shape 2","bbox":[67.2,168,1171.2,72]}
+{"kind":"textbox","id":"sh/ml07i9sv","slide":6,"textChars":172,"textLines":1}
+{"kind":"shape","id":"sh/7m98ru9g","slide":6,"name":"Shape 4","bbox":[67.2,264,1171.2,57.6]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"textChars":21,"textLines":1}
+{"kind":"textbox","id":"sh/pc76hkr2","slide":6,"textChars":146,"textLines":1}
+{"kind":"notice","message":"Truncated: omitted 368 lines. Increase maxChars or narrow target."}

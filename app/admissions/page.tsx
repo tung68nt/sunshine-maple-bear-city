@@ -7,19 +7,19 @@ import { SCHOOL_INFO, SCHOOL_IMAGES } from '@/lib/constants'
 import { CheckCircle2, Calendar, FileText, ArrowRight, ShieldCheck, Info } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Turnstile } from '@/components/turnstile'
 
 export default function AdmissionsPage() {
   const [formData, setFormData] = useState({
     parentName: '',
     parentEmail: '',
     parentPhone: '',
-    parentAddress: '',
     childName: '',
     childDOB: '',
-    childGender: 'male',
     desiredGrade: 'Lớp Mầm (12 - 24 tháng)',
-    allergies: '',
-    notes: ''
+    notes: '',
+    consent: false,
+    turnstileToken: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState<string | null>(null)
@@ -32,15 +32,24 @@ export default function AdmissionsPage() {
       const res = await fetch('/api/submissions/admission', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          parentName: formData.parentName,
+          parentEmail: formData.parentEmail,
+          parentPhone: formData.parentPhone,
+          childName: formData.childName,
+          childDob: formData.childDOB,
+          gradeLevel: formData.desiredGrade,
+          notes: formData.notes,
+          consent: formData.consent,
+          turnstileToken: formData.turnstileToken,
+        })
       })
 
       if (res.ok) {
         setSubmitMessage('Cảm ơn Phụ huynh đã gửi hồ sơ tuyển sinh! Bộ phận Tuyển sinh sẽ liên hệ tư vấn trực tiếp trong vòng 24 giờ.')
         setFormData({
-          parentName: '', parentEmail: '', parentPhone: '', parentAddress: '',
-          childName: '', childDOB: '', childGender: 'male',
-          desiredGrade: 'Lớp Mầm (12 - 24 tháng)', allergies: '', notes: ''
+          parentName: '', parentEmail: '', parentPhone: '', childName: '', childDOB: '',
+          desiredGrade: 'Lớp Mầm (12 - 24 tháng)', notes: '', consent: false, turnstileToken: '',
         })
       } else {
         setSubmitMessage('Có lỗi xảy ra khi gửi thông tin. Vui lòng liên hệ trực tiếp Hotline: 094 254 6655 để được hỗ trợ.')
@@ -190,10 +199,6 @@ export default function AdmissionsPage() {
                           <label className="block text-xs font-bold text-neutral-700 mb-1">Số điện thoại liên hệ *</label>
                           <input id="parentPhone" type="tel" name="parentPhone" value={formData.parentPhone} onChange={handleChange} required className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black" placeholder="0912 xxx xxx" />
                         </div>
-                        <div>
-                          <label className="block text-xs font-bold text-neutral-700 mb-1">Địa chỉ sinh sống</label>
-                          <input id="parentAddress" type="text" name="parentAddress" value={formData.parentAddress} onChange={handleChange} className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black" placeholder="Tòa S4, Sunshine City, Hà Nội" />
-                        </div>
                       </div>
                     </div>
 
@@ -213,13 +218,6 @@ export default function AdmissionsPage() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-neutral-700 mb-1">Giới tính</label>
-                          <select id="childGender" name="childGender" value={formData.childGender} onChange={handleChange} className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black">
-                            <option value="male">Bé Trai</option>
-                            <option value="female">Bé Gái</option>
-                          </select>
-                        </div>
-                        <div>
                           <label className="block text-xs font-bold text-neutral-700 mb-1">Khối lớp muốn đăng ký *</label>
                           <select id="desiredGrade" name="desiredGrade" value={formData.desiredGrade} onChange={handleChange} required className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black">
                             <option value="Lớp Mầm (12 - 24 tháng)">Lớp Mầm (12 - 24 tháng)</option>
@@ -233,12 +231,18 @@ export default function AdmissionsPage() {
 
                     <div className="space-y-4 pt-4 border-t border-neutral-100">
                       <h4 className="text-sm font-extrabold text-maple-black uppercase tracking-wider text-neutral-700">
-                        3. Ghi Chú Sức Khỏe & Dinh Dưỡng
+                        3. Ghi Chú
                       </h4>
                       <div>
-                        <textarea id="allergies" name="allergies" value={formData.allergies} onChange={handleChange} rows={3} className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black resize-none" placeholder="Ghi rõ dị ứng thực phẩm, thuốc hoặc lưu ý sức khỏe đặc biệt của bé (nếu có)..."></textarea>
+                        <textarea id="notes" name="notes" value={formData.notes} onChange={handleChange} rows={3} className="w-full px-4 py-3 bg-[#FDFBF7] border border-neutral-200 rounded-2xs focus:outline-none focus:border-maple-red text-xs font-bold text-maple-black resize-none" placeholder="Câu hỏi hoặc nhu cầu tư vấn của phụ huynh (không gửi thông tin y tế/hộ chiếu tại đây)..."></textarea>
                       </div>
                     </div>
+
+                    <label className="flex items-start gap-2 text-xs text-neutral-600">
+                      <input type="checkbox" required checked={formData.consent} onChange={(e) => setFormData({ ...formData, consent: e.target.checked })} className="mt-0.5" />
+                      <span>Tôi là phụ huynh/người giám hộ và đồng ý để nhà trường liên hệ, xử lý thông tin theo Chính sách quyền riêng tư.</span>
+                    </label>
+                    <Turnstile onTokenChange={(turnstileToken) => setFormData((current) => ({ ...current, turnstileToken }))} />
 
                     <button
                       type="submit"

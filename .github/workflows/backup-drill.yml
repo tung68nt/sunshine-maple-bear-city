@@ -1,0 +1,15 @@
+name: Backup restore drill
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "A restore drill needs DATABASE_URL, a dedicated restore target, and owner approval."
+          echo "Run scripts/backup-database.sh and scripts/restore-drill.sh from a secured operator environment."

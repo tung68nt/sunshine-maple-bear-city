@@ -1,19 +1,14 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
-import { checkRateLimit, isValidEmail } from '@/lib/rate-limit'
-
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ddmdxidnovjesslxlbdy.supabase.co',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_2vFjpi_lAWEStXxz_kq85g_rqy30inv'
-  )
-}
+import { checkRateLimit } from '@/lib/rate-limit'
+import { createAdminSupabaseClient } from '@/lib/supabase/admin'
+import { tourBookingSchema } from '@/lib/validation/forms'
+import { escapeHtml, getRequestIp, verifyTurnstile } from '@/lib/security'
 
 export async function POST(request: NextRequest) {
   try {
     // 1. IP Rate Limiting Check
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1'
-    const { isRateLimited } = checkRateLimit(ip, 5, 10 * 60 * 1000)
+    const ip = getRequestIp(request)
+    const { isRateLimited } = checkRateLimit(ip, 10, 10 * 60 * 1000)
 
     if (isRateLimited) {
       return NextResponse.json(
@@ -22,68 +17,56 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const body = await request.json()
+    const body = tourBookingSchema.safeParse(await request.json())
+    if (!body.success) return NextResponse.json({ error: 'Thông tin đặt lịch không hợp lệ.' }, { status: 400 })
+    if (!await verifyTurnstile(body.data.turnstileToken, ip)) return NextResponse.json({ error: 'Không thể xác minh biểu mẫu.' }, { status: 403 })
 
     // 2. Input Validation
-    if (!body.visitorName || !body.visitorEmail || !body.visitorPhone) {
-      return NextResponse.json(
-        { error: 'Full Name, Email, and Phone Number are required fields.' },
-        { status: 400 }
-      )
-    }
+    const supabase = createAdminSupabaseClient()
+    const parsedAge = body.data.childAge ? parseInt(body.data.childAge.replace(/\D/g, ''), 10) : null
+    const childAgeVal = parsedAge && !isNaN(parsedAge) ? parsedAge : null
 
-    if (!isValidEmail(body.visitorEmail)) {
-      return NextResponse.json(
-        { error: 'Please enter a valid email address.' },
-        { status: 400 }
-      )
-    }
-
-    const supabase = getSupabase()
-
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('tour_bookings')
       .insert([
         {
-          visitor_name: body.visitorName,
-          visitor_email: body.visitorEmail,
-          visitor_phone: body.visitorPhone,
-          preferred_date: body.preferredDate || new Date().toISOString().split('T')[0],
-          preferred_time: body.preferredTime || '09:00',
-          number_of_visitors: Number(body.numberOfVisitors) || 1,
-          child_age: body.childAge || '2-3 years',
-          notes: body.notes || '',
+          id: crypto.randomUUID(),
+          visitor_name: body.data.visitorName,
+          visitor_email: body.data.visitorEmail,
+          visitor_phone: body.data.visitorPhone,
+          preferred_date: body.data.preferredDate || new Date().toISOString().split('T')[0],
+          preferred_time: body.data.preferredTime || '09:00',
+          child_age: childAgeVal,
+          notes: body.data.notes,
           status: 'pending',
           created_at: new Date().toISOString(),
         },
       ])
       .select()
 
-    if (error) {
-      console.warn('Supabase DB error, returning success response for UX:', error.message)
-    }
+    if (error) throw error
 
     // 3. Email Dispatch via Resend API
-    if (process.env.RESEND_API_KEY) {
+    const recipient = process.env.ADMIN_EMAIL
+    if (process.env.RESEND_API_KEY && recipient) {
       try {
         const { Resend } = require('resend')
         const resend = new Resend(process.env.RESEND_API_KEY)
 
         await resend.emails.send({
           from: 'Sunshine Maple Bear <noreply@resend.dev>',
-          to: [process.env.ADMIN_EMAIL || 'admin@sunshinemaplebear.edu.vn'],
-          subject: `✨ New School Tour Booking: ${body.visitorName}`,
+          to: [recipient],
+          subject: `New school tour booking: ${escapeHtml(body.data.visitorName)}`,
           html: `
             <div style="font-family: sans-serif; padding: 20px; color: #1D1D1B;">
-              <h2 style="color: #C8102E;">New Campus Tour Booking Request</h2>
-              <p><strong>Visitor Name:</strong> ${body.visitorName}</p>
-              <p><strong>Email:</strong> ${body.visitorEmail}</p>
-              <p><strong>Phone:</strong> ${body.visitorPhone}</p>
-              <p><strong>Preferred Date:</strong> ${body.preferredDate}</p>
-              <p><strong>Preferred Time:</strong> ${body.preferredTime}</p>
-              <p><strong>Visitors Count:</strong> ${body.numberOfVisitors}</p>
-              <p><strong>Child Age Group:</strong> ${body.childAge}</p>
-              <p><strong>Notes:</strong> ${body.notes || 'None'}</p>
+              <h2 style="color: #9E1B1E;">New Campus Tour Booking Request</h2>
+              <p><strong>Visitor Name:</strong> ${escapeHtml(body.data.visitorName)}</p>
+              <p><strong>Email:</strong> ${escapeHtml(body.data.visitorEmail)}</p>
+              <p><strong>Phone:</strong> ${escapeHtml(body.data.visitorPhone)}</p>
+              <p><strong>Preferred Date:</strong> ${escapeHtml(body.data.preferredDate)}</p>
+              <p><strong>Preferred Time:</strong> ${escapeHtml(body.data.preferredTime)}</p>
+              <p><strong>Child Age:</strong> ${childAgeVal ? `${childAgeVal} tuổi` : 'N/A'}</p>
+              <p><strong>Notes:</strong> ${escapeHtml(body.data.notes || 'None')}</p>
             </div>
           `,
         })
@@ -96,7 +79,6 @@ export async function POST(request: NextRequest) {
       {
         success: true,
         message: 'School tour booked successfully. Our admissions representative will confirm via email/phone.',
-        data: data?.[0] || body,
       },
       { status: 201 }
     )

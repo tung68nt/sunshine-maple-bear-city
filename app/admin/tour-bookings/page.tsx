@@ -51,7 +51,7 @@ const initialTours = [
 ]
 
 export default function AdminTourBookingsPage() {
-  const [tours, setTours] = useState(initialTours)
+  const [tours, setTours] = useState<typeof initialTours>([])
   const [searchTerm, setSearchTerm] = useState('')
   const [adminUiLang, setAdminUiLang] = useState<'vi' | 'en'>('vi')
   const [selectedTour, setSelectedTour] = useState<typeof initialTours[0] | null>(null)
@@ -70,8 +70,22 @@ export default function AdminTourBookingsPage() {
     return () => window.removeEventListener('smbAdminUiLangChange', handleLangChange as EventListener)
   }, [])
 
-  const handleStatus = (id: string, status: string) => {
-    setTours(tours.map(t => t.id === id ? { ...t, status } : t))
+  const loadTours = async () => {
+    const response = await fetch('/api/admin/tour-bookings', { cache: 'no-store' })
+    const payload = await response.json().catch(() => ({}))
+    if (!response.ok) return
+    setTours((payload.data || []).map((item: any) => ({
+      id: item.id, parent: item.visitor_name || '', email: item.visitor_email || '', phone: item.visitor_phone || '',
+      childDob: item.child_age || '', tourDate: item.preferred_date || '', timeSlot: item.preferred_time || '',
+      status: item.status || 'pending', message: item.notes || ''
+    })))
+  }
+
+  useEffect(() => { void loadTours() }, [])
+
+  const handleStatus = async (id: string, status: string) => {
+    const response = await fetch('/api/admin/tour-bookings', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, status: status.toLowerCase() }) })
+    if (response.ok) await loadTours()
   }
 
   const filteredTours = tours.filter(t => 
@@ -155,14 +169,14 @@ export default function AdminTourBookingsPage() {
                 </td>
                 <td className="py-3 px-4">
                   <span className={`px-2 py-0.5 text-[10px] font-semibold rounded-2xs ${
-                    t.status === 'Confirmed'
+                    t.status.toLowerCase() === 'confirmed'
                       ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                      : t.status === 'Pending'
+                      : t.status.toLowerCase() === 'pending'
                       ? 'bg-amber-100 text-amber-800 border border-amber-300'
                       : 'bg-neutral-100 text-neutral-800 border border-neutral-300'
                   }`}>
                     {adminUiLang === 'vi'
-                      ? (t.status === 'Confirmed' ? 'Đã xác nhận' : t.status === 'Pending' ? 'Đang chờ' : 'Đã hoàn thành')
+                      ? (t.status.toLowerCase() === 'confirmed' ? 'Đã xác nhận' : t.status.toLowerCase() === 'pending' ? 'Đang chờ' : 'Đã hoàn thành')
                       : t.status}
                   </span>
                 </td>
@@ -174,7 +188,7 @@ export default function AdminTourBookingsPage() {
                     <Eye size={12} /> {adminUiLang === 'vi' ? 'Xem Detail' : 'View Detail'}
                   </button>
 
-                  {t.status === 'Pending' && (
+                  {t.status.toLowerCase() === 'pending' && (
                     <button
                       onClick={() => handleStatus(t.id, 'Confirmed')}
                       className="px-2.5 py-1 bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 rounded-2xs shadow-2xs"

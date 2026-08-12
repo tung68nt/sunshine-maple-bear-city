@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { isAuthFailure, requireRole } from '@/lib/auth/require-role'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 const defaultNavbarMenu = [
   { id: '1', labelVi: 'Trang chủ', labelEn: 'Home', href: '/', isHeaderRoot: true },
@@ -78,6 +79,8 @@ const defaultNavbarMenu = [
 
 export async function GET() {
   try {
+    const auth = await requireRole(['admin', 'editor', 'viewer']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const { data, error } = await supabase
       .from('pages')
       .select('*')
@@ -97,6 +100,8 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    const auth = await requireRole(['admin', 'editor']); if (isAuthFailure(auth)) return auth
+    const supabase = await createServerSupabaseClient()
     const body = await request.json()
     const items = body.items || []
 

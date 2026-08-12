@@ -6,22 +6,28 @@ import { MapPin, Phone, Mail, Clock, Send, MessageSquare, PhoneCall, ArrowRight,
 import { useState, useEffect } from 'react'
 import { SCHOOL_INFO, SCHOOL_IMAGES } from '@/lib/constants'
 import Image from 'next/image'
+import { Turnstile } from '@/components/turnstile'
 
 export default function ContactPage() {
-  const [activeLang, setActiveLang] = useState<'vi' | 'en'>('vi')
+  const [activeLang, setActiveLang] = useState<'vi' | 'en'>('en')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   // Form input state
   const [parentName, setParentName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
+  const [childName, setChildName] = useState('')
+  const [childDob, setChildDob] = useState('')
   const [childAge, setChildAge] = useState('Lớp Mầm (12 - 24 tháng)')
   const [topic, setTopic] = useState('Tư vấn học phí & Chương trình Mầm non Canada')
   const [message, setMessage] = useState('')
+  const [consent, setConsent] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   useEffect(() => {
-    const saved = (localStorage.getItem('smb_site_lang') as 'vi' | 'en') || 'vi'
+    const saved = (localStorage.getItem('smb_site_lang') as 'vi' | 'en') || 'en'
     setActiveLang(saved)
 
     const handleLangChange = (e: CustomEvent) => {
@@ -37,56 +43,42 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    const responsePayload = {
-      id: `resp-cnt-${Date.now()}`,
-      formId: 'form-contact-enquiry-2026',
-      submittedAt: new Date().toLocaleString('vi-VN'),
-      answers: {
-        'Họ và tên Phụ huynh': parentName,
-        'Số điện thoại liên hệ': phone,
-        'Địa chỉ Email': email,
-        'Độ tuổi của bé': childAge,
-        'Nội dung cần tư vấn': `${topic}: ${message}`
-      },
-      utm: {
-        utm_source: 'website_contact_page',
-        utm_medium: 'organic_form',
-        utm_campaign: 'sunshine_city_contact_2026'
-      },
-      metadata: {
-        ip: '118.70.182.45',
-        city: 'Ha Noi',
-        country: 'VN',
-        submittedPagePath: '/contact',
-        sectionId: 'sec-contact-main-form'
-      }
-    }
+    setSubmitError('')
+    setSubmitSuccess(false)
 
     try {
-      // Save locally to custom form engine response registry
-      const existingKey = 'smb_form_responses_form-contact-enquiry-2026'
-      const existing = JSON.parse(localStorage.getItem(existingKey) || '[]')
-      localStorage.setItem(existingKey, JSON.stringify([responsePayload, ...existing]))
-
-      // Send to API endpoint
-      await fetch('/api/submissions/admission', {
+      const response = await fetch('/api/submissions/admission', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(responsePayload)
+        body: JSON.stringify({
+          parentName,
+          parentPhone: phone,
+          parentEmail: email,
+          childName,
+          childDob,
+          gradeLevel: childAge,
+          notes: `Chủ đề quan tâm: ${topic}${message ? `\n\nLời nhắn: ${message}` : ''}`,
+          consent,
+          turnstileToken,
+        })
       })
-    } catch (err) {
-      console.log('Submission saved locally:', err)
-    }
+      const result = await response.json().catch(() => ({}))
+      if (!response.ok) throw new Error(result.error || 'Không thể gửi thông tin. Vui lòng thử lại.')
 
-    setTimeout(() => {
-      setIsSubmitting(false)
       setSubmitSuccess(true)
       setParentName('')
       setPhone('')
       setEmail('')
+      setChildName('')
+      setChildDob('')
       setMessage('')
-    }, 1200)
+      setConsent(false)
+      setTurnstileToken('')
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Không thể gửi thông tin. Vui lòng thử lại.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -266,6 +258,11 @@ export default function ContactPage() {
                       </p>
                     </div>
                   )}
+                  {submitError && (
+                    <div role="alert" className="p-4 bg-red-50 border border-red-300 text-red-900 rounded-2xs text-xs">
+                      {submitError}
+                    </div>
+                  )}
 
                   <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                     
@@ -309,6 +306,30 @@ export default function ContactPage() {
                       </div>
 
                       <div>
+                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Họ và tên của bé *</label>
+                        <input
+                          type="text"
+                          required
+                          value={childName}
+                          onChange={(e) => setChildName(e.target.value)}
+                          placeholder="VD: Nguyễn Minh An"
+                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-bold text-xs focus:outline-none focus:border-maple-red"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Ngày sinh của bé *</label>
+                        <input
+                          type="date"
+                          required
+                          max={new Date().toISOString().slice(0, 10)}
+                          value={childDob}
+                          onChange={(e) => setChildDob(e.target.value)}
+                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-semibold text-xs focus:outline-none focus:border-maple-red"
+                        />
+                      </div>
+
+                      <div>
                         <label className="font-semibold block mb-1 text-[#1D1D1B]">Độ tuổi của bé *</label>
                         <select
                           value={childAge}
@@ -336,6 +357,19 @@ export default function ContactPage() {
                         <option value="Thông tin thực đơn & Dịch vụ Xe bus đón trả">Thông tin thực đơn & Dịch vụ Xe bus đón trả</option>
                       </select>
                     </div>
+
+                    <label className="flex items-start gap-2 cursor-pointer text-[11px] text-neutral-600 leading-relaxed">
+                      <input
+                        type="checkbox"
+                        required
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
+                        className="mt-0.5 accent-maple-red"
+                      />
+                      <span>Tôi đồng ý để Sunshine Maple Bear liên hệ tư vấn theo thông tin đã cung cấp.</span>
+                    </label>
+
+                    <Turnstile onTokenChange={setTurnstileToken} />
 
                     <div>
                       <label className="font-semibold block mb-1 text-[#1D1D1B]">Nội dung thắc mắc / Lời nhắn tư vấn</label>

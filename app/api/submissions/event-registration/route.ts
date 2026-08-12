@@ -1,27 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { eventRegistrationSchema } from '@/lib/validation/forms'
+import { escapeHtml, getRequestIp, verifyTurnstile } from '@/lib/security'
+import { checkRateLimit } from '@/lib/rate-limit'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    const ip = getRequestIp(request)
+    if (checkRateLimit(ip, 5, 10 * 60 * 1000).isRateLimited) {
+      return NextResponse.json({ error: 'Too many registrations. Please try again after 10 minutes.' }, { status: 429 })
+    }
+    const body = eventRegistrationSchema.safeParse(await request.json())
+    if (!body.success) return NextResponse.json({ error: 'Thông tin đăng ký không hợp lệ.' }, { status: 400 })
+    if (!await verifyTurnstile(body.data.turnstileToken, getRequestIp(request))) return NextResponse.json({ error: 'Không thể xác minh biểu mẫu.' }, { status: 403 })
 
     // Try sending email notification via Resend
-    if (process.env.RESEND_API_KEY) {
+    const recipient = process.env.ADMIN_EMAIL
+    if (process.env.RESEND_API_KEY && recipient) {
       try {
         const { Resend } = require('resend')
         const resend = new Resend(process.env.RESEND_API_KEY)
         
         await resend.emails.send({
           from: 'Sunshine Maple Bear <noreply@resend.dev>', // Use verified domain in production
-          to: [process.env.ADMIN_EMAIL || 'admin@smb-sunshine.example.com'], // Send to admin
-          subject: `New Event Registration: ${body.eventTitle}`,
+          to: [recipient],
+          subject: `New Event Registration: ${escapeHtml(body.data.eventTitle)}`,
           html: `
             <h2>New Event Registration</h2>
-            <p><strong>Event:</strong> ${body.eventTitle}</p>
-            <p><strong>Registrant:</strong> ${body.name}</p>
-            <p><strong>Email:</strong> ${body.email}</p>
-            <p><strong>Phone:</strong> ${body.phone}</p>
-            <p><strong>Number of Participants:</strong> ${body.participants}</p>
-            <p><strong>Notes:</strong> ${body.note || 'None'}</p>
+            <p><strong>Event:</strong> ${escapeHtml(body.data.eventTitle)}</p>
+            <p><strong>Registrant:</strong> ${escapeHtml(body.data.name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(body.data.email)}</p>
+            <p><strong>Phone:</strong> ${escapeHtml(body.data.phone)}</p>
+            <p><strong>Number of Participants:</strong> ${body.data.participants}</p>
+            <p><strong>Notes:</strong> ${escapeHtml(body.data.note || 'None')}</p>
           `,
         })
       } catch (emailError) {

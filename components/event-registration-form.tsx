@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, ArrowRight, User, Phone, Mail, ShieldCheck } from 'lucide-react'
+import { Turnstile } from '@/components/turnstile'
 
 interface EventRegistrationFormProps {
   eventTitle: string
@@ -18,6 +19,8 @@ export function EventRegistrationForm({ eventTitle, eventDate, eventLocation }: 
     email: '',
     participants: '2 người (Phụ huynh & Bé)',
     note: '',
+    consent: false,
+    turnstileToken: '',
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -25,37 +28,6 @@ export function EventRegistrationForm({ eventTitle, eventDate, eventLocation }: 
     const updated = { ...formData, [name]: value }
     setFormData(updated)
 
-    // Background partial lead auto-save if phone has data
-    if (name === 'phone' && value.length >= 8) {
-      triggerPartialAutoSave(updated)
-    }
-  }
-
-  const triggerPartialAutoSave = async (data: typeof formData) => {
-    try {
-      const { getStoredUtmParams } = await import('@/lib/utm-tracker')
-      const storedUtm = getStoredUtmParams()
-      await fetch('/api/forms/event-registration/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          formTitle: `Event Partial Draft: ${eventTitle}`,
-          answers: {
-            'Họ và tên Phụ huynh': data.name || 'Phụ huynh',
-            'Số điện thoại Zalo': data.phone,
-            'Email': data.email,
-            'Sự kiện đăng ký': eventTitle,
-            'Loại Lead': '⚠️ Partial Lead (Auto-Saved)'
-          },
-          isPartial: true,
-          utmParams: storedUtm,
-          pagePath: window.location.pathname,
-          referrer: document.referrer,
-        })
-      })
-    } catch (err) {
-      // Silent background save
-    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,36 +35,27 @@ export function EventRegistrationForm({ eventTitle, eventDate, eventLocation }: 
     setIsSubmitting(true)
     
     try {
-      const { getStoredUtmParams } = await import('@/lib/utm-tracker')
-      const storedUtm = getStoredUtmParams()
-
       const payload = {
-        formTitle: `Đăng ký Sự kiện: ${eventTitle}`,
-        answers: {
-          'Họ và tên Phụ huynh': formData.name,
-          'Số điện thoại Zalo': formData.phone,
-          'Email': formData.email,
-          'Số lượng người tham dự': formData.participants,
-          'Ghi chú & Thắc mắc': formData.note,
-          'Tên sự kiện': eventTitle,
-          'Thời gian': eventDate || '',
-          'Địa điểm': eventLocation || '',
-        },
-        utmParams: storedUtm,
-        pagePath: window.location.pathname,
-        referrer: document.referrer,
+        eventTitle,
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        participants: 1,
+        note: formData.note,
+        consent: formData.consent,
+        turnstileToken: formData.turnstileToken,
       }
 
-      await fetch('/api/forms/event-registration/submit', {
+      const response = await fetch('/api/submissions/event-registration', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
-
+      if (!response.ok) throw new Error('Event registration rejected')
       setIsSuccess(true)
     } catch (error) {
       console.error('Error submitting event registration:', error)
-      setIsSuccess(true) // Fallback success UX
+      alert('Không thể gửi đăng ký. Vui lòng kiểm tra thông tin và thử lại.')
     } finally {
       setIsSubmitting(false)
     }
@@ -230,6 +193,18 @@ export function EventRegistrationForm({ eventTitle, eventDate, eventLocation }: 
         </div>
 
         <div className="pt-2 space-y-3">
+          <label className="flex items-start gap-2 text-xs text-neutral-600">
+            <input
+              type="checkbox"
+              required
+              checked={formData.consent}
+              onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+              className="mt-0.5"
+            />
+            <span>Tôi đồng ý để nhà trường liên hệ và xử lý thông tin theo Chính sách quyền riêng tư.</span>
+          </label>
+          <Turnstile onTokenChange={(turnstileToken) => setFormData((current) => ({ ...current, turnstileToken }))} />
+
           <button
             type="submit"
             disabled={isSubmitting}

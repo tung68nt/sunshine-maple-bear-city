@@ -1,0 +1,587 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/gny5sjyp",
+    "id": "gny5sjyp",
+    "slide": 16,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8z2h8bq1",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Minh hoạ: kết quả tính được khi có đủ dữ liệu",
+      "textPreview": "Minh hoạ: kết quả tính được khi có đủ dữ liệu",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Minh hoạ: kết quả tính được khi có đủ dữ liệu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Minh hoạ: kết quả tính được khi có đủ dữ liệu",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Minh hoạ: kết quả tính được khi có đủ dữ liệu",
+              "fontSize": 41.33,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9kby1g7m",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh",
+      "textPreview": "Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tốc độ tăng GRDP theo quý, giá so sánh (%) – nguồn: file dữ liệu Thống kê tỉnh",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/p4fq543m",
+      "id": "12",
+      "name": "Chart 0",
+      "bbox": [
+        67.2,
+        177.6,
+        710.4,
+        441.6
+      ],
+      "chartType": "bar"
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zutgvm94",
+      "id": "5",
+      "name": "Shape 2",
+      "bbox": [
+        806.4,
+        177.6,
+        432,
+        206.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kv2h4rqp",
+      "id": "6",
+      "name": "Text 3",
+      "bbox": [
+        835.2,
+        196.8,
+        374.4,
+        72
+      ],
+      "geometry": "rect",
+      "text": "209.342",
+      "textPreview": "209.342",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "209.342"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "209.342",
+          "runs": [
+            {
+              "index": 1,
+              "text": "209.342",
+              "fontSize": 48,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwbyxwra",
+      "id": "7",
+      "name": "Text 4",
+      "bbox": [
+        835.2,
+        273.6,
+        374.4,
+        86.4
+      ],
+      "geometry": "rect",
+      "text": "tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành (cộng 4 quý)",
+      "textPreview": "tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành (cộng 4 quý)",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành"
+          },
+          {
+            "index": 2,
+            "text": "(cộng 4 quý)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành (cộng 4 quý)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "tỷ đồng – quy mô GRDP năm 2025 theo giá hiện hành (cộng 4 quý)",
+              "fontSize": 16,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ip4zel83",
+      "id": "8",
+      "name": "Shape 5",
+      "bbox": [
+        806.4,
+        412.8,
+        432,
+        206.4
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFF6DC",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qdg7qpo",
+      "id": "9",
+      "name": "Text 6",
+      "bbox": [
+        835.2,
+        427.2,
+        374.4,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Cơ cấu Q2/2026 (giá hiện hành)",
+      "textPreview": "Cơ cấu Q2/2026 (giá hiện hành)",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cơ cấu Q2/2026 (giá hiện hành)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cơ cấu Q2/2026 (giá hiện hành)",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cơ cấu Q2/2026 (giá hiện hành)",
+              "fontSize": 16,
+              "typeface": "Calibri",
+              "color": "#8A6D00",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fm1gzq5o",
+      "id": "10",
+      "name": "Text 7",
+      "bbox": [
+        840,
+        465.6,
+        369.6,
+        144
+      ],
+      "geometry": "rect",
+      "text": "Dịch vụ: 41,13%\nCông nghiệp – xây dựng: 38,49%\nNông, lâm, thuỷ sản: 13,03%\nThuế sản phẩm trừ trợ cấp: 7,35%",
+      "textPreview": "Dịch vụ: 41,13% | Công nghiệp – xây dựng: 38,49% | Nông, lâm, thuỷ sản: 13,03% | Thuế sản phẩm trừ trợ cấp: 7,35%",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Dịch vụ: 41,13%"
+          },
+          {
+            "index": 2,
+            "text": "• Công nghiệp – xây dựng: 38,49%"
+          },
+          {
+            "index": 3,
+            "text": "• Nông, lâm, thuỷ sản: 13,03%"
+          },
+          {
+            "index": 4,
+            "text": "• Thuế sản phẩm trừ trợ cấp: 7,35%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dịch vụ: 41,13%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dịch vụ: 41,13%",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Công nghiệp – xây dựng: 38,49%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Công nghiệp – xây dựng: 38,49%",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "Nông, lâm, thuỷ sản: 13,03%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Nông, lâm, thuỷ sản: 13,03%",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Thuế sản phẩm trừ trợ cấp: 7,35%",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thuế sản phẩm trừ trợ cấp: 7,35%",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e1sf65o3",
+      "id": "11",
+      "name": "Text 8",
+      "bbox": [
+        67.2,
+        667.2,
+        1152,
+        28.8
+      ],
+      "geometry": "rect",
+      "text": "Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh.",
+      "textPreview": "Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ghi chú: chuỗi 2025 theo giá so sánh 2010, chuỗi 2026 theo giá so sánh 2020 — cần hồi quy về cùng năm gốc trước khi so sánh.",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

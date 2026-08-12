@@ -1,0 +1,1105 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/p89wa0",
+    "id": "p89wa0",
+    "slide": 6,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Cambria"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2lcvi1wb",
+      "id": "2",
+      "name": "Text 0",
+      "bbox": [
+        67.2,
+        40.32,
+        1180.8,
+        76.8
+      ],
+      "geometry": "rect",
+      "text": "Phương pháp 1 – Sản xuất: cần trường dữ liệu gì",
+      "textPreview": "Phương pháp 1 – Sản xuất: cần trường dữ liệu gì",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phương pháp 1 – Sản xuất: cần trường dữ liệu gì"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phương pháp 1 – Sản xuất: cần trường dữ liệu gì",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phương pháp 1 – Sản xuất: cần trường dữ liệu gì",
+              "fontSize": 41.33,
+              "typeface": "Cambria",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nmlwb6dw",
+      "id": "3",
+      "name": "Text 1",
+      "bbox": [
+        67.2,
+        119.04,
+        1180.8,
+        40.32
+      ],
+      "geometry": "rect",
+      "text": "Giá trị tăng thêm từng ngành là gốc của mọi tính toán",
+      "textPreview": "Giá trị tăng thêm từng ngành là gốc của mọi tính toán",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Giá trị tăng thêm từng ngành là gốc của mọi tính toán"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Giá trị tăng thêm từng ngành là gốc của mọi tính toán",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Giá trị tăng thêm từng ngành là gốc của mọi tính toán",
+              "fontSize": 18.67,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbexobed",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        67.2,
+        168,
+        1171.2,
+        72
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EEF3FF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/axcfehob",
+      "id": "25",
+      "name": "Image 0",
+      "bbox": [
+        273.6,
+        185.28,
+        748.8,
+        51.08
+      ],
+      "contentType": "image/png",
+      "asset": {
+        "assetId": "/ppt/media/image-6-1.png",
+        "contentType": "image/png",
+        "byteLength": 17704
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image-6-1.png",
+        "contentType": "image/png",
+        "byteLength": 17704
+      }
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a9cvmlwn",
+      "id": "6",
+      "name": "Text 3",
+      "bbox": [
+        67.2,
+        667.2,
+        1152,
+        28.8
+      ],
+      "geometry": "rect",
+      "text": "Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số giá, thuế sản phẩm, trợ cấp sản phẩm.",
+      "textPreview": "Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số gi...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số giá, thuế sản phẩm, trợ cấp sản phẩm."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số giá, thuế sản phẩm, trợ cấp sản phẩm.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Đúng bằng danh mục chỉ tiêu cấp tỉnh tại Điều 9 khoản 3 Nghị định 94/2022/NĐ-CP: giá trị sản xuất, chi phí trung gian, hệ thống chỉ số giá, thuế sản phẩm, trợ cấp sản phẩm.",
+              "fontSize": 12,
+              "typeface": "Calibri",
+              "color": "#5A6377",
+              "italic": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/balwfqds",
+      "id": "7",
+      "name": "Shape 4",
+      "bbox": [
+        67.2,
+        264,
+        1171.2,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 0.67
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfadcre9",
+      "id": "8",
+      "name": "Text 5",
+      "bbox": [
+        91.2,
+        264,
+        278.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "GO – Giá trị sản xuất",
+      "textPreview": "GO – Giá trị sản xuất",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GO – Giá trị sản xuất"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GO – Giá trị sản xuất",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GO – Giá trị sản xuất",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dgje5wvu",
+      "id": "9",
+      "name": "Text 6",
+      "bbox": [
+        384,
+        264,
+        835.2,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho khu vực nhà nước.",
+      "textPreview": "Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho khu vực ...",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho"
+          },
+          {
+            "index": 2,
+            "text": "khu vực nhà nước."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho khu vực nhà nước.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sản lượng × đơn giá theo từng ngành cấp 2/cấp 3; doanh thu thuần của doanh nghiệp; giá trị sản xuất hộ cá thể; chi ngân sách cho khu vực nhà nước.",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lsvehgvi",
+      "id": "10",
+      "name": "Shape 7",
+      "bbox": [
+        67.2,
+        329.28,
+        1171.2,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 0.67
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/krmdobux",
+      "id": "11",
+      "name": "Text 8",
+      "bbox": [
+        91.2,
+        329.28,
+        278.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "IC – Chi phí trung gian",
+      "textPreview": "IC – Chi phí trung gian",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "IC – Chi phí trung gian"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "IC – Chi phí trung gian",
+          "runs": [
+            {
+              "index": 1,
+              "text": "IC – Chi phí trung gian",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqdwf6dc",
+      "id": "12",
+      "name": "Text 9",
+      "bbox": [
+        384,
+        329.28,
+        835.2,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành.",
+      "textPreview": "Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chi phí vật chất và dịch vụ mua ngoài; hoặc GO × hệ số IC từ điều tra chi phí trung gian theo ngành.",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yp4vmlc7",
+      "id": "13",
+      "name": "Shape 10",
+      "bbox": [
+        67.2,
+        394.56,
+        1171.2,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 0.67
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twfel0vu",
+      "id": "14",
+      "name": "Text 11",
+      "bbox": [
+        91.2,
+        394.56,
+        278.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Cơ cấu ngành",
+      "textPreview": "Cơ cấu ngành",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cơ cấu ngành"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cơ cấu ngành",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cơ cấu ngành",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6xsvu9",
+      "id": "15",
+      "name": "Text 12",
+      "bbox": [
+        384,
+        394.56,
+        835.2,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi.",
+      "textPreview": "Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bảng phân ngành kinh tế Việt Nam (VSIC) – mã ngành cấp 1/2/3 gắn với từng bản ghi.",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7uxwjqdo",
+      "id": "16",
+      "name": "Shape 13",
+      "bbox": [
+        67.2,
+        459.84,
+        1171.2,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 0.67
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6t4vqlc3",
+      "id": "17",
+      "name": "Text 14",
+      "bbox": [
+        91.2,
+        459.84,
+        278.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Thuế sản phẩm",
+      "textPreview": "Thuế sản phẩm",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thuế sản phẩm"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thuế sản phẩm",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thuế sản phẩm",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hkfep0bq",
+      "id": "18",
+      "name": "Text 15",
+      "bbox": [
+        384,
+        459.84,
+        835.2,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải quan).",
+      "textPreview": "Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải quan).",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải"
+          },
+          {
+            "index": 2,
+            "text": "quan)."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải quan).",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Thuế GTGT hàng sản xuất trong nước, thuế tiêu thụ đặc biệt, thuế xuất nhập khẩu, thuế bảo vệ môi trường (số liệu ngành Thuế – Hải quan).",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gj6xwvu5",
+      "id": "19",
+      "name": "Shape 16",
+      "bbox": [
+        67.2,
+        525.12,
+        1171.2,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F2F5FB",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 0.67
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0fyp836t",
+      "id": "20",
+      "name": "Text 17",
+      "bbox": [
+        91.2,
+        525.12,
+        278.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Trợ cấp sản phẩm",
+      "textPreview": "Trợ cấp sản phẩm",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trợ cấp sản phẩm"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trợ cấp sản phẩm",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trợ cấp sản phẩm",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/107qh8ne",
+      "id": "21",
+      "name": "Text 18",
+      "bbox": [
+        384,
+        525.12,
+        835.2,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách.",
+      "textPreview": "Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Các khoản trợ giá, trợ cấp theo sản phẩm từ ngân sách.",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/edg76ton",
+      "id": "22",
+      "name": "Shape 19",
+      "bbox": [
+        67.2,
+        590.4,
+        1171.2,
+        57.6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E1E7F2",
+      "lineWidth": 0.67
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zep8fy58",
+      "id": "23",
+      "name": "Text 20",
+      "bbox": [
+        91.2,
+        590.4,
+        278.4,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "Chỉ số giá",
+      "textPreview": "Chỉ số giá",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chỉ số giá"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chỉ số giá",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chỉ số giá",
+              "fontSize": 16.67,
+              "typeface": "Calibri",
+              "color": "#1E2761",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o3ipcn6p",
+      "id": "24",
+      "name": "Text 21",
+      "bbox": [
+        384,
+        590.4,
+        835.2,
+        57.6
+      ],
+      "geometry": "rect",
+      "text": "CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh.",
+      "textPreview": "CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "CPI, PPI, chỉ số giá xây dựng, chỉ số giá cước vận tải — dùng giảm phát về giá so sánh.",
+              "fontSize": 15.33,
+              "typeface": "Calibri",
+              "color": "#202536"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}
