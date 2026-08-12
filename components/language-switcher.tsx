@@ -9,7 +9,7 @@ export function LanguageSwitcher({ isLight }: { isLight?: boolean }) {
 
   const languages = [
     { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' },
-    { code: 'en', label: 'English', flag: '🇨🇦' }
+    { code: 'en', label: 'English', flag: '🇬🇧' }
   ]
 
   useEffect(() => {
