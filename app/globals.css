@@ -246,6 +246,15 @@
     position: static !important;
   }
   
+  /* ── Global Minimum Font Size (12px floor) ── 
+     Prevents unreadably small text across the site.
+     Any text-[9px], text-[10px], text-[11px] is bumped up to 12px. */
+  [class*="text-[9px]"],
+  [class*="text-[10px]"],
+  [class*="text-[11px]"] {
+    font-size: 0.75rem !important; /* 12px minimum */
+  }
+
   /* Global Font Weight Cap */
   h1, h2, h3, h4, h5, h6, b, strong, .font-bold, .font-black, .font-extrabold {
     font-weight: 700 !important;

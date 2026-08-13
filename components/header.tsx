@@ -147,10 +147,10 @@ export function Header() {
           
           {/* Brand Logo (Picture1.png spec: Logo Bear + Maple Bear International Kindergarten) */}
           <Link href="/" className="flex items-center gap-3 group relative z-10 flex-shrink-0">
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/logo.png"
-                alt="Maple Bear Logo"
+                alt="Sunshine Maple Bear Logo"
                 fill
                 className="object-contain"
                 priority
@@ -158,9 +158,9 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className="font-serif font-bold text-base sm:text-lg tracking-tight leading-none text-[#9E1B1E] whitespace-nowrap">
-                Maple Bear
+                Sunshine Maple Bear
               </span>
-              <span className="text-[9px] sm:text-[10px] font-sans font-medium tracking-wider text-[#332C2B] whitespace-nowrap mt-0.5">
+              <span className="text-[12px] font-sans font-medium tracking-wider text-[#C5A059] whitespace-nowrap mt-0.5 uppercase">
                 International Kindergarten
               </span>
             </div>
@@ -181,7 +181,7 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
-                    className="text-xs xl:text-sm font-sans font-semibold text-[#332C2B] hover:text-[#9E1B1E] py-2 transition-colors flex items-center gap-1 whitespace-nowrap"
+                    className="text-[13px] xl:text-sm font-sans font-semibold text-[#332C2B] hover:text-[#9E1B1E] py-2 transition-colors flex items-center gap-1 whitespace-nowrap"
                   >
                     <span className="whitespace-nowrap">{label}</span>
                     {hasChildren && <ChevronDown size={14} className="text-neutral-400 group-hover/nav:text-[#9E1B1E] transition-transform group-hover/nav:rotate-180 flex-shrink-0" />}
@@ -194,7 +194,7 @@ export function Header() {
                         <Link
                           key={cIdx}
                           href={child.href}
-                          className="block px-3 py-2 text-xs font-sans text-[#332C2B] hover:text-[#9E1B1E] hover:bg-red-50/50 rounded-xl transition-colors font-medium"
+                          className="block px-3 py-2 text-[13px] font-sans text-[#332C2B] hover:text-[#9E1B1E] hover:bg-red-50/50 rounded-xl transition-colors font-medium"
                         >
                           {getItemLabel(child)}
                         </Link>
@@ -211,7 +211,7 @@ export function Header() {
             {/* 1. Book a Tour (Red Pill) */}
             <a
               href="#contact-us"
-              className="px-4 py-2 bg-[#9E1B1E] hover:bg-[#801316] text-white text-xs font-sans font-semibold rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap"
+              className="px-4 py-2 bg-[#9E1B1E] hover:bg-[#801316] text-white text-[13px] font-sans font-semibold rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap"
             >
               <Calendar size={13} />
               <span>{currentLang === 'vi' ? 'ĐẶT LỊCH THAM QUAN' : 'Book a Tour'}</span>
@@ -220,7 +220,7 @@ export function Header() {
             {/* 2. Apply Now (Gold Pill) */}
             <a
               href="#contact-us"
-              className="px-4 py-2 bg-[#C5A059] hover:bg-[#b08d48] text-white text-xs font-sans font-semibold rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap"
+              className="px-4 py-2 bg-[#C5A059] hover:bg-[#b08d48] text-white text-[13px] font-sans font-semibold rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap"
             >
               <Edit3 size={13} />
               <span>{currentLang === 'vi' ? 'ĐĂNG KÝ HỌC' : 'Apply Now'}</span>
@@ -271,7 +271,7 @@ export function Header() {
                             key={cIdx}
                             href={child.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="block text-xs font-sans text-neutral-600 hover:text-[#9E1B1E] transition-colors"
+                            className="block text-[13px] font-sans text-neutral-600 hover:text-[#9E1B1E] transition-colors"
                           >
                             {getItemLabel(child)}
                           </Link>
@@ -288,7 +288,7 @@ export function Header() {
             <a
               href="#contact-us"
               onClick={() => setIsMenuOpen(false)}
-              className="px-6 py-3 bg-[#9E1B1E] text-white font-sans text-xs font-semibold rounded-full flex items-center gap-2 shadow-md"
+              className="px-6 py-3 bg-[#9E1B1E] text-white font-sans text-[13px] font-semibold rounded-full flex items-center gap-2 shadow-md"
             >
               <Calendar size={16} />
               <span>{currentLang === 'vi' ? 'ĐẶT LỊCH THAM QUAN' : 'Book a Tour'}</span>
@@ -296,7 +296,7 @@ export function Header() {
             <a
               href="#contact-us"
               onClick={() => setIsMenuOpen(false)}
-              className="px-6 py-3 bg-[#C5A059] text-white font-sans text-xs font-semibold rounded-full flex items-center gap-2 shadow-md"
+              className="px-6 py-3 bg-[#C5A059] text-white font-sans text-[13px] font-semibold rounded-full flex items-center gap-2 shadow-md"
             >
               <Edit3 size={16} />
               <span>{currentLang === 'vi' ? 'ĐĂNG KÝ HỌC' : 'Apply Now'}</span>

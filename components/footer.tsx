@@ -53,21 +53,21 @@ export function Footer() {
           
           {/* Brand Info (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 flex-shrink-0">
-                <Image src="/logo.png" alt="Maple Bear Logo" fill className="object-contain" />
+            <div className="flex items-center gap-5">
+              <div className="relative w-[120px] h-[120px] flex-shrink-0">
+                <Image src="/logo.png" alt="Sunshine Maple Bear Logo" fill className="object-contain" />
               </div>
-              <div className="space-y-0.5">
-                <h3 className="text-base font-serif font-bold text-[#9E1B1E] uppercase tracking-tight">
-                  SUNSHINE MAPLE BEAR
+              <div className="space-y-1.5">
+                <h3 className="text-xl font-serif font-bold text-[#9E1B1E] uppercase tracking-tight">
+                  Sunshine Maple Bear
                 </h3>
-                <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-[#C5A059] block">
-                  INTERNATIONAL KINDERGARTEN
+                <span className="text-sm font-sans font-bold uppercase tracking-wider text-[#C5A059] block">
+                  International Kindergarten
                 </span>
               </div>
             </div>
 
-            <ul className="space-y-3.5 text-xs sm:text-sm text-[#554D4B] font-light">
+            <ul className="space-y-3.5 text-sm text-[#554D4B] font-light">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#9E1B1E] flex-shrink-0 mt-0.5" />
                 <span>S4 Building, Sunshine City, Nam Thang Long Urban Area, Phu Thuong Ward, Hanoi, Vietnam</span>
@@ -91,7 +91,7 @@ export function Footer() {
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
             {footerNav.map((col, idx) => (
               <div key={idx} className="space-y-4">
-                <h4 className="text-xs font-sans font-extrabold uppercase tracking-widest text-[#9E1B1E]">
+                <h4 className="text-[13px] font-sans font-extrabold uppercase tracking-widest text-[#9E1B1E]">
                   {col.title}
                 </h4>
                 <ul className="space-y-2.5">
@@ -99,7 +99,7 @@ export function Footer() {
                     <li key={lIdx}>
                       <Link
                         href={link.href}
-                        className="text-xs sm:text-sm text-[#554D4B] hover:text-[#9E1B1E] transition-colors flex items-center gap-1 group font-light"
+                        className="text-sm text-[#554D4B] hover:text-[#9E1B1E] transition-colors flex items-center gap-1 group font-light"
                       >
                         <span>{link.label}</span>
                         <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#9E1B1E]" />
@@ -114,7 +114,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Footer Bar matching Picture1.png layout: Logo & Copyright left, Follow Us & Social Icons right */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#554D4B]">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] text-[#554D4B]">
           <div className="flex flex-wrap items-center gap-4">
             <p>© {currentYear} SUNSHINE MAPLE BEAR INTERNATIONAL SCHOOL. ALL RIGHTS RESERVED.</p>
             <span className="text-neutral-300 hidden md:inline">|</span>
