@@ -26,26 +26,238 @@ export function CanvaExactHome() {
           <img className="cv-bg" src="/canva-exact/bg/home-4.webp" alt="" style={{ '--y': 4096, '--h': 1024 } as React.CSSProperties} decoding="async" />
           <img className="cv-bg" src="/canva-exact/bg/home-5.webp" alt="" style={{ '--y': 5120, '--h': 634 } as React.CSSProperties} decoding="async" />
 
-          {/* Section 1: Header & Hero */}
+          {/* Section 1: Header & Hero with Cinematic Background Video */}
+          <div
+            className="cv-hero-video-wrap"
+            style={
+              {
+                position: 'absolute',
+                top: 'calc(42 * var(--u))',
+                left: 0,
+                width: '100%',
+                height: 'calc(455 * var(--u))',
+                overflow: 'hidden',
+                zIndex: 2,
+                pointerEvents: 'none',
+              } as React.CSSProperties
+            }
+          >
+            {/* YouTube Background Video Player */}
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/Dlpm1zqxziw?autoplay=1&mute=1&loop=1&playlist=Dlpm1zqxziw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+              title="Sunshine Maple Bear Hero Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '100vw',
+                height: '56.25vw',
+                minHeight: '100%',
+                minWidth: '177.78vh',
+                transform: 'translate(-50%, -50%) scale(1.35)',
+                pointerEvents: 'none',
+                border: 0,
+              }}
+            />
+            {/* Cinematic Gradient Vignette Overlay */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'radial-gradient(circle at 50% 50%, rgba(15, 8, 8, 0.25) 0%, rgba(15, 8, 8, 0.58) 100%), linear-gradient(180deg, rgba(20, 10, 10, 0.5) 0%, transparent 40%, rgba(20, 10, 10, 0.7) 100%)',
+                pointerEvents: 'none',
+              }}
+            />
+          </div>
+
           <CanvaFadeSection y={0} h={460} animation="fade-in">
-            {/* Action pills */}
-            <p className="cv-t f0" style={{ '--x': 477, '--y': 94.28, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>Book a visit</p>
-            <p className="cv-t f0" style={{ '--x': 588.7, '--y': 94.28, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>Genaral enquiries</p>
-            <p className="cv-t f0" style={{ '--x': 741.08, '--y': 94.28, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>Register interest</p>
-            <p className="cv-t f0" style={{ '--x': 879.15, '--y': 93.28, '--s': 13.995, '--c': '#ffffff' } as React.CSSProperties}>EN ↓</p>
+            {/* Bear Mascot on Header */}
+            <Link
+              href="/"
+              aria-label="Sunshine Maple Bear home"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(55 * var(--u))',
+                  top: 'calc(52 * var(--u))',
+                  zIndex: 5,
+                  display: 'flex',
+                  alignItems: 'center',
+                } as React.CSSProperties
+              }
+            >
+              <img
+                src="/images/maple-bear-mascot.png"
+                alt="Sunshine Maple Bear Mascot"
+                style={{
+                  height: 'calc(58 * var(--u))',
+                  width: 'auto',
+                  filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.5))',
+                }}
+              />
+            </Link>
 
-            {/* Hero titles */}
-            <h1 className="cv-t f6" style={{ '--x': 214.09, '--y': 220.43, '--s': 55.106, '--c': '#ffffff' } as React.CSSProperties}>SUNSHINE MAPLE BEAR </h1>
-            <h2 className="cv-t f6" style={{ '--x': 218.26, '--y': 296.16, '--s': 38.947, '--c': '#ffffff' } as React.CSSProperties}>INTERNATIONAL KINDERGARTEN</h2>
-            <p className="cv-t f0" style={{ '--x': 451.68, '--y': 370.72, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>ABOUT US</p>
+            {/* Action pills on Header over video */}
+            <a
+              href="#contact"
+              className="cv-hero-btn"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(463.3 * var(--u))',
+                  top: 'calc(89.1 * var(--u))',
+                  width: 'calc(98.2 * var(--u))',
+                  height: 'calc(27.6 * var(--u))',
+                } as React.CSSProperties
+              }
+            >
+              Book a visit
+            </a>
+            <a
+              href="#contact"
+              className="cv-hero-btn"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(575.4 * var(--u))',
+                  top: 'calc(89.1 * var(--u))',
+                  width: 'calc(135.2 * var(--u))',
+                  height: 'calc(27.6 * var(--u))',
+                } as React.CSSProperties
+              }
+            >
+              General enquiries
+            </a>
+            <Link
+              href="/admissions/founding-families"
+              className="cv-hero-btn"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(724.4 * var(--u))',
+                  top: 'calc(89.1 * var(--u))',
+                  width: 'calc(135.2 * var(--u))',
+                  height: 'calc(27.6 * var(--u))',
+                } as React.CSSProperties
+              }
+            >
+              Register interest
+            </Link>
 
-            {/* Links and interactive click overlays with frosted glass styling */}
-            <a href="#contact" className="cv-a cv-pill-glass" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
-            <a href="#contact" className="cv-a cv-pill-glass" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
-            <Link href="/admissions/founding-families" className="cv-a cv-pill-glass" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
-            <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a cv-pill-glass" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
-            <Link href="/" className="cv-a" aria-label="Sunshine Maple Bear home" style={{ '--x': 0, '--y': 42, '--w': 270, '--h': 120 } as React.CSSProperties} />
-            <Link href="/about" className="cv-a" aria-label="ABOUT US" style={{ '--x': 430, '--y': 362.2, '--w': 113, '--h': 33.6 } as React.CSSProperties} />
+            <span
+              className="f0"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(879.15 * var(--u))',
+                  top: 'calc(94.28 * var(--u))',
+                  fontSize: 'calc(13.995 * var(--u) * var(--font-scale, 0.84))',
+                  color: '#ffffff',
+                  zIndex: 5,
+                  fontWeight: 500,
+                } as React.CSSProperties
+              }
+            >
+              EN ↓
+            </span>
+
+            {/* Hamburger Menu Button */}
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(true)}
+              className="cv-hero-btn"
+              aria-label="Open menu"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(928 * var(--u))',
+                  top: 'calc(86 * var(--u))',
+                  width: 'calc(44 * var(--u))',
+                  height: 'calc(34 * var(--u))',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 'calc(6 * var(--u))',
+                } as React.CSSProperties
+              }
+            >
+              <div
+                style={{
+                  width: 'calc(20 * var(--u))',
+                  height: 'calc(14 * var(--u))',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span style={{ display: 'block', width: '100%', height: 'calc(2 * var(--u))', backgroundColor: '#ffffff', borderRadius: '1px' }} />
+                <span style={{ display: 'block', width: '100%', height: 'calc(2 * var(--u))', backgroundColor: '#ffffff', borderRadius: '1px' }} />
+                <span style={{ display: 'block', width: '100%', height: 'calc(2 * var(--u))', backgroundColor: '#ffffff', borderRadius: '1px' }} />
+              </div>
+            </button>
+
+            {/* Hero titles — perfectly centered horizontally */}
+            <h1
+              className="f6"
+              style={
+                {
+                  position: 'absolute',
+                  left: 0,
+                  width: '100%',
+                  textAlign: 'center',
+                  top: 'calc(218 * var(--u))',
+                  fontSize: 'calc(50 * var(--u) * var(--font-scale, 0.84))',
+                  lineHeight: 1.15,
+                  color: '#ffffff',
+                  margin: 0,
+                  zIndex: 4,
+                  letterSpacing: 'calc(0.5 * var(--u))',
+                  textShadow: '0 2px 14px rgba(0,0,0,0.6)',
+                } as React.CSSProperties
+              }
+            >
+              SUNSHINE MAPLE BEAR
+            </h1>
+            <h2
+              className="f6"
+              style={
+                {
+                  position: 'absolute',
+                  left: 0,
+                  width: '100%',
+                  textAlign: 'center',
+                  top: 'calc(288 * var(--u))',
+                  fontSize: 'calc(34 * var(--u) * var(--font-scale, 0.84))',
+                  lineHeight: 1.2,
+                  color: '#ffffff',
+                  margin: 0,
+                  zIndex: 4,
+                  letterSpacing: 'calc(1 * var(--u))',
+                  textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+                } as React.CSSProperties
+              }
+            >
+              INTERNATIONAL KINDERGARTEN
+            </h2>
+
+            {/* Centered ABOUT US Button */}
+            <Link
+              href="/about"
+              className="cv-hero-cta"
+              style={
+                {
+                  position: 'absolute',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  top: 'calc(360 * var(--u))',
+                  padding: 'calc(7 * var(--u)) calc(28 * var(--u))',
+                } as React.CSSProperties
+              }
+            >
+              ABOUT US
+            </Link>
           </CanvaFadeSection>
 
           {/* Section 2: Stats Strip */}
@@ -74,7 +286,7 @@ export function CanvaExactHome() {
             <p className="cv-t f0" style={{ '--x': 89.04, '--y': 885.45, '--s': 15.382, '--c': '#3d3d3d' } as React.CSSProperties}>confidence inside Sunshine City.</p>
           </CanvaFadeSection>
 
-          {/* Section 4: Our Promise & Message from Head of School */}
+          {/* Section 4: Our Promise & Message from Head of School (Video Embedded) */}
           <CanvaFadeSection y={1140} h={600} animation="slide-up">
             <p className="cv-t f0" style={{ '--x': 438.22, '--y': 1155.03, '--s': 19.38, '--c': '#3d3d3d', '--ls': -0.006 } as React.CSSProperties}>OUR PROMISE</p>
             <h2 className="cv-t f6" style={{ '--x': 263.21, '--y': 1201.43, '--s': 37.042, '--c': '#3d3d3d', '--ls': -0.006 } as React.CSSProperties}>SAFE. NURTURING. </h2>
@@ -89,6 +301,74 @@ export function CanvaExactHome() {
             <p className="cv-t f1" style={{ '--x': 61.25, '--y': 1601.31, '--s': 15.382, '--c': '#ffffff' } as React.CSSProperties}>environment where every child is known, every</p>
             <p className="cv-t f1" style={{ '--x': 61.25, '--y': 1627.56, '--s': 15.382, '--c': '#ffffff' } as React.CSSProperties}>educator is empowered and every family is a trusted</p>
             <p className="cv-t f1" style={{ '--x': 61.25, '--y': 1653.81, '--s': 15.382, '--c': '#ffffff' } as React.CSSProperties}>partner.”</p>
+
+            {/* Cover static photo in home-1.webp with matching solid red background */}
+            <div
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(610 * var(--u))',
+                  top: 'calc(1350 * var(--u))',
+                  width: 'calc(414.5 * var(--u))',
+                  height: 'calc(385 * var(--u))',
+                  backgroundColor: '#9a1c20',
+                  zIndex: 2,
+                } as React.CSSProperties
+              }
+            />
+
+            {/* Head of School Video Player */}
+            <div
+              className="cv-head-video-card"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(625 * var(--u))',
+                  top: 'calc(1420 * var(--u))',
+                  width: 'calc(345 * var(--u))',
+                  height: 'calc(215 * var(--u))',
+                  zIndex: 5,
+                  borderRadius: 'calc(6 * var(--u))',
+                  overflow: 'hidden',
+                  border: 'calc(1.5 * var(--u)) solid rgba(202, 156, 87, 0.65)',
+                  boxShadow: '0 calc(8 * var(--u)) calc(24 * var(--u)) rgba(0, 0, 0, 0.45)',
+                  backgroundColor: '#000000',
+                } as React.CSSProperties
+              }
+            >
+              <iframe
+                src="https://www.youtube.com/embed/Dlpm1zqxziw?rel=0&modestbranding=1&playsinline=1"
+                title="Message from Head of School — Sunshine Maple Bear"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 0,
+                  display: 'block',
+                }}
+              />
+            </div>
+            {/* Caption badge under Head of School Video */}
+            <p
+              className="f0"
+              style={
+                {
+                  position: 'absolute',
+                  left: 'calc(625 * var(--u))',
+                  top: 'calc(1648 * var(--u))',
+                  fontSize: 'calc(11.5 * var(--u) * var(--font-scale, 0.84))',
+                  color: '#f6dfb2',
+                  letterSpacing: 'calc(0.8 * var(--u))',
+                  textTransform: 'uppercase',
+                  zIndex: 5,
+                  fontWeight: 600,
+                  margin: 0,
+                } as React.CSSProperties
+              }
+            >
+              ▶ Watch: Welcome Message from Head of School
+            </p>
           </CanvaFadeSection>
 
           {/* Section 5: Why Families Choose */}

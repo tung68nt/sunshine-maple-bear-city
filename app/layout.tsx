@@ -118,7 +118,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/canva-exact/css/canva.css?v=20260924_4" />
+        <link rel="stylesheet" href="/canva-exact/css/canva.css?v=20260924_5" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://pvdos3hwo8pzdj8j8j8j.supabase.co" />
         <script

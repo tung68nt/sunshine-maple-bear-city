@@ -234,7 +234,7 @@ export function CanvaExactWhyChooseInteractive() {
                 <h3
                   className="f6"
                   style={{
-                    fontSize: 'calc(21.5 * var(--u))',
+                    fontSize: 'calc(21.5 * var(--u) * var(--font-scale, 0.84))',
                     lineHeight: 1.25,
                     margin: 0,
                     padding: 0,
@@ -262,7 +262,7 @@ export function CanvaExactWhyChooseInteractive() {
                   <p
                     className="f3"
                     style={{
-                      fontSize: 'calc(12.5 * var(--u))',
+                      fontSize: 'calc(12.5 * var(--u) * var(--font-scale, 0.84))',
                       lineHeight: 1.5,
                       color: '#4a4240',
                       margin: 0,

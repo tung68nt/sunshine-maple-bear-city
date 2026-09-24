@@ -13,6 +13,20 @@
 .f4{font-family:'PlayfairDisplay-Regular',serif}
 .f5{font-family:'PlayfairDisplay-SemiBoldItalic',serif}
 .f6{font-family:'TheSeasons-Reg',serif}
+/* Responsive typography scaling to balance oversized headings and body text */
+:root {
+  --font-scale: 0.84;
+}
+@media (min-width: 1200px) {
+  :root {
+    --font-scale: 0.80;
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    --font-scale: 0.74;
+  }
+}
 /* Truly Fullwidth Edge-to-Edge Layout like Rugby School Hanoi */
 .cv{width:100%;position:relative;background:#fff8ee;overflow:hidden}
 .cv-page{--W:1024.5;--u:calc(100vw / var(--W));position:relative;width:100vw;width:100%;height:calc((var(--h) - 42) * var(--u));margin-top:calc(-42 * var(--u));margin-left:auto;margin-right:auto}
@@ -23,7 +37,7 @@
 .cv-fade-layer{position:absolute;inset:0;z-index:3;pointer-events:none}
 .cv-fade-layer>*{pointer-events:auto}
 .cv-t{position:absolute;margin:0;padding:0;white-space:pre;line-height:normal;font-weight:400;font-style:normal;
-  left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u));font-size:calc(var(--s) * var(--u));
+  left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u));font-size:calc(var(--s) * var(--u) * var(--font-scale, 0.84));
   letter-spacing:calc(var(--ls, 0) * var(--u));color:var(--c);
   text-rendering:geometricPrecision;font-kerning:none;font-variant-ligatures:none;-webkit-font-smoothing:antialiased;
   z-index:4}
@@ -93,6 +107,71 @@
 }
 button.cv-pill-glass {
   border-radius: 4px !important;
+}
+
+/* Hero Action Buttons over Video (Rectangular, sharp, no double border) */
+.cv-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: 'Gordita-Regular', sans-serif !important;
+  font-size: calc(12.553 * var(--u) * var(--font-scale, 0.84)) !important;
+  line-height: 1 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer;
+  z-index: 5;
+}
+.cv-hero-btn:hover {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-1px);
+}
+.cv-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: calc(1.2 * var(--u)) solid #ca9c57 !important;
+  background: rgba(202, 156, 87, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: 'Gordita-Regular', sans-serif !important;
+  font-size: calc(12.553 * var(--u) * var(--font-scale, 0.84)) !important;
+  letter-spacing: calc(1.5 * var(--u)) !important;
+  text-transform: uppercase !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer;
+  z-index: 5;
+}
+.cv-hero-cta:hover {
+  background: rgba(202, 156, 87, 0.45) !important;
+  border-color: #ffffff !important;
+  transform: translateX(-50%) translateY(-1px) !important;
+}
+
+/* Head of School Video Frame */
+.cv-head-video-card {
+  position: absolute;
+  left: calc(620 * var(--u));
+  top: calc(1415 * var(--u));
+  width: calc(355 * var(--u));
+  height: calc(225 * var(--u));
+  z-index: 5;
+  border-radius: calc(6 * var(--u));
+  overflow: hidden;
+  border: calc(1.5 * var(--u)) solid rgba(202, 156, 87, 0.6);
+  box-shadow: 0 calc(10 * var(--u)) calc(30 * var(--u)) rgba(0, 0, 0, 0.45);
+  background-color: #000000;
 }
 
 /* Sticky Navigation Bar (Kính mờ khi cuộn xuống) */
