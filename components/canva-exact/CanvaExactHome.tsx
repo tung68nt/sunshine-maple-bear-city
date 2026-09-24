@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { CanvaExactDrawer } from './CanvaExactDrawer'
 import { CanvaExactContactForm } from './CanvaExactContactForm'
+import { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive'
 
 export function CanvaExactHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -73,14 +74,8 @@ export function CanvaExactHome() {
         <p className="cv-t f3" style={{ '--x': 732.78, '--y': 2167.64, '--s': 14.549, '--c': '#3d3d3d' } as React.CSSProperties}>engaging environment, children are</p>
         <p className="cv-t f3" style={{ '--x': 700.74, '--y': 2194, '--s': 14.549, '--c': '#3d3d3d' } as React.CSSProperties}>supported to grow academically, socially</p>
         <p className="cv-t f3" style={{ '--x': 860.78, '--y': 2220.36, '--s': 14.549, '--c': '#3d3d3d' } as React.CSSProperties}>and emotionally.</p>
-        <h3 className="cv-t f6" style={{ '--x': 170.57, '--y': 2501.83, '--s': 21.795, '--c': '#2e2e2e' } as React.CSSProperties}>Official Canadian Curriculum</h3>
-        <h2 className="cv-t f0" style={{ '--x': 94.25, '--y': 2684.91, '--s': 43.59, '--c': '#9b1d22', '--ls': -0.006 } as React.CSSProperties}>04</h2>
-        <h2 className="cv-t f0 cv-ghost" style={{ '--x': 94.25, '--y': 2614.69, '--s': 43.59, '--c': '#ffffff', '--ls': -0.006 } as React.CSSProperties}>03</h2>
-        <h2 className="cv-t f0 cv-ghost" style={{ '--x': 94.25, '--y': 2544.46, '--s': 43.59, '--c': '#ffffff', '--ls': -0.006 } as React.CSSProperties}>02</h2>
-        <h2 className="cv-t f0 cv-ghost" style={{ '--x': 94.25, '--y': 2474.24, '--s': 43.59, '--c': '#ffffff', '--ls': -0.006 } as React.CSSProperties}>01</h2>
-        <h3 className="cv-t f6" style={{ '--x': 170.57, '--y': 2568.79, '--s': 21.795, '--c': '#2e2e2e' } as React.CSSProperties}>Caring International Educators</h3>
-        <h3 className="cv-t f6" style={{ '--x': 170.57, '--y': 2635.74, '--s': 21.795, '--c': '#2e2e2e' } as React.CSSProperties}>Safe & Engaging Campus</h3>
-        <h3 className="cv-t f6" style={{ '--x': 171.48, '--y': 2707.69, '--s': 21.795, '--c': '#2e2e2e' } as React.CSSProperties}>Holistic Growth</h3>
+        {/* Interactive Why Choose Pillars: scroll/hover/click active image & info switcher */}
+        <CanvaExactWhyChooseInteractive />
         <h2 className="cv-t f6" style={{ '--x': 76.94, '--y': 2947.6, '--s': 37.042, '--c': '#cda330', '--ls': -0.006 } as React.CSSProperties}>A CANADIAN</h2>
         <h2 className="cv-t f6" style={{ '--x': 76.94, '--y': 2991.1, '--s': 37.042, '--c': '#ffffff', '--ls': -0.007 } as React.CSSProperties}>CURRICULUM</h2>
         <h3 className="cv-t f6" style={{ '--x': 681.13, '--y': 3025.8, '--s': 21.795, '--c': '#2e2e2e' } as React.CSSProperties}>Language & Literacy</h3>
