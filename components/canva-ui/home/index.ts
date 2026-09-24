@@ -1,0 +1,8 @@
+export { CanvaHeroSection } from './HeroSection'
+export { CanvaIntroPromiseSection } from './IntroPromiseSection'
+export { CanvaHeadMessageSection } from './HeadMessageSection'
+export { CanvaWhyChooseSection } from './WhyChooseSection'
+export { CanvaCurriculumSection } from './CurriculumSection'
+export { CanvaFacilitiesSection } from './FacilitiesSection'
+export { CanvaWorldMapSection } from './WorldMapSection'
+export { CanvaContactFormSection } from './ContactFormSection'

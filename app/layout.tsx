@@ -1,31 +1,12 @@
 import type { Metadata } from 'next'
-import { Outfit, Inter, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 import { VisitorTracker } from '@/components/VisitorTracker'
 import './globals.css'
 
-const displayFont = Outfit({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-display',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  variable: '--font-body',
-  display: 'swap',
-})
-
-const lora = Lora({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-accent',
-  display: 'swap',
-})
+const displayFont = { variable: 'font-display' }
+const inter = { variable: 'font-body' }
+const lora = { variable: 'font-accent' }
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sunshinemaplebear.edu.vn'),
@@ -133,6 +114,11 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/canva-exact/css/canva.css" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://pvdos3hwo8pzdj8j8j8j.supabase.co" />
         <script

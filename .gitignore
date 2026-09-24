@@ -38,3 +38,12 @@ playwright/.cache/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temp & scratch files
+_backups/
+scratch/
+design.pdf
+static-html/
+static-html-exact/
+pnpm-workspace.yaml
+

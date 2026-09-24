@@ -56,6 +56,8 @@
   --font-display: var(--font-display, 'Outfit', sans-serif);
   --font-body: var(--font-body, 'Inter', sans-serif);
   --font-accent: var(--font-accent, 'Lora', serif);
+  --font-serif-canva: var(--font-serif-canva, 'Cormorant Garamond', Georgia, serif);
+  --font-script-canva: var(--font-script-canva, 'Alex Brush', cursive);
 }
 
 /* ═══════════════════════════════════════
@@ -65,6 +67,16 @@
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
   --font-accent: var(--font-accent);
+  --font-canva-serif: var(--font-serif-canva);
+  --font-canva-script: var(--font-script-canva);
+
+  --color-canva-red: #8B1B1E;
+  --color-canva-red-dark: #6C1417;
+  --color-canva-sand: #C5A059;
+  --color-canva-sand-light: #E5D5BC;
+  --color-canva-sand-bg: #F5EFEB;
+  --color-canva-cream: #FAF6EF;
+  --color-canva-espresso: #2B2321;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -293,6 +305,16 @@
   .font-display { font-family: var(--font-display); }
   .font-body { font-family: var(--font-body); }
   .font-accent { font-family: var(--font-accent); }
+  .font-canva-heading { font-family: var(--font-serif-canva), 'Cormorant Garamond', Georgia, serif; }
+  .font-canva-script { font-family: var(--font-script-canva), 'Alex Brush', cursive; }
+
+  /* Canva color helpers */
+  .bg-canva-cream { background-color: #FAF6EF; }
+  .bg-canva-red { background-color: #8B1B1E; }
+  .text-canva-red { color: #8B1B1E; }
+  .border-canva-red { border-color: #8B1B1E; }
+  .text-canva-sand { color: #C5A059; }
+  .border-canva-sand { border-color: #C5A059; }
 
   /* ── Scroll Animation States ── */
   .scroll-animate {
