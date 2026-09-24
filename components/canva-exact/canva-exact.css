@@ -14,8 +14,8 @@
 .f5{font-family:'PlayfairDisplay-SemiBoldItalic',serif}
 .f6{font-family:'TheSeasons-Reg',serif}
 /* Truly Fullwidth Edge-to-Edge Layout like Rugby School Hanoi */
-.cv{width:100%;position:relative;background:#fff8ee;overflow-x:clip}
-.cv-page{--W:1024.5;--u:calc(100vw / var(--W));position:relative;width:100vw;width:100%;height:calc(var(--h) * var(--u));margin:0 auto}
+.cv{width:100%;position:relative;background:#fff8ee;overflow:hidden}
+.cv-page{--W:1024.5;--u:calc(100vw / var(--W));position:relative;width:100vw;width:100%;height:calc((var(--h) - 42) * var(--u));margin-top:calc(-42 * var(--u));margin-left:auto;margin-right:auto}
 @media (min-width: 1920px){.cv-page{--u:calc(1920px / var(--W));width:1920px}}
 /* fullbleed: break out of centered cv-page to span full viewport */
 .cv-fullbleed{position:absolute;left:50%;transform:translateX(-50%);width:100vw;pointer-events:none;z-index:0}
@@ -49,7 +49,7 @@
 .cv-menu-backdrop{position:absolute;inset:0;animation:cvFade .3s ease}
 .cv-menu-panel{position:absolute;top:0;right:0;height:100%;width:min(85vw, 360px);max-width:360px;container-type:inline-size;background:#fff8ee;overflow:auto;box-shadow:-4px 0 24px rgba(48,66,84,0.15);animation:cvSlide .35s cubic-bezier(.2,.7,.2,1)}
 /* menu panel uses its own container query width */
-.cv-menu-panel .cv-page{--W:315.5;--u:calc(100cqw / var(--W));width:100cqw;max-width:none;margin:0}
+.cv-menu-panel .cv-page{--W:315.5;--u:calc(100cqw / var(--W));width:100cqw;max-width:none;margin:0;height:calc(var(--h) * var(--u))}
 .cv-search{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u));width:calc(var(--w) * var(--u));height:calc(var(--h) * var(--u));
   border:0;background:transparent;font:calc(14 * var(--u)) 'OpenSans-Regular',sans-serif;outline:none;z-index:2}
 .cv-menu-close{position:absolute;left:calc(8 * var(--u));top:calc(6 * var(--u));width:calc(26 * var(--u));height:calc(26 * var(--u));border:0;background:none;
@@ -69,21 +69,30 @@
 .delay-400{transition-delay:0.4s}
 .delay-500{transition-delay:0.5s}
 
-/* Glassmorphism Frosted Glass Buttons — Vuông (Rectangular) chuẩn Rugby School Hanoi */
+/* Hero Action Buttons — Vuông chuẩn Rugby School Hanoi, không double border */
 .cv-pill-glass {
-  background: rgba(255, 255, 255, 0.12) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
-  border-radius: 3px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-  transition: all 0.2s ease !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .cv-pill-glass:hover {
-  background: rgba(255, 255, 255, 0.25) !important;
-  border-color: rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border: none !important;
+  box-shadow: none !important;
   transform: translateY(-1px);
+}
+.cv-pill-glass:active {
+  background: rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(0);
+}
+button.cv-pill-glass {
+  border-radius: 4px !important;
 }
 
 /* Sticky Navigation Bar (Kính mờ khi cuộn xuống) */
