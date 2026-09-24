@@ -13,16 +13,6 @@ export function CanvaExactAcademics() {
       <CanvaExactStickyNav onOpenMenu={() => setIsMenuOpen(true)} />
       <main className="cv">
         <div className="cv-page" style={{ '--h': 4278.75 } as React.CSSProperties}>
-          {/* Fullwidth footer band (100vw edge-to-edge) */}
-          <div
-            className="cv-fullbleed"
-            aria-hidden="true"
-            style={{
-              top: 'calc(3704 * var(--u))',
-              height: 'calc(575 * var(--u))',
-              backgroundColor: '#400e0d',
-            }}
-          />
           <img className="cv-bg" src="/canva-exact/bg/academics-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/academics-1.webp" alt="" style={{ '--y': 1024, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/academics-2.webp" alt="" style={{ '--y': 2048, '--h': 1024 } as React.CSSProperties} decoding="async" />

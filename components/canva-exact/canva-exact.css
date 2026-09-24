@@ -13,10 +13,10 @@
 .f4{font-family:'PlayfairDisplay-Regular',serif}
 .f5{font-family:'PlayfairDisplay-SemiBoldItalic',serif}
 .f6{font-family:'TheSeasons-Reg',serif}
-html,body{margin:0;background:#fff8ee;min-height:100vh;overflow-x:clip}
-/* .cv is now full-width; .cv-page centers the coordinate canvas */
+/* Truly Fullwidth Edge-to-Edge Layout like Rugby School Hanoi */
 .cv{width:100%;position:relative;background:#fff8ee;overflow-x:clip}
-.cv-page{--W:1024.5;--u:calc(min(100vw, 1024.5px) / var(--W));position:relative;width:min(100vw, 1024.5px);max-width:1024.5px;height:calc(var(--h) * var(--u));margin:0 auto}
+.cv-page{--W:1024.5;--u:calc(100vw / var(--W));position:relative;width:100vw;width:100%;height:calc(var(--h) * var(--u));margin:0 auto}
+@media (min-width: 1920px){.cv-page{--u:calc(1920px / var(--W));width:1920px}}
 /* fullbleed: break out of centered cv-page to span full viewport */
 .cv-fullbleed{position:absolute;left:50%;transform:translateX(-50%);width:100vw;pointer-events:none;z-index:0}
 .cv-bg{position:absolute;left:0;width:100%;top:calc(var(--y) * var(--u));height:calc((var(--h) + .5) * var(--u));display:block;user-select:none;pointer-events:none;z-index:1}
@@ -69,20 +69,20 @@ html,body{margin:0;background:#fff8ee;min-height:100vh;overflow-x:clip}
 .delay-400{transition-delay:0.4s}
 .delay-500{transition-delay:0.5s}
 
-/* Glassmorphism Frosted Glass Buttons (Kính mờ trong suốt) */
+/* Glassmorphism Frosted Glass Buttons — Vuông (Rectangular) chuẩn Rugby School Hanoi */
 .cv-pill-glass {
-  background: rgba(255, 255, 255, 0.16) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.35) !important;
-  border-radius: 9999px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.2s ease !important;
 }
 .cv-pill-glass:hover {
-  background: rgba(255, 255, 255, 0.3) !important;
-  border-color: rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
   transform: translateY(-1px);
 }
 
@@ -166,7 +166,7 @@ html,body{margin:0;background:#fff8ee;min-height:100vh;overflow-x:clip}
   gap: 10px;
 }
 
-/* Frosted glass buttons on sticky navbar */
+/* Frosted glass buttons on sticky navbar — Vuông chuẩn Rugby School */
 .cv-sticky-btn {
   display: inline-flex;
   align-items: center;
@@ -175,7 +175,7 @@ html,body{margin:0;background:#fff8ee;min-height:100vh;overflow-x:clip}
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 9999px;
+  border-radius: 3px;
   color: #ffffff;
   font-family: 'Gordita-Regular', sans-serif;
   font-size: 13px;
@@ -221,7 +221,7 @@ html,body{margin:0;background:#fff8ee;min-height:100vh;overflow-x:clip}
   justify-content: center;
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: 3px;
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
