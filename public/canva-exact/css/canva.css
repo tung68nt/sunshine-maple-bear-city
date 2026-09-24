@@ -109,40 +109,47 @@ button.cv-pill-glass {
   border-radius: 4px !important;
 }
 
-/* Hero Action Buttons over Video (Rectangular, sharp, no double border) */
+/* Hero Action Buttons over Video (Frosted Glass — Kính mờ sang trọng) */
 .cv-hero-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  background: rgba(255, 255, 255, 0.12) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border-radius: 2px !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
   color: #ffffff !important;
   text-decoration: none !important;
   font-family: 'Gordita-Regular', sans-serif !important;
   font-size: calc(12.553 * var(--u) * var(--font-scale, 0.84)) !important;
   line-height: 1 !important;
+  letter-spacing: 0.3px !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   cursor: pointer;
   z-index: 5;
 }
 .cv-hero-btn:hover {
-  background: rgba(255, 255, 255, 0.28) !important;
-  border-color: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  background: rgba(255, 255, 255, 0.36) !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
   transform: translateY(-1px);
+}
+.cv-hero-btn:active {
+  background: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(0);
 }
 .cv-hero-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: calc(1.2 * var(--u)) solid #ca9c57 !important;
-  background: rgba(202, 156, 87, 0.2) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border-radius: 2px !important;
+  border: calc(1.2 * var(--u)) solid rgba(202, 156, 87, 0.9) !important;
+  background: rgba(202, 156, 87, 0.28) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
   color: #ffffff !important;
   text-decoration: none !important;
   font-family: 'Gordita-Regular', sans-serif !important;
@@ -154,8 +161,9 @@ button.cv-pill-glass {
   z-index: 5;
 }
 .cv-hero-cta:hover {
-  background: rgba(202, 156, 87, 0.45) !important;
+  background: rgba(202, 156, 87, 0.52) !important;
   border-color: #ffffff !important;
+  box-shadow: 0 6px 22px rgba(202, 156, 87, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
   transform: translateX(-50%) translateY(-1px) !important;
 }
 
