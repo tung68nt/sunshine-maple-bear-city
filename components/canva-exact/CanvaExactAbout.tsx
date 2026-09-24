@@ -15,12 +15,6 @@ export function CanvaExactAbout() {
         <img className="cv-bg" src="/canva-exact/bg/about-1.webp" alt="" style={{ '--y': 1024, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/about-2.webp" alt="" style={{ '--y': 2048, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/about-3.webp" alt="" style={{ '--y': 3072, '--h': 778 } as React.CSSProperties} decoding="async" />
-        <p className="cv-t f6" style={{ '--x': 618.56, '--y': 10, '--s': 18, '--c': '#304254', 'opacity': 0.61 } as React.CSSProperties}>Page 1</p>
-        <p className="cv-t f6" style={{ '--x': 684.34, '--y': 10, '--s': 18, '--c': '#304254', 'opacity': 0.61 } as React.CSSProperties}>Page 2</p>
-        <p className="cv-t f6" style={{ '--x': 753.63, '--y': 10, '--s': 18, '--c': '#304254' } as React.CSSProperties}>Page 3</p>
-        <p className="cv-t f6" style={{ '--x': 822.46, '--y': 10, '--s': 18, '--c': '#304254', 'opacity': 0.61 } as React.CSSProperties}>Page 4</p>
-        <p className="cv-t f6" style={{ '--x': 892.02, '--y': 10, '--s': 18, '--c': '#304254', 'opacity': 0.61 } as React.CSSProperties}>Page 5</p>
-        <p className="cv-t f6" style={{ '--x': 960.73, '--y': 10, '--s': 18, '--c': '#304254', 'opacity': 0.61 } as React.CSSProperties}>Page 6</p>
         <p className="cv-t f0" style={{ '--x': 477, '--y': 94.28, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>Book a visit</p>
         <p className="cv-t f0" style={{ '--x': 588.7, '--y': 94.28, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>Genaral enquiries</p>
         <p className="cv-t f0" style={{ '--x': 741.08, '--y': 94.28, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>Register interest</p>
@@ -143,12 +137,6 @@ export function CanvaExactAbout() {
         <h3 className="cv-t f6" style={{ '--x': 884.41, '--y': 3682.96, '--s': 21.795, '--c': '#ca9c57', '--ls': -0.006 } as React.CSSProperties}>New</h3>
         <p className="cv-t f3" style={{ '--x': 78.91, '--y': 3790.84, '--s': 14.55, '--c': '#ffffff' } as React.CSSProperties}>© 2026 SUNSHINE MAPLE BEAR INTERNATIONAL SCHOOL. ALL RIGHTS RESERVED.</p>
         <p className="cv-t f3" style={{ '--x': 748.77, '--y': 3790.84, '--s': 14.55, '--c': '#ffffff' } as React.CSSProperties}>Follow us</p>
-        <Link href="/" className="cv-a" aria-label="Page 1" style={{ '--x': 614.6, '--y': 8.8, '--w': 55.7, '--h': 24.7 } as React.CSSProperties} />
-        <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a" aria-label="Page 2" style={{ '--x': 680.3, '--y': 8.8, '--w': 59.3, '--h': 24.7 } as React.CSSProperties} />
-        <Link href="/about" className="cv-a" aria-label="Page 3" style={{ '--x': 749.6, '--y': 8.8, '--w': 58.8, '--h': 24.7 } as React.CSSProperties} />
-        <Link href="/academics" className="cv-a" aria-label="Page 4" style={{ '--x': 818.5, '--y': 8.8, '--w': 59.5, '--h': 24.7 } as React.CSSProperties} />
-        <Link href="/admissions" className="cv-a" aria-label="Page 5" style={{ '--x': 888, '--y': 8.8, '--w': 58.7, '--h': 24.7 } as React.CSSProperties} />
-        <Link href="/admissions/founding-families" className="cv-a" aria-label="Page 6" style={{ '--x': 956.7, '--y': 8.8, '--w': 59.8, '--h': 24.7 } as React.CSSProperties} />
         <Link href="/admissions#contact" className="cv-a" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
         <Link href="/admissions#contact" className="cv-a" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
         <Link href="/admissions/founding-families" className="cv-a" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
