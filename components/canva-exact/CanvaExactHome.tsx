@@ -7,6 +7,7 @@ import { CanvaExactContactForm } from './CanvaExactContactForm'
 import { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive'
 import { CanvaFadeSection } from './CanvaFadeSection'
 import { CanvaExactStickyNav } from './CanvaExactStickyNav'
+import { CanvaExactFacilitiesCarousel } from './CanvaExactFacilitiesCarousel'
 import './canva-exact.css'
 
 export function CanvaExactHome() {
@@ -260,19 +261,19 @@ export function CanvaExactHome() {
             </Link>
           </CanvaFadeSection>
 
-          {/* Section 2: Stats Strip */}
-          <CanvaFadeSection y={510} h={130} animation="slide-up" delay={0.1}>
-            <h2 className="cv-t f0" style={{ '--x': 114.22, '--y': 531.04, '--s': 35.501, '--c': '#ca9c57' } as React.CSSProperties}>15+</h2>
-            <p className="cv-t f6" style={{ '--x': 76.89, '--y': 577.94, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>YEARS OF EXCELLENCE</p>
-            <h2 className="cv-t f0" style={{ '--x': 330.17, '--y': 531.04, '--s': 35.501, '--c': '#ca9c57' } as React.CSSProperties}>580+</h2>
-            <p className="cv-t f6" style={{ '--x': 307.98, '--y': 577.94, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>YEARS OF EXCELLENCE</p>
-            <h2 className="cv-t f0" style={{ '--x': 592.36, '--y': 531, '--s': 33.6, '--c': '#ca9c57' } as React.CSSProperties}>18</h2>
-            <p className="cv-t f0" style={{ '--x': 630.94, '--y': 542.52, '--s': 23.198, '--c': '#ca9c57' } as React.CSSProperties}>m</p>
-            <p className="cv-t f6" style={{ '--x': 563.33, '--y': 577.94, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}> AUTHENTIC CANADIAN</p>
-            <p className="cv-t f6" style={{ '--x': 588.82, '--y': 592.91, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>CURRICULUM</p>
-            <h2 className="cv-t f0" style={{ '--x': 831.74, '--y': 532.82, '--s': 35.501, '--c': '#ca9c57' } as React.CSSProperties}>100%</h2>
-            <p className="cv-t f6" style={{ '--x': 820.88, '--y': 579.72, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}> AUTHENTIC CANADIAN</p>
-            <p className="cv-t f6" style={{ '--x': 846.37, '--y': 594.69, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>CURRICULUM</p>
+          {/* Section 2: Stats Strip - cv-ghost prevents double text/shadow with baked background graphics */}
+          <CanvaFadeSection y={510} h={130} animation="fade-in">
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 114.22, '--y': 531.04, '--s': 35.501, '--c': '#ca9c57' } as React.CSSProperties}>15+</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 76.89, '--y': 577.94, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>YEARS OF EXCELLENCE</p>
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 330.17, '--y': 531.04, '--s': 35.501, '--c': '#ca9c57' } as React.CSSProperties}>580+</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 307.98, '--y': 577.94, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>YEARS OF EXCELLENCE</p>
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 592.36, '--y': 531, '--s': 33.6, '--c': '#ca9c57' } as React.CSSProperties}>18</h2>
+            <p className="cv-t f0 cv-ghost" style={{ '--x': 630.94, '--y': 542.52, '--s': 23.198, '--c': '#ca9c57' } as React.CSSProperties}>m</p>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 563.33, '--y': 577.94, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}> AUTHENTIC CANADIAN</p>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 588.82, '--y': 592.91, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>CURRICULUM</p>
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 831.74, '--y': 532.82, '--s': 35.501, '--c': '#ca9c57' } as React.CSSProperties}>100%</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 820.88, '--y': 579.72, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}> AUTHENTIC CANADIAN</p>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 846.37, '--y': 594.69, '--s': 11.409, '--c': '#ffffff' } as React.CSSProperties}>CURRICULUM</p>
           </CanvaFadeSection>
 
           {/* Section 3: Introduction */}
@@ -411,24 +412,25 @@ export function CanvaExactHome() {
             <p className="cv-t f3" style={{ '--x': 681.13, '--y': 3351.17, '--s': 14.55, '--c': '#3d3d3d' } as React.CSSProperties}>Curiosity-driven exploration</p>
           </CanvaFadeSection>
 
-          {/* Section 8: Campus & Facilities */}
-          <CanvaFadeSection y={3500} h={480} animation="slide-up">
+          {/* Section 8: Campus & Facilities with Interactive Carousel & Lightbox Gallery */}
+          <CanvaFadeSection y={3500} h={480} animation="fade-in">
             <h2 className="cv-t f6 cv-ghost" style={{ '--x': 66.16, '--y': 3534.11, '--s': 88.014, '--c': '#7e0e12' } as React.CSSProperties}>CAMPUS & FACILITIES </h2>
             <h2 className="cv-t f5 cv-ghost" style={{ '--x': 751.88, '--y': 3577.17, '--s': 50.959, '--c': '#ca9c57' } as React.CSSProperties}>Overview</h2>
-            <h3 className="cv-t f6" style={{ '--x': 303.99, '--y': 3896.19, '--s': 21.525, '--c': '#ca9c57' } as React.CSSProperties}>Classroom</h3>
-            <h3 className="cv-t f6" style={{ '--x': 628.28, '--y': 3896.19, '--s': 21.525, '--c': '#ca9c57' } as React.CSSProperties}>Library</h3>
+
+            {/* Interactive Facilities Carousel with Lightbox Gallery */}
+            <CanvaExactFacilitiesCarousel />
           </CanvaFadeSection>
 
           {/* Section 9: Maple Bear Around the World & Stats */}
-          <CanvaFadeSection y={4030} h={560} animation="slide-up">
-            <h2 className="cv-t f0" style={{ '--x': 893.17, '--y': 4049.44, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>15+</h2>
-            <p className="cv-t f6" style={{ '--x': 830.85, '--y': 4096.34, '--s': 11.409, '--c': '#3d3d3d' } as React.CSSProperties}>YEARS OF EXCELLENCE</p>
-            <h2 className="cv-t f0" style={{ '--x': 859.69, '--y': 4142.6, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>500+</h2>
-            <p className="cv-t f6" style={{ '--x': 823.09, '--y': 4189.26, '--s': 11.408, '--c': '#3d3d3d' } as React.CSSProperties}>SCHOOLS IN OPERATION</p>
-            <h2 className="cv-t f0" style={{ '--x': 795.45, '--y': 4235.64, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>70,000+</h2>
-            <p className="cv-t f6" style={{ '--x': 839.36, '--y': 4282.31, '--s': 11.408, '--c': '#3d3d3d' } as React.CSSProperties}>STUDENTS ENROLLED</p>
-            <h2 className="cv-t f0" style={{ '--x': 889.91, '--y': 4328.69, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>37+</h2>
-            <p className="cv-t f6" style={{ '--x': 890.31, '--y': 4375.35, '--s': 11.408, '--c': '#3d3d3d' } as React.CSSProperties}>COUNTRIES</p>
+          <CanvaFadeSection y={4030} h={560} animation="fade-in">
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 893.17, '--y': 4049.44, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>15+</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 830.85, '--y': 4096.34, '--s': 11.409, '--c': '#3d3d3d' } as React.CSSProperties}>YEARS OF EXCELLENCE</p>
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 859.69, '--y': 4142.6, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>500+</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 823.09, '--y': 4189.26, '--s': 11.408, '--c': '#3d3d3d' } as React.CSSProperties}>SCHOOLS IN OPERATION</p>
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 795.45, '--y': 4235.64, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>70,000+</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 839.36, '--y': 4282.31, '--s': 11.408, '--c': '#3d3d3d' } as React.CSSProperties}>STUDENTS ENROLLED</p>
+            <h2 className="cv-t f0 cv-ghost" style={{ '--x': 889.91, '--y': 4328.69, '--s': 35.501, '--c': '#7e0e12' } as React.CSSProperties}>37+</h2>
+            <p className="cv-t f6 cv-ghost" style={{ '--x': 890.31, '--y': 4375.35, '--s': 11.408, '--c': '#3d3d3d' } as React.CSSProperties}>COUNTRIES</p>
 
             <h2 className="cv-t f6" style={{ '--x': 214.96, '--y': 4441.22, '--s': 36.998, '--c': '#7e0e12' } as React.CSSProperties}>MAPLE BEAR </h2>
             <h2 className="cv-t f6" style={{ '--x': 438.05, '--y': 4441.22, '--s': 36.998, '--c': '#000000' } as React.CSSProperties}>AROUND THE WORLD</h2>

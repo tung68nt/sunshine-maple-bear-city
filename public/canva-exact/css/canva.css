@@ -34,38 +34,22 @@
 /* fullbleed: break out of centered cv-page to span full viewport */
 .cv-fullbleed{position:absolute;left:50%;transform:translateX(-50%);width:100vw;pointer-events:none;z-index:0}
 .cv-bg{position:absolute;left:0;width:100%;top:calc(var(--y) * var(--u));height:calc((var(--h) + .5) * var(--u));display:block;user-select:none;pointer-events:none;z-index:1}
-/* Scroll-triggered Section Fade & Slide Animations (Exact Rugby School Hanoi implementation) */
+/* Scroll-triggered Section Fade Animations (Clean opacity fade with zero displacement) */
 .cv-fade-layer {
   position: absolute;
   inset: 0;
   z-index: 3;
   pointer-events: none;
   opacity: 0;
-  will-change: opacity, transform;
-  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity;
+  transition: opacity 0.75s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .cv-fade-layer > * {
   pointer-events: auto;
 }
-.cv-fade-layer.slide-up,
-.cv-fade-layer.delay--slide-up {
-  opacity: 0;
-  transform: translateY(28px);
-}
-.cv-fade-layer.fade-in,
-.cv-fade-layer.delay--fade-in {
-  opacity: 0;
-  transform: scale(0.98);
-}
-.cv-fade-layer.zoom-in,
-.cv-fade-layer.delay--zoom-in {
-  opacity: 0;
-  transform: scale(0.94);
-}
 .cv-fade-layer.is-visible,
 .cv-fade-layer.delay--enter {
   opacity: 1 !important;
-  transform: translateY(0) scale(1) !important;
 }
 
 .cv-hero-video-wrap {
@@ -81,6 +65,69 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Facilities Carousel & Lightbox Gallery Styles */
+.cv-facilities-carousel-root {
+  position: absolute;
+}
+.cv-carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(34 * var(--u));
+  height: calc(34 * var(--u));
+  border-radius: 50%;
+  background: rgba(20, 10, 12, 0.78);
+  border: calc(1 * var(--u)) solid rgba(202, 156, 87, 0.6);
+  color: #ca9c57;
+  font-size: calc(22 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  line-height: 1;
+  padding: 0;
+}
+.cv-carousel-prev {
+  left: calc(10 * var(--u));
+}
+.cv-carousel-next {
+  right: calc(10 * var(--u));
+}
+.cv-carousel-nav-btn:hover {
+  background: rgba(126, 14, 18, 0.95);
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+.cv-facility-card:hover {
+  transform: translateY(calc(-4 * var(--u)));
+  box-shadow: 0 calc(12 * var(--u)) calc(30 * var(--u)) rgba(126, 14, 18, 0.35) !important;
+  border-color: #ca9c57 !important;
+}
+.cv-facility-card:hover .cv-facility-img {
+  transform: scale(1.05);
+}
+
+@keyframes cvModalFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cvPhotoFade {
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Ensure cv-ghost is 100% invisible so it never creates double shadow / text */
+.cv-ghost {
+  opacity: 0 !important;
+  color: transparent !important;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 .cv-t{position:absolute;margin:0;padding:0;white-space:pre;line-height:normal;font-weight:400;font-style:normal;
   left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u));font-size:calc(var(--s) * var(--u) * var(--font-scale, 0.84));
