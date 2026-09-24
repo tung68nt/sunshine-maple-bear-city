@@ -34,7 +34,7 @@
 /* fullbleed: break out of centered cv-page to span full viewport */
 .cv-fullbleed{position:absolute;left:50%;transform:translateX(-50%);width:100vw;pointer-events:none;z-index:0}
 .cv-bg{position:absolute;left:0;width:100%;top:calc(var(--y) * var(--u));height:calc((var(--h) + .5) * var(--u));display:block;user-select:none;pointer-events:none;z-index:1}
-/* Scroll-triggered Section Fade & Slide Animations */
+/* Scroll-triggered Section Fade & Slide Animations (Exact Rugby School Hanoi implementation) */
 .cv-fade-layer {
   position: absolute;
   inset: 0;
@@ -42,7 +42,7 @@
   pointer-events: none;
   opacity: 0;
   will-change: opacity, transform;
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .cv-fade-layer > * {
   pointer-events: auto;
@@ -50,17 +50,17 @@
 .cv-fade-layer.slide-up,
 .cv-fade-layer.delay--slide-up {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(28px);
 }
 .cv-fade-layer.fade-in,
 .cv-fade-layer.delay--fade-in {
   opacity: 0;
-  transform: scale(0.975);
+  transform: scale(0.98);
 }
 .cv-fade-layer.zoom-in,
 .cv-fade-layer.delay--zoom-in {
   opacity: 0;
-  transform: scale(0.93);
+  transform: scale(0.94);
 }
 .cv-fade-layer.is-visible,
 .cv-fade-layer.delay--enter {
