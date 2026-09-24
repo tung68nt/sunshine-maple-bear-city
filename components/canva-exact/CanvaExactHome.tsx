@@ -7,6 +7,7 @@ import { CanvaExactContactForm } from './CanvaExactContactForm'
 import { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive'
 import { CanvaFadeSection } from './CanvaFadeSection'
 import { CanvaExactStickyNav } from './CanvaExactStickyNav'
+import './canva-exact.css'
 
 export function CanvaExactHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
