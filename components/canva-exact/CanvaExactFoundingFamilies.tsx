@@ -4,12 +4,14 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { CanvaExactDrawer } from './CanvaExactDrawer'
 import { CanvaExactContactForm } from './CanvaExactContactForm'
+import { CanvaExactStickyNav } from './CanvaExactStickyNav'
 
 export function CanvaExactFoundingFamilies() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <>
+      <CanvaExactStickyNav onOpenMenu={() => setIsMenuOpen(true)} />
       <main className="cv">
         <div className="cv-page" style={{ '--h': 3199.5 } as React.CSSProperties}>
         <img className="cv-bg" src="/canva-exact/bg/founding-families-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
@@ -76,9 +78,9 @@ export function CanvaExactFoundingFamilies() {
         <h3 className="cv-t f6" style={{ '--x': 884.41, '--y': 3032.71, '--s': 21.795, '--c': '#ca9c57', '--ls': -0.006 } as React.CSSProperties}>New</h3>
         <p className="cv-t f3" style={{ '--x': 78.91, '--y': 3140.59, '--s': 14.55, '--c': '#ffffff' } as React.CSSProperties}>© 2026 SUNSHINE MAPLE BEAR INTERNATIONAL SCHOOL. ALL RIGHTS RESERVED.</p>
         <p className="cv-t f3" style={{ '--x': 748.77, '--y': 3140.59, '--s': 14.55, '--c': '#ffffff' } as React.CSSProperties}>Follow us</p>
-        <a href="#contact" className="cv-a" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
-        <a href="#contact" className="cv-a" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
-        <Link href="/admissions/founding-families" className="cv-a" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
+        <a href="#contact" className="cv-a cv-pill-glass" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
+        <a href="#contact" className="cv-a cv-pill-glass" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
+        <Link href="/admissions/founding-families" className="cv-a cv-pill-glass" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
         <Link href="/admissions/founding-families" className="cv-a" aria-label="Register interest" style={{ '--x': 58.6, '--y': 1082.8, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
         <button type="submit" form="cv-contact" className="cv-a" aria-label="Send" style={{ '--x': 265, '--y': 2538, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
         <a href="tel:0942546655" className="cv-a" aria-label="094 254 6655" style={{ '--x': 109.5, '--y': 3013.6, '--w': 98.6, '--h': 25.8 } as React.CSSProperties} />
@@ -88,7 +90,7 @@ export function CanvaExactFoundingFamilies() {
         <Link href="/admissions" className="cv-a" aria-label="Admissions" style={{ '--x': 810.8, '--y': 2901.3, '--w': 119.3, '--h': 28.6 } as React.CSSProperties} />
         <Link href="/academics" className="cv-a" aria-label="Curriculum" style={{ '--x': 808.1, '--y': 2988.4, '--w': 121, '--h': 28.5 } as React.CSSProperties} />
         <Link href="/blog" className="cv-a" aria-label="New" style={{ '--x': 880.4, '--y': 3032, '--w': 49.7, '--h': 28.5 } as React.CSSProperties} />
-        <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
+        <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a cv-pill-glass" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
         <Link href="/" className="cv-a" aria-label="Sunshine Maple Bear home" style={{ '--x': 0, '--y': 42, '--w': 270, '--h': 120 } as React.CSSProperties} />
         <span id="contact" className="cv-anchor" style={{ '--y': 2091.7 } as React.CSSProperties} />
         <CanvaExactContactForm x={111.91} y={2231.73} pageTitle="CanvaExactFoundingFamilies" />

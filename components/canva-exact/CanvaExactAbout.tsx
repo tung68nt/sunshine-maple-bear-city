@@ -3,12 +3,14 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { CanvaExactDrawer } from './CanvaExactDrawer'
+import { CanvaExactStickyNav } from './CanvaExactStickyNav'
 
 export function CanvaExactAbout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <>
+      <CanvaExactStickyNav onOpenMenu={() => setIsMenuOpen(true)} />
       <main className="cv">
         <div className="cv-page" style={{ '--h': 3849.75 } as React.CSSProperties}>
           {/* Fullwidth footer band (100vw edge-to-edge) */}
@@ -147,9 +149,9 @@ export function CanvaExactAbout() {
         <h3 className="cv-t f6" style={{ '--x': 884.41, '--y': 3682.96, '--s': 21.795, '--c': '#ca9c57', '--ls': -0.006 } as React.CSSProperties}>New</h3>
         <p className="cv-t f3" style={{ '--x': 78.91, '--y': 3790.84, '--s': 14.55, '--c': '#ffffff' } as React.CSSProperties}>© 2026 SUNSHINE MAPLE BEAR INTERNATIONAL SCHOOL. ALL RIGHTS RESERVED.</p>
         <p className="cv-t f3" style={{ '--x': 748.77, '--y': 3790.84, '--s': 14.55, '--c': '#ffffff' } as React.CSSProperties}>Follow us</p>
-        <Link href="/admissions#contact" className="cv-a" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
-        <Link href="/admissions#contact" className="cv-a" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
-        <Link href="/admissions/founding-families" className="cv-a" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
+        <Link href="/admissions#contact" className="cv-a cv-pill-glass" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
+        <Link href="/admissions#contact" className="cv-a cv-pill-glass" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
+        <Link href="/admissions/founding-families" className="cv-a cv-pill-glass" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
         <Link href="/academics" className="cv-a" aria-label="More" style={{ '--x': 599.3, '--y': 1587.7, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
         <Link href="/academics" className="cv-a" aria-label="More" style={{ '--x': 110.6, '--y': 2704.5, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
         <Link href="/academics" className="cv-a" aria-label="More" style={{ '--x': 412.3, '--y': 2704.5, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
@@ -162,7 +164,7 @@ export function CanvaExactAbout() {
         <Link href="/admissions" className="cv-a" aria-label="Admission" style={{ '--x': 820, '--y': 3551.6, '--w': 109.6, '--h': 28.5 } as React.CSSProperties} />
         <Link href="/academics" className="cv-a" aria-label="Curriculum" style={{ '--x': 808.1, '--y': 3638.6, '--w': 121, '--h': 28.5 } as React.CSSProperties} />
         <Link href="/blog" className="cv-a" aria-label="New" style={{ '--x': 880.4, '--y': 3682.2, '--w': 49.7, '--h': 28.5 } as React.CSSProperties} />
-        <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
+        <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a cv-pill-glass" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
         <Link href="/" className="cv-a" aria-label="Sunshine Maple Bear home" style={{ '--x': 0, '--y': 42, '--w': 270, '--h': 120 } as React.CSSProperties} />
         </div>
       </main>

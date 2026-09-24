@@ -6,12 +6,14 @@ import { CanvaExactDrawer } from './CanvaExactDrawer'
 import { CanvaExactContactForm } from './CanvaExactContactForm'
 import { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive'
 import { CanvaFadeSection } from './CanvaFadeSection'
+import { CanvaExactStickyNav } from './CanvaExactStickyNav'
 
 export function CanvaExactHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <>
+      <CanvaExactStickyNav onOpenMenu={() => setIsMenuOpen(true)} />
       <main className="cv">
         <div className="cv-page" style={{ '--h': 5754 } as React.CSSProperties}>
           {/* Fullwidth background bands behind canvas (100vw edge-to-edge) */}
@@ -86,11 +88,11 @@ export function CanvaExactHome() {
             <h2 className="cv-t f6" style={{ '--x': 218.26, '--y': 296.16, '--s': 38.947, '--c': '#ffffff' } as React.CSSProperties}>INTERNATIONAL KINDERGARTEN</h2>
             <p className="cv-t f0" style={{ '--x': 451.68, '--y': 370.72, '--s': 12.553, '--c': '#ffffff' } as React.CSSProperties}>ABOUT US</p>
 
-            {/* Links and interactive click overlays */}
-            <a href="#contact" className="cv-a" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
-            <a href="#contact" className="cv-a" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
-            <Link href="/admissions/founding-families" className="cv-a" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
-            <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
+            {/* Links and interactive click overlays with frosted glass styling */}
+            <a href="#contact" className="cv-a cv-pill-glass" aria-label="Book a visit" style={{ '--x': 463.3, '--y': 89.1, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
+            <a href="#contact" className="cv-a cv-pill-glass" aria-label="Genaral enquiries" style={{ '--x': 575.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
+            <Link href="/admissions/founding-families" className="cv-a cv-pill-glass" aria-label="Register interest" style={{ '--x': 724.4, '--y': 89.1, '--w': 135.2, '--h': 27.6 } as React.CSSProperties} />
+            <button type="button" onClick={() => setIsMenuOpen(true)} className="cv-a cv-pill-glass" aria-label="Open menu" style={{ '--x': 925, '--y': 84, '--w': 50, '--h': 38 } as React.CSSProperties} />
             <Link href="/" className="cv-a" aria-label="Sunshine Maple Bear home" style={{ '--x': 0, '--y': 42, '--w': 270, '--h': 120 } as React.CSSProperties} />
             <Link href="/about" className="cv-a" aria-label="ABOUT US" style={{ '--x': 430, '--y': 362.2, '--w': 113, '--h': 33.6 } as React.CSSProperties} />
           </CanvaFadeSection>
