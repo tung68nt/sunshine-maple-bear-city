@@ -14,8 +14,7 @@ interface CanvaFadeSectionProps {
 /**
  * Rugby School Hanoi-inspired section scroll transition wrapper.
  * Uses an IntersectionObserver attached to an exact vertical waypoint trigger
- * to trigger luxurious, smooth fade-in / slide-up animations on entry,
- * and gentle fade-out when scrolled away so sections re-animate gracefully on re-entry.
+ * to trigger luxurious, smooth fade-in / slide-up animations on entry.
  */
 export function CanvaFadeSection({
   y,
@@ -26,9 +25,17 @@ export function CanvaFadeSection({
   className = '',
 }: CanvaFadeSectionProps) {
   const triggerRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // For hero section (y === 0), animate in shortly after mount for a smooth arrival effect
+    if (y === 0) {
+      const timer = setTimeout(() => {
+        setIsVisible(true)
+      }, 80)
+      return () => clearTimeout(timer)
+    }
+
     const el = triggerRef.current
     if (!el || typeof IntersectionObserver === 'undefined') {
       setIsVisible(true)
@@ -44,18 +51,18 @@ export function CanvaFadeSection({
       },
       {
         root: null,
-        rootMargin: '120px 0px 120px 0px',
-        threshold: 0.01,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
       }
     )
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [y])
 
   return (
     <>
-      {/* Waypoint trigger */}
+      {/* Waypoint trigger positioned at the section's exact canvas coordinates */}
       <div
         ref={triggerRef}
         aria-hidden="true"
@@ -75,7 +82,7 @@ export function CanvaFadeSection({
 
       {/* Animated Section Content Layer: zIndex 3 so it is ALWAYS above cv-bg (z-index: 1) */}
       <div
-        className={`cv-fade-layer delay delay--${animation} ${isVisible ? 'delay--enter' : ''} ${className}`}
+        className={`cv-fade-layer ${animation} delay--${animation} ${isVisible ? 'is-visible delay--enter' : ''} ${className}`}
         style={
           {
             position: 'absolute',

@@ -42,22 +42,22 @@ export function CanvaExactHome() {
               } as React.CSSProperties
             }
           >
-            {/* YouTube Background Video Player */}
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/Dlpm1zqxziw?autoplay=1&mute=1&loop=1&playlist=Dlpm1zqxziw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
-              title="Sunshine Maple Bear Hero Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            {/* Native HTML5 Background Video Player - Zero YouTube branding */}
+            <video
+              src="/videos/hero-bg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                width: '100vw',
-                height: '56.25vw',
-                minHeight: '100%',
-                minWidth: '177.78vh',
-                transform: 'translate(-50%, -50%) scale(1.35)',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                transform: 'translate(-50%, -50%)',
                 pointerEvents: 'none',
-                border: 0,
               }}
             />
             {/* Cinematic Gradient Vignette Overlay */}
@@ -307,17 +307,17 @@ export function CanvaExactHome() {
               style={
                 {
                   position: 'absolute',
-                  left: 'calc(610 * var(--u))',
-                  top: 'calc(1350 * var(--u))',
-                  width: 'calc(414.5 * var(--u))',
-                  height: 'calc(385 * var(--u))',
+                  left: 'calc(600 * var(--u))',
+                  top: 'calc(1310 * var(--u))',
+                  width: 'calc(424.5 * var(--u))',
+                  height: 'calc(440 * var(--u))',
                   backgroundColor: '#9a1c20',
                   zIndex: 2,
                 } as React.CSSProperties
               }
             />
 
-            {/* Head of School Video Player */}
+            {/* Head of School Video Player - Native HTML5, Zero YouTube branding */}
             <div
               className="cv-head-video-card"
               style={
@@ -330,22 +330,24 @@ export function CanvaExactHome() {
                   zIndex: 5,
                   borderRadius: 'calc(6 * var(--u))',
                   overflow: 'hidden',
-                  border: 'calc(1.5 * var(--u)) solid rgba(202, 156, 87, 0.65)',
+                  border: 'calc(1.5 * var(--u)) solid rgba(202, 156, 87, 0.75)',
                   boxShadow: '0 calc(8 * var(--u)) calc(24 * var(--u)) rgba(0, 0, 0, 0.45)',
                   backgroundColor: '#000000',
                 } as React.CSSProperties
               }
             >
-              <iframe
-                src="https://www.youtube.com/embed/Dlpm1zqxziw?rel=0&modestbranding=1&playsinline=1"
-                title="Message from Head of School — Sunshine Maple Bear"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+              <video
+                src="/videos/head-of-school.mp4"
+                poster="/videos/head-of-school-poster.jpg"
+                controls
+                playsInline
+                preload="metadata"
                 style={{
                   width: '100%',
                   height: '100%',
-                  border: 0,
+                  objectFit: 'cover',
                   display: 'block',
+                  backgroundColor: '#000000',
                 }}
               />
             </div>
