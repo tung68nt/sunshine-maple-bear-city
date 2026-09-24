@@ -21,10 +21,10 @@ export function CanvaExactHome() {
             className="cv-fullbleed"
             aria-hidden="true"
             style={{
-              top: 'calc(42 * var(--u))',
-              height: 'calc(458 * var(--u))',
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url(/images/canva/hero_bg.png)',
-              backgroundPosition: 'center center',
+              top: 0,
+              height: 'calc(500 * var(--u))',
+              backgroundImage: 'url(/images/canva/hero_bg.png)',
+              backgroundPosition: 'center top',
               backgroundSize: 'cover',
             }}
           />
@@ -156,9 +156,7 @@ export function CanvaExactHome() {
           </CanvaFadeSection>
 
           {/* Section 6: Interactive 4 Pillars */}
-          <CanvaFadeSection y={2410} h={455} animation="slide-up">
-            <CanvaExactWhyChooseInteractive />
-          </CanvaFadeSection>
+          <CanvaExactWhyChooseInteractive />
 
           {/* Section 7: Canadian Curriculum */}
           <CanvaFadeSection y={2930} h={520} animation="slide-up">

@@ -26,47 +26,36 @@ export function CanvaFadeSection({
   className = '',
 }: CanvaFadeSectionProps) {
   const triggerRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
     const el = triggerRef.current
-    if (!el) return
-
-    // Immediately show hero / top section without waiting for scroll
-    if (y < 400) {
+    if (!el || typeof IntersectionObserver === 'undefined') {
       setIsVisible(true)
+      return
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-        } else {
-          // Check if element is truly out of viewport before fading out
-          const rect = entry.boundingClientRect
-          const windowHeight = window.innerHeight || (document.documentElement ? document.documentElement.clientHeight : 800)
-          if (rect.bottom < 0 || rect.top > windowHeight) {
-            // Keep top section visible once loaded
-            if (y >= 400) {
-              setIsVisible(false)
-            }
-          }
+          observer.unobserve(entry.target)
         }
       },
       {
         root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0,
+        rootMargin: '120px 0px 120px 0px',
+        threshold: 0.01,
       }
     )
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [y])
+  }, [])
 
   return (
     <>
-      {/* Invisible Trigger Waypoint positioned exactly at [y, y + h] */}
+      {/* Waypoint trigger */}
       <div
         ref={triggerRef}
         aria-hidden="true"
@@ -78,20 +67,22 @@ export function CanvaFadeSection({
             width: '100%',
             height: `calc(${h} * var(--u))`,
             pointerEvents: 'none',
-            visibility: 'hidden',
+            opacity: 0,
+            zIndex: -1,
           } as React.CSSProperties
         }
       />
 
-      {/* Animated Section Content Layer with Rugby School cubic-bezier timing */}
+      {/* Animated Section Content Layer: zIndex 3 so it is ALWAYS above cv-bg (z-index: 1) */}
       <div
         className={`cv-fade-layer delay delay--${animation} ${isVisible ? 'delay--enter' : ''} ${className}`}
         style={
           {
             position: 'absolute',
             inset: 0,
+            zIndex: 3,
             pointerEvents: 'none',
-            transitionDelay: isVisible && delay > 0 ? `${delay}s` : '0s',
+            transitionDelay: delay > 0 ? `${delay}s` : '0s',
           } as React.CSSProperties
         }
       >
