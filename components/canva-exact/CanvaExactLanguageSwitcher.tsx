@@ -116,7 +116,7 @@ export function CanvaExactLanguageSwitcher({
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Chọn ngôn ngữ"
-        className="button--menu cv-lang-btn"
+        className="rn-btn rn-btn--hero cv-lang-btn"
       >
         <span>{currentLang.short}</span>
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(180deg)' : 'none' }}>

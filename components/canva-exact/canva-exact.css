@@ -34,22 +34,60 @@
 /* fullbleed: break out of centered cv-page to span full viewport */
 .cv-fullbleed{position:absolute;left:50%;transform:translateX(-50%);width:100vw;pointer-events:none;z-index:0}
 .cv-bg{position:absolute;left:0;width:100%;top:calc(var(--y) * var(--u));height:calc((var(--h) + .5) * var(--u));display:block;user-select:none;pointer-events:none;z-index:1}
-/* Scroll-triggered Section Fade Animations (Clean opacity fade with zero displacement) */
+/* ==========================================================================
+   Scroll-triggered Section Animations — Rugby School Hanoi delay system
+   From app.c3837e12.css:
+   .delay.delay--slide-up { opacity:0; transition:.4s; transform:translateY(10%) }
+   .delay.delay--fade-in { opacity:0; transition:.8s }
+   .delay.delay--slide-up.delay--enter { opacity:1; transform:translateY(0) }
+   .delay.delay--fade-in.delay--enter { opacity:1 }
+   ========================================================================== */
 .cv-fade-layer {
   position: absolute;
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
 }
 .cv-fade-layer > * {
   pointer-events: auto;
 }
-.cv-fade-layer.is-visible,
+
+/* ─── Slide Up (Rugby: translateY(10%) → translateY(0)) ─── */
+.cv-fade-layer.slide-up {
+  opacity: 0;
+  transform: translateY(10%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.cv-fade-layer.slide-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Fade In (Rugby: opacity only, 0.8s) ─── */
+.cv-fade-layer.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.cv-fade-layer.fade-in.is-visible {
+  opacity: 1;
+}
+
+/* ─── Zoom In ─── */
+.cv-fade-layer.zoom-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.cv-fade-layer.zoom-in.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Legacy class support */
 .cv-fade-layer.delay--enter {
   opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 .cv-hero-video-wrap {
@@ -479,373 +517,6 @@ button.cv-pill-glass {
   background-color: #000000;
 }
 
-/* Sticky Navigation Bar (Kính mờ khi cuộn xuống) */
-.cv-sticky-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 99;
-  background: rgba(45, 12, 14, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(202, 156, 87, 0.32);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.22);
-  padding: 10px 24px;
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-}
-
-.cv-sticky-nav.is-sticky {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.cv-sticky-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.cv-sticky-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.cv-sticky-logo {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
-}
-
-.cv-sticky-brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.cv-sticky-title {
-  font-family: 'TheSeasons-Reg', 'Playfair Display', serif;
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #ca9c57;
-  letter-spacing: 0.8px;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
-.cv-sticky-subtitle {
-  font-family: 'OpenSans-Regular', sans-serif;
-  font-size: 9px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
-.cv-sticky-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Frosted glass buttons on sticky navbar — Vuông chuẩn Rugby School */
-.cv-sticky-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 3px;
-  color: #ffffff;
-  font-family: 'Gordita-Regular', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 7px 18px;
-  line-height: 1;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-
-.cv-sticky-btn:hover {
-  background: rgba(255, 255, 255, 0.26);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.55);
-  transform: translateY(-1px);
-  color: #ffffff;
-}
-
-.cv-sticky-btn--gold {
-  background: rgba(202, 156, 87, 0.28);
-  border-color: rgba(202, 156, 87, 0.6);
-  color: #fcefd6;
-}
-
-.cv-sticky-btn--gold:hover {
-  background: rgba(202, 156, 87, 0.45);
-  border-color: rgba(202, 156, 87, 0.85);
-  color: #ffffff;
-}
-
-.cv-sticky-lang {
-  gap: 4px;
-  padding: 7px 14px;
-  font-size: 13px;
-}
-
-.cv-sticky-menu-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  color: #ffffff;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 0;
-}
-
-.cv-sticky-menu-btn:hover {
-  background: rgba(255, 255, 255, 0.26);
-  border-color: rgba(255, 255, 255, 0.6);
-  transform: translateY(-1px);
-}
-
-.cv-sticky-menu-icon {
-  width: 18px;
-  height: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cv-sticky-menu-icon span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #ffffff;
-  border-radius: 2px;
-  transition: background-color 0.2s;
-}
-
-@media (max-width: 900px) {
-  .cv-sticky-hide-md {
-    display: none !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .cv-sticky-subtitle {
-    display: none;
-  }
-  .cv-sticky-hide-sm {
-    display: none !important;
-  }
-  .cv-sticky-nav {
-    padding: 8px 16px;
-  }
-}
-
-/* ==========================================================================
-   Rugby School Hanoi Signature Header & Navigation Buttons (.button--menu)
-   Exact replica of: https://www.rugbyschoolhanoi.com/vi
-   ========================================================================== */
-.cv-rugby-header-bar {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 25;
-}
-
-.button--menu {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 38px;
-  padding: 0 16px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background-color: rgba(45, 35, 35, 0.55);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
-  user-select: none;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-
-.button--menu:hover {
-  background-color: rgba(65, 48, 48, 0.75);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.button--menu:active,
-.button--menu.is-active {
-  background-color: rgba(30, 20, 20, 0.85);
-  border-color: rgba(255, 255, 255, 0.45);
-  transform: translateY(0);
-}
-
-.button--menu svg {
-  display: inline-block;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-  .cv-hide-mobile {
-    display: none !important;
-  }
-  .button--menu {
-    height: 34px;
-    padding: 0 10px;
-    font-size: 13px;
-    gap: 6px;
-  }
-}
-
-/* ==========================================================================
-   Rugby School Hanoi Search Modal
-   ========================================================================== */
-.cv-search-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 8, 10, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 1000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 15vh;
-  animation: cvFadeIn 0.2s ease-out;
-}
-
-.cv-search-modal {
-  width: 90%;
-  max-width: 680px;
-  background: rgba(25, 14, 16, 0.95);
-  border: 1px solid rgba(202, 156, 87, 0.45);
-  border-radius: 8px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  padding: 24px;
-  color: #ffffff;
-}
-
-.cv-search-form {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  padding: 10px 16px;
-  transition: border-color 0.2s;
-}
-
-.cv-search-form:focus-within {
-  border-color: #ca9c57;
-  box-shadow: 0 0 0 2px rgba(202, 156, 87, 0.3);
-}
-
-.cv-search-icon {
-  color: #ca9c57;
-  flex-shrink: 0;
-}
-
-.cv-search-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  font-size: 16px;
-}
-
-.cv-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.cv-search-close-btn {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
-  cursor: pointer;
-  padding: 4px;
-  transition: color 0.15s;
-}
-
-.cv-search-close-btn:hover {
-  color: #ffffff;
-}
-
-.cv-search-suggestions {
-  margin-top: 16px;
-}
-
-.cv-suggest-label {
-  display: block;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.cv-suggest-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.cv-suggest-chip {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 100px;
-  padding: 6px 14px;
-  color: #f0e6d6;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.cv-suggest-chip:hover {
-  background: rgba(202, 156, 87, 0.25);
-  border-color: #ca9c57;
-  color: #ffffff;
-}
 
 /* ==========================================================================
    Section Stacking / Sliding Deck Overlap Effect
@@ -858,27 +529,22 @@ button.cv-pill-glass {
 
 .cv-bg[style*="--y: 1024"] {
   z-index: 2 !important;
-  box-shadow: 0 calc(-16 * var(--u)) calc(38 * var(--u)) rgba(0, 0, 0, 0.22);
 }
 
 .cv-bg[style*="--y: 2048"] {
   z-index: 3 !important;
-  box-shadow: 0 calc(-18 * var(--u)) calc(42 * var(--u)) rgba(0, 0, 0, 0.24);
 }
 
 .cv-bg[style*="--y: 3072"] {
   z-index: 4 !important;
-  box-shadow: 0 calc(-20 * var(--u)) calc(48 * var(--u)) rgba(0, 0, 0, 0.26);
 }
 
 .cv-bg[style*="--y: 4096"] {
   z-index: 5 !important;
-  box-shadow: 0 calc(-22 * var(--u)) calc(54 * var(--u)) rgba(0, 0, 0, 0.28);
 }
 
 .cv-bg[style*="--y: 5120"] {
   z-index: 6 !important;
-  box-shadow: 0 calc(-25 * var(--u)) calc(64 * var(--u)) rgba(0, 0, 0, 0.32);
 }
 
 /* Section 10 Refactored Admissions Contact Form */
@@ -914,67 +580,153 @@ button.cv-pill-glass {
   margin: 0;
 }
 
+
 /* ==========================================================================
-   Rugby School Hanoi 1:1 Navbar Styles
+   1:1 RUGBY SCHOOL HANOI NAVIGATION SYSTEM
+   Exact replica of: https://www.rugbyschoolhanoi.com
+   Source CSS: app.c3837e12.css (button, button--menu, button--blue-200)
+   Source HTML: x-data="navigation" Alpine.js states
+   ==========================================================================
+   Architecture:
+   1. rn-topbar — utility bar at very top (z-50), visible only at-top
+   2. rn-main-nav — main floating nav (z-30), fixed, transparent bg
+      States: at-top (translate-y-8), scrolledPastHero, navHidden
    ========================================================================== */
-.rugby-main-nav {
+
+/* ─── NAV 1: Top Utility Bar ─── */
+.rn-topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
-  z-index: 999;
-  padding: 18px 40px;
-  box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-  pointer-events: none;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #3d1518;
+  color: #ffffff;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 12px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.rugby-main-nav * {
+.rn-topbar--visible {
+  opacity: 1;
   pointer-events: auto;
 }
 
-.rugby-main-nav.at-top {
-  background: transparent;
+.rn-topbar--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.rugby-main-nav.is-scrolled {
-  background: rgba(18, 8, 10, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-  padding: 10px 40px;
-}
-
-.rugby-nav-container {
-  width: 100%;
+.rn-topbar-inner {
   max-width: 1720px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-.rugby-nav-logo {
+.rn-topbar-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rn-topbar-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.rn-topbar-link:hover {
+  opacity: 0.6;
+}
+
+/* ─── NAV 2: Main Floating Navigation ─── */
+.rn-main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  color: #ffffff;
+  padding: 12px 20px;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+}
+
+@media (min-width: 1280px) {
+  .rn-main-nav {
+    padding: 12px 28px;
+  }
+}
+
+/* When at top of page: pushed down by topbar height */
+.rn-main-nav--at-top {
+  transform: translateY(33px);
+}
+
+/* Hidden state: scrolling down */
+.rn-main-nav--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Overlay when menu or search is open */
+.rn-main-nav--overlay {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* ─── Nav Panel (inner container with rounded corners) ─── */
+.rn-nav-panel {
+  padding: 14px 20px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 1720px;
+  margin: 0 auto;
+  transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* When menu/search is open: solid background like Rugby's stone-100 */
+.rn-nav-panel--open {
+  background-color: #f5f0eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.rn-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ─── Logo ─── */
+.rn-nav-logo {
   display: flex;
   align-items: center;
   gap: 14px;
   text-decoration: none;
   color: #ffffff;
+  flex: 1;
+  transition: opacity 1.75s ease 0.2s;
 }
 
-.rugby-logo-img {
+.rn-logo-img {
   height: 42px;
   width: auto;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  transition: height 0.3s ease;
 }
 
-.rugby-brand-titles {
+.rn-brand {
   display: flex;
   flex-direction: column;
 }
 
-.rugby-brand-name {
+.rn-brand-name {
   font-family: 'TheSeasons-Reg', Georgia, serif;
   font-size: 15px;
   letter-spacing: 0.5px;
@@ -983,26 +735,127 @@ button.cv-pill-glass {
   line-height: 1.2;
 }
 
-.rugby-brand-sub {
+.rn-brand-sub {
   font-family: 'OpenSans-Regular', sans-serif;
   font-size: 10px;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.rugby-nav-buttons {
+/* ─── Action Buttons Container ─── */
+.rn-nav-actions {
   display: flex;
   align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTON STYLES — Exact match to Rugby School Hanoi's button system
+   From app.c3837e12.css:
+   
+   .button (base):
+     display: inline-flex; gap: 0.5rem; border-radius: 4px;
+     border: 1px transparent; padding: 0.75rem 14px;
+     font-family: hanken-grotesk; transition: 0.2s ease-out;
+   
+   .button--menu (hero state):
+     background-color: #ffffff40 (white 25%); color: white;
+     backdrop-filter: blur(12px);
+     HOVER: bg = #ADE0E5 (rgb(173,224,229)); color = #002b54
+   
+   .button--blue-200 (scrolled state):
+     background-color: #ADE0E5; color: #002b54;
+     HOVER: bg = rgb(182,204,207); backdrop-filter: blur(12px)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Base button — shared styles from Rugby's .button */
+.rn-btn {
+  display: inline-flex;
+  width: auto;
+  max-width: max-content;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  text-align: center;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 14px;
+  line-height: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  transition: color 0.2s cubic-bezier(0, 0, 0.2, 1),
+              background-color 0.2s cubic-bezier(0, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.button--scrolled-gold {
-  background-color: rgba(202, 156, 87, 0.9) !important;
-  color: #ffffff !important;
-  border-color: #ca9c57 !important;
+.rn-btn svg {
+  display: block;
+  pointer-events: none;
+  flex-shrink: 0;
 }
 
-.rugby-search-overlay {
+/* ─── Hero State (.button--menu from Rugby) ─── */
+/* White 25% background, white text, blur backdrop */
+.rn-btn--hero {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hover: Rugby's exact blue-200 accent (#ADE0E5) — adapted to SMB gold */
+.rn-btn--hero:not(:disabled):hover {
+  background-color: rgba(202, 156, 87, 0.85);
+  color: #ffffff;
+}
+
+/* ─── Scrolled State (.button--blue-200 from Rugby) ─── */
+/* Adapted to SMB's maroon/gold palette */
+.rn-btn--scrolled {
+  background-color: rgba(202, 156, 87, 0.15);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.rn-btn--scrolled:not(:disabled):hover {
+  background-color: rgba(202, 156, 87, 0.45);
+  color: #ffffff;
+}
+
+/* ─── Gold CTA variant (Apply Now / Tuyển sinh) ─── */
+.rn-btn--scrolled-gold {
+  background-color: rgba(202, 156, 87, 0.85);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.rn-btn--scrolled-gold:not(:disabled):hover {
+  background-color: rgba(202, 156, 87, 1);
+  color: #ffffff;
+}
+
+/* Button label — hidden on mobile, visible on md+ */
+.rn-btn-label {
+  display: none;
+}
+@media (min-width: 768px) {
+  .rn-btn-label {
+    display: inline;
+  }
+}
+
+/* ─── Search Overlay ─── */
+.rn-search-overlay {
   position: fixed;
   inset: 0;
   background: rgba(15, 8, 10, 0.8);
@@ -1013,55 +866,78 @@ button.cv-pill-glass {
   align-items: flex-start;
   justify-content: center;
   padding-top: 15vh;
+  animation: cvFade 0.25s ease;
 }
 
-.rugby-search-box {
+.rn-search-box {
   width: 90%;
   max-width: 650px;
   background: rgba(25, 14, 16, 0.95);
   border: 1px solid rgba(202, 156, 87, 0.45);
   border-radius: 8px;
-  padding: 16px 20px;
+  padding: 20px 24px;
 }
 
-.rugby-search-bar {
+.rn-search-form {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #ffffff;
+  color: rgba(202, 156, 87, 0.8);
 }
 
-.rugby-search-input {
+.rn-search-input {
   flex: 1;
   background: transparent;
   border: none;
   outline: none;
   color: #ffffff;
+  font-family: 'OpenSans-Regular', sans-serif;
   font-size: 16px;
 }
 
-.rugby-search-close {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
-  cursor: pointer;
+.rn-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
 }
 
+.rn-search-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.rn-search-close:hover {
+  color: #ffffff;
+}
+
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
-  .rugby-hide-mobile {
+  .rn-hide-mobile {
     display: none !important;
   }
-  .rugby-brand-titles {
+  .rn-brand {
     display: none;
   }
-  .rugby-main-nav {
-    padding: 10px 16px;
+  .rn-main-nav {
+    padding: 8px 12px;
   }
-  .button--menu {
-    height: 34px;
-    padding: 0 10px;
+  .rn-nav-panel {
+    padding: 10px 12px;
+  }
+  .rn-btn {
+    padding: 8px 10px;
     font-size: 13px;
+  }
+  .rn-topbar {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 640px) {
+  .rn-topbar-links {
+    gap: 12px;
   }
 }
 
