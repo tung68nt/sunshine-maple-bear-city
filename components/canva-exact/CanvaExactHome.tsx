@@ -6,9 +6,8 @@ import { CanvaExactDrawer } from './CanvaExactDrawer'
 import { CanvaExactContactForm } from './CanvaExactContactForm'
 import { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive'
 import { CanvaFadeSection } from './CanvaFadeSection'
-import { CanvaExactStickyNav } from './CanvaExactStickyNav'
 import { CanvaExactFacilitiesCarousel } from './CanvaExactFacilitiesCarousel'
-import { CanvaExactRugbyHeader } from './CanvaExactRugbyHeader'
+import { RugbySchoolNavbar } from './RugbySchoolNavbar'
 import './canva-exact.css'
 
 export function CanvaExactHome() {
@@ -30,7 +29,11 @@ export function CanvaExactHome() {
 
   return (
     <>
-      <CanvaExactStickyNav onOpenMenu={() => setIsMenuOpen(true)} />
+      {/* 1:1 Exact Rugby School Hanoi Navigation Bar (Fixed across entire top of screen) */}
+      <RugbySchoolNavbar
+        onOpenMenu={() => setIsMenuOpen(true)}
+        heroVideoRef={heroVideoRef}
+      />
       <main className="cv">
         <div className="cv-page" style={{ '--h': 5754 } as React.CSSProperties}>
 
@@ -90,43 +93,7 @@ export function CanvaExactHome() {
           </div>
 
           <CanvaFadeSection y={0} h={460} animation="fade-in">
-            {/* Bear Mascot on Header */}
-            <Link
-              href="/"
-              aria-label="Sunshine Maple Bear home"
-              style={
-                {
-                  position: 'absolute',
-                  left: 'calc(55 * var(--u))',
-                  top: 'calc(52 * var(--u))',
-                  zIndex: 5,
-                  display: 'flex',
-                  alignItems: 'center',
-                } as React.CSSProperties
-              }
-            >
-              <img
-                src="/images/maple-bear-mascot.png"
-                alt="Sunshine Maple Bear Mascot"
-                style={{
-                  height: 'calc(58 * var(--u))',
-                  width: 'auto',
-                  filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.5))',
-                }}
-              />
-            </Link>
 
-            {/* Exact Rugby School Hanoi Signature Header & Navigation Button Group */}
-            <CanvaExactRugbyHeader
-              onOpenMenu={() => setIsMenuOpen(true)}
-              heroVideoRef={heroVideoRef}
-              style={{
-                position: 'absolute',
-                right: 'calc(35 * var(--u))',
-                top: 'calc(80 * var(--u))',
-                zIndex: 10,
-              }}
-            />
 
             {/* Hero titles — perfectly centered horizontally with Rugby text reveal */}
             <h1
