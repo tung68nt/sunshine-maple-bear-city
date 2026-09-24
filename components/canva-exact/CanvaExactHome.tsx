@@ -14,6 +14,57 @@ export function CanvaExactHome() {
     <>
       <main className="cv">
         <div className="cv-page" style={{ '--h': 5754 } as React.CSSProperties}>
+          {/* Fullwidth background bands behind canvas (100vw edge-to-edge) */}
+          <div
+            className="cv-fullbleed"
+            aria-hidden="true"
+            style={{
+              top: 'calc(42 * var(--u))',
+              height: 'calc(458 * var(--u))',
+              backgroundImage: 'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url(/images/canva/hero_bg.png)',
+              backgroundPosition: 'center center',
+              backgroundSize: 'cover',
+            }}
+          />
+          <div
+            className="cv-fullbleed"
+            aria-hidden="true"
+            style={{
+              top: 'calc(500 * var(--u))',
+              height: 'calc(150 * var(--u))',
+              background: 'linear-gradient(180deg, #914345 0%, #852225 100%)',
+              borderTop: '1px solid rgba(202, 156, 87, 0.4)',
+              borderBottom: '1px solid rgba(202, 156, 87, 0.4)',
+            }}
+          />
+          <div
+            className="cv-fullbleed"
+            aria-hidden="true"
+            style={{
+              top: 'calc(1331 * var(--u))',
+              height: 'calc(464 * var(--u))',
+              backgroundColor: '#9a1c20',
+            }}
+          />
+          <div
+            className="cv-fullbleed"
+            aria-hidden="true"
+            style={{
+              top: 'calc(2895 * var(--u))',
+              height: 'calc(575 * var(--u))',
+              backgroundColor: '#7d0c12',
+            }}
+          />
+          <div
+            className="cv-fullbleed"
+            aria-hidden="true"
+            style={{
+              top: 'calc(5180 * var(--u))',
+              height: 'calc(574 * var(--u))',
+              backgroundColor: '#400e0d',
+            }}
+          />
+
           {/* Continuous canvas background graphic slices */}
           <img className="cv-bg" src="/canva-exact/bg/home-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
           <img className="cv-bg" src="/canva-exact/bg/home-1.webp" alt="" style={{ '--y': 1024, '--h': 1024 } as React.CSSProperties} decoding="async" />

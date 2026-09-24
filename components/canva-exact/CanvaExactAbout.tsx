@@ -11,7 +11,17 @@ export function CanvaExactAbout() {
     <>
       <main className="cv">
         <div className="cv-page" style={{ '--h': 3849.75 } as React.CSSProperties}>
-        <img className="cv-bg" src="/canva-exact/bg/about-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
+          {/* Fullwidth footer band (100vw edge-to-edge) */}
+          <div
+            className="cv-fullbleed"
+            aria-hidden="true"
+            style={{
+              top: 'calc(3275 * var(--u))',
+              height: 'calc(575 * var(--u))',
+              backgroundColor: '#400e0d',
+            }}
+          />
+          <img className="cv-bg" src="/canva-exact/bg/about-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/about-1.webp" alt="" style={{ '--y': 1024, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/about-2.webp" alt="" style={{ '--y': 2048, '--h': 1024 } as React.CSSProperties} decoding="async" />
         <img className="cv-bg" src="/canva-exact/bg/about-3.webp" alt="" style={{ '--y': 3072, '--h': 778 } as React.CSSProperties} decoding="async" />
