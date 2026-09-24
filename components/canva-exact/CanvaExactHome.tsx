@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { CanvaExactDrawer } from './CanvaExactDrawer'
 import { CanvaExactContactForm } from './CanvaExactContactForm'
@@ -8,10 +8,25 @@ import { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive
 import { CanvaFadeSection } from './CanvaFadeSection'
 import { CanvaExactStickyNav } from './CanvaExactStickyNav'
 import { CanvaExactFacilitiesCarousel } from './CanvaExactFacilitiesCarousel'
+import { CanvaExactRugbyHeader } from './CanvaExactRugbyHeader'
 import './canva-exact.css'
 
 export function CanvaExactHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
+
+  // Rugby School Hanoi Hero Parallax Motion
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.querySelector('.cv-hero-video-wrap') as HTMLElement | null
+      if (hero && window.innerWidth > 768) {
+        const r = window.scrollY
+        hero.style.transform = `translateY(-${r * 0.45}px)`
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <>
@@ -45,6 +60,7 @@ export function CanvaExactHome() {
           >
             {/* Native HTML5 Background Video Player - Zero YouTube branding */}
             <video
+              ref={heroVideoRef}
               src="/videos/hero-bg.mp4"
               autoPlay
               loop
@@ -100,108 +116,21 @@ export function CanvaExactHome() {
               />
             </Link>
 
-            {/* Action pills on Header over video */}
-            <a
-              href="#contact"
-              className="cv-hero-btn"
-              style={
-                {
-                  position: 'absolute',
-                  left: 'calc(463.3 * var(--u))',
-                  top: 'calc(89.1 * var(--u))',
-                  width: 'calc(98.2 * var(--u))',
-                  height: 'calc(27.6 * var(--u))',
-                } as React.CSSProperties
-              }
-            >
-              Book a visit
-            </a>
-            <a
-              href="#contact"
-              className="cv-hero-btn"
-              style={
-                {
-                  position: 'absolute',
-                  left: 'calc(575.4 * var(--u))',
-                  top: 'calc(89.1 * var(--u))',
-                  width: 'calc(135.2 * var(--u))',
-                  height: 'calc(27.6 * var(--u))',
-                } as React.CSSProperties
-              }
-            >
-              General enquiries
-            </a>
-            <Link
-              href="/admissions/founding-families"
-              className="cv-hero-btn"
-              style={
-                {
-                  position: 'absolute',
-                  left: 'calc(724.4 * var(--u))',
-                  top: 'calc(89.1 * var(--u))',
-                  width: 'calc(135.2 * var(--u))',
-                  height: 'calc(27.6 * var(--u))',
-                } as React.CSSProperties
-              }
-            >
-              Register interest
-            </Link>
+            {/* Exact Rugby School Hanoi Signature Header & Navigation Button Group */}
+            <CanvaExactRugbyHeader
+              onOpenMenu={() => setIsMenuOpen(true)}
+              heroVideoRef={heroVideoRef}
+              style={{
+                position: 'absolute',
+                right: 'calc(35 * var(--u))',
+                top: 'calc(80 * var(--u))',
+                zIndex: 10,
+              }}
+            />
 
-            <span
-              className="f0"
-              style={
-                {
-                  position: 'absolute',
-                  left: 'calc(879.15 * var(--u))',
-                  top: 'calc(94.28 * var(--u))',
-                  fontSize: 'calc(13.995 * var(--u) * var(--font-scale, 0.84))',
-                  color: '#ffffff',
-                  zIndex: 5,
-                  fontWeight: 500,
-                } as React.CSSProperties
-              }
-            >
-              EN ↓
-            </span>
-
-            {/* Hamburger Menu Button */}
-            <button
-              type="button"
-              onClick={() => setIsMenuOpen(true)}
-              className="cv-hero-btn"
-              aria-label="Open menu"
-              style={
-                {
-                  position: 'absolute',
-                  left: 'calc(928 * var(--u))',
-                  top: 'calc(86 * var(--u))',
-                  width: 'calc(44 * var(--u))',
-                  height: 'calc(34 * var(--u))',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: 'calc(6 * var(--u))',
-                } as React.CSSProperties
-              }
-            >
-              <div
-                style={{
-                  width: 'calc(20 * var(--u))',
-                  height: 'calc(14 * var(--u))',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <span style={{ display: 'block', width: '100%', height: 'calc(2 * var(--u))', backgroundColor: '#ffffff', borderRadius: '1px' }} />
-                <span style={{ display: 'block', width: '100%', height: 'calc(2 * var(--u))', backgroundColor: '#ffffff', borderRadius: '1px' }} />
-                <span style={{ display: 'block', width: '100%', height: 'calc(2 * var(--u))', backgroundColor: '#ffffff', borderRadius: '1px' }} />
-              </div>
-            </button>
-
-            {/* Hero titles — perfectly centered horizontally */}
+            {/* Hero titles — perfectly centered horizontally with Rugby text reveal */}
             <h1
-              className="f6"
+              className="f6 line-wrap delay"
               style={
                 {
                   position: 'absolute',
@@ -219,10 +148,10 @@ export function CanvaExactHome() {
                 } as React.CSSProperties
               }
             >
-              SUNSHINE MAPLE BEAR
+              <span className="line-wrap__line notranslate">SUNSHINE MAPLE BEAR</span>
             </h1>
             <h2
-              className="f6"
+              className="f6 line-wrap delay"
               style={
                 {
                   position: 'absolute',
@@ -240,7 +169,7 @@ export function CanvaExactHome() {
                 } as React.CSSProperties
               }
             >
-              INTERNATIONAL KINDERGARTEN
+              <span className="line-wrap__line notranslate">INTERNATIONAL KINDERGARTEN</span>
             </h2>
 
             {/* Centered ABOUT US Button */}
@@ -439,17 +368,10 @@ export function CanvaExactHome() {
             <Link href="/about" className="cv-a" aria-label="Find out more" style={{ '--x': 463, '--y': 4532.3, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
           </CanvaFadeSection>
 
-          {/* Section 10: Contact Form */}
+          {/* Section 10: Refactored Admissions & Contact Form */}
           <span id="contact" className="cv-anchor" style={{ '--y': 4646.2 } as React.CSSProperties} />
           <CanvaFadeSection y={4640} h={520} animation="slide-up">
-            <h2 className="cv-t f6 cv-ghost" style={{ '--x': 111.97, '--y': 4668.58, '--s': 37.042, '--c': '#000000', '--ls': -0.006 } as React.CSSProperties}>CONTACT US</h2>
-            <h2 className="cv-t f6" style={{ '--x': 111.97, '--y': 4668.58, '--s': 37.042, '--c': '#2e2e2e', '--ls': -0.008 } as React.CSSProperties}>CONTACT</h2>
-            <h2 className="cv-t f6" style={{ '--x': 287.06, '--y': 4668.58, '--s': 37.042, '--c': '#7e0e12' } as React.CSSProperties}> US</h2>
-            <p className="cv-t f3" style={{ '--x': 115.22, '--y': 4732.08, '--s': 14.55, '--c': '#3d3d3d' } as React.CSSProperties}>If you have any questions, please fill in the form below and</p>
-            <p className="cv-t f3" style={{ '--x': 115.22, '--y': 4758.33, '--s': 14.55, '--c': '#3d3d3d' } as React.CSSProperties}>we will get in touch as soon as possible.</p>
-            <CanvaExactContactForm x={111.91} y={4786.23} pageTitle="CanvaExactHome" />
-            <p className="cv-t f0" style={{ '--x': 298.35, '--y': 5097.67, '--s': 12.553, '--c': '#3d3d3d' } as React.CSSProperties}>Send</p>
-            <button type="submit" form="cv-contact" className="cv-a" aria-label="Send" style={{ '--x': 265, '--y': 5092.5, '--w': 98.2, '--h': 27.6 } as React.CSSProperties} />
+            <CanvaExactContactForm x={74} y={4645} pageTitle="CanvaExactHome" />
           </CanvaFadeSection>
 
           {/* Section 11: Footer */}

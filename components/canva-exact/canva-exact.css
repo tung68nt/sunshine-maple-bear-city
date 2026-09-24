@@ -129,6 +129,210 @@
   pointer-events: none !important;
   user-select: none !important;
 }
+
+/* ==========================================================================
+   Completely Hide Google Translate UI (Clean, Professional Multilingual)
+   ========================================================================== */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+}
+body {
+  top: 0px !important;
+  position: static !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+#google_translate_element {
+  display: none !important;
+}
+.skiptranslate iframe {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Rugby School Hanoi Signature Text Reveal (.line-wrap)
+   ========================================================================== */
+.line-wrap {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+.line-wrap__line {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform, opacity;
+}
+.line-wrap.delay--enter .line-wrap__line,
+.is-visible .line-wrap__line,
+.delay--enter .line-wrap__line {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+.line-wrap:nth-child(2) .line-wrap__line {
+  transition-delay: 0.15s;
+}
+.line-wrap:nth-child(3) .line-wrap__line {
+  transition-delay: 0.3s;
+}
+
+/* ==========================================================================
+   Luxury Admissions Contact Form Styles
+   ========================================================================== */
+.cv-luxury-form-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: calc(1.5 * var(--u)) solid rgba(202, 156, 87, 0.55);
+  border-radius: calc(8 * var(--u));
+  padding: calc(18 * var(--u)) calc(20 * var(--u));
+  box-shadow: 0 calc(12 * var(--u)) calc(36 * var(--u)) rgba(0, 0, 0, 0.16);
+  box-sizing: border-box;
+}
+.cv-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(9 * var(--u));
+}
+.cv-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--u));
+}
+.cv-form-row {
+  display: flex;
+  gap: calc(10 * var(--u));
+}
+.cv-col-half {
+  flex: 1;
+}
+.cv-form-label {
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: calc(10 * var(--u));
+  font-weight: 600;
+  color: #3d3d3d;
+  letter-spacing: calc(0.3 * var(--u));
+}
+.cv-req {
+  color: #9a1c20;
+}
+.cv-form-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(28 * var(--u));
+  background: #ffffff;
+  border: calc(1 * var(--u)) solid rgba(202, 156, 87, 0.4);
+  border-radius: calc(4 * var(--u));
+  padding: 0 calc(10 * var(--u));
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: calc(11 * var(--u));
+  color: #222222;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.cv-form-input:focus {
+  border-color: #ca9c57;
+  box-shadow: 0 0 0 calc(2.5 * var(--u)) rgba(202, 156, 87, 0.25);
+}
+.cv-input-err {
+  border-color: #9a1c20 !important;
+  background: #fff8f8;
+}
+.cv-err-msg {
+  font-size: calc(9 * var(--u));
+  color: #9a1c20;
+  font-weight: 500;
+}
+.cv-select-input {
+  cursor: pointer;
+}
+.cv-textarea {
+  height: calc(46 * var(--u));
+  padding-top: calc(6 * var(--u));
+  resize: vertical;
+}
+.cv-form-submit-btn {
+  width: 100%;
+  height: calc(34 * var(--u));
+  margin-top: calc(4 * var(--u));
+  background: linear-gradient(135deg, #9a1c20 0%, #7e0e12 100%);
+  border: calc(1 * var(--u)) solid #ca9c57;
+  border-radius: calc(4 * var(--u));
+  color: #ffffff;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: calc(11 * var(--u));
+  font-weight: 700;
+  letter-spacing: calc(0.8 * var(--u));
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 calc(4 * var(--u)) calc(14 * var(--u)) rgba(126, 14, 18, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cv-form-submit-btn:hover {
+  background: linear-gradient(135deg, #b32227 0%, #9a1c20 100%);
+  transform: translateY(calc(-1 * var(--u)));
+  box-shadow: 0 calc(8 * var(--u)) calc(20 * var(--u)) rgba(126, 14, 18, 0.45);
+}
+.cv-form-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.cv-form-success-box {
+  text-align: center;
+  padding: calc(20 * var(--u)) calc(14 * var(--u));
+}
+.cv-form-success-icon {
+  width: calc(40 * var(--u));
+  height: calc(40 * var(--u));
+  margin: 0 auto calc(10 * var(--u));
+  border-radius: 50%;
+  background: #2e7d32;
+  color: #ffffff;
+  font-size: calc(22 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cv-form-success-title {
+  margin: 0 0 calc(6 * var(--u));
+  font-family: 'TheSeasons', serif;
+  font-size: calc(18 * var(--u));
+  color: #7e0e12;
+}
+.cv-form-success-desc {
+  margin: 0 0 calc(14 * var(--u));
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: calc(11 * var(--u));
+  line-height: 1.5;
+  color: #444444;
+}
+.cv-form-reset-btn {
+  padding: calc(6 * var(--u)) calc(14 * var(--u));
+  background: transparent;
+  border: calc(1 * var(--u)) solid #ca9c57;
+  border-radius: calc(4 * var(--u));
+  color: #7e0e12;
+  font-weight: 600;
+  font-size: calc(10.5 * var(--u));
+  cursor: pointer;
+}
+
+/* Stacking section shadow depth */
+.cv-deck-stack {
+  box-shadow: 0 calc(-18 * var(--u)) calc(44 * var(--u)) rgba(0, 0, 0, 0.2);
+}
 .cv-t{position:absolute;margin:0;padding:0;white-space:pre;line-height:normal;font-weight:400;font-style:normal;
   left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u));font-size:calc(var(--s) * var(--u) * var(--font-scale, 0.84));
   letter-spacing:calc(var(--ls, 0) * var(--u));color:var(--c);
@@ -462,5 +666,253 @@ button.cv-pill-glass {
     padding: 8px 16px;
   }
 }
+
+/* ==========================================================================
+   Rugby School Hanoi Signature Header & Navigation Buttons (.button--menu)
+   Exact replica of: https://www.rugbyschoolhanoi.com/vi
+   ========================================================================== */
+.cv-rugby-header-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 25;
+}
+
+.button--menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background-color: rgba(45, 35, 35, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  user-select: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.button--menu:hover {
+  background-color: rgba(65, 48, 48, 0.75);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.button--menu:active,
+.button--menu.is-active {
+  background-color: rgba(30, 20, 20, 0.85);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(0);
+}
+
+.button--menu svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .cv-hide-mobile {
+    display: none !important;
+  }
+  .button--menu {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 13px;
+    gap: 6px;
+  }
+}
+
+/* ==========================================================================
+   Rugby School Hanoi Search Modal
+   ========================================================================== */
+.cv-search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 8, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  animation: cvFadeIn 0.2s ease-out;
+}
+
+.cv-search-modal {
+  width: 90%;
+  max-width: 680px;
+  background: rgba(25, 14, 16, 0.95);
+  border: 1px solid rgba(202, 156, 87, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  color: #ffffff;
+}
+
+.cv-search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 10px 16px;
+  transition: border-color 0.2s;
+}
+
+.cv-search-form:focus-within {
+  border-color: #ca9c57;
+  box-shadow: 0 0 0 2px rgba(202, 156, 87, 0.3);
+}
+
+.cv-search-icon {
+  color: #ca9c57;
+  flex-shrink: 0;
+}
+
+.cv-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.cv-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cv-search-close-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.15s;
+}
+
+.cv-search-close-btn:hover {
+  color: #ffffff;
+}
+
+.cv-search-suggestions {
+  margin-top: 16px;
+}
+
+.cv-suggest-label {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cv-suggest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cv-suggest-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  padding: 6px 14px;
+  color: #f0e6d6;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cv-suggest-chip:hover {
+  background: rgba(202, 156, 87, 0.25);
+  border-color: #ca9c57;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Section Stacking / Sliding Deck Overlap Effect
+   ("khách muốn các hiệu ứng section trượt lên nhau")
+   ========================================================================== */
+.cv-deck-section {
+  position: relative;
+  width: 100%;
+}
+
+.cv-bg[style*="--y: 1024"] {
+  z-index: 2 !important;
+  box-shadow: 0 calc(-16 * var(--u)) calc(38 * var(--u)) rgba(0, 0, 0, 0.22);
+}
+
+.cv-bg[style*="--y: 2048"] {
+  z-index: 3 !important;
+  box-shadow: 0 calc(-18 * var(--u)) calc(42 * var(--u)) rgba(0, 0, 0, 0.24);
+}
+
+.cv-bg[style*="--y: 3072"] {
+  z-index: 4 !important;
+  box-shadow: 0 calc(-20 * var(--u)) calc(48 * var(--u)) rgba(0, 0, 0, 0.26);
+}
+
+.cv-bg[style*="--y: 4096"] {
+  z-index: 5 !important;
+  box-shadow: 0 calc(-22 * var(--u)) calc(54 * var(--u)) rgba(0, 0, 0, 0.28);
+}
+
+.cv-bg[style*="--y: 5120"] {
+  z-index: 6 !important;
+  box-shadow: 0 calc(-25 * var(--u)) calc(64 * var(--u)) rgba(0, 0, 0, 0.32);
+}
+
+/* Section 10 Refactored Admissions Contact Form */
+.cv-form-header {
+  margin-bottom: calc(12 * var(--u));
+}
+
+.cv-form-title {
+  font-family: 'TheSeasons-Reg', serif;
+  font-size: calc(24 * var(--u));
+  color: #2e2e2e;
+  margin: 0;
+  letter-spacing: calc(-0.01 * var(--u));
+  line-height: 1.15;
+}
+
+.cv-form-title-red {
+  color: #7e0e12;
+}
+
+.cv-form-title-divider {
+  width: calc(65 * var(--u));
+  height: calc(2 * var(--u));
+  background: #ca9c57;
+  margin: calc(6 * var(--u)) 0 calc(8 * var(--u)) 0;
+}
+
+.cv-form-subtitle {
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: calc(10.5 * var(--u));
+  color: #555555;
+  line-height: 1.45;
+  margin: 0;
+}
+
 
 

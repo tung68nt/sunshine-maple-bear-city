@@ -9,3 +9,5 @@ export { CanvaExactWhyChooseInteractive } from './CanvaExactWhyChooseInteractive
 export { CanvaFadeSection } from './CanvaFadeSection'
 export { CanvaExactStickyNav } from './CanvaExactStickyNav'
 export { CanvaExactFacilitiesCarousel } from './CanvaExactFacilitiesCarousel'
+export { CanvaExactLanguageSwitcher } from './CanvaExactLanguageSwitcher'
+export { CanvaExactRugbyHeader } from './CanvaExactRugbyHeader'
