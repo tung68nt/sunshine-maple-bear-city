@@ -1162,3 +1162,51 @@
 /* World map — after the opening spread, hover in/out is immediate (no stagger delay, short fade) */
 .ds .ds-map.is-settled .ds-map__land.is-mb{transition:fill .15s ease;transition-delay:0s!important}
 .ds .ds-map.is-settled .ds-map__pin{transition:opacity .15s ease,transform .2s ease;transition-delay:0s!important}
+
+/* Navigation search — Rugby: a panel docked right (605px, full height) with the close button on
+   top and the field below; full-width sheet under 1280px */
+.ds .ds-nav__search{order:4;flex:0 0 100%;width:100%;padding-top:40px;font-size:16px;line-height:21px;color:var(--ds-black)}
+.ds .ds-nav__search label{display:block;margin-bottom:12px}
+.ds .ds-nav__field{padding-bottom:28px;border-bottom:1px solid rgba(126,14,18,.12)}
+.ds .ds-nav__search input{width:100%;background:#fff;border:1px solid transparent;border-radius:var(--ds-radius);padding:12px 14px;font:inherit;font-size:16px;line-height:21px;color:var(--ds-black);outline:none;transition:border-color .2s ease}
+.ds .ds-nav__search input::placeholder{color:rgba(0,0,0,.5)}
+.ds .ds-nav__search input:focus{border-color:var(--ds-gold);border-bottom-color:var(--ds-gold)}
+.ds .ds-nav.is-search .ds-nav__row{flex-wrap:wrap}
+@media (min-width:768px){
+  .ds .ds-nav.is-search .ds-nav__bar{height:100%}
+}
+@media (min-width:1280px){
+  .ds .ds-nav.is-search{height:100vh}
+  .ds .ds-nav.is-search.is-top{height:calc(100vh - 33px)}
+  .ds .ds-nav.is-search .ds-nav__bar{max-width:605px;margin-left:auto;height:100%}
+  .ds .ds-nav__search{padding-top:28px}
+}
+
+/* Navigation submenus (Rugby): below 1280px a drill-down with a Back row; from 1280px a panel
+   that drops from the bar when a parent item is hovered, focused or clicked */
+.ds .ds-nav__group{width:100%}
+.ds .ds-nav__link--parent{justify-content:space-between;gap:4px;background:none;border-top:0;border-left:0;border-right:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.ds .ds-nav__link--parent svg{transform:rotate(-90deg);flex:none}
+.ds .ds-nav__back{display:flex;align-items:center;gap:4px;width:100%;padding:0 0 16px;background:none;border:0;color:inherit;font:inherit;cursor:pointer}
+.ds .ds-nav__panel.has-active > .ds-nav__link,.ds .ds-nav__panel.has-active > .ds-nav__group:not(.is-active),.ds .ds-nav__panel.has-active .ds-nav__link--parent,.ds .ds-nav__panel.has-active > .ds-nav__cta{display:none}
+.ds .ds-nav__sub{animation:ds-fade .5s ease}
+.ds .ds-nav__subinner{display:flex;flex-wrap:wrap;border-top:1px solid rgba(126,14,18,.1)}
+.ds .ds-nav__sublinks{order:1;width:100%;display:flex;flex-direction:column;gap:16px;padding:20px 0;font-size:16px;line-height:21px}
+.ds .ds-nav__sublinks a{text-decoration:none;transition:opacity .15s ease,color .15s ease}
+.ds .ds-nav__sublinks a:hover{color:var(--ds-red)}
+.ds .ds-nav__subcta{order:2;width:100%;padding-top:20px;border-top:1px solid rgba(126,14,18,.1)}
+@media (min-width:1280px){
+  .ds .ds-nav__group{width:auto}
+  .ds .ds-nav__link--parent{justify-content:flex-start;border-bottom:1px solid transparent}
+  .ds .ds-nav__link--parent svg{transform:none}
+  .ds .ds-nav__group.is-active .ds-nav__link--parent{border-bottom-color:var(--ds-black);opacity:1!important}
+  .ds .ds-nav__back{display:none}
+  .ds .ds-nav__panel.has-active > .ds-nav__link,.ds .ds-nav__panel.has-active > .ds-nav__group:not(.is-active),.ds .ds-nav__panel.has-active .ds-nav__link--parent{display:flex}
+  .ds .ds-nav__panel.has-active > .ds-nav__group:not(.is-active){display:block}
+  .ds .ds-nav__sub{position:absolute;left:0;top:100%;width:100%;margin-top:-2px;padding:0 32px 48px;background:var(--ds-cream);border-radius:0 0 var(--ds-radius) var(--ds-radius);box-shadow:0 6px 6px -4px rgba(0,0,0,.1)}
+  .ds .ds-nav__subinner{flex-wrap:nowrap;padding-top:32px}
+  .ds .ds-nav__subcta{order:1;width:auto;padding:0 32px 0 0;border-top:0}
+  .ds .ds-nav__sublinks{order:2;flex:1;width:auto;padding:0 32px;border-left:1px solid rgba(126,14,18,.1)}
+  .ds .ds-nav__sublinks:hover a{opacity:.3}
+  .ds .ds-nav__sublinks a:hover{opacity:1;color:inherit}
+}

@@ -13,10 +13,53 @@ export const SITE = {
   applyHref: '/admissions',
 }
 
-export const NAV_LINKS = [
-  { label: 'Giới thiệu', href: '/about' },
-  { label: 'Tuyển sinh', href: '/admissions' },
-  { label: 'Chương trình học', href: '/academics' },
+export type NavItem = { label: string; href: string; children?: { label: string; href: string }[] }
+
+/** Main menu. Items with `children` open a submenu panel; the rest are plain links. */
+export const NAV_LINKS: NavItem[] = [
+  {
+    label: 'Giới thiệu',
+    href: '/about',
+    children: [
+      { label: 'Câu chuyện thương hiệu & di sản Canada', href: '/about/story' },
+      { label: 'Tại sao chọn Sunshine Maple Bear?', href: '/about/why-maple-bear' },
+      { label: 'Hội đồng cố vấn & Ban giám hiệu', href: '/about/leadership' },
+      { label: 'Đội ngũ giáo viên quốc tế', href: '/about/teachers' },
+    ],
+  },
+  {
+    label: 'Chương trình học',
+    href: '/academics',
+    children: [
+      { label: 'Các nhóm tuổi', href: '/academics/age-groups' },
+      { label: 'Early Years', href: '/academics/early-years' },
+      { label: 'Kindergarten', href: '/academics/kindergarten' },
+      { label: 'Một ngày tại Maple Bear', href: '/academics/daily-schedule' },
+      { label: 'Dinh dưỡng', href: '/academics/nutrition' },
+      { label: 'Hoạt động ngoại khoá', href: '/academics/extracurricular' },
+      { label: 'Lịch năm học', href: '/academics/calendar' },
+    ],
+  },
+  {
+    label: 'Tuyển sinh',
+    href: '/admissions',
+    children: [
+      { label: 'Quy trình tuyển sinh', href: '/admissions/process' },
+      { label: 'Học phí', href: '/admissions/tuition' },
+      { label: 'Founding Families', href: '/admissions/founding-families' },
+      { label: 'Open Day', href: '/admissions/open-day' },
+      { label: 'Đặt lịch tham quan', href: '/tour-booking' },
+    ],
+  },
+  {
+    label: 'Cộng đồng',
+    href: '/community/parent-portal',
+    children: [
+      { label: 'Cổng thông tin phụ huynh', href: '/community/parent-portal' },
+      { label: 'Y tế học đường', href: '/community/health' },
+      { label: 'Chính sách an toàn trẻ em', href: '/community/safeguarding' },
+    ],
+  },
   { label: 'Thư viện ảnh', href: '/gallery' },
   { label: 'Sự kiện', href: '/events' },
   { label: 'Tin tức', href: '/blog' },
