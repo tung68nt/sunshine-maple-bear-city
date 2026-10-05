@@ -5,6 +5,9 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
+    // Photos in public/ are exported at web size already; serving them as files avoids
+    // Vercel's Image Optimization quota (exceeded on this account, which blanked next/image).
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
