@@ -1215,3 +1215,6 @@
 @media (min-width:1280px){
   .ds .ds-nav__group.is-active .ds-nav__link--parent svg{transform:rotate(180deg)}
 }
+/* Arrow takes the accent colour (Rugby tints it apart from the label): gold at rest, brand red while open */
+.ds .ds-nav__link--parent svg{color:var(--ds-gold-deep)}
+.ds .ds-nav__group.is-active .ds-nav__link--parent svg,.ds .ds-nav__link--parent:hover svg{color:var(--ds-red)}
