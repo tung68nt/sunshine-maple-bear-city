@@ -42,52 +42,64 @@
    .delay.delay--slide-up.delay--enter { opacity:1; transform:translateY(0) }
    .delay.delay--fade-in.delay--enter { opacity:1 }
    ========================================================================== */
+/* The layer is only a positioning container – it is never animated itself. */
 .cv-fade-layer {
   position: absolute;
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  will-change: opacity, transform;
 }
 .cv-fade-layer > * {
   pointer-events: auto;
 }
 
-/* ─── Slide Up (Rugby: translateY(10%) → translateY(0)) ─── */
-.cv-fade-layer.slide-up {
+/* Headings: Rugby `.line-wrap__line` – rise from translateY(100%) inside a mask.
+   clip-path bottom inset shrinks in lockstep with the translate, so the visible
+   window stays fixed on the page = true mask reveal without extra wrappers. */
+.cv-fade-layer > .cv-t:is(h1, h2, h3) {
+  transform: translateY(100%);
+  clip-path: inset(-25% -5% 100% -5%);
   opacity: 0;
-  transform: translateY(10%);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    transform 1s cubic-bezier(0.19, 1, 0.22, 1),
+    clip-path 1s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition-delay: calc(var(--d, 0s) + var(--i, 0) * 0.1s);
 }
-.cv-fade-layer.slide-up.is-visible {
-  opacity: 1;
+.cv-fade-layer.delay--enter > .cv-t:is(h1, h2, h3) {
   transform: translateY(0);
+  clip-path: inset(-25% -5% -25% -5%);
+  opacity: 1;
 }
 
-/* ─── Fade In (Rugby: opacity only, 0.8s) ─── */
-.cv-fade-layer.fade-in {
+/* Copy, media, cards: Rugby `.delay--fade-in` – opacity .8s ease */
+.cv-fade-layer > :not(.cv-t:is(h1, h2, h3)):not(.line-wrap):not(.cv-ghost) {
   opacity: 0;
   transition: opacity 0.8s ease;
+  transition-delay: calc(var(--d, 0s) + 0.2s + var(--i, 0) * 0.04s);
 }
-.cv-fade-layer.fade-in.is-visible {
+.cv-fade-layer.delay--enter > :not(.cv-t:is(h1, h2, h3)):not(.line-wrap):not(.cv-ghost) {
   opacity: 1;
 }
 
-/* ─── Zoom In ─── */
-.cv-fade-layer.zoom-in {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.cv-fade-layer.zoom-in.is-visible {
-  opacity: 1;
-  transform: scale(1);
+@media (prefers-reduced-motion: reduce) {
+  .cv-fade-layer > * { transition: none !important; transform: none !important; clip-path: none !important; opacity: 1 !important; }
 }
 
-/* Legacy class support */
-.cv-fade-layer.delay--enter {
-  opacity: 1 !important;
-  transform: translateY(0) scale(1) !important;
+/* ==========================================================================
+   Rugby page structure: fixed hero → content slides over it → footer revealed
+   underneath (header.hero `md:fixed`, main `relative z-10 md:mt-[100dvh]`,
+   main.marginBottom = footer height).
+   ========================================================================== */
+.cv-slice{--W:1024.5;--u:calc(100vw / var(--W));position:relative;width:100%;height:calc((var(--to) - var(--from)) * var(--u));overflow:hidden}
+@media (min-width: 1920px){.cv-slice{--u:calc(1920px / var(--W))}}
+.cv-slice > .cv-page{margin-top:calc(var(--from) * -1 * var(--u));height:calc(var(--h) * var(--u))}
+.cv-rs-main{background:#fff8ee}
+@media (min-width: 768px){
+  .cv-rs-hero{position:fixed;top:0;left:0;z-index:3}
+  .cv-rs-hero.is-past{visibility:hidden}
+  .cv-rs-main{z-index:10;margin-top:calc((var(--hero-to) - var(--hero-from)) * var(--u));margin-bottom:calc((var(--foot-to) - var(--foot-from)) * var(--u));box-shadow:0 20px 40px rgba(0,0,0,.18)}
+  .cv-rs-footer{position:fixed;left:0;bottom:0;z-index:2}
 }
 
 .cv-hero-video-wrap {
@@ -770,20 +782,25 @@ button.cv-pill-glass {
      HOVER: bg = rgb(182,204,207); backdrop-filter: blur(12px)
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Base button — shared styles from Rugby's .button */
+/* Base button — 100% exact match to Rugby School Hanoi .button in app.c3837e12.css */
 .rn-btn {
   display: inline-flex;
   width: auto;
   max-width: max-content;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
   border-radius: 4px;
-  border: 1px solid transparent;
-  padding: 10px 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 14px;
+  padding-right: 14px;
   text-align: center;
-  font-family: 'OpenSans-Regular', sans-serif;
-  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem;
   line-height: 1rem;
   text-decoration: none;
   cursor: pointer;
@@ -792,9 +809,9 @@ button.cv-pill-glass {
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  transition: color 0.2s cubic-bezier(0, 0, 0.2, 1),
-              background-color 0.2s cubic-bezier(0, 0, 0.2, 1),
-              border-color 0.2s cubic-bezier(0, 0, 0.2, 1);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, backdrop-filter, -webkit-backdrop-filter;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .rn-btn svg {
@@ -804,44 +821,61 @@ button.cv-pill-glass {
 }
 
 /* ─── Hero State (.button--menu from Rugby) ─── */
-/* White 25% background, white text, blur backdrop */
+/* Rugby CSS exact: background-color: #ffffff40 (25% white); color: #fff; backdrop-filter: blur(12px) */
 .rn-btn--hero {
-  background-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Hover: Rugby's exact blue-200 accent (#ADE0E5) — adapted to SMB gold */
+/* Hover on Hero: Rugby switches to accent color (RGB 173 224 229 / navy #002b54),
+   adapted to luxury Sunshine Maple Bear palette (Gold accent #ca9c57 or soft warm tint) */
 .rn-btn--hero:not(:disabled):hover {
-  background-color: rgba(202, 156, 87, 0.85);
-  color: #ffffff;
+  background-color: rgba(202, 156, 87, 0.95) !important;
+  color: #ffffff !important;
+  border-color: #ca9c57 !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
-/* ─── Scrolled State (.button--blue-200 from Rugby) ─── */
-/* Adapted to SMB's maroon/gold palette */
+/* ─── Scrolled State (.button--blue-200 / solid nav state from Rugby) ─── */
+/* When scrolled or menu open: clean high-contrast badge */
 .rn-btn--scrolled {
-  background-color: rgba(202, 156, 87, 0.15);
-  color: #ffffff;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(126, 14, 18, 0.08) !important;
+  color: #7e0e12 !important;
+  border-color: rgba(126, 14, 18, 0.18) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.rn-nav-panel--open .rn-btn--scrolled,
+.rn-main-nav--overlay .rn-btn--scrolled {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #1a1a1a !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
 }
 
 .rn-btn--scrolled:not(:disabled):hover {
-  background-color: rgba(202, 156, 87, 0.45);
-  color: #ffffff;
+  background-color: rgba(126, 14, 18, 0.18) !important;
+  color: #7e0e12 !important;
+  border-color: rgba(126, 14, 18, 0.3) !important;
 }
 
-/* ─── Gold CTA variant (Apply Now / Tuyển sinh) ─── */
+/* ─── Primary CTA variant (Apply Now / Tuyển sinh) ─── */
 .rn-btn--scrolled-gold {
-  background-color: rgba(202, 156, 87, 0.85);
-  color: #ffffff;
-  border-color: transparent;
+  background-color: #ca9c57 !important;
+  color: #ffffff !important;
+  border-color: #ca9c57 !important;
+  font-weight: 500;
 }
 
 .rn-btn--scrolled-gold:not(:disabled):hover {
-  background-color: rgba(202, 156, 87, 1);
-  color: #ffffff;
+  background-color: #b88b47 !important;
+  border-color: #b88b47 !important;
+  color: #ffffff !important;
 }
 
 /* Button label — hidden on mobile, visible on md+ */

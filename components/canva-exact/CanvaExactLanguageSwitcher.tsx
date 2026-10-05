@@ -25,9 +25,16 @@ declare global {
 export function CanvaExactLanguageSwitcher({
   className = '',
   style,
+  scrolledPastHero = false,
+  variant = 'rn',
+  buttonClassName,
 }: {
   className?: string
   style?: React.CSSProperties
+  scrolledPastHero?: boolean
+  /** 'rugby' renders Rugby School's own `.dropdown` markup/classes */
+  variant?: 'rn' | 'rugby'
+  buttonClassName?: string
 }) {
   const [currentLang, setCurrentLang] = useState<Language>(LANGUAGES[0])
   const [isOpen, setIsOpen] = useState(false)
@@ -102,6 +109,53 @@ export function CanvaExactLanguageSwitcher({
     }
   }
 
+  if (variant === 'rugby') {
+    return (
+      <div ref={dropdownRef} className={`dropdown ${className}`}>
+        <div id="google_translate_element" style={{ display: 'none' }} />
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Chọn ngôn ngữ"
+          aria-expanded={isOpen}
+          className={buttonClassName || 'dropdown__button'}
+        >
+          <span className="type-xs font-hanken notranslate">{currentLang.short}</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ transition: 'transform 0.2s', transform: isOpen ? 'none' : 'scaleY(-1)' }}
+          >
+            <path d="M3.33301 10L7.99967 5.33337L12.6663 10" stroke="currentColor" strokeLinejoin="round" />
+          </svg>
+        </button>
+        {isOpen && (
+          <div className="dropdown__menu type-xs right-0">
+            <div className="dropdown__menu_inner">
+              {LANGUAGES.map((lang, i) => (
+                <div key={lang.code} className="contents">
+                  {i > 0 && <div className="w-full h-[1px] bg-black/10" />}
+                  <button
+                    type="button"
+                    onClick={() => changeLanguage(lang)}
+                    className="flex gap-2 items-center"
+                  >
+                    <span className="text-black type-xs font-hanken notranslate">
+                      {lang.name} ({lang.short})
+                    </span>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div
       ref={dropdownRef}
@@ -116,7 +170,7 @@ export function CanvaExactLanguageSwitcher({
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Chọn ngôn ngữ"
-        className="rn-btn rn-btn--hero cv-lang-btn"
+        className={`rn-btn ${scrolledPastHero ? 'rn-btn--scrolled' : 'rn-btn--hero'} cv-lang-btn`}
       >
         <span>{currentLang.short}</span>
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(180deg)' : 'none' }}>

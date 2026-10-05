@@ -223,7 +223,7 @@ export function RugbySchoolNavbar({ onOpenMenu, heroVideoRef }: RugbyNavbarProps
               </button>
 
               {/* Language Selector */}
-              <CanvaExactLanguageSwitcher />
+              <CanvaExactLanguageSwitcher scrolledPastHero={scrolledPastHero || menuOrSearchOpen} />
 
               {/* Menu */}
               <button

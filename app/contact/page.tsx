@@ -1,44 +1,63 @@
 'use client'
 
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare, PhoneCall, ArrowRight, ShieldCheck, CheckCircle2, Globe, Building2, User } from 'lucide-react'
-import { useState, useEffect } from 'react'
-import { SCHOOL_INFO, SCHOOL_IMAGES } from '@/lib/constants'
-import Image from 'next/image'
-import { Turnstile } from '@/components/turnstile'
+import { useState } from 'react'
+import {
+  Block,
+  BlockHeader,
+  Button,
+  CallToAction,
+  Captcha,
+  Checkbox,
+  Divider,
+  Field,
+  Form,
+  FormActions,
+  FormMessage,
+  Input,
+  Lead,
+  MapEmbed,
+  PageHero,
+  PageShell,
+  Rows,
+  Select,
+  TextBlock,
+  Textarea,
+  pickText,
+  useSiteLanguage,
+} from '@/components/ds'
+import { SCHOOL_IMAGES, SCHOOL_INFO } from '@/lib/constants'
 
+const AGE_OPTIONS = ['Lớp Mầm (12 - 24 tháng)', 'Lớp Chồi (24 - 36 tháng)', 'Lớp Lá (3 - 4 tuổi)', 'Lớp Dự Bị Tiền Tiểu Học (4 - 5 tuổi)']
+
+const TOPIC_OPTIONS = [
+  'Tư vấn học phí & Chương trình Mầm non Canada',
+  'Đăng ký tham quan thực tế cơ sở Sunshine City',
+  'Chính sách ưu đãi Cư dân Sunshine City',
+  'Thông tin thực đơn & Dịch vụ Xe bus đón trả',
+]
+
+const MAP_SRC =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.36430335017!2d105.7946927760205!3d21.058105680599553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aa6d98d2466f%3A0xe7819957793d5f3!2sSunshine%20City!5e0!3m2!1sen!2s!4v1715610000000!5m2!1sen!2s'
+
+/** Contact: content and form logic only — every element comes from the design system. */
 export default function ContactPage() {
-  const [activeLang, setActiveLang] = useState<'vi' | 'en'>('en')
+  const lang = useSiteLanguage()
+  const t = (vi: string, en: string) => pickText(lang, vi, en)
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState('')
 
-  // Form input state
   const [parentName, setParentName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [childName, setChildName] = useState('')
   const [childDob, setChildDob] = useState('')
-  const [childAge, setChildAge] = useState('Lớp Mầm (12 - 24 tháng)')
-  const [topic, setTopic] = useState('Tư vấn học phí & Chương trình Mầm non Canada')
+  const [childAge, setChildAge] = useState(AGE_OPTIONS[0])
+  const [topic, setTopic] = useState(TOPIC_OPTIONS[0])
   const [message, setMessage] = useState('')
   const [consent, setConsent] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState('')
-
-  useEffect(() => {
-    const saved = (localStorage.getItem('smb_site_lang') as 'vi' | 'en') || 'en'
-    setActiveLang(saved)
-
-    const handleLangChange = (e: CustomEvent) => {
-      if (e.detail === 'vi' || e.detail === 'en') {
-        setActiveLang(e.detail)
-      }
-    }
-
-    window.addEventListener('smbLanguageChange', handleLangChange as EventListener)
-    return () => window.removeEventListener('smbLanguageChange', handleLangChange as EventListener)
-  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -60,7 +79,7 @@ export default function ContactPage() {
           notes: `Chủ đề quan tâm: ${topic}${message ? `\n\nLời nhắn: ${message}` : ''}`,
           consent,
           turnstileToken,
-        })
+        }),
       })
       const result = await response.json().catch(() => ({}))
       if (!response.ok) throw new Error(result.error || 'Không thể gửi thông tin. Vui lòng thử lại.')
@@ -82,386 +101,120 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFBF7] text-[#1D1D1B] font-body">
-      <Header />
-      <main className="flex-1">
-        
-        {/* HERO BANNER - SUNSHINE MAPLE BEAR 5-STAR BRAND STYLE */}
-        <section className="relative py-16 lg:py-24 bg-[#151513] text-white border-b border-neutral-800 overflow-hidden">
-          <div className="absolute inset-0 opacity-25 bg-cover bg-center pointer-events-none">
-            <Image
-              src={SCHOOL_IMAGES.render.hanhLang2}
-              alt="Sunshine Maple Bear Campus"
-              fill
-              className="object-cover"
-              priority
+    <PageShell hero={<PageHero title={t('Liên hệ', 'Contact')} image={SCHOOL_IMAGES.render.hanhLang2} crumbs={[{ label: t('Trang chủ', 'Home'), href: '/' }]} />}>
+      <Lead
+        kicker={t('HỆ THỐNG LIÊN HỆ & TƯ VẤN 24/7', 'CONTACT & ADMISSIONS SUPPORT')}
+        title={t('Liên Hệ Với Sunshine Maple Bear', 'Connect With Sunshine Maple Bear')}
+        accent="Sunshine Maple Bear"
+        image={{ src: SCHOOL_IMAGES.render.hanhLang1, alt: 'Sunshine Maple Bear Campus' }}
+        actions={[{ label: t('Gửi Yêu Cầu Tư Vấn Trực Tiếp', 'Send an Enquiry Message'), href: '#enquiry' }]}
+      >
+        {t(
+          'Bộ phận Tuyển sinh sẵn sàng đồng hành, tư vấn chương trình mầm non bản quyền Canada và sắp xếp lịch tham quan thực tế cơ sở vật chất 5 sao tại Sunshine City.',
+          'Our admissions team is available to assist you with Canadian kindergarten programs and schedule a 5-star campus tour at Sunshine City.'
+        )}
+      </Lead>
+
+      <Divider />
+
+      <Block>
+        <BlockHeader
+          kicker={t('THÔNG TIN BỘ PHẬN TUYỂN SINH', 'ADMISSIONS CONTACT INFO')}
+          title={t('Trường Mầm Non Sunshine Maple Bear', 'Sunshine Maple Bear Campus')}
+        >
+          {t('Cơ sở Sunshine City - Khu đô thị Ciputra Nam Thăng Long, Hà Nội.', 'Sunshine City Campus - Ciputra Urban Area, Hanoi.')}
+        </BlockHeader>
+        <Rows
+          rows={[
+            { label: t('Địa chỉ Cơ sở', 'Campus Address'), value: SCHOOL_INFO.ADDRESS },
+            { label: t('Hotline Tư vấn Tuyển sinh', 'Admissions Hotline'), value: SCHOOL_INFO.PHONE },
+            { label: 'Email Tiếp Nhận', value: SCHOOL_INFO.EMAIL },
+            { label: t('Giờ Làm Việc Văn Phòng', 'Office Hours'), value: 'Thứ Hai – Thứ Sáu: 07:30 AM – 18:00 PM' },
+          ]}
+        />
+      </Block>
+
+      <TextBlock
+        tone="sand"
+        title="Kênh Truyền Thông Chính Thức"
+        actions={[
+          { label: 'Facebook Fanpage', href: 'https://facebook.com', variant: 'soft' },
+          { label: 'YouTube Channel', href: 'https://youtube.com', variant: 'soft' },
+          { label: 'Zalo Official Account', href: 'https://zalo.me', variant: 'soft' },
+        ]}
+      >
+        Theo dõi các hoạt động học tập, sự kiện thường niên và hình ảnh thực tế của các bé tại Sunshine Maple Bear.
+      </TextBlock>
+
+      <Block id="enquiry" tone="white">
+        <BlockHeader kicker="FORM ĐĂNG KÝ TƯ VẤN & NHẬN BÁO GIÁ HỌC PHÍ" title={t('Gửi Yêu Cầu Tư Vấn Trực Tiếp', 'Send an Enquiry Message')}>
+          Ban Tuyển sinh sẽ liên hệ phản hồi qua SĐT/Zalo trong vòng 24 giờ làm việc.
+        </BlockHeader>
+
+        {submitSuccess && (
+          <FormMessage tone="success" title="Gửi thông tin tư vấn thành công!">
+            Cảm ơn Quý Phụ huynh đã quan tâm đến Trường Mầm non Sunshine Maple Bear. Bộ phận Tuyển sinh sẽ sớm liên hệ trực tiếp qua SĐT/Zalo để tư
+            vấn chi tiết.
+          </FormMessage>
+        )}
+        {submitError && <FormMessage tone="error">{submitError}</FormMessage>}
+
+        <Form onSubmit={handleSubmit}>
+          <Field label="Họ và tên Phụ huynh" required>
+            <Input name="parentName" required value={parentName} onChange={(e) => setParentName(e.target.value)} placeholder="VD: Nguyễn Văn Nam" autoComplete="name" />
+          </Field>
+          <Field label="Số điện thoại Zalo liên hệ" required>
+            <Input name="phone" type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="VD: 0912 345 678" autoComplete="tel" />
+          </Field>
+          <Field label="Địa chỉ Email" required>
+            <Input name="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="VD: parent@example.com" autoComplete="email" />
+          </Field>
+          <Field label="Họ và tên của bé" required>
+            <Input name="childName" required value={childName} onChange={(e) => setChildName(e.target.value)} placeholder="VD: Nguyễn Minh An" />
+          </Field>
+          <Field label="Ngày sinh của bé" required>
+            <Input name="childDob" type="date" required max={new Date().toISOString().slice(0, 10)} value={childDob} onChange={(e) => setChildDob(e.target.value)} />
+          </Field>
+          <Field label="Độ tuổi của bé" required>
+            <Select name="childAge" value={childAge} onChange={(e) => setChildAge(e.target.value)} options={AGE_OPTIONS} />
+          </Field>
+          <Field label="Chủ đề Phụ huynh quan tâm" required full>
+            <Select name="topic" value={topic} onChange={(e) => setTopic(e.target.value)} options={TOPIC_OPTIONS} />
+          </Field>
+          <Field label="Nội dung thắc mắc / Lời nhắn tư vấn" full>
+            <Textarea
+              name="message"
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Vui lòng ghi rõ các câu hỏi hoặc mong muốn đặt lịch tham quan trường..."
             />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#151513] via-[#151513]/90 to-transparent" />
-          
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-            <div className="flex items-center gap-2.5">
-              <span className="w-1.5 h-4 bg-maple-gold rounded-full inline-block" />
-              <span className="text-xs font-bold text-maple-gold uppercase tracking-wider">
-                {activeLang === 'vi' ? 'HỆ THỐNG LIÊN HỆ & TƯ VẤN 24/7' : 'CONTACT & ADMISSIONS SUPPORT'}
-              </span>
-            </div>
+          </Field>
+          <Checkbox required checked={consent} onChange={(e) => setConsent(e.target.checked)}>
+            Tôi đồng ý để Sunshine Maple Bear liên hệ tư vấn theo thông tin đã cung cấp.
+          </Checkbox>
+          <Captcha onToken={setTurnstileToken} />
+          <FormActions note="Thông tin bảo mật 100%">
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Đang gửi thông tin...' : 'Gửi Đăng Ký Tư Vấn'}
+            </Button>
+          </FormActions>
+        </Form>
+      </Block>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white leading-tight">
-              {activeLang === 'vi' ? (
-                <>Liên Hệ Với <span className="text-maple-gold">Sunshine Maple Bear</span></>
-              ) : (
-                <>Connect With <span className="text-maple-gold">Sunshine Maple Bear</span></>
-              )}
-            </h1>
+      <TextBlock
+        kicker="Sunshine City Campus — Khu đô thị Ciputra"
+        title="Bản Đồ Vị Trí Cơ Sở Sunshine City"
+        actions={[{ label: 'Chỉ Đường Trên Google Maps', href: 'https://maps.google.com', variant: 'soft' }]}
+      >
+        Vị trí đắc địa tại KĐT Ciputra, thuận tiện di chuyển từ đại lộ Võ Chí Công & Phạm Văn Đồng. Có khu vực đỗ xe an toàn cho phụ huynh.
+      </TextBlock>
+      <MapEmbed src={MAP_SRC} title="Sunshine Maple Bear Sunshine City Location Map" />
 
-            <p className="text-sm sm:text-base text-neutral-300 font-light max-w-2xl leading-relaxed">
-              {activeLang === 'vi'
-                ? 'Bộ phận Tuyển sinh sẵn sàng đồng hành, tư vấn chương trình mầm non bản quyền Canada và sắp xếp lịch tham quan thực tế cơ sở vật chất 5 sao tại Sunshine City.'
-                : 'Our admissions team is available to assist you with Canadian kindergarten programs and schedule a 5-star campus tour at Sunshine City.'}
-            </p>
-          </div>
-        </section>
-
-        {/* MAIN CONTENT SECTION */}
-        <section className="py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-              
-              {/* LEFT COLUMN: CONTACT INFORMATION & SOCIAL */}
-              <div className="lg:col-span-5 space-y-6">
-                
-                <div className="bg-white border border-neutral-200/80 p-6 sm:p-8 rounded-2xs shadow-2xs space-y-6">
-                  <div>
-                    <span className="text-[10px] font-bold text-maple-red uppercase tracking-widest block">
-                      {activeLang === 'vi' ? 'THÔNG TIN BỘ PHẬN TUYỂN SINH' : 'ADMISSIONS CONTACT INFO'}
-                    </span>
-                    <h2 className="text-2xl font-display font-extrabold text-[#1D1D1B] mt-1">
-                      {activeLang === 'vi' ? 'Trường Mầm Non Sunshine Maple Bear' : 'Sunshine Maple Bear Campus'}
-                    </h2>
-                    <p className="text-xs text-neutral-500 font-light mt-1">
-                      {activeLang === 'vi' ? 'Cơ sở Sunshine City - Khu đô thị Ciputra Nam Thăng Long, Hà Nội.' : 'Sunshine City Campus - Ciputra Urban Area, Hanoi.'}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 pt-2">
-                    
-                    {/* Item 1: Address */}
-                    <div className="flex gap-4 items-start p-3 bg-[#FDFBF7] border border-neutral-200/60 rounded-2xs">
-                      <div className="w-10 h-10 rounded-2xs bg-red-50 text-maple-red flex items-center justify-center flex-shrink-0 border border-red-200/60">
-                        <MapPin size={18} />
-                      </div>
-                      <div className="space-y-0.5">
-                        <h4 className="text-xs font-bold text-[#1D1D1B]">{activeLang === 'vi' ? 'Địa chỉ Cơ sở' : 'Campus Address'}</h4>
-                        <p className="text-xs text-neutral-600 font-normal leading-relaxed">{SCHOOL_INFO.ADDRESS}</p>
-                      </div>
-                    </div>
-
-                    {/* Item 2: Hotline */}
-                    <div className="flex gap-4 items-start p-3 bg-[#FDFBF7] border border-neutral-200/60 rounded-2xs">
-                      <div className="w-10 h-10 rounded-2xs bg-amber-50 text-maple-gold flex items-center justify-center flex-shrink-0 border border-amber-200/60">
-                        <PhoneCall size={18} />
-                      </div>
-                      <div className="space-y-0.5">
-                        <h4 className="text-xs font-bold text-[#1D1D1B]">{activeLang === 'vi' ? 'Hotline Tư vấn Tuyển sinh' : 'Admissions Hotline'}</h4>
-                        <p className="text-sm font-mono font-bold text-maple-red">{SCHOOL_INFO.PHONE}</p>
-                      </div>
-                    </div>
-
-                    {/* Item 3: Email */}
-                    <div className="flex gap-4 items-start p-3 bg-[#FDFBF7] border border-neutral-200/60 rounded-2xs">
-                      <div className="w-10 h-10 rounded-2xs bg-blue-50 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200/60">
-                        <Mail size={18} />
-                      </div>
-                      <div className="space-y-0.5">
-                        <h4 className="text-xs font-bold text-[#1D1D1B]">Email Tiếp Nhận</h4>
-                        <p className="text-xs font-mono text-neutral-700">{SCHOOL_INFO.EMAIL}</p>
-                      </div>
-                    </div>
-
-                    {/* Item 4: Hours */}
-                    <div className="flex gap-4 items-start p-3 bg-[#FDFBF7] border border-neutral-200/60 rounded-2xs">
-                      <div className="w-10 h-10 rounded-2xs bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0 border border-emerald-200/60">
-                        <Clock size={18} />
-                      </div>
-                      <div className="space-y-0.5">
-                        <h4 className="text-xs font-bold text-[#1D1D1B]">{activeLang === 'vi' ? 'Giờ Làm Việc Văn Phòng' : 'Office Hours'}</h4>
-                        <p className="text-xs text-neutral-600">Thứ Hai – Thứ Sáu: 07:30 AM – 18:00 PM</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                {/* Social Connect Box */}
-                <div className="bg-[#151513] text-white p-6 rounded-2xs border border-neutral-800 space-y-4 shadow-2xs">
-                  <h4 className="text-sm font-display font-bold text-maple-gold uppercase tracking-wider flex items-center gap-2">
-                    <Globe size={15} /> Kênh Truyền Thông Chính Thức
-                  </h4>
-                  <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                    Theo dõi các hoạt động học tập, sự kiện thường niên và hình ảnh thực tế của các bé tại Sunshine Maple Bear.
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    <a
-                      href="https://facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 bg-neutral-900 hover:bg-maple-red border border-neutral-800 text-xs font-semibold text-white rounded-2xs transition-colors"
-                    >
-                      Facebook Fanpage
-                    </a>
-                    <a
-                      href="https://youtube.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 bg-neutral-900 hover:bg-maple-red border border-neutral-800 text-xs font-semibold text-white rounded-2xs transition-colors"
-                    >
-                      YouTube Channel
-                    </a>
-                    <a
-                      href="https://zalo.me"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 bg-neutral-900 hover:bg-maple-red border border-neutral-800 text-xs font-semibold text-white rounded-2xs transition-colors"
-                    >
-                      Zalo Official Account
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* RIGHT COLUMN: CONTACT FORM (CONNECTED TO FORM ENGINE) */}
-              <div className="lg:col-span-7">
-                <div className="bg-white border border-neutral-200/80 p-6 sm:p-8 rounded-2xs shadow-2xs space-y-6">
-                  
-                  <div className="border-b border-neutral-200 pb-4">
-                    <span className="text-[10px] font-bold text-maple-red uppercase tracking-widest block">
-                      FORM ĐĂNG KÝ TƯ VẤN & NHẬN BÁO GIÁ HỌC PHÍ
-                    </span>
-                    <h3 className="text-xl font-display font-extrabold text-[#1D1D1B] mt-1">
-                      {activeLang === 'vi' ? 'Gửi Yêu Cầu Tư Vấn Trực Tiếp' : 'Send an Enquiry Message'}
-                    </h3>
-                    <p className="text-xs text-neutral-500 font-light mt-0.5">
-                      Ban Tuyển sinh sẽ liên hệ phản hồi qua SĐT/Zalo trong vòng 24 giờ làm việc.
-                    </p>
-                  </div>
-
-                  {submitSuccess && (
-                    <div className="p-4 bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-2xs text-xs space-y-1 animate-fade-in">
-                      <div className="flex items-center gap-2 font-bold text-sm text-emerald-800">
-                        <CheckCircle2 size={18} className="text-emerald-600" />
-                        <span>Gửi thông tin tư vấn thành công!</span>
-                      </div>
-                      <p className="pl-6 text-neutral-700">
-                        Cảm ơn Quý Phụ huynh đã quan tâm đến Trường Mầm non Sunshine Maple Bear. Bộ phận Tuyển sinh sẽ sớm liên hệ trực tiếp qua SĐT/Zalo để tư vấn chi tiết.
-                      </p>
-                    </div>
-                  )}
-                  {submitError && (
-                    <div role="alert" className="p-4 bg-red-50 border border-red-300 text-red-900 rounded-2xs text-xs">
-                      {submitError}
-                    </div>
-                  )}
-
-                  <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Họ và tên Phụ huynh *</label>
-                        <input
-                          type="text"
-                          required
-                          value={parentName}
-                          onChange={(e) => setParentName(e.target.value)}
-                          placeholder="VD: Nguyễn Văn Nam"
-                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-bold text-xs focus:outline-none focus:border-maple-red"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Số điện thoại Zalo liên hệ *</label>
-                        <input
-                          type="tel"
-                          required
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          placeholder="VD: 0912 345 678"
-                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-mono font-bold text-xs focus:outline-none focus:border-maple-red"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Địa chỉ Email *</label>
-                        <input
-                          type="email"
-                          required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="VD: parent@example.com"
-                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-mono text-xs focus:outline-none focus:border-maple-red"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Họ và tên của bé *</label>
-                        <input
-                          type="text"
-                          required
-                          value={childName}
-                          onChange={(e) => setChildName(e.target.value)}
-                          placeholder="VD: Nguyễn Minh An"
-                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-bold text-xs focus:outline-none focus:border-maple-red"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Ngày sinh của bé *</label>
-                        <input
-                          type="date"
-                          required
-                          max={new Date().toISOString().slice(0, 10)}
-                          value={childDob}
-                          onChange={(e) => setChildDob(e.target.value)}
-                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-semibold text-xs focus:outline-none focus:border-maple-red"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="font-semibold block mb-1 text-[#1D1D1B]">Độ tuổi của bé *</label>
-                        <select
-                          value={childAge}
-                          onChange={(e) => setChildAge(e.target.value)}
-                          className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-semibold text-xs focus:outline-none focus:border-maple-red"
-                        >
-                          <option value="Lớp Mầm (12 - 24 tháng)">Lớp Mầm (12 - 24 tháng)</option>
-                          <option value="Lớp Chồi (24 - 36 tháng)">Lớp Chồi (24 - 36 tháng)</option>
-                          <option value="Lớp Lá (3 - 4 tuổi)">Lớp Lá (3 - 4 tuổi)</option>
-                          <option value="Lớp Dự Bị Tiền Tiểu Học (4 - 5 tuổi)">Lớp Dự Bị Tiền Tiểu Học (4 - 5 tuổi)</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="font-semibold block mb-1 text-[#1D1D1B]">Chủ đề Phụ huynh quan tâm *</label>
-                      <select
-                        value={topic}
-                        onChange={(e) => setTopic(e.target.value)}
-                        className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs font-semibold text-xs focus:outline-none focus:border-maple-red"
-                      >
-                        <option value="Tư vấn học phí & Chương trình Mầm non Canada">Tư vấn học phí & Chương trình Mầm non Canada</option>
-                        <option value="Đăng ký tham quan thực tế cơ sở Sunshine City">Đăng ký tham quan thực tế cơ sở Sunshine City</option>
-                        <option value="Chính sách ưu đãi Cư dân Sunshine City">Chính sách ưu đãi Cư dân Sunshine City</option>
-                        <option value="Thông tin thực đơn & Dịch vụ Xe bus đón trả">Thông tin thực đơn & Dịch vụ Xe bus đón trả</option>
-                      </select>
-                    </div>
-
-                    <label className="flex items-start gap-2 cursor-pointer text-[11px] text-neutral-600 leading-relaxed">
-                      <input
-                        type="checkbox"
-                        required
-                        checked={consent}
-                        onChange={(e) => setConsent(e.target.checked)}
-                        className="mt-0.5 accent-maple-red"
-                      />
-                      <span>Tôi đồng ý để Sunshine Maple Bear liên hệ tư vấn theo thông tin đã cung cấp.</span>
-                    </label>
-
-                    <Turnstile onTokenChange={setTurnstileToken} />
-
-                    <div>
-                      <label className="font-semibold block mb-1 text-[#1D1D1B]">Nội dung thắc mắc / Lời nhắn tư vấn</label>
-                      <textarea
-                        rows={4}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Vui lòng ghi rõ các câu hỏi hoặc mong muốn đặt lịch tham quan trường..."
-                        className="w-full px-3.5 py-2 bg-[#FDFBF7] border border-neutral-300 rounded-2xs text-xs focus:outline-none focus:border-maple-red"
-                      />
-                    </div>
-
-                    <div className="pt-2 flex items-center justify-between gap-4">
-                      <span className="text-[10px] text-neutral-400 font-mono flex items-center gap-1">
-                        <ShieldCheck size={12} className="text-emerald-600" /> Thông tin bảo mật 100%
-                      </span>
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="px-6 py-2.5 bg-maple-red hover:bg-red-700 text-white font-bold text-xs rounded-2xs shadow-2xs transition-all flex items-center gap-2 disabled:opacity-50"
-                      >
-                        {isSubmitting ? (
-                          <span>Đang gửi thông tin...</span>
-                        ) : (
-                          <>
-                            <span>Gửi Đăng Ký Tư Vấn</span>
-                            <Send size={14} />
-                          </>
-                        )}
-                      </button>
-                    </div>
-
-                  </form>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* MAP SECTION - SUNSHINE CITY GOOGLE MAP EMBED */}
-        <section className="relative py-8 bg-white border-t border-neutral-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-4 bg-maple-red rounded-full" />
-              <h3 className="text-lg font-display font-extrabold text-[#1D1D1B]">Bản Đồ Vị Trí Cơ Sở Sunshine City</h3>
-            </div>
-          </div>
-
-          <div className="h-[420px] w-full relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.36430335017!2d105.7946927760205!3d21.058105680599553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aa6d98d2466f%3A0xe7819957793d5f3!2sSunshine%20City!5e0!3m2!1sen!2s!4v1715610000000!5m2!1sen!2s"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Sunshine Maple Bear Sunshine City Location Map"
-            />
-            
-            <div className="absolute top-6 left-6 hidden lg:block max-w-xs">
-              <div className="bg-white/95 backdrop-blur-md p-5 border border-neutral-200 rounded-2xs shadow-md space-y-3">
-                <div className="flex gap-3 items-center">
-                  <div className="w-10 h-10 bg-maple-red text-white rounded-2xs flex items-center justify-center flex-shrink-0">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-display font-bold text-[#1D1D1B]">Sunshine City Campus</h4>
-                    <p className="text-[10px] text-maple-gold font-bold uppercase">Khu đô thị Ciputra</p>
-                  </div>
-                </div>
-                <p className="text-[11px] text-neutral-600 leading-relaxed font-light">
-                  Vị trí đắc địa tại KĐT Ciputra, thuận tiện di chuyển từ đại lộ Võ Chí Công & Phạm Văn Đồng. Có khu vực đỗ xe an toàn cho phụ huynh.
-                </p>
-                <a
-                  href="https://maps.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full py-2 bg-[#1D1D1B] hover:bg-maple-red text-white text-xs font-bold rounded-2xs shadow-2xs transition-colors gap-1.5"
-                >
-                  <span>Chỉ Đường Trên Google Maps</span>
-                  <ArrowRight size={13} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </main>
-      <Footer />
-    </div>
+      <CallToAction
+        title={t('Đăng ký tham quan thực tế cơ sở Sunshine City', 'Schedule a 5-star campus tour at Sunshine City')}
+        actions={[{ label: t('Đặt lịch tham quan', 'Book a tour'), href: '/tour-booking' }]}
+      />
+    </PageShell>
   )
 }

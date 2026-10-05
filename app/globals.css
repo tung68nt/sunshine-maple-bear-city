@@ -9,17 +9,17 @@
    ═══════════════════════════════════════ */
 
 :root {
-  /* ── Primary Brand Colors (Picture1.png Spec) ── */
-  --color-primary:      #9E1B1E; /* CRIMSON RED */
-  --color-primary-dark:  #801316;
+  /* ── Brand colours and fonts are aliases of the design-system tokens (components/ds/ds.css) ── */
+  --color-primary:      var(--ds-red);
+  --color-primary-dark:  var(--ds-red-deep);
   --color-primary-light: #B82528;
-  --color-gold:          #C5A059; /* BRONZE GOLD */
+  --color-gold:          var(--ds-gold);
   --color-gold-light:    #D4AF37;
-  --color-gold-dark:     #A6833D;
-  --color-cream:         #FDFBF7; /* Soft luxury background */
+  --color-gold-dark:     var(--ds-gold-deep);
+  --color-cream:         var(--ds-cream);
   --color-cream-tint:    #FAF4EB; /* Soft section card tint */
   --color-white:         #FFFFFF;
-  --color-dark:          #332C2B; /* WARM DARK */
+  --color-dark:          var(--ds-ink);
   --color-dark-light:    #554D4B;
   --color-gray:          #665E5C;
   --color-gray-light:    #FAF8F5;
@@ -53,8 +53,8 @@
   --container-px: 1rem;
 
   /* ── Typography Scale ── */
-  --font-display: var(--font-display, 'Outfit', sans-serif);
-  --font-body: var(--font-body, 'Inter', sans-serif);
+  --font-display: var(--ds-font-display-safe);
+  --font-body: var(--ds-font-body);
   --font-accent: var(--font-accent, 'Lora', serif);
   --font-serif-canva: var(--font-serif-canva, 'Cormorant Garamond', Georgia, serif);
   --font-script-canva: var(--font-script-canva, 'Alex Brush', cursive);
@@ -65,6 +65,7 @@
    ═══════════════════════════════════════ */
 @theme inline {
   --font-sans: var(--font-body);
+  --font-serif: var(--ds-font-display-safe);
   --font-display: var(--font-display);
   --font-accent: var(--font-accent);
   --font-canva-serif: var(--font-serif-canva);
@@ -268,8 +269,13 @@
   }
 
   /* Global Font Weight Cap */
-  h1, h2, h3, h4, h5, h6, b, strong, .font-bold, .font-black, .font-extrabold {
+  /* design-system markup (.ds) sets its own weights */
+  :is(b, strong, .font-bold, .font-black, .font-extrabold):not(.ds *, h1, h2, h3, h4, h5, h6) {
     font-weight: 700 !important;
+  }
+  /* display headings follow the home page: a serif at medium weight, never heavy */
+  :is(h1, h2, h3, h4, h5, h6):not(.ds *) {
+    font-weight: 600 !important;
   }
 }
 
@@ -557,3 +563,5 @@
   opacity: 0.15;
   pointer-events: none;
 }
+
+/* tokens aliased to components/ds/ds.css */

@@ -1,7 +1,6 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+import { PageShell } from '@/components/ds'
+import { SectionHero, SectionRenderer } from '@/components/sections/SectionRenderer'
 import { getStaticPageData } from '@/lib/static-pages-data'
-import { SectionRenderer } from '@/components/sections/SectionRenderer'
 
 export function generateMetadata() {
   const page = getStaticPageData('/community/health')
@@ -20,12 +19,8 @@ export default function HealthSafetyPage() {
   const page = getStaticPageData('/community/health')
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFBF7] text-[#1D1D1B]">
-      <Header />
-      <main className="flex-1 pt-24 pb-24">
-        <SectionRenderer blocks={page.sectionsStack} />
-      </main>
-      <Footer />
-    </div>
+    <PageShell hero={<SectionHero blocks={page.sectionsStack} title="Health and safety" image={page.bannerImage} />}>
+      <SectionRenderer blocks={page.sectionsStack} />
+    </PageShell>
   )
 }

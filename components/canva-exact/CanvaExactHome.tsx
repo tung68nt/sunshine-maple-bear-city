@@ -14,18 +14,29 @@ export function CanvaExactHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const heroVideoRef = useRef<HTMLVideoElement>(null)
 
-  // Rugby School Hanoi Hero Parallax Motion
+  // Rugby: hero is fixed and content scrolls over it. Hide the hero once fully
+  // covered so it never shows behind the revealed footer at the page end.
+  const heroRef = useRef<HTMLElement>(null)
   useEffect(() => {
-    const handleScroll = () => {
-      const hero = document.querySelector('.cv-hero-video-wrap') as HTMLElement | null
-      if (hero && window.innerWidth > 768) {
-        const r = window.scrollY
-        hero.style.transform = `translateY(-${r * 0.45}px)`
-      }
+    const onScroll = () => {
+      const hero = heroRef.current
+      if (!hero) return
+      hero.classList.toggle('is-past', window.scrollY > hero.offsetHeight)
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
+
+  const HERO = { from: 42, to: 497 }
+  const FOOT = { from: 5180, to: 5754 }
+  const slice = (from: number, to: number) =>
+    ({ '--from': from, '--to': to } as React.CSSProperties)
+  const page = { '--h': 5754 } as React.CSSProperties
 
   return (
     <>
@@ -35,15 +46,10 @@ export function CanvaExactHome() {
         heroVideoRef={heroVideoRef}
       />
       <main className="cv">
-        <div className="cv-page" style={{ '--h': 5754 } as React.CSSProperties}>
-
-          {/* Continuous canvas background graphic slices */}
+        {/* ── Fixed hero (Rugby: header.hero md:fixed) ── */}
+        <header ref={heroRef} className="cv-slice cv-rs-hero" style={slice(HERO.from, HERO.to)}>
+        <div className="cv-page" style={page}>
           <img className="cv-bg" src="/canva-exact/bg/home-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
-          <img className="cv-bg" src="/canva-exact/bg/home-1.webp" alt="" style={{ '--y': 1024, '--h': 1024 } as React.CSSProperties} decoding="async" />
-          <img className="cv-bg" src="/canva-exact/bg/home-2.webp" alt="" style={{ '--y': 2048, '--h': 1024 } as React.CSSProperties} decoding="async" />
-          <img className="cv-bg" src="/canva-exact/bg/home-3.webp" alt="" style={{ '--y': 3072, '--h': 1024 } as React.CSSProperties} decoding="async" />
-          <img className="cv-bg" src="/canva-exact/bg/home-4.webp" alt="" style={{ '--y': 4096, '--h': 1024 } as React.CSSProperties} decoding="async" />
-          <img className="cv-bg" src="/canva-exact/bg/home-5.webp" alt="" style={{ '--y': 5120, '--h': 634 } as React.CSSProperties} decoding="async" />
 
           {/* Section 1: Header & Hero with Cinematic Background Video */}
           <div
@@ -156,6 +162,25 @@ export function CanvaExactHome() {
               ABOUT US
             </Link>
           </CanvaFadeSection>
+        </div>
+        </header>
+
+        {/* ── Main content slides up over the hero (Rugby: main relative z-10 md:mt-[100dvh]) ── */}
+        <div
+          className="cv-slice cv-rs-main"
+          style={{
+            ...slice(HERO.to, FOOT.from),
+            '--hero-from': HERO.from, '--hero-to': HERO.to,
+            '--foot-from': FOOT.from, '--foot-to': FOOT.to,
+          } as React.CSSProperties}
+        >
+        <div className="cv-page" style={page}>
+          <img className="cv-bg" src="/canva-exact/bg/home-0.webp" alt="" style={{ '--y': 0, '--h': 1024 } as React.CSSProperties} decoding="async" />
+          <img className="cv-bg" src="/canva-exact/bg/home-1.webp" alt="" style={{ '--y': 1024, '--h': 1024 } as React.CSSProperties} decoding="async" />
+          <img className="cv-bg" src="/canva-exact/bg/home-2.webp" alt="" style={{ '--y': 2048, '--h': 1024 } as React.CSSProperties} decoding="async" />
+          <img className="cv-bg" src="/canva-exact/bg/home-3.webp" alt="" style={{ '--y': 3072, '--h': 1024 } as React.CSSProperties} decoding="async" />
+          <img className="cv-bg" src="/canva-exact/bg/home-4.webp" alt="" style={{ '--y': 4096, '--h': 1024 } as React.CSSProperties} decoding="async" />
+          <img className="cv-bg" src="/canva-exact/bg/home-5.webp" alt="" style={{ '--y': 5120, '--h': 634 } as React.CSSProperties} decoding="async" />
 
           {/* Section 2: Stats Strip - cv-ghost prevents double text/shadow with baked background graphics */}
           <CanvaFadeSection y={510} h={130} animation="fade-in">
@@ -340,6 +365,13 @@ export function CanvaExactHome() {
           <CanvaFadeSection y={4640} h={520} animation="slide-up">
             <CanvaExactContactForm x={74} y={4645} pageTitle="CanvaExactHome" />
           </CanvaFadeSection>
+        </div>
+        </div>
+
+        {/* ── Footer revealed underneath (Rugby: main.marginBottom = footer height) ── */}
+        <footer className="cv-slice cv-rs-footer" style={slice(FOOT.from, FOOT.to)}>
+        <div className="cv-page" style={page}>
+          <img className="cv-bg" src="/canva-exact/bg/home-5.webp" alt="" style={{ '--y': 5120, '--h': 634 } as React.CSSProperties} decoding="async" />
 
           {/* Section 11: Footer */}
           <CanvaFadeSection y={5180} h={574} animation="fade-in">
@@ -369,6 +401,7 @@ export function CanvaExactHome() {
             <a href="mailto:admissions@sunshinemaplebear.edu.vn" className="cv-a" aria-label="admissions@sunshinemaplebear.edu.vn" style={{ '--x': 108.7, '--y': 5596.6, '--w': 271.1, '--h': 25.8 } as React.CSSProperties} />
           </CanvaFadeSection>
         </div>
+        </footer>
       </main>
 
       <CanvaExactDrawer isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
