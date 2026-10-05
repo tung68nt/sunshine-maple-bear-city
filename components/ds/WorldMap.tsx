@@ -27,6 +27,7 @@ export function WorldMap() {
   const [shapes, setShapes] = useState<Shape[]>([])
   const [pins, setPins] = useState<Pin[]>([])
   const [inView, setInView] = useState(false)
+  const [settled, setSettled] = useState(false)
   const [active, setActive] = useState<string | null>(null)
 
   useEffect(() => {
@@ -77,11 +78,20 @@ export function WorldMap() {
     return () => io.disconnect()
   }, [])
 
+  const shown = inView && pins.length > 0
+
+  // once the opening spread has played, drop its staggered delays so hover reacts at once
+  useEffect(() => {
+    if (!shown) return
+    const t = setTimeout(() => setSettled(true), 3200)
+    return () => clearTimeout(t)
+  }, [shown])
+
   const delayOf = useMemo(() => new Map(pins.map((p) => [p.id, p.delay])), [pins])
   const tip = pins.find((p) => p.id === active)
 
   return (
-    <div ref={rootRef} className={inView && pins.length ? 'ds-map is-in' : 'ds-map'} onMouseLeave={() => setActive(null)}>
+    <div ref={rootRef} className={shown ? (settled ? 'ds-map is-in is-settled' : 'ds-map is-in') : 'ds-map'} onMouseLeave={() => setActive(null)}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`World map highlighting the ${MAPLE_BEAR_COUNTRIES.length - 1} countries with Maple Bear schools`}>
         <g>
           {shapes.map((s) => {

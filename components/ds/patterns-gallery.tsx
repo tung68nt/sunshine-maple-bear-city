@@ -158,7 +158,7 @@ export function Gallery({ items, filters, allLabel = 'All', cols = 3, lightbox =
 /** Full-width embedded map (or any embed) in a fixed-height band. */
 export function MapEmbed({ src, title }: { src: string; title: string }) {
   return (
-    <section className="ds-map">
+    <section className="ds-mapembed">
       <iframe src={src} title={title} loading="lazy" allowFullScreen referrerPolicy="no-referrer-when-downgrade" />
     </section>
   )

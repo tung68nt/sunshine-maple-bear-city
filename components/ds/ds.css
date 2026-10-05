@@ -963,14 +963,14 @@
 .ds .ds-gallery__nav--next{right:16px}
 .ds .ds-gallery__nav:hover,.ds .ds-gallery__light .ds-modal__close:hover{background:var(--ds-gold);color:var(--ds-red-deep)}
 .ds .ds-gallery__lightcap{position:absolute;left:16px;right:16px;bottom:16px;text-align:center;color:#fff;font-family:var(--ds-font-body);font-size:15px;line-height:1.4}
-.ds .ds-map{position:relative;height:calc(320 * var(--u));background:var(--ds-land)}
-.ds .ds-map iframe{display:block;width:100%;height:100%;border:0}
+.ds .ds-mapembed{position:relative;height:calc(320 * var(--u));background:var(--ds-land)}
+.ds .ds-mapembed iframe{display:block;width:100%;height:100%;border:0}
 @media (min-width:768px){
   .ds .ds-gallery__grid{gap:calc(16 * var(--u))}
   .ds .ds-gallery--3 .ds-gallery__grid{grid-template-columns:repeat(3,1fr)}
   .ds .ds-gallery--4 .ds-gallery__grid{grid-template-columns:repeat(4,1fr)}
   .ds .ds-gallery__caption{padding:calc(30 * var(--u)) calc(14 * var(--u)) calc(12 * var(--u))}
-  .ds .ds-map{height:calc(420 * var(--u))}
+  .ds .ds-mapembed{height:calc(420 * var(--u))}
 }
 @media (min-width:768px) and (hover:hover){
   .ds .ds-gallery__item:not(.ds-gallery__item--static) .ds-gallery__caption{opacity:0;transition:opacity .4s ease}
@@ -1143,3 +1143,12 @@
   .ds .ds-popup__title{font-size:36px}
 }
 @media (prefers-reduced-motion:reduce){.ds .ds-popup,.ds .ds-popup__card{animation:none}}
+
+/* World map — heavier country outlines, slightly deeper land tone and larger pins so the network reads at a glance */
+.ds .ds-map__land{fill:#dfd2c1;stroke-width:1.1}
+.ds .ds-map__land.is-mb{stroke-width:1.3}
+.ds .ds-map__dot{stroke-width:1.4}
+.ds .ds-map__pin:not(.is-home):not(.is-hq) .ds-map__dot{r:3.4px}
+/* World map — after the opening spread, hover in/out is immediate (no stagger delay, short fade) */
+.ds .ds-map.is-settled .ds-map__land.is-mb{transition:fill .15s ease;transition-delay:0s!important}
+.ds .ds-map.is-settled .ds-map__pin{transition:opacity .15s ease,transform .2s ease;transition-delay:0s!important}
