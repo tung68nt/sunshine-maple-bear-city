@@ -208,7 +208,7 @@ export function SiteNav({ overHero = false, videoRef }: SiteNavProps) {
                         onClick={() => setActiveItem(item.label)}
                       >
                         {item.label}
-                        <Icon name="chevronDown" size={16} />
+                        <Icon name="arrowDown" size={16} />
                       </button>
                       {activeItem === item.label && (
                         <div className="ds-nav__sub">

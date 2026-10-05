@@ -1210,3 +1210,8 @@
   .ds .ds-nav__sublinks:hover a{opacity:.3}
   .ds .ds-nav__sublinks a:hover{opacity:1;color:inherit}
 }
+/* Parent items carry Rugby's arrow: pointing right in the drill-down, down on desktop, flipping up while its panel is open */
+.ds .ds-nav__link--parent svg{transition:transform .3s cubic-bezier(.4,0,.2,1)}
+@media (min-width:1280px){
+  .ds .ds-nav__group.is-active .ds-nav__link--parent svg{transform:rotate(180deg)}
+}
