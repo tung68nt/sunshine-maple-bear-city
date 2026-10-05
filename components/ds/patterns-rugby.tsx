@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import Link from 'next/link'
 import { cx } from './cx'
 import { Button } from './Button'
@@ -134,30 +134,60 @@ export function StickyStats({ image, stats, ...copy }: CopyProps & { image: Img;
   )
 }
 
-/** Numbered steps that pin under one another as the page scrolls, each sliding over the last. */
-export function StickySteps({ title, accent, intro, steps }: { title?: string; accent?: string; intro?: string; steps: { title: string; text: ReactNode; action?: Action }[] }) {
+type Step = { title: string; text: ReactNode; action?: Action; image?: Img }
+
+/**
+ * Numbered steps that pin under one another as the page scrolls, each sliding over the
+ * last and leaving an 88px strip of the one before (Rugby's admissions steps).
+ */
+export function StickySteps({ title, accent, intro, steps, tone = 'cream' }: { title?: string; accent?: string; intro?: string; steps: Step[]; tone?: 'cream' | 'sand' | 'white' }) {
+  const listRef = useRef<HTMLOListElement>(null)
+
+  // the last step is made as tall as the tallest one, so it fully covers the stack beneath it
+  useEffect(() => {
+    const list = listRef.current
+    if (!list) return
+    const measure = () => {
+      const items = Array.from(list.children) as HTMLElement[]
+      list.style.removeProperty('--step-h')
+      const tallest = Math.max(0, ...items.map((el) => el.offsetHeight))
+      list.style.setProperty('--step-h', `${tallest}px`)
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(list)
+    return () => ro.disconnect()
+  }, [steps.length])
+
   return (
-    <section className="ds-block ds-stickysteps">
+    <section className={cx('ds-block ds-stickysteps', `ds-block--${tone}`)}>
       {title && <Copy title={title} accent={accent}>{intro}</Copy>}
-      <ol className="ds-stickysteps__list">
-        {steps.map((step, i) => (
-          <li key={step.title} className="ds-stickysteps__step" style={{ ['--i' as string]: i }}>
-            <div className="ds-stickysteps__head">
-              <span className="ds-stickysteps__n">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className={cx('ds-stickysteps__title', displayClass(step.title))}>{step.title}</h3>
-            </div>
-            <div className="ds-stickysteps__body">
-              <div className="ds-text">{typeof step.text === 'string' ? <p>{step.text}</p> : step.text}</div>
-              {step.action && (
-                <div className="ds-actions">
-                  <Button variant={step.action.variant ?? 'soft'} href={step.action.href}>
-                    {step.action.label}
-                  </Button>
+      <ol className="ds-stickysteps__list" ref={listRef}>
+        {steps.map((step, i) => {
+          const n = `${String(i + 1).padStart(2, '0')}.`
+          return (
+            <li key={step.title} className="ds-stickysteps__step" style={{ ['--i' as string]: i }}>
+              <div className={cx('ds-stickysteps__n ds-stickysteps__n--side', displayClass(n))} aria-hidden="true">
+                {n}
+              </div>
+              <div className="ds-stickysteps__main">
+                {step.image && <Photo {...step.image} className="ds-stickysteps__img" />}
+                <div className="ds-stickysteps__content">
+                  <span className={cx('ds-stickysteps__n ds-stickysteps__n--inline', displayClass(n))}>{n}</span>
+                  <h3 className={cx('ds-stickysteps__title', displayClass(step.title))}>{step.title}</h3>
+                  {step.text && <div className="ds-text ds-stickysteps__body">{typeof step.text === 'string' ? <p>{step.text}</p> : step.text}</div>}
+                  {step.action && (
+                    <div className="ds-actions">
+                      <Button variant={step.action.variant ?? 'solid'} href={step.action.href}>
+                        {step.action.label}
+                      </Button>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </li>
-        ))}
+              </div>
+            </li>
+          )
+        })}
       </ol>
     </section>
   )
